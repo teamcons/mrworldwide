@@ -32,7 +32,7 @@ Run `meson build` to configure the build environment. Change to the build direct
     cd build
     ninja
 
-To install, use `ninja install`, then execute with `io.github.alainm23.planify`
+To install, use `ninja install`, then execute with `{{APPLICATION_ID}}`
 
     sudo ninja install
     {{APPLICATION_ID}}
