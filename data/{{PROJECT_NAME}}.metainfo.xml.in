@@ -1,26 +1,62 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component type="desktop-application">
   <id>{{APPLICATION_ID}}</id>
-  <name>{{PROJECT_NAME}}</name>
-  <summary>Proves that we can use Vala and Gtk</summary>
+  <launchable type="desktop-id">{{APPLICATION_ID}}.desktop</launchable>
+  <translation type="gettext">{{APPLICATION_ID}}</translation>
   <metadata_license>CC-BY-4.0</metadata_license>
   <project_license>GPL-3.0-or-later</project_license>
+  
+  <name>{{PROJECT_NAME}}</name>
+  <summary>Proves that we can use Vala and Gtk</summary>
   <description>
     <p>
       A quick summary of your app's main selling points and features. Just a couple sentences per paragraph is best
     </p>
   </description>
-  <launchable type="desktop-id">{{APPLICATION_ID}}.desktop</launchable>
-  <kudos>
-    <kudo>ModernToolkit</kudo>
-    <kudo>HiDpiIcon</kudo>
-  </kudos>
+
+  <screenshots>
+    <screenshot type="default">
+      <image>{{ IMAGE_URL }}</image>
+    </screenshot>
+  </screenshots>
+
+  <content_rating type="oars-1.1" />
+
+  <provides>
+    <binary>{{APPLICATION_ID}}</binary>
+  </provides>
+
+  <url type="homepage"></url>
+  <url type="bugtracker"></url>
+  <url type="donation"></url>
+  <url type="help"></url>
+  <url type="translate"></url>
+
   <developer id="io.github.ellie_commons">
     <name>{{DEVELOPER_NAME}}</name>
   </developer>
   <update_contact>{{DEVELOPER_EMAIL}}</update_contact>
+
+  <releases>
+    <release version="8.0.1" date="2024-11-20" urgency="medium">
+      <description>
+        <p>Minor updates:</p>
+        <ul>
+          <li>Updated translations</li>
+        </ul>
+      </description>
+      <issues>
+        <issue url="URL">ISSUE NAME</issue>
+      </issues>
+    </release>
+  </releases>
+
+  <branding>
+    <color type="primary" scheme_preference="light">#ff8c82</color>
+    <color type="primary" scheme_preference="dark">#7a0000</color>
+  </branding>
+
   <custom>
-    <value key="x-appcenter-color-primary">#603461</value>
     <value key="x-appcenter-suggested-price">5</value>
     <value key="x-appcenter-stripe">pk_live_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</value>
   </custom>
