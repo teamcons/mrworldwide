@@ -1,2 +1,2 @@
-data/thumbtack.metainfo.xml.in
-data/thumbtack.desktop.in
+data/{{PROJECT_NAME}}.metainfo.xml.in
+data/{{PROJECT_NAME}}.desktop.in

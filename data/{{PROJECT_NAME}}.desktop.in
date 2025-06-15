@@ -2,10 +2,10 @@
 Version=1.0
 Type=Application
 
-Name=thumbtack
+Name={{PROJECT_NAME}}
 Comment=Proves that we can use Vala and Gtk
 Categories=Development;Education;
 
-Icon=com.github.elfenware.thumbtack
-Exec=com.github.elfenware.thumbtack
+Icon={{APPLICATION_ID}}
+Exec={{APPLICATION_ID}}
 Terminal=false

@@ -9,14 +9,14 @@ public class MainWindow : Gtk.ApplicationWindow {
             application: application,
             default_height: 300,
             default_width: 300,
-            icon_name: "com.github.elfenware.thumbtack",
+            icon_name: "{{APPLICATION_ID}}",
             title: _("My App Name")
         );
     }
 
     static construct {
 		weak Gtk.IconTheme default_theme = Gtk.IconTheme.get_for_display (Gdk.Display.get_default ());
-		default_theme.add_resource_path ("com/github/elfenware/thumbtack/");
+		default_theme.add_resource_path ("{{APPLICATION_ID_GSCHEMA}}/");
 	}
 
     construct {

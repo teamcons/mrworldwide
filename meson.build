@@ -1,6 +1,6 @@
 # project name and programming language
 project(
-  'com.github.elfenware.thumbtack',
+  '{{APPLICATION_ID}}',
   'vala', 'c',
   version: '0.1'
 )
@@ -24,7 +24,7 @@ config_file = configure_file(
 
 gresource = gnome.compile_resources(
     'as-resources',
-    'data' / 'thumbtack.gresource.xml',
+    'data' / '{{PROJECT_NAME}}.gresource.xml',
     source_dir: 'data',
     c_name: 'as'
 )

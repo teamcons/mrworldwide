@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <schemalist>
-  <schema path="/com/github/elfenware/thumbtack/" id="com.github.elfenware.thumbtack">
+  <schema path="/{{APPLICATION_ID_GSCHEMA}}/" id="{{APPLICATION_ID}}">
     <key name="window-height" type="i">
       <default>700</default>
       <summary>Most recent window height</summary>
