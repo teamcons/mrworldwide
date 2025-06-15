@@ -8,7 +8,7 @@ public class MyApp : Gtk.Application {
 
     public MyApp () {
         Object (
-            application_id: "io.github.teamcons.justroll",
+            application_id: "com.github.elfenware.thumbtack",
             flags: ApplicationFlags.FLAGS_NONE
         );
     }
@@ -44,7 +44,15 @@ public class MyApp : Gtk.Application {
         * Set maximize after height/width else window is min size on unmaximize
         * Bind maximize as SET else get get bad sizes
         */
-        //var settings = new Settings (".thumbtack");
+        var settings = new Settings ("com.github.elfenware.thumbtack");
+        settings.bind ("window-height", main_window, "default-height", SettingsBindFlags.DEFAULT);
+        settings.bind ("window-width", main_window, "default-width", SettingsBindFlags.DEFAULT);
+
+        if (settings.get_boolean ("window-maximized")) {
+            main_window.maximize ();
+        }
+
+        settings.bind ("window-maximized", main_window, "maximized", SettingsBindFlags.SET);
 
         // Use Css
         var provider = new Gtk.CssProvider ();
