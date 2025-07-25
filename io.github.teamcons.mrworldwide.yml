@@ -17,6 +17,7 @@ command: io.github.teamcons.mrworldwide
 # only need permission to draw our app on screen using either X11 or Wayland.
 finish-args:
   - '--share=ipc'
+  - '--device=dri'
   - '--socket=fallback-x11'
   - '--socket=wayland'
 

@@ -3,14 +3,20 @@
 * SPDX-FileCopyrightText: {{YEAR}} {{DEVELOPER_NAME}} <{{DEVELOPER_EMAIL}}>
 */
 
-public class MyApp : Gtk.Application {
-    public MainWindow main_window;
+public class MrWorldWide.Application : Gtk.Application {
+    public Window main_window;
 
-    public MyApp () {
+    public static Settings settings;
+
+    public Application () {
         Object (
             application_id: "io.github.teamcons.mrworldwide",
             flags: ApplicationFlags.FLAGS_NONE
         );
+    }
+
+    static construct {
+        settings = new GLib.Settings ("io.github.teamcons.mrworldwide");
     }
 
     protected override void startup () {
@@ -22,6 +28,22 @@ public class MyApp : Gtk.Application {
         Intl.bindtextdomain (GETTEXT_PACKAGE, LOCALEDIR);
         Intl.bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
         Intl.textdomain (GETTEXT_PACKAGE);
+
+        var granite_settings = Granite.Settings.get_default ();
+        var gtk_settings = Gtk.Settings.get_default ();
+
+        // Also follow dark if system is dark lIke mY sOul.
+        gtk_settings.gtk_application_prefer_dark_theme = (
+	            granite_settings.prefers_color_scheme == DARK
+            );
+	
+        granite_settings.notify["prefers-color-scheme"].connect (() => {
+            gtk_settings.gtk_application_prefer_dark_theme = (
+                    granite_settings.prefers_color_scheme == DARK
+                );
+        });
+
+        
 
         var quit_action = new SimpleAction ("quit", null);
 
@@ -37,7 +59,7 @@ public class MyApp : Gtk.Application {
 			return;
 		}
 
-        var main_window = new MainWindow (this);
+        var main_window = new Window (this);
 
         /*
         * This is very finicky. Bind size after present else set_titlebar gives us bad sizes
@@ -67,6 +89,6 @@ public class MyApp : Gtk.Application {
     }
 
     public static int main (string[] args) {
-        return new MyApp ().run (args);
+        return new Application ().run (args);
     }
 }

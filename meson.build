@@ -40,8 +40,13 @@ executable(
     meson.project_name(),
     config_file,
     gresource,
+    'src' / 'Constants.vala',
+    'src' / 'Objects' / 'Lang.vala',
+    'src' / 'Widgets' / 'Menu.vala',
+    'src' / 'Widgets' / 'ShowLangs.vala',
+    'src' / 'Widgets' / 'Pane.vala',
+    'src' / 'Windows' / 'Window.vala',
     'src' / 'Application.vala',
-    'src' / 'MainWindow.vala',
     dependencies: deps,
     install: true
 )

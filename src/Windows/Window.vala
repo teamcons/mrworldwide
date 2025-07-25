@@ -1,8 +1,6 @@
 /*
  * SPDX-License-Identifier: GPL-3.0-or-later
- * SPDX-FileCopyrightText:  2020-2021 Patrick Csikos (https://zelikos.github.io)
- *                          2025 Stella & Charlie (teamcons.carrd.co)
- *                          2025 Contributions from the ellie_Commons community (github.com/ellie-commons/)
+ * SPDX-FileCopyrightText:  2025 Stella & Charlie (teamcons.carrd.co)
  */
 
 public class MrWorldWide.Window : Gtk.Window {
@@ -10,9 +8,9 @@ public class MrWorldWide.Window : Gtk.Window {
 public Gtk.Spinner loading;
 public Gtk.Revealer loading_revealer;
 private Gtk.Paned paned;
-public CaptainWorldWide.Pane source_pane;
-public CaptainWorldWide.Pane target_pane;
-public CaptainWorldWide.Menu menu_popover;
+public MrWorldWide.Pane source_pane;
+public MrWorldWide.Pane target_pane;
+public MrWorldWide.Menu menu_popover;
 
 
     public SimpleActionGroup actions { get; construct; }
@@ -24,7 +22,6 @@ public CaptainWorldWide.Menu menu_popover;
     public static Gee.MultiMap<string, string> action_accelerators = new Gee.HashMultiMap<string, string> ();
 
     private const GLib.ActionEntry[] ACTION_ENTRIES = {
-        { ACTION_ROLL, on_roll },
         { ACTION_MENU, on_menu}
     };
 
@@ -42,13 +39,6 @@ public CaptainWorldWide.Menu menu_popover;
     static construct {
 		weak Gtk.IconTheme default_theme = Gtk.IconTheme.get_for_display (Gdk.Display.get_default ());
 		default_theme.add_resource_path ("io/github/teamcons/mrworldwide/");
-
-        // Set default elementary thme
-        var gtk_settings = Gtk.Settings.get_default ();
-        gtk_settings.gtk_icon_theme_name = "elementary";
-        if (!(gtk_settings.gtk_theme_name.has_prefix ("io.elementary.stylesheet"))) {
-            gtk_settings.gtk_theme_name = "io.elementary.stylesheet.blueberry";
-        }
 	}
 
 
@@ -59,18 +49,18 @@ public CaptainWorldWide.Menu menu_popover;
         actions.add_action_entries (ACTION_ENTRIES, this);
         insert_action_group ("app", actions);
 
-
+        restore_state ();
 
 
         title = _("Captain WorldWide");
         Gtk.Label title_widget = new Gtk.Label (_("Captain WorldWide"));
         title_widget.add_css_class (Granite.STYLE_CLASS_TITLE_LABEL);
 
-        this.headerbar = new Gtk.HeaderBar ();
-        this.headerbar.title_widget = title_widget;
-        this.headerbar.add_css_class (Granite.STYLE_CLASS_FLAT);
+        var headerbar = new Gtk.HeaderBar ();
+        headerbar.title_widget = title_widget;
+        headerbar.add_css_class (Granite.STYLE_CLASS_FLAT);
 
-        set_titlebar (this.headerbar)
+        set_titlebar (headerbar);
 
 
         var popover_button = new Gtk.MenuButton () {
@@ -81,21 +71,25 @@ public CaptainWorldWide.Menu menu_popover;
         popover_button.set_primary (true);
         popover_button.set_direction (Gtk.ArrowType.NONE);
 
-        var menu_popover = new CaptainWorldWide.Menu ();
+        var menu_popover = new MrWorldWide.Menu ();
         popover_button.popover = menu_popover;
 
         headerbar.pack_end (popover_button);
         loading = new Gtk.Spinner ();
-            loading_revealer = new Gtk.Revealer () {
-        child = loading,
-        reveal_child = false,
-        transition_type = Gtk.RevealerTransitionType.SWING_LEFT,
-        transition_duration = 500
-        }
+
+        loading_revealer = new Gtk.Revealer () {
+            child = loading,
+            reveal_child = false,
+            transition_type = Gtk.RevealerTransitionType.SWING_LEFT,
+            transition_duration = 500
+        };
 
 
-        source_pane = new CaptainWorldWide.Pane (SourceLang);
-        target_pane = new CaptainWorldWide.Pane (TargetLang);
+        var sources = MrWorldWide.SourceLang ();
+        var targets = MrWorldWide.TargetLang ();
+
+        source_pane = new MrWorldWide.Pane (sources);
+        target_pane = new MrWorldWide.Pane (targets);
 
         paned = new Gtk.Paned (HORIZONTAL);
         paned.start_child = source_pane;
@@ -106,10 +100,6 @@ public CaptainWorldWide.Menu menu_popover;
         };
 
         child = scrolled;
-
-        roll_history.visible = history_visible;
-
-
     }
 
     private void restore_state () {
@@ -118,12 +108,10 @@ public CaptainWorldWide.Menu menu_popover;
 
         default_width = rect.width;
         default_height = rect.height;
-
-        history_visible = Application.settings.get_boolean ("show-history");
     }
 
-private void on_menu () {
-	menu_popover.popup ();
-}
+    private void on_menu () {
+        menu_popover.popup ();
+    }
 
 }
