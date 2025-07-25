@@ -14,13 +14,13 @@ foreach i : icon_sizes
 endforeach
 
 install_data(
-    '{{PROJECT_NAME}}.gschema.xml',
+    'mrworldwide.gschema.xml',
     install_dir: get_option('datadir') / 'glib-2.0' / 'schemas',
     rename: meson.project_name() + '.gschema.xml'
 )
 
 i18n.merge_file(
-    input: '{{PROJECT_NAME}}.desktop.in',
+    input: 'mrworldwide.desktop.in',
     output: meson.project_name() + '.desktop',
     po_dir: meson.project_source_root() / 'po',
     type: 'desktop',
@@ -29,7 +29,7 @@ i18n.merge_file(
 )
 
 i18n.merge_file(
-    input: '{{PROJECT_NAME}}.metainfo.xml.in',
+    input: 'mrworldwide.metainfo.xml.in',
     output: meson.project_name() + '.metainfo.xml',
     po_dir: meson.project_source_root() / 'po',
     install: true,

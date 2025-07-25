@@ -2,10 +2,10 @@
 Version=1.0
 Type=Application
 
-Name={{PROJECT_NAME}}
+Name=mrworldwide
 Comment=Proves that we can use Vala and Gtk
 Categories=Development;Education;
 
-Icon={{APPLICATION_ID}}
-Exec={{APPLICATION_ID}}
+Icon=io.github.teamcons.mrworldwide
+Exec=io.github.teamcons.mrworldwide
 Terminal=false

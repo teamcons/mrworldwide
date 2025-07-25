@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <gresources>
-  <gresource prefix="/{{APPLICATION_ID_GSCHEMA}}/">
+  <gresource prefix="/io/github/teamcons/mrworldwide/">
     <file alias="Application.css">Application.css</file>
   </gresource>
 </gresources>

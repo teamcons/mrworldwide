@@ -1,6 +1,6 @@
 # project name and programming language
 project(
-  '{{APPLICATION_ID}}',
+  'io.github.teamcons.mrworldwide',
   'vala', 'c',
   version: '0.1'
 )
@@ -24,7 +24,7 @@ config_file = configure_file(
 
 gresource = gnome.compile_resources(
     'as-resources',
-    'data' / '{{PROJECT_NAME}}.gresource.xml',
+    'data' / 'mrworldwide.gresource.xml',
     source_dir: 'data',
     c_name: 'as'
 )

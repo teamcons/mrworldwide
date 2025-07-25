@@ -32,10 +32,10 @@ Run `meson build` to configure the build environment. Change to the build direct
     cd build
     ninja
 
-To install, use `ninja install`, then execute with `{{APPLICATION_ID}}`
+To install, use `ninja install`, then execute with `io.github.teamcons.mrworldwide`
 
     sudo ninja install
-    {{APPLICATION_ID}}
+    io.github.teamcons.mrworldwide
 
 ### Uninstall
 
@@ -54,8 +54,8 @@ This template is fully translatable and everything is setup as described in the 
 Remember that each time you add new translatable strings or change old ones, you should regenerate your `*.pot` and `*.po` files using the `*-pot` and `*-update-po` build targets from the previous two steps as follows:
 
 ```bash
-ninja {{APPLICATION_ID}}-pot
-ninja {{APPLICATION_ID}}-update-po
+ninja io.github.teamcons.mrworldwide-pot
+ninja io.github.teamcons.mrworldwide-update-po
 ```
 
 ### Add more languages
@@ -63,7 +63,7 @@ ninja {{APPLICATION_ID}}-update-po
 If you want to support more languages, just list them in the LINGUAS file and generate the new po file with the `*-update-po` target:
 
 ```bash
-ninja -C build {{APPLICATION_ID}}-update-po
+ninja -C build io.github.teamcons.mrworldwide-update-po
 ```
 
 ## Icons
@@ -79,17 +79,17 @@ Support for Flatpak is builtin as well and setup according to the [Packaging sec
 To run a test build and install your app, you can execute flatpak-builder from the project root:
 
 ```bash
-flatpak-builder build {{APPLICATION_ID}}.yml --user --install --force-clean --install-deps-from=appcenter
+flatpak-builder build io.github.teamcons.mrworldwide.yml --user --install --force-clean --install-deps-from=appcenter
 ```
 
 Then execute with
 
 ```bash
-flatpak run {{APPLICATION_ID}}
+flatpak run io.github.teamcons.mrworldwide
 ```
 
 ### Uninstall
 
 ```bash
-flatpak uninstall {{APPLICATION_ID}} --user
+flatpak uninstall io.github.teamcons.mrworldwide --user
 ```
