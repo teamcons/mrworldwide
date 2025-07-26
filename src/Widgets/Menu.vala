@@ -28,7 +28,7 @@ public class MrWorldWide.Menu : Gtk.Popover {
       halign = Gtk.Align.FILL
     };
 
-    var api_paste = new Gtk.Button.from_icon_name ("edit-paste-symbolic") {
+    var api_paste = new Gtk.Button.from_icon_name ("edit-paste") {
     tooltip_text = _("Paste from clipboard")
     };
 
