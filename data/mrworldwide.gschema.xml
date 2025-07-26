@@ -16,6 +16,11 @@
       <summary>Open window maximized.</summary>
       <description>Whether the main window of the application should open maximized or not.</description>
     </key>
+    <key name="panes-position" type="i">
+      <default>0</default>
+      <summary>panes</summary>
+      <description>Yo</description>
+    </key>
     <key name="key" type="s">
       <default>""</default>
       <summary>deepl key</summary>

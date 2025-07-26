@@ -101,6 +101,12 @@ public MrWorldWide.Menu menu_popover;
         paned.start_child = source_pane;
         paned.end_child = target_pane;
 
+        var pos = Application.settings.get_int ("panes-position");
+        if (pos != 0) {
+            paned.position = pos;
+        }
+
+
         var scrolled = new Gtk.ScrolledWindow () {
             child = paned
         };
@@ -109,6 +115,13 @@ public MrWorldWide.Menu menu_popover;
 
         source_pane.changed.connect (on_source_changed);
         target_pane.changed.connect (on_target_changed);
+
+
+        paned.notify ["position"].connect (() => {
+            Application.settings.set_int ("panes-position", paned.position);
+        });
+
+
     }
 
     private void on_menu () {
@@ -123,5 +136,5 @@ public MrWorldWide.Menu menu_popover;
     private void on_target_changed (string code) {
         Application.settings.set_string ("target-language", code);
     }
-
+    
 }
