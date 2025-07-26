@@ -1,203 +1,229 @@
-# Spanish translations for io.github.teamcons.mrworldwide package.
-# Copyright (C) 2025 THE io.github.teamcons.mrworldwide'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the io.github.teamcons.mrworldwide package.
-# Automatically generated, 2025.
-#
 msgid ""
 msgstr ""
+"Content-Transfer-Encoding: 8bit\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language: es\n"
+"Language-Team: none\n"
+"Last-Translator: Automatically generated\n"
+"MIME-Version: 1.0\n"
+"PO-Revision-Date: 2025-07-26 13:10+0200\n"
+"POT-Creation-Date: 2025-07-26 13:10+0200\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "Project-Id-Version: io.github.teamcons.mrworldwide\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-26 13:10+0200\n"
-"PO-Revision-Date: 2025-07-26 13:10+0200\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
-"Language: es\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: src/Widgets/Menu.vala:28
 msgid "Enter API key here"
-msgstr ""
+msgstr "Introduzca aquí la clave API"
 
 #: src/Widgets/Menu.vala:35
 msgid "Paste Deepl API"
-msgstr ""
+msgstr "Pegar Deepl API"
 
 #: src/Widgets/Menu.vala:44
 msgid "Get your Deepl API key"
-msgstr ""
+msgstr "Obtenga su clave API Deepl"
 
 #: src/Widgets/Menu.vala:51
 msgid "You can get an API key on Deepl Website"
-msgstr ""
+msgstr "Puede obtener una clave API en el sitio web de Deepl"
 
-#: src/Windows/Window.vala:35 src/Windows/Window.vala:53
+#: src/Windows/Window.vala:35
+#: src/Windows/Window.vala:53
 #: src/Windows/Window.vala:54
 msgid "Mr WorldWide"
-msgstr ""
+msgstr "Sr. WorldWide"
 
 #: src/Windows/Window.vala:66
 msgid "Settings"
-msgstr ""
+msgstr "Ajustes"
 
-#: src/Constants.vala:15 src/Constants.vala:53
+#: src/Constants.vala:15
+#: src/Constants.vala:53
 msgid "Arabic"
-msgstr ""
+msgstr "Árabe"
 
-#: src/Constants.vala:16 src/Constants.vala:54
+#: src/Constants.vala:16
+#: src/Constants.vala:54
 msgid "Bulgarian"
-msgstr ""
+msgstr "Búlgaro"
 
-#: src/Constants.vala:17 src/Constants.vala:55
+#: src/Constants.vala:17
+#: src/Constants.vala:55
 msgid "Czech"
-msgstr ""
+msgstr "Checa"
 
-#: src/Constants.vala:18 src/Constants.vala:56
+#: src/Constants.vala:18
+#: src/Constants.vala:56
 msgid "Danish"
-msgstr ""
+msgstr "Danés"
 
-#: src/Constants.vala:19 src/Constants.vala:57
+#: src/Constants.vala:19
+#: src/Constants.vala:57
 msgid "German"
-msgstr ""
+msgstr "Alemán"
 
-#: src/Constants.vala:20 src/Constants.vala:58
+#: src/Constants.vala:20
+#: src/Constants.vala:58
 msgid "Greek"
-msgstr ""
+msgstr "Griego"
 
 #: src/Constants.vala:21
 msgid "English (All)"
-msgstr ""
+msgstr "Inglés (Todos)"
 
-#: src/Constants.vala:22 src/Constants.vala:61
+#: src/Constants.vala:22
+#: src/Constants.vala:61
 msgid "Spanish (All)"
-msgstr ""
+msgstr "Español (Todos)"
 
-#: src/Constants.vala:23 src/Constants.vala:63
+#: src/Constants.vala:23
+#: src/Constants.vala:63
 msgid "Estonian"
-msgstr ""
+msgstr "Estonia"
 
-#: src/Constants.vala:24 src/Constants.vala:64
+#: src/Constants.vala:24
+#: src/Constants.vala:64
 msgid "Finnish"
-msgstr ""
+msgstr "En finés"
 
-#: src/Constants.vala:25 src/Constants.vala:65
+#: src/Constants.vala:25
+#: src/Constants.vala:65
 msgid "French"
-msgstr ""
+msgstr "Francés"
 
-#: src/Constants.vala:26 src/Constants.vala:66
+#: src/Constants.vala:26
+#: src/Constants.vala:66
 msgid "Hebrew"
-msgstr ""
+msgstr "Hebreo"
 
-#: src/Constants.vala:27 src/Constants.vala:67
+#: src/Constants.vala:27
+#: src/Constants.vala:67
 msgid "Hungarian"
-msgstr ""
+msgstr "Húngaro"
 
-#: src/Constants.vala:28 src/Constants.vala:68
+#: src/Constants.vala:28
+#: src/Constants.vala:68
 msgid "Indonesian"
-msgstr ""
+msgstr "Indonesia"
 
-#: src/Constants.vala:29 src/Constants.vala:69
+#: src/Constants.vala:29
+#: src/Constants.vala:69
 msgid "Italian"
-msgstr ""
+msgstr "Italiano"
 
-#: src/Constants.vala:30 src/Constants.vala:70
+#: src/Constants.vala:30
+#: src/Constants.vala:70
 msgid "Japanese"
-msgstr ""
+msgstr "Japonés"
 
-#: src/Constants.vala:31 src/Constants.vala:71
+#: src/Constants.vala:31
+#: src/Constants.vala:71
 msgid "Korean"
-msgstr ""
+msgstr "Coreano"
 
-#: src/Constants.vala:32 src/Constants.vala:72
+#: src/Constants.vala:32
+#: src/Constants.vala:72
 msgid "Lithuanian"
-msgstr ""
+msgstr "Lituania"
 
-#: src/Constants.vala:33 src/Constants.vala:73
+#: src/Constants.vala:33
+#: src/Constants.vala:73
 msgid "Latvian"
-msgstr ""
+msgstr "Letón"
 
-#: src/Constants.vala:34 src/Constants.vala:74
+#: src/Constants.vala:34
+#: src/Constants.vala:74
 msgid "Norwegian Bokmål"
-msgstr ""
+msgstr "Noruego Bokmål"
 
-#: src/Constants.vala:35 src/Constants.vala:75
+#: src/Constants.vala:35
+#: src/Constants.vala:75
 msgid "Dutch"
-msgstr ""
+msgstr "Holandés"
 
-#: src/Constants.vala:36 src/Constants.vala:76
+#: src/Constants.vala:36
+#: src/Constants.vala:76
 msgid "Polish"
-msgstr ""
+msgstr "Polaco"
 
 #: src/Constants.vala:37
 msgid "Portuguese (All)"
-msgstr ""
+msgstr "Portugués (Todos)"
 
-#: src/Constants.vala:38 src/Constants.vala:79
+#: src/Constants.vala:38
+#: src/Constants.vala:79
 msgid "Romanian"
-msgstr ""
+msgstr "Rumano"
 
-#: src/Constants.vala:39 src/Constants.vala:80
+#: src/Constants.vala:39
+#: src/Constants.vala:80
 msgid "Russian"
-msgstr ""
+msgstr "Ruso"
 
-#: src/Constants.vala:40 src/Constants.vala:81
+#: src/Constants.vala:40
+#: src/Constants.vala:81
 msgid "Slovak"
-msgstr ""
+msgstr "Eslovaquia"
 
-#: src/Constants.vala:41 src/Constants.vala:82
+#: src/Constants.vala:41
+#: src/Constants.vala:82
 msgid "Slovenian"
-msgstr ""
+msgstr "Eslovenia"
 
-#: src/Constants.vala:42 src/Constants.vala:83
+#: src/Constants.vala:42
+#: src/Constants.vala:83
 msgid "Swedish"
-msgstr ""
+msgstr "Sueco"
 
-#: src/Constants.vala:43 src/Constants.vala:84
+#: src/Constants.vala:43
+#: src/Constants.vala:84
 msgid "Thai"
-msgstr ""
+msgstr "Tailandés"
 
-#: src/Constants.vala:44 src/Constants.vala:85
+#: src/Constants.vala:44
+#: src/Constants.vala:85
 msgid "Turkish"
-msgstr ""
+msgstr "Turco"
 
-#: src/Constants.vala:45 src/Constants.vala:86
+#: src/Constants.vala:45
+#: src/Constants.vala:86
 msgid "Ukrainian"
-msgstr ""
+msgstr "Ucraniano"
 
-#: src/Constants.vala:46 src/Constants.vala:87
+#: src/Constants.vala:46
+#: src/Constants.vala:87
 msgid "Vietnamese"
-msgstr ""
+msgstr "Vietnamita"
 
 #: src/Constants.vala:47
 msgid "Chinese (All)"
-msgstr ""
+msgstr "Chino (Todos)"
 
 #: src/Constants.vala:59
 msgid "English (GB)"
-msgstr ""
+msgstr "Inglés (GB)"
 
 #: src/Constants.vala:60
 msgid "English (US)"
-msgstr ""
+msgstr "Inglés (US)"
 
 #: src/Constants.vala:62
 msgid "Spanish (Latin American)"
-msgstr ""
+msgstr "Español (Latinoamérica)"
 
 #: src/Constants.vala:77
 msgid "Portuguese (Portugual)"
-msgstr ""
+msgstr "Portugués (Portugual)"
 
 #: src/Constants.vala:78
 msgid "Portuguese (Brazilian)"
-msgstr ""
+msgstr "Portugués (brasileño)"
 
 #: src/Constants.vala:88
 msgid "Chinese (Simplified)"
-msgstr ""
+msgstr "Chino (simplificado)"
 
 #: src/Constants.vala:89
 msgid "Chinese (Traditional)"
-msgstr ""
+msgstr "Chino (tradicional)"

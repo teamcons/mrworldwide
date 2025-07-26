@@ -1,44 +1,39 @@
-# French translations for extra package.
-# Copyright (C) 2025 THE extra'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the extra package.
-# Automatically generated, 2025.
-#
 msgid ""
 msgstr ""
+"Content-Transfer-Encoding: 8bit\n"
+"Content-Type: text/plain; charset=ASCII\n"
+"Language: fr\n"
+"Language-Team: none\n"
+"Last-Translator: Automatically generated\n"
+"MIME-Version: 1.0\n"
+"PO-Revision-Date: 2025-07-26 13:10+0200\n"
+"POT-Creation-Date: 2025-07-26 13:10+0200\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-26 13:10+0200\n"
-"PO-Revision-Date: 2025-07-26 13:10+0200\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
-"Language: fr\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=ASCII\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: data/mrworldwide.metainfo.xml.in:9 data/mrworldwide.desktop.in:6
+#: data/mrworldwide.metainfo.xml.in:9
+#: data/mrworldwide.desktop.in:6
 msgid "mrworldwide"
-msgstr ""
+msgstr "mrworldwide"
 
-#: data/mrworldwide.metainfo.xml.in:10 data/mrworldwide.desktop.in:7
+#: data/mrworldwide.metainfo.xml.in:10
+#: data/mrworldwide.desktop.in:7
 msgid "Proves that we can use Vala and Gtk"
-msgstr ""
+msgstr "Prouve que nous pouvons utiliser Vala et Gtk"
 
 #: data/mrworldwide.metainfo.xml.in:12
-msgid ""
-"A quick summary of your app's main selling points and features. Just a "
-"couple sentences per paragraph is best"
-msgstr ""
+msgid "A quick summary of your app's main selling points and features. Just a couple sentences per paragraph is best"
+msgstr "Un résumé rapide des principaux arguments de vente et des caractéristiques de votre application. Quelques phrases par paragraphe suffisent"
 
 #: data/mrworldwide.metainfo.xml.in:36
 msgid "Teamcons"
-msgstr ""
+msgstr "Teamcons"
 
 #: data/mrworldwide.metainfo.xml.in:43
 msgid "Minor updates:"
-msgstr ""
+msgstr "Mises à jour mineures :"
 
 #: data/mrworldwide.metainfo.xml.in:45
 msgid "Updated translations"
-msgstr ""
+msgstr "Traductions mises à jour"
