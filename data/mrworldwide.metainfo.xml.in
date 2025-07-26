@@ -10,7 +10,8 @@
   <summary>Hold the power of languages</summary>
   <description>
     <p>
-      Yet another translation app with two panes. This
+      Yet another translation app. This one uses Deepl as backend, and goes for the no-nonsense, simple and clean route.
+      But i mostly just wanted to try out the UI, and needed something elementary OS to integrate with our elementary OS
     </p>
   </description>
 
@@ -38,9 +39,9 @@
   <update_contact>stella.menier@posteo.de</update_contact>
 
   <releases>
-    <release version="8.0.1" date="2024-11-20" urgency="medium">
+    <release version="1.0.0" date="2024-11-20" urgency="medium">
       <description>
-        <p>Minor updates:</p>
+        <p>Initial Release</p>
         <ul>
           <li>Updated translations</li>
         </ul>

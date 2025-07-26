@@ -12,6 +12,7 @@ namespace MrWorldWide {
 	// TODO: In the far future people might declare their own in a Json
 	public Lang[] SourceLang () {
 		return {
+			new Lang ("idk",_("Detect automatically")),
 			new Lang ("AR",_("Arabic")),
 			new Lang ("BG",_("Bulgarian")),
 			new Lang ("CS",_("Czech")),
@@ -50,6 +51,7 @@ namespace MrWorldWide {
 
 	public Lang[] TargetLang () {
 		return {
+			new Lang ("system",_("System language")),
 			new Lang ("AR",_("Arabic")),
 			new Lang ("BG",_("Bulgarian")),
 			new Lang ("CS",_("Czech")),

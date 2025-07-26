@@ -27,12 +27,12 @@
       <description>Needs to be moved to libsecret</description>
     </key>
     <key name="source-language" type="s">
-      <default>""</default>
+      <default>"idk"</default>
       <summary>deepl key</summary>
       <description>language code</description>
     </key>
     <key name="target-language" type="s">
-      <default>""</default>
+      <default>"system"</default>
       <summary>deepl key</summary>
       <description>language code</description>
     </key>
