@@ -36,9 +36,8 @@ msgid "Counted %s characters"
 msgstr "%s Zeichen"
 
 #: src/Widgets/TargetPane.vala:20
-#, fuzzy
 msgid "Copy to clipboard"
-msgstr "Einfügen aus der Zwischenablage"
+msgstr "In die Zwischenablage kopieren"
 
 #: src/Windows/Window.vala:32
 #: src/Windows/Window.vala:50
