@@ -46,11 +46,15 @@ public class MrWorldWide.Application : Gtk.Application {
         
 
         var quit_action = new SimpleAction ("quit", null);
-
         add_action (quit_action);
         set_accels_for_action ("app.quit", {"<Control>q"});
-
         quit_action.activate.connect (quit);
+
+
+        var menu_action = new SimpleAction ("menu", null);
+        add_action (menu_action);
+        set_accels_for_action ("app.menu", {"<Control>m"});
+
     }
 
     protected override void activate () {

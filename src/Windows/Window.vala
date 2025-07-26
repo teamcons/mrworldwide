@@ -5,12 +5,14 @@
 
 public class MrWorldWide.Window : Gtk.Window {
 
+    private Gtk.MenuButton popover_button;
     public Gtk.Spinner loading;
     public Gtk.Revealer loading_revealer;
     private Gtk.Paned paned;
     public MrWorldWide.SourcePane source_pane;
     public MrWorldWide.TargetPane target_pane;
     public MrWorldWide.Menu menu_popover;
+
 
 
     public SimpleActionGroup actions { get; construct; }
@@ -61,9 +63,9 @@ public class MrWorldWide.Window : Gtk.Window {
         set_titlebar (headerbar);
 
 
-        var popover_button = new Gtk.MenuButton () {
+        popover_button = new Gtk.MenuButton () {
         icon_name = "open-menu",
-        tooltip_markup = Granite.markup_accel_tooltip ({"<Ctrl>M", "M"}, _("Settings")),
+        tooltip_markup = Granite.markup_accel_tooltip ({"<Ctrl>M"}, _("Settings")),
         };
 
         popover_button.set_primary (true);
@@ -119,9 +121,8 @@ public class MrWorldWide.Window : Gtk.Window {
     }
 
     private void on_menu () {
-        menu_popover.popup ();
+        popover_button.activate ();
     }
-
 
     private void on_source_changed (string code) {
         Application.settings.set_string ("source-language", code);
