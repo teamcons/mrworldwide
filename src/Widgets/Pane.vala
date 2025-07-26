@@ -46,7 +46,7 @@
             margin_top = 6,
             margin_bottom = 12,
             margin_start = 12,
-            margin_end = 12,
+            margin_end = 12
         };
 
         textview.set_wrap_mode (Gtk.WrapMode.WORD_CHAR);
