@@ -13,14 +13,7 @@
         spacing = 0;
 
         pane = new MrWorldWide.Pane (MrWorldWide.TargetLang ());
-
-        var handle = new Gtk.WindowHandle () {
-            child = pane,
-            vexpand = true,
-            valign = Gtk.Align.FILL
-        };
-
-        append (handle);
+        append (pane);
 
         pane.textview.editable = false;
 
