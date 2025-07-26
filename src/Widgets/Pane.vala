@@ -63,6 +63,7 @@
             vexpand = false,
             valign = Gtk.Align.END
         };
+        actionbar.add_css_class (Granite.STYLE_CLASS_FLAT);
 
 
         count = new Gtk.Label ("");
