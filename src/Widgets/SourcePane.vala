@@ -9,7 +9,6 @@
     public MrWorldWide.Pane pane;
 
     construct {
-
         orientation = VERTICAL;
         spacing = 0;
 
@@ -19,19 +18,16 @@
         var paste = new Gtk.Button.from_icon_name ("edit-paste") {
             tooltip_text = _("Paste from clipboard")
         };
-
-        paste.clicked.connect (paste_from_clipboard);
         pane.actionbar.pack_end (paste);
 
+        paste.clicked.connect (paste_from_clipboard);
     }
 
-    
   private void paste_from_clipboard () {
     var clipboard = Gdk.Display.get_default ().get_clipboard ();
 
    //Paste without overwrite:
    //    pane.textview.buffer.paste_clipboard (clipboard, null, true);
-
     clipboard.read_text_async.begin ((null), (obj, res) => {
       try {
 
@@ -43,5 +39,4 @@
       }
     });
   }
-
 }

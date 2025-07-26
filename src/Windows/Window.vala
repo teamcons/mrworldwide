@@ -13,14 +13,9 @@ public class MrWorldWide.Window : Gtk.Window {
     public MrWorldWide.TargetPane target_pane;
     public MrWorldWide.Menu menu_popover;
 
-
-
     public SimpleActionGroup actions { get; construct; }
-
     public const string ACTION_PREFIX = "app.";
     public const string ACTION_MENU = "menu";
-
-
     public static Gee.MultiMap<string, string> action_accelerators = new Gee.HashMultiMap<string, string> ();
 
     private const GLib.ActionEntry[] ACTION_ENTRIES = {
@@ -103,9 +98,6 @@ public class MrWorldWide.Window : Gtk.Window {
         if (pos != 0) {
             paned.position = pos;
         }
-
-
-
 
         child = paned;
 

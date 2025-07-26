@@ -8,7 +8,6 @@
     public MrWorldWide.Pane pane;
 
     construct {
-
         orientation = VERTICAL;
         spacing = 0;
 
@@ -20,15 +19,13 @@
         var copy = new Gtk.Button.from_icon_name ("edit-copy") {
             tooltip_text = _("Copy to clipboard")
         };
+        pane.actionbar.pack_end (copy);
 
         copy.clicked.connect (copy_to_clipboard);
-
-
-        pane.actionbar.pack_end (copy);
     }
 
   private void copy_to_clipboard () {
-             var clipboard = Gdk.Display.get_default ().get_clipboard ();
-            clipboard.set_text (pane.textview.buffer.text);
+        var clipboard = Gdk.Display.get_default ().get_clipboard ();
+        clipboard.set_text (pane.textview.buffer.text);
   }
 }
