@@ -101,6 +101,9 @@ public class MrWorldWide.Window : Gtk.Window {
 
         child = paned;
 
+        set_focus (source_pane.pane.textview);
+
+
         source_pane.pane.changed.connect (on_source_changed);
         target_pane.pane.changed.connect (on_target_changed);
 
