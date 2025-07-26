@@ -18,11 +18,11 @@ msgstr "Saisir la clé API ici"
 
 #: src/Widgets/Menu.vala:35
 msgid "Paste Deepl API"
-msgstr "Coller Deepl API"
+msgstr ""
 
 #: src/Widgets/Menu.vala:44
 msgid "Get your Deepl API key"
-msgstr "Obtenez votre clé API Deepl"
+msgstr ""
 
 #: src/Widgets/Menu.vala:51
 msgid "You can get an API key on Deepl Website"
@@ -32,7 +32,7 @@ msgstr "Vous pouvez obtenir une clé API sur le site de Deepl."
 #: src/Windows/Window.vala:53
 #: src/Windows/Window.vala:54
 msgid "Mr WorldWide"
-msgstr "Monsieur Tout-le-monde"
+msgstr "Mr WorldWide"
 
 #: src/Windows/Window.vala:66
 msgid "Settings"

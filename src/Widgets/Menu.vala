@@ -29,7 +29,7 @@ public class MrWorldWide.Menu : Gtk.Popover {
     };
 
     var api_paste = new Gtk.Button.from_icon_name ("edit-paste-symbolic") {
-    tooltip_text = _("Paste Deepl API")
+    tooltip_text = _("Paste from clipboard")
     };
 
     api_field.append (api_entry);
@@ -38,7 +38,7 @@ public class MrWorldWide.Menu : Gtk.Popover {
     box.append (api_field);
 
     var link = "https://www.deepl.com/your-account/keys";
-    var linkname = _("Get your Deepl API key");
+    var linkname = _("Deepl API Keys");
 
     var hint = new Gtk.LinkButton.with_label (
                                               link,

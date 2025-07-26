@@ -12,7 +12,7 @@
 
     public Gtk.TextView textview;
     public Gtk.ActionBar actionbar;
-
+    public Gtk.Label count;
 
     public signal void changed (string code);
 
@@ -55,11 +55,18 @@
             valign = Gtk.Align.END
         };
 
+
+        count = new Gtk.Label ("");
+        actionbar.pack_start (count);
+
         var handle = new Gtk.WindowHandle () {
             child = actionbar
         };
 
         append (handle);
+
+        on_buffer_changed ();
+        textview.buffer.changed.connect (on_buffer_changed);
 
     }
 
@@ -72,6 +79,13 @@
     public void set_selected_language (string code) {
         var position = model.model_where_code (code);
         dropdown.set_selected (position);
+    }
+
+    public void on_buffer_changed () {
+        var len = textview.buffer.text.length.to_string ();
+        count.label = len;
+        ///TRANSLATORS: %s is replaced by a number
+        count.tooltip_text = _("Counted %s characters").printf (len);
     }
 
 }
