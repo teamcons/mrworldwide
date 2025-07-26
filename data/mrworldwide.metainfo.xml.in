@@ -16,8 +16,17 @@
   </description>
 
   <screenshots>
-    <screenshot type="default">
-      <image>{{ IMAGE_URL }}</image>
+    <screenshot type="default" environment="pantheon">
+      <caption>Main window</caption>
+      <image>
+        https://github.com/teamcons/mrworldwide/blob/main/data/screenshots/window-light.png?raw=true
+      </image>
+    </screenshot>
+    <screenshot environment="pantheon:dark">
+      <caption>Main window with dark theme</caption>
+      <image>
+        https://github.com/teamcons/mrworldwide/blob/main/data/screenshots/window-dark.png?raw=true
+      </image>
     </screenshot>
   </screenshots>
 
