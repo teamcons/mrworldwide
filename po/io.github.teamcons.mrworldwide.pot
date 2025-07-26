@@ -26,11 +26,11 @@ msgid "Paste from clipboard"
 msgstr ""
 
 #: src/Widgets/Menu.vala:41
-msgid "Deepl API Keys"
+msgid "DeepL API Keys"
 msgstr ""
 
 #: src/Widgets/Menu.vala:48
-msgid "You can get an API key on Deepl Website"
+msgid "You can get an API key on DeepL Website"
 msgstr ""
 
 #. /TRANSLATORS: %s is replaced by a number

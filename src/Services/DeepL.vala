@@ -1,5 +1,5 @@
 // Translation service that use translate
-public class MrWorldWide.Deepl : AsyncTaskExecuter {
+public class MrWorldWide.DeepL : AsyncTaskExecuter {
   private const string API_KEY;
   private string[] _result;
   private string _from;

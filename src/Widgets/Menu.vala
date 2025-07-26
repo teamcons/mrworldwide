@@ -38,14 +38,14 @@ public class MrWorldWide.Menu : Gtk.Popover {
     box.append (api_field);
 
     var link = "https://www.deepl.com/your-account/keys";
-    var linkname = _("Deepl API Keys");
+    var linkname = _("DeepL API Keys");
 
     var hint = new Gtk.LinkButton.with_label (
                                               link,
                                               linkname
       );
 
-    var hint_label = new Granite.HeaderLabel (_("You can get an API key on Deepl Website")) {
+    var hint_label = new Granite.HeaderLabel (_("You can get an API key on DeepL Website")) {
                 mnemonic_widget = hint,
                 halign = Gtk.Align.START,
                 hexpand = true,

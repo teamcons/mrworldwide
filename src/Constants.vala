@@ -13,6 +13,7 @@ namespace MrWorldWide {
 	public Lang[] SourceLang () {
 		return {
 			new Lang ("idk",_("Detect automatically")),
+			new Lang ("system",_("System language")),
 			new Lang ("AR",_("Arabic")),
 			new Lang ("BG",_("Bulgarian")),
 			new Lang ("CS",_("Czech")),

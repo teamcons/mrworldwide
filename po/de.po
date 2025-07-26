@@ -22,12 +22,12 @@ msgid "Paste from clipboard"
 msgstr "Einfügen aus der Zwischenablage"
 
 #: src/Widgets/Menu.vala:41
-msgid "Deepl API Keys"
-msgstr "Deepl API-Schlüssel"
+msgid "DeepL API Keys"
+msgstr "DeepL API-Schlüssel"
 
 #: src/Widgets/Menu.vala:48
-msgid "You can get an API key on Deepl Website"
-msgstr "Sie können einen API-Schlüssel auf der Deepl Website erhalten"
+msgid "You can get an API key on DeepL Website"
+msgstr "Sie können einen API-Schlüssel auf der DeepL Website erhalten"
 
 #. /TRANSLATORS: %s is replaced by a number
 #: src/Widgets/Pane.vala:98
