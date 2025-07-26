@@ -7,10 +7,10 @@
   <project_license>GPL-3.0-or-later</project_license>
   
   <name>mrworldwide</name>
-  <summary>Proves that we can use Vala and Gtk</summary>
+  <summary>Hold the power of languages</summary>
   <description>
     <p>
-      A quick summary of your app's main selling points and features. Just a couple sentences per paragraph is best
+      Yet another translation app with two panes. This
     </p>
   </description>
 
