@@ -11,6 +11,18 @@ finish-args:
   - '--socket=wayland'
   - '--share=network'
 
+cleanup:
+  -  '/include'
+  -  '/lib/pkgconfig'
+  -  '/man'
+  -  '/share/doc'
+  -  '/share/gtk-doc'
+  -  '/share/man'
+  -  '/share/pkgconfig'
+  -  '/share/installed-tests'
+  -  '*.la'
+  -  '*.a'
+
 modules:
   - name: mrworldwide
     buildsystem: meson
