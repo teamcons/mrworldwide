@@ -50,7 +50,13 @@
         };
 
         textview.set_wrap_mode (Gtk.WrapMode.WORD_CHAR);
-        append (textview);
+
+
+        var scrolled = new Gtk.ScrolledWindow () {
+            child = textview
+        };
+
+        append (scrolled);
 
         actionbar = new Gtk.ActionBar () {
             hexpand = true,

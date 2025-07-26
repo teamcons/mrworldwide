@@ -103,11 +103,9 @@ public class MrWorldWide.Window : Gtk.Window {
         }
 
 
-        var scrolled = new Gtk.ScrolledWindow () {
-            child = paned
-        };
 
-        child = scrolled;
+
+        child = paned;
 
         source_pane.pane.changed.connect (on_source_changed);
         target_pane.pane.changed.connect (on_target_changed);
