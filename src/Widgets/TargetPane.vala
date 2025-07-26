@@ -15,7 +15,9 @@
         pane = new MrWorldWide.Pane (MrWorldWide.SourceLang ());
 
         var handle = new Gtk.WindowHandle () {
-            child = pane
+            child = pane,
+            vexpand = true,
+            valign = Gtk.Align.FILL
         };
 
         append (handle);
