@@ -12,7 +12,7 @@
         orientation = VERTICAL;
         spacing = 0;
 
-        pane = new MrWorldWide.Pane (MrWorldWide.SourceLang ());
+        pane = new MrWorldWide.Pane (MrWorldWide.TargetLang ());
 
         var handle = new Gtk.WindowHandle () {
             child = pane,
