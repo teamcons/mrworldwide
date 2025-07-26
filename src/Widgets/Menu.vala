@@ -40,12 +40,12 @@ public class MrWorldWide.Menu : Gtk.Popover {
 
     box.append (api_field);
 
-    var link = "";
-    var linkname = _("API Key");
+    var link = "https://www.deepl.com/your-account/keys";
+    var linkname = _("Get your Deepl API key");
 
     var hint = new Gtk.LinkButton.with_label (
-                                                            link,
-                                                            linkname
+                                              link,
+                                              linkname
       );
 
     var hint_label = new Granite.HeaderLabel (_("You can get an API key on Deepl Website")) {
@@ -56,7 +56,7 @@ public class MrWorldWide.Menu : Gtk.Popover {
                 margin_top = 0
     };
 
-    //box.append (hint);
+    box.append (hint);
     //box.append (hint_label);
 
     child = box;
