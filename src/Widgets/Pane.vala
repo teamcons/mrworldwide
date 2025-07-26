@@ -14,6 +14,9 @@
     public Gtk.ActionBar actionbar;
     public Gtk.Label count;
 
+    public MrWorldWide.Lang[] langs;
+
+
     public signal void changed (string code);
 
     public Pane (Lang[] langs) {
@@ -21,12 +24,12 @@
         orientation = Gtk.Orientation.VERTICAL;
         spacing = 6;
 
-
 		model = new MrWorldWide.DDModel ();
 
         foreach (var language in langs) {
             model.model_append (language);
         }
+
 		dropdown = new Gtk.DropDown (null, null);
 		dropdown.model = model.model;
 		dropdown.factory = model.factory;

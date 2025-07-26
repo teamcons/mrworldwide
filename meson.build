@@ -45,6 +45,8 @@ executable(
     'src' / 'Objects' / 'DDModel.vala',
     'src' / 'Widgets' / 'Menu.vala',
     'src' / 'Widgets' / 'Pane.vala',
+    'src' / 'Widgets' / 'SourcePane.vala',
+    'src' / 'Widgets' / 'TargetPane.vala',
     'src' / 'Windows' / 'Window.vala',
     'src' / 'Application.vala',
     dependencies: deps,

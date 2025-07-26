@@ -5,12 +5,12 @@
 
 public class MrWorldWide.Window : Gtk.Window {
 
-public Gtk.Spinner loading;
-public Gtk.Revealer loading_revealer;
-private Gtk.Paned paned;
-public MrWorldWide.Pane source_pane;
-public MrWorldWide.Pane target_pane;
-public MrWorldWide.Menu menu_popover;
+    public Gtk.Spinner loading;
+    public Gtk.Revealer loading_revealer;
+    private Gtk.Paned paned;
+    public MrWorldWide.SourcePane source_pane;
+    public MrWorldWide.TargetPane target_pane;
+    public MrWorldWide.Menu menu_popover;
 
 
     public SimpleActionGroup actions { get; construct; }
@@ -83,18 +83,14 @@ public MrWorldWide.Menu menu_popover;
         };
 
 
-        var sources = MrWorldWide.SourceLang ();
-        source_pane = new MrWorldWide.Pane (sources);
-
+        source_pane = new MrWorldWide.SourcePane ();
         var selected_source_language = Application.settings.get_string ("source-language");
-        source_pane.set_selected_language (selected_source_language);
+        source_pane.pane.set_selected_language (selected_source_language);
 
 
-        var targets = MrWorldWide.TargetLang ();
-        target_pane = new MrWorldWide.Pane (targets);
-
+        target_pane = new MrWorldWide.TargetPane ();
         var selected_target_language = Application.settings.get_string ("target-language");
-        target_pane.set_selected_language (selected_target_language);
+        target_pane.pane.set_selected_language (selected_target_language);
 
 
         paned = new Gtk.Paned (HORIZONTAL);
@@ -113,8 +109,8 @@ public MrWorldWide.Menu menu_popover;
 
         child = scrolled;
 
-        source_pane.changed.connect (on_source_changed);
-        target_pane.changed.connect (on_target_changed);
+        source_pane.pane.changed.connect (on_source_changed);
+        target_pane.pane.changed.connect (on_target_changed);
 
 
         paned.notify ["position"].connect (() => {
