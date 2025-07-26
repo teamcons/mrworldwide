@@ -26,15 +26,18 @@ public class MrWorldWide.Menu : Gtk.Popover {
 
     api_entry = new Gtk.PasswordEntry () {
       placeholder_text = _("Enter API key here"),
-      show_peek_icon = true
+      show_peek_icon = true,
+      hexpand = true,
+      halign = Gtk.Align.FILL
     };
 
     var api_paste = new Gtk.Button.from_icon_name ("edit-paste-symbolic") {
     tooltip_text = _("Paste Deepl API")
     };
 
-    api_field.append (api_paste);
     api_field.append (api_entry);
+    api_field.append (api_paste);
+
     box.append (api_field);
 
     var link = "";
@@ -53,11 +56,18 @@ public class MrWorldWide.Menu : Gtk.Popover {
                 margin_top = 0
     };
 
-    box.append (hint);
-    box.append (hint_label);
+    //box.append (hint);
+    //box.append (hint_label);
 
     child = box;
 
+
+    Application.settings.bind (
+      "key",
+      api_entry,
+      "text",
+      SettingsBindFlags.DEFAULT
+    );
 
     }
 }

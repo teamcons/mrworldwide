@@ -16,5 +16,20 @@
       <summary>Open window maximized.</summary>
       <description>Whether the main window of the application should open maximized or not.</description>
     </key>
+    <key name="key" type="s">
+      <default>""</default>
+      <summary>deepl key</summary>
+      <description>Needs to be moved to libsecret</description>
+    </key>
+    <key name="source-language" type="s">
+      <default>""</default>
+      <summary>deepl key</summary>
+      <description>language code</description>
+    </key>
+    <key name="target-language" type="s">
+      <default>""</default>
+      <summary>deepl key</summary>
+      <description>language code</description>
+    </key>
   </schema>
 </schemalist>

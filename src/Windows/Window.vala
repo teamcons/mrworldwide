@@ -49,11 +49,9 @@ public MrWorldWide.Menu menu_popover;
         actions.add_action_entries (ACTION_ENTRIES, this);
         insert_action_group ("app", actions);
 
-        restore_state ();
 
-
-        title = _("Captain WorldWide");
-        Gtk.Label title_widget = new Gtk.Label (_("Captain WorldWide"));
+        title = _("Mr WorldWide");
+        Gtk.Label title_widget = new Gtk.Label (_("Mr WorldWide"));
         title_widget.add_css_class (Granite.STYLE_CLASS_TITLE_LABEL);
 
         var headerbar = new Gtk.HeaderBar ();
@@ -86,10 +84,18 @@ public MrWorldWide.Menu menu_popover;
 
 
         var sources = MrWorldWide.SourceLang ();
-        var targets = MrWorldWide.TargetLang ();
-
         source_pane = new MrWorldWide.Pane (sources);
+
+        var selected_source_language = Application.settings.get_string ("source-language");
+        source_pane.set_selected_language (selected_source_language);
+
+
+        var targets = MrWorldWide.TargetLang ();
         target_pane = new MrWorldWide.Pane (targets);
+
+        var selected_target_language = Application.settings.get_string ("target-language");
+        target_pane.set_selected_language (selected_target_language);
+
 
         paned = new Gtk.Paned (HORIZONTAL);
         paned.start_child = source_pane;
@@ -100,18 +106,22 @@ public MrWorldWide.Menu menu_popover;
         };
 
         child = scrolled;
-    }
 
-    private void restore_state () {
-        var rect = Gdk.Rectangle ();
-        Application.settings.get ("window-size", "(ii)", out rect.width, out rect.height);
-
-        default_width = rect.width;
-        default_height = rect.height;
+        source_pane.changed.connect (on_source_changed);
+        target_pane.changed.connect (on_target_changed);
     }
 
     private void on_menu () {
         menu_popover.popup ();
+    }
+
+
+    private void on_source_changed (string code) {
+        Application.settings.set_string ("source-language", code);
+    }
+
+    private void on_target_changed (string code) {
+        Application.settings.set_string ("target-language", code);
     }
 
 }

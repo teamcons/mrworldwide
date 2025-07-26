@@ -66,7 +66,7 @@ public class MrWorldWide.Application : Gtk.Application {
         * Set maximize after height/width else window is min size on unmaximize
         * Bind maximize as SET else get get bad sizes
         */
-        var settings = new Settings ("io.github.teamcons.mrworldwide");
+        settings = new Settings ("io.github.teamcons.mrworldwide");
         settings.bind ("window-height", main_window, "default-height", SettingsBindFlags.DEFAULT);
         settings.bind ("window-width", main_window, "default-width", SettingsBindFlags.DEFAULT);
 
