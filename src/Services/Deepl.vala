@@ -1,22 +1,33 @@
 // Translation service that use translate
-public class Deepl : AsyncTaskExecuter {  
-  private const string API_KEY = "trnsl.1.1.20150427T160217Z.69da78079263823e.0f0caa9724cee126c18028e70f227b633a3fe58f";
+public class MrWorldWide.Deepl : AsyncTaskExecuter {
+  private const string API_KEY;
   private string[] _result;
   private string _from;
   private string _to;
   private string _text;
 
+  private string baseurl;
+
   /// On result
-  public signal void result(string[] text);
+  public signal void result (string[] text);
 
   /// Constructor
-  public TranslateService() {
+  public TranslateService () {
     base();
+
+    API_KEY =  = Application.settings.get_string ("key");
+
+    if (API_KEY has :fx) {
+      baseurl = https://translate.yandex.net;
+    } else {
+      baseurl = https://translate.yandex.net;      
+    }
+
   }
 
   /// Task main working method
   public override void OnExecute() throws TranslatorError {
-    var ntext = Soup.URI.encode(_text, null);    
+    var ntext = Soup.URI.encode(_text, null);
     var request = @"https://translate.yandex.net/api/v1.5/tr.json/translate?key=$(API_KEY)&lang=$(_from)-$(_to)&text=$(ntext)";
     var root = WebJsonClient.Get(request);
     var data = new Gee.ArrayList<string>();
@@ -44,6 +55,6 @@ public class Deepl : AsyncTaskExecuter {
     _from = from;
     _to = to;
     _text = text;
-    Run();
+    Run ();
   }
 }

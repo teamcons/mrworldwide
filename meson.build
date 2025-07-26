@@ -43,6 +43,7 @@ executable(
     'src' / 'Constants.vala',
     'src' / 'Objects' / 'Lang.vala',
     'src' / 'Objects' / 'DDModel.vala',
+    #    'src' / 'Services' / 'Deepl.vala',
     'src' / 'Widgets' / 'Menu.vala',
     'src' / 'Widgets' / 'Pane.vala',
     'src' / 'Widgets' / 'SourcePane.vala',
