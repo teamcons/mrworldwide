@@ -66,7 +66,9 @@
         actionbar.add_css_class (Granite.STYLE_CLASS_FLAT);
 
 
-        count = new Gtk.Label ("");
+        count = new Gtk.Label ("") {
+            sensitive = false
+        };
         actionbar.pack_start (count);
 
         var handle = new Gtk.WindowHandle () {
