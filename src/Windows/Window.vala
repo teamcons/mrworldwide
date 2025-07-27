@@ -14,6 +14,12 @@ public class MrWorldWide.Window : Gtk.Window {
     public MrWorldWide.TargetPane target_pane;
     public MrWorldWide.Menu menu_popover;
 
+    private DeepL backend;
+
+    // Add a debounce so we aren't writing the entire buffer every character input
+    public int interval = 3000; // ms
+    public uint debounce_timer_id = 0;
+
     public SimpleActionGroup actions { get; construct; }
     public const string ACTION_PREFIX = "app.";
     public const string ACTION_MENU = "menu";
@@ -108,6 +114,9 @@ public class MrWorldWide.Window : Gtk.Window {
         set_focus (source_pane.pane.textview);
 
 
+        backend = new DeepL ();
+
+
         toggleview_button.clicked.connect (toggle_view);
         Application.settings.changed["vertical-layout"].connect (on_toggle_pane_changed);
 
@@ -115,6 +124,9 @@ public class MrWorldWide.Window : Gtk.Window {
 
         source_pane.pane.changed.connect (on_source_changed);
         target_pane.pane.changed.connect (on_target_changed);
+
+        source_pane.pane.textview.buffer.changed.connect (on_text_to_translate);
+
     }
 
     private void on_menu () {
@@ -147,4 +159,18 @@ public class MrWorldWide.Window : Gtk.Window {
         }
     }
     
+    private void on_text_to_translate () {
+        debug ("The buffer has been modified, starting the debounce timer");
+
+        if (debounce_timer_id != 0) {
+            GLib.Source.remove (debounce_timer_id);
+        }
+
+        debounce_timer_id = Timeout.add (interval, () => {
+            debounce_timer_id = 0;
+            backend.send_request (source_pane.pane.textview.buffer.text);
+            return GLib.Source.REMOVE;
+        });
+
+    }
 }

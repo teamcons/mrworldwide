@@ -1,60 +1,87 @@
+/*
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ * SPDX-FileCopyrightText:  2025 Stella & Charlie (teamcons.carrd.co)
+ */
+
+
+//https://dev.to/sdv43/how-to-use-curl-in-vala-i60
+
 // Translation service that use translate
-public class MrWorldWide.DeepL : AsyncTaskExecuter {
-  private const string API_KEY;
-  private string[] _result;
-  private string _from;
-  private string _to;
-  private string _text;
+public class MrWorldWide.DeepL : Object {
 
-  private string baseurl;
+  private string from;
+  private string to;
+  private string api_key;
+  private string base_url;
 
-  /// On result
-  public signal void result (string[] text);
+  public signal void answer_received (string translated_text);
 
-  /// Constructor
-  public TranslateService () {
-    base();
+  private const string URL_DEEPL_FREE = "https://api-free.deepl.com";
+  private const string URL_DEEPL_PRO = "https://api.deepl.com";
+  private const string REST_OF_THE_URL = "/v2/translate";
 
-    API_KEY =  = Application.settings.get_string ("key");
+  /*  
+    curl -X POST https://api.deepl.com/v2/translate \
+      --header "Content-Type: application/json" \
+      --header "Authorization: DeepL-Auth-Key $API_KEY" \
+      --data '{
+        "text": ["Hello world!"], 
+        "target_lang": "DE"
+    }'  */
 
-    if (API_KEY has :fx) {
-      baseurl = https://translate.yandex.net;
+  public void reload () {
+    from = Application.settings.get_string ("source-language");
+    if (from == "idk") {
+      from = detect_system ();
+    }
+
+    to = Application.settings.get_string ("target-language");
+    if (to == "idk") {
+      to = detect_system ();
+    }
+
+    api_key = Application.settings.get_string ("key");
+    if (api_key.has_suffix (":fx")) {
+      base_url = URL_DEEPL_FREE;
     } else {
-      baseurl = https://translate.yandex.net;      
-    }
-
-  }
-
-  /// Task main working method
-  public override void OnExecute() throws TranslatorError {
-    var ntext = Soup.URI.encode(_text, null);
-    var request = @"https://translate.yandex.net/api/v1.5/tr.json/translate?key=$(API_KEY)&lang=$(_from)-$(_to)&text=$(ntext)";
-    var root = WebJsonClient.Get(request);
-    var data = new Gee.ArrayList<string>();
-
-    if (root != null) {
-        var sentences = root.get_array_member("text");
-
-        if (sentences != null) {
-            foreach (var s in sentences.get_elements()) {
-                var el = s.get_string();
-                data.add(el);
-            }
-        }
-        _result = data.to_array();
+      base_url = URL_DEEPL_PRO;
     }
   }
 
-  /// On result
-  public override void OnResult() {
-    result(_result);
+  // https://dev.to/sdv43/how-to-use-curl-in-vala-i60
+
+
+
+  public void send_request (string text) {
+    reload ();
+    var a = "{
+        'text': ['Hello world!'], 
+        'target_lang': 'DE'
+    }";
+
+
+    var session = new Soup.Session ();
+    var msg = new Soup.Message ("POST", base_url + REST_OF_THE_URL);
+    msg.request_headers.append ("Content-Type", "application/json");
+    msg.request_headers.append ("Content-Length", a.length.to_string ());
+    msg.request_headers.append ("Authorization", "DeepL-Auth-Key %s".printf (api_key));
+    msg.set_request_body_from_bytes ("text/plain", new Bytes (a.data));
+
+    session.send_and_read_async.begin (msg, 0, null, (obj,res) => {
+      try {
+        var bytes = session.send_and_read_async.end (res);
+        var answer = (string)bytes.get_data ();
+        print (answer);                  
+
+      } catch (Error e) {
+        stderr.printf ("Got: %s\n", e.message);
+      }
+    });
   }
 
-  /// Start to translate
-  public void Translate(string from, string to, string text) {
-    _from = from;
-    _to = to;
-    _text = text;
-    Run ();
+  public string detect_system () {
+    return "de";
   }
+
 }
+

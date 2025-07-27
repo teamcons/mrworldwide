@@ -30,9 +30,12 @@ gresource = gnome.compile_resources(
 )
 
 # List the dependencies we need
+# need for libcurl
 deps = [
     dependency('granite-7'),
-    dependency('gtk4')
+    dependency('gtk4'),
+    dependency ('libsoup-3.0'),
+    dependency ('json-glib-1.0')
 ]
 
 # Create a new executable, list the files we want to compile, and install
@@ -43,7 +46,7 @@ executable(
     'src' / 'Constants.vala',
     'src' / 'Objects' / 'Lang.vala',
     'src' / 'Objects' / 'DDModel.vala',
-    #    'src' / 'Services' / 'DeepL.vala',
+    'src' / 'Services' / 'DeepL.vala',
     'src' / 'Widgets' / 'Menu.vala',
     'src' / 'Widgets' / 'Pane.vala',
     'src' / 'Widgets' / 'SourcePane.vala',

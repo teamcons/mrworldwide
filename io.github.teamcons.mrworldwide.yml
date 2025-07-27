@@ -1,6 +1,6 @@
 id: io.github.teamcons.mrworldwide
 runtime: io.elementary.Platform
-runtime-version: '8.1'
+runtime-version: '8.2'
 sdk: io.elementary.Sdk
 command: io.github.teamcons.mrworldwide
 
@@ -9,6 +9,7 @@ finish-args:
   - '--device=dri'
   - '--socket=fallback-x11'
   - '--socket=wayland'
+  # needed to coööunicate with deepl
   - '--share=network'
 
 cleanup:
