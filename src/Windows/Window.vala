@@ -7,8 +7,8 @@ public class MrWorldWide.Window : Gtk.Window {
 
     private Gtk.Button toggleview_button;
     private Gtk.MenuButton popover_button;
-    public Gtk.Spinner loading;
-    public Gtk.Revealer loading_revealer;
+    private Gtk.Spinner loading;
+    private Gtk.Revealer loading_revealer;
     private Gtk.Paned paned;
     public MrWorldWide.SourcePane source_pane;
     public MrWorldWide.TargetPane target_pane;
@@ -55,7 +55,7 @@ public class MrWorldWide.Window : Gtk.Window {
         actions.add_action_entries (ACTION_ENTRIES, this);
         insert_action_group ("app", actions);
 
-
+        /* ---------------- HEADERBAR ---------------- */
         title = _("Mr WorldWide");
         Gtk.Label title_widget = new Gtk.Label (_("Mr WorldWide"));
         title_widget.add_css_class (Granite.STYLE_CLASS_TITLE_LABEL);
@@ -98,6 +98,7 @@ public class MrWorldWide.Window : Gtk.Window {
         headerbar.pack_end (loading_revealer);
 
 
+        /* ---------------- MAIN VIEW ---------------- */
         source_pane = new MrWorldWide.SourcePane ();
         var selected_source_language = Application.settings.get_string ("source-language");
         source_pane.pane.set_selected_language (selected_source_language);
@@ -107,7 +108,6 @@ public class MrWorldWide.Window : Gtk.Window {
         var selected_target_language = Application.settings.get_string ("target-language");
         target_pane.pane.set_selected_language (selected_target_language);
 
-
         paned = new Gtk.Paned (HORIZONTAL);
         paned.start_child = source_pane;
         paned.end_child = target_pane;
@@ -116,19 +116,22 @@ public class MrWorldWide.Window : Gtk.Window {
         set_focus (source_pane.pane.textview);
 
 
-        backend = new DeepL ();
 
 
+        /* ---------------- CONNECTS ---------------- */
+        // Logic for toggling the panes/layout
+        on_toggle_pane_changed ();
         toggleview_button.clicked.connect (toggle_view);
         Application.settings.changed["vertical-layout"].connect (on_toggle_pane_changed);
 
-        on_toggle_pane_changed ();
-
+        // Simply save up selected languages
         source_pane.pane.changed.connect (on_source_changed);
         target_pane.pane.changed.connect (on_target_changed);
 
+        // Backend takes care of the async for us. We give it the text
+        // And it will emit a signal whenever finished, which we can connect to
+        backend = new DeepL ();
         source_pane.pane.textview.buffer.changed.connect (on_text_to_translate);
-
         backend.answer_received.connect (on_answer_received);
     }
 
