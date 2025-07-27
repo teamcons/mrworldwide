@@ -54,10 +54,13 @@ public class MrWorldWide.DeepL : Object {
 
   public void send_request (string text) {
     reload ();
-    var a = "{
+
+    var a = prep_json (text);
+    print (a);
+/*      var a = "{
         'text': ['Hello world!'], 
         'target_lang': 'DE'
-    }";
+    }";  */
 
 
     var session = new Soup.Session ();
@@ -81,6 +84,27 @@ public class MrWorldWide.DeepL : Object {
 
   public string detect_system () {
     return "de";
+  }
+
+
+  public string prep_json (string text) {
+    var builder = new Json.Builder ();
+      
+    builder.begin_object ();
+    builder.set_member_name ("text");
+    //builder.begin_array ();
+    builder.add_string_value (text);
+    //builder.end_array ();
+
+    builder.set_member_name ("target_lang");
+    builder.add_string_value (to);
+    builder.end_object ();
+
+    Json.Generator generator = new Json.Generator ();
+    Json.Node root = builder.get_root ();
+    generator.set_root (root);
+    string str = generator.to_data (null);
+    return str;
   }
 
 }
