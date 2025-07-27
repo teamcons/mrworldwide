@@ -53,7 +53,11 @@ public class MrWorldWide.Application : Gtk.Application {
 
         var menu_action = new SimpleAction ("menu", null);
         add_action (menu_action);
-        set_accels_for_action ("app.menu", {"<Control>m"});
+        set_accels_for_action ("app.toggle_view", {"<Control>t"});
+
+        var toggle_view_action = new SimpleAction ("toggle_view", null);
+        add_action (toggle_view_action);
+        set_accels_for_action ("app.toggle_view", {"<Control>t"});
 
     }
 

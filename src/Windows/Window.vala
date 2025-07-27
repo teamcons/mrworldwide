@@ -5,6 +5,7 @@
 
 public class MrWorldWide.Window : Gtk.Window {
 
+    private Gtk.Button toggleview_button;
     private Gtk.MenuButton popover_button;
     public Gtk.Spinner loading;
     public Gtk.Revealer loading_revealer;
@@ -16,10 +17,12 @@ public class MrWorldWide.Window : Gtk.Window {
     public SimpleActionGroup actions { get; construct; }
     public const string ACTION_PREFIX = "app.";
     public const string ACTION_MENU = "menu";
+    public const string ACTION_TOGGLE_VIEW = "toggle_view";
     public static Gee.MultiMap<string, string> action_accelerators = new Gee.HashMultiMap<string, string> ();
 
     private const GLib.ActionEntry[] ACTION_ENTRIES = {
-        { ACTION_MENU, on_menu}
+        { ACTION_MENU, on_menu},
+        { ACTION_TOGGLE_VIEW, toggle_view}
     };
 
 
@@ -58,6 +61,13 @@ public class MrWorldWide.Window : Gtk.Window {
         set_titlebar (headerbar);
 
 
+        toggleview_button = new Gtk.Button.from_icon_name ("view-dual") {
+            tooltip_markup = Granite.markup_accel_tooltip ({"<Ctrl>T"}, _("Switch orientation")),
+        };
+
+        headerbar.pack_start (toggleview_button);
+
+
         popover_button = new Gtk.MenuButton () {
         icon_name = "open-menu",
         tooltip_markup = Granite.markup_accel_tooltip ({"<Ctrl>M"}, _("Settings")),
@@ -93,30 +103,29 @@ public class MrWorldWide.Window : Gtk.Window {
         paned = new Gtk.Paned (HORIZONTAL);
         paned.start_child = source_pane;
         paned.end_child = target_pane;
-
-        var pos = Application.settings.get_int ("panes-position");
-        if (pos != 0) {
-            paned.position = pos;
-        }
-
         child = paned;
 
         set_focus (source_pane.pane.textview);
 
 
+        toggleview_button.clicked.connect (toggle_view);
+        Application.settings.changed["vertical-layout"].connect (on_toggle_pane_changed);
+
+        on_toggle_pane_changed ();
+
         source_pane.pane.changed.connect (on_source_changed);
         target_pane.pane.changed.connect (on_target_changed);
-
-
-        paned.notify ["position"].connect (() => {
-            Application.settings.set_int ("panes-position", paned.position);
-        });
-
-
     }
 
     private void on_menu () {
         popover_button.activate ();
+    }
+
+    private void toggle_view () {
+        Application.settings.set_boolean (
+            "vertical-layout",
+            ! Application.settings.get_boolean ("vertical-layout")
+        );
     }
 
     private void on_source_changed (string code) {
@@ -125,6 +134,17 @@ public class MrWorldWide.Window : Gtk.Window {
 
     private void on_target_changed (string code) {
         Application.settings.set_string ("target-language", code);
+    }
+
+    private void on_toggle_pane_changed () {
+        if (Application.settings.get_boolean ("vertical-layout")) {            
+            paned.orientation = Gtk.Orientation.VERTICAL;
+            toggleview_button.remove_css_class ("rotated");
+
+        } else {
+            paned.orientation = Gtk.Orientation.HORIZONTAL;
+            toggleview_button.add_css_class ("rotated");
+        }
     }
     
 }
