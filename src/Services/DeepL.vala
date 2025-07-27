@@ -31,12 +31,12 @@ public class MrWorldWide.DeepL : Object {
 
   public void reload () {
     from = Application.settings.get_string ("source-language");
-    if (from == "idk") {
+    if (from == "system") {
       from = detect_system ();
     }
 
     to = Application.settings.get_string ("target-language");
-    if (to == "idk") {
+    if (to == "system") {
       to = detect_system ();
     }
 
@@ -48,10 +48,6 @@ public class MrWorldWide.DeepL : Object {
     }
   }
 
-  // https://dev.to/sdv43/how-to-use-curl-in-vala-i60
-
-
-
   public void send_request (string text) {
     reload ();
 
@@ -62,11 +58,11 @@ public class MrWorldWide.DeepL : Object {
         'target_lang': 'DE'
     }";  */
 
-
     var session = new Soup.Session ();
     var msg = new Soup.Message ("POST", base_url + REST_OF_THE_URL);
     msg.request_headers.append ("Content-Type", "application/json");
-    msg.request_headers.append ("Content-Length", a.length.to_string ());
+    msg.request_headers.append ("Content-Length", a.data.length.to_string ());
+    msg.request_headers.append ("User-Agent", "Mr WorldWide");
     msg.request_headers.append ("Authorization", "DeepL-Auth-Key %s".printf (api_key));
     msg.set_request_body_from_bytes ("text/plain", new Bytes (a.data));
 
@@ -74,7 +70,7 @@ public class MrWorldWide.DeepL : Object {
       try {
         var bytes = session.send_and_read_async.end (res);
         var answer = (string)bytes.get_data ();
-        print (answer);                  
+        answer_received (answer);                  
 
       } catch (Error e) {
         stderr.printf ("Got: %s\n", e.message);
@@ -86,15 +82,19 @@ public class MrWorldWide.DeepL : Object {
     return "de";
   }
 
-
   public string prep_json (string text) {
     var builder = new Json.Builder ();
-      
+
     builder.begin_object ();
     builder.set_member_name ("text");
-    //builder.begin_array ();
+    builder.begin_array ();
     builder.add_string_value (text);
-    //builder.end_array ();
+    builder.end_array ();
+
+    if (from != "idk") {
+      builder.set_member_name ("source_lang");
+      builder.add_string_value (from);
+    }
 
     builder.set_member_name ("target_lang");
     builder.add_string_value (to);

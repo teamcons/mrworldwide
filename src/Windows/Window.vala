@@ -95,6 +95,8 @@ public class MrWorldWide.Window : Gtk.Window {
             transition_duration = 500
         };
 
+        headerbar.pack_end (loading_revealer);
+
 
         source_pane = new MrWorldWide.SourcePane ();
         var selected_source_language = Application.settings.get_string ("source-language");
@@ -127,6 +129,7 @@ public class MrWorldWide.Window : Gtk.Window {
 
         source_pane.pane.textview.buffer.changed.connect (on_text_to_translate);
 
+        backend.answer_received.connect (on_answer_received);
     }
 
     private void on_menu () {
@@ -168,9 +171,19 @@ public class MrWorldWide.Window : Gtk.Window {
 
         debounce_timer_id = Timeout.add (interval, () => {
             debounce_timer_id = 0;
+
+            loading.start ();
+            loading_revealer.reveal_child = true;
+
             backend.send_request (source_pane.pane.textview.buffer.text);
             return GLib.Source.REMOVE;
         });
-
     }
+
+    private void on_answer_received (string answer) {
+        target_pane.pane.textview.buffer.text = answer;
+        loading_revealer.reveal_child = false;
+        loading.stop ();
+    }
+
 }
