@@ -15,10 +15,22 @@
         pane = new MrWorldWide.Pane (MrWorldWide.SourceLang ());
         append (pane);
 
-        var paste = new Gtk.Button.from_icon_name ("edit-paste-symbolic") {
-            tooltip_text = _("Paste from clipboard")
+        var paste = new Gtk.Button.from_icon_name ("edit-paste") {
+            tooltip_text = _("Paste from clipboard"),
+            margin_start = 6
         };
         pane.actionbar.pack_end (paste);
+
+
+        var options_menu = new MrWorldWide.OptionsMenu ();
+        var options_button = new Gtk.MenuButton () {
+          icon_name = "tag",
+          popover = options_menu,
+          tooltip_text = _("Add context to the text to translate"),
+        };
+        options_button.direction = Gtk.ArrowType.UP;
+        pane.actionbar.pack_end (options_button);
+
 
         paste.clicked.connect (paste_from_clipboard);
     }

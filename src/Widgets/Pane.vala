@@ -63,6 +63,7 @@
             vexpand = false,
             valign = Gtk.Align.END
         };
+        actionbar.height_request = 36;
         actionbar.add_css_class (Granite.STYLE_CLASS_FLAT);
 
 

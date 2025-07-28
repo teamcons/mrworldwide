@@ -48,6 +48,7 @@ executable(
     'src' / 'Objects' / 'DDModel.vala',
     'src' / 'Backend' / 'DeepL.vala',
     'src' / 'Widgets' / 'Menu.vala',
+    'src' / 'Widgets' / 'OptionsMenu.vala',
     'src' / 'Widgets' / 'Pane.vala',
     'src' / 'Widgets' / 'SourcePane.vala',
     'src' / 'Widgets' / 'TargetPane.vala',

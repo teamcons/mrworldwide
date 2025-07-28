@@ -38,6 +38,7 @@ public class MrWorldWide.DeepL : Object {
   private string api_key;
   private string base_url;
   private string system_language;
+  private string context;
 
   public signal void answer_received (string translated_text);
   public signal void language_detected (string? detected_language_code = null);
@@ -65,6 +66,8 @@ public class MrWorldWide.DeepL : Object {
     } else {
       base_url = URL_DEEPL_PRO;
     }
+
+    context = Application.settings.get_string ("context");
   }
 
   public void send_request (string text) {
@@ -103,6 +106,9 @@ public class MrWorldWide.DeepL : Object {
   public string detect_system () {
     unowned string system_language = Environment.get_variable ("LANG");
     var minicode = system_language.substring (0, 2).ascii_up (-1);
+
+    //TODO: correct for PT_PT, PT_BR, NO being NB, the ZH gang
+
     print ("\nBackend: Detected system language: " + minicode);
     return minicode;
   }
@@ -123,6 +129,12 @@ public class MrWorldWide.DeepL : Object {
 
     builder.set_member_name ("target_lang");
     builder.add_string_value (target_lang);
+
+    if (context != "") {
+      builder.set_member_name ("context");
+      builder.add_string_value (context);
+    }
+
     builder.end_object ();
 
     Json.Generator generator = new Json.Generator ();

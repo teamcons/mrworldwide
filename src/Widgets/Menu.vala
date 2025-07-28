@@ -7,10 +7,9 @@ public class MrWorldWide.Menu : Gtk.Popover {
 
   public Gtk.PasswordEntry api_entry;
 
-
   construct {
 
-    var box = new Gtk.Box (VERTICAL, 6) {
+    var box = new Gtk.Box (VERTICAL, 12) {
       margin_top = margin_bottom = 6,
       margin_start = 6,
       margin_end = 6
