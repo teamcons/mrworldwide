@@ -17,7 +17,7 @@
     public MrWorldWide.Lang[] langs;
 
 
-    public signal void changed (string code);
+    public signal void changed (string code = "");
 
     public Pane (Lang[] langs) {
 
@@ -85,7 +85,7 @@
     public void on_selected_language () {
         selected = dropdown.get_selected_item() as Lang;
 		changed (selected.code);
-        print("S selected %s:%s\n", selected.code, selected.name);
+        print ("\nS selected %s:%s", selected.code, selected.name);
     }
 
     public void set_selected_language (string code) {
@@ -98,6 +98,14 @@
         count.label = len;
         ///TRANSLATORS: %s is replaced by a number
         count.tooltip_text = _("Counted %s characters").printf (len);
+    }
+
+    public void set_text (string text) {
+        this.textview.buffer.text = text;
+    }
+
+    public string get_text () {
+        return this.textview.buffer.text;
     }
 
 }

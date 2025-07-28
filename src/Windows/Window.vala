@@ -16,8 +16,8 @@ public class MrWorldWide.Window : Gtk.Window {
 
     private DeepL backend;
 
-    // Add a debounce so we aren't writing the entire buffer every character input
-    public int interval = 3000; // ms
+    // Add a debounce so we aren't requesting the API constantly
+    public int interval = 2000; // ms
     public uint debounce_timer_id = 0;
 
     public SimpleActionGroup actions { get; construct; }
@@ -66,13 +66,10 @@ public class MrWorldWide.Window : Gtk.Window {
 
         set_titlebar (headerbar);
 
-
         toggleview_button = new Gtk.Button.from_icon_name ("view-dual") {
             tooltip_markup = Granite.markup_accel_tooltip ({"<Ctrl>T"}, _("Switch orientation")),
         };
-
         headerbar.pack_start (toggleview_button);
-
 
         popover_button = new Gtk.MenuButton () {
         icon_name = "open-menu",
@@ -131,9 +128,17 @@ public class MrWorldWide.Window : Gtk.Window {
         // Backend takes care of the async for us. We give it the text
         // And it will emit a signal whenever finished, which we can connect to
         backend = new DeepL ();
+
+        // translate when text is entered or user changes any language
         source_pane.pane.textview.buffer.changed.connect (on_text_to_translate);
+        source_pane.pane.changed.connect (on_text_to_translate);
+        target_pane.pane.changed.connect (on_text_to_translate);
+
+        // Connect to the backend and do stuff if answer
         backend.answer_received.connect (on_answer_received);
 
+        // Listen if the backend recognize a language to switch to it
+        // debatable whether to keep this idk
         backend.language_detected.connect ((detected_language_code) => {
             if (detected_language_code != null) {
                 source_pane.pane.set_selected_language (detected_language_code);
@@ -184,13 +189,13 @@ public class MrWorldWide.Window : Gtk.Window {
             loading.start ();
             loading_revealer.reveal_child = true;
 
-            backend.send_request (source_pane.pane.textview.buffer.text);
+            backend.send_request (source_pane.pane.get_text ());
             return GLib.Source.REMOVE;
         });
     }
 
     private void on_answer_received (string answer) {
-        target_pane.pane.textview.buffer.text = answer;
+        target_pane.pane.set_text (answer);
         loading_revealer.reveal_child = false;
         loading.stop ();
     }

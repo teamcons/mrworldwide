@@ -68,18 +68,12 @@ public class MrWorldWide.DeepL : Object {
   }
 
   public void send_request (string text) {
+
     reload ();
-
     var a = prep_json (text);
-/*      var a = "{
-        'text': ['Hello world!'], 
-        'target_lang': 'DE'
-    }";  */
-
     var session = new Soup.Session ();
 
-
-    var logger = new Soup.Logger(Soup.LoggerLogLevel.BODY);
+    var logger = new Soup.Logger (Soup.LoggerLogLevel.BODY);
     session.add_feature (logger);
     // optional, stderr (vice stdout)
     logger.set_printer ((_1, _2, dir, text) => {
@@ -88,20 +82,16 @@ public class MrWorldWide.DeepL : Object {
 
     var msg = new Soup.Message ("POST", base_url + REST_OF_THE_URL);
     msg.request_headers.append ("Content-Type", "application/json");
-    //msg.request_headers.append ("Content-Length", a.data.length.to_string ());
     msg.request_headers.append ("User-Agent", "Mr WorldWide");
     msg.request_headers.append ("Authorization", "DeepL-Auth-Key %s".printf (api_key));
-    msg.set_request_body_from_bytes ("text/plain", new Bytes (a.data));
+    msg.set_request_body_from_bytes ("application/json", new Bytes (a.data));
 
     session.send_and_read_async.begin (msg, 0, null, (obj, res) => {
       try {
         var bytes = session.send_and_read_async.end (res);
         var answer = (string)bytes.get_data ();
-        answer_received (answer);
-
         var unwrapped_text = unwrap_json (answer);
-        //answer_received (unwrapped_text);
-        print (unwrapped_text);
+        answer_received (unwrapped_text);
 
       } catch (Error e) {
         stderr.printf ("Got: %s\n", e.message);
@@ -113,7 +103,7 @@ public class MrWorldWide.DeepL : Object {
   public string detect_system () {
     unowned string system_language = Environment.get_variable ("LANG");
     var minicode = system_language.substring (0, 2).ascii_up (-1);
-    print ("\nDetected system language: " + minicode);
+    print ("\nBackend: Detected system language: " + minicode);
     return minicode;
   }
 
@@ -144,9 +134,8 @@ public class MrWorldWide.DeepL : Object {
 
 
   public string unwrap_json (string text_json) {
-    print ("\n Answer we got: " + text_json);
-    var parser = new Json.Parser ();
 
+    var parser = new Json.Parser ();
     try {
           parser.load_from_data (text_json);
     } catch (Error e) {
@@ -155,16 +144,22 @@ public class MrWorldWide.DeepL : Object {
 
     var root = parser.get_root ();
     var objects = root.get_object ();
-    //var items = objects.get_array_member ("translations");
-
-    string translated_text = objects.get_string_member_with_default ("text", _("Cannot retrieve translated text!"));
-    print ("\n Translated text:" + translated_text);
+    var array = objects.get_array_member ("translations");
+    var translation = array.get_object_element (0);
 
     if (source_lang == "idk") {
-          string detected_language_code = objects.get_string_member_with_default ("detected_source_language", (_("Cannot detect!")));
+          var detected_language_code = translation.get_string_member_with_default (
+                                                                                          "detected_source_language",
+                                                                                           (_("Cannot detect!"))
+                                                                                          );
           print ("\n Detected language code: " + detected_language_code);
           language_detected (detected_language_code);
     }
+
+    string translated_text = translation.get_string_member_with_default (
+                                                                        "text",
+                                                                        _("Cannot retrieve translated text!")
+                                                                        );
 
     return translated_text;
   }
