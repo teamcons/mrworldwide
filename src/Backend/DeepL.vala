@@ -46,15 +46,6 @@ public class MrWorldWide.DeepL : Object {
   private const string URL_DEEPL_PRO = "https://api.deepl.com";
   private const string REST_OF_THE_URL = "/v2/translate";
 
-  /*  
-    curl -X POST https://api.deepl.com/v2/translate \
-      --header "Content-Type: application/json" \
-      --header "Authorization: DeepL-Auth-Key $API_KEY" \
-      --data '{
-        "text": ["Hello world!"], 
-        "target_lang": "DE"
-    }'  */
-
   public void reload () {
     system_language = detect_system ();
 
@@ -80,27 +71,37 @@ public class MrWorldWide.DeepL : Object {
     reload ();
 
     var a = prep_json (text);
-    print (a);
 /*      var a = "{
         'text': ['Hello world!'], 
         'target_lang': 'DE'
     }";  */
 
     var session = new Soup.Session ();
+
+
+    var logger = new Soup.Logger(Soup.LoggerLogLevel.BODY);
+    session.add_feature (logger);
+    // optional, stderr (vice stdout)
+    logger.set_printer ((_1, _2, dir, text) => {
+      stderr.printf ("%c %s\n", dir, text);
+    });
+
     var msg = new Soup.Message ("POST", base_url + REST_OF_THE_URL);
     msg.request_headers.append ("Content-Type", "application/json");
-    msg.request_headers.append ("Content-Length", a.data.length.to_string ());
+    //msg.request_headers.append ("Content-Length", a.data.length.to_string ());
     msg.request_headers.append ("User-Agent", "Mr WorldWide");
     msg.request_headers.append ("Authorization", "DeepL-Auth-Key %s".printf (api_key));
     msg.set_request_body_from_bytes ("text/plain", new Bytes (a.data));
 
-    session.send_and_read_async.begin (msg, 0, null, (obj,res) => {
+    session.send_and_read_async.begin (msg, 0, null, (obj, res) => {
       try {
         var bytes = session.send_and_read_async.end (res);
         var answer = (string)bytes.get_data ();
-        //var unwrapped_text = unwrap_json (answer);
-        //answer_received (unwrapped_text);
         answer_received (answer);
+
+        var unwrapped_text = unwrap_json (answer);
+        //answer_received (unwrapped_text);
+        print (unwrapped_text);
 
       } catch (Error e) {
         stderr.printf ("Got: %s\n", e.message);
@@ -111,7 +112,7 @@ public class MrWorldWide.DeepL : Object {
   // FUCKY
   public string detect_system () {
     unowned string system_language = Environment.get_variable ("LANG");
-    var minicode = system_language.substring (0, 2).to_upper ()
+    var minicode = system_language.substring (0, 2).ascii_up (-1);
     print ("\nDetected system language: " + minicode);
     return minicode;
   }
@@ -143,28 +144,24 @@ public class MrWorldWide.DeepL : Object {
 
 
   public string unwrap_json (string text_json) {
-
     print ("\n Answer we got: " + text_json);
-
     var parser = new Json.Parser ();
-    parser.load_from_data (text_json);
+
+    try {
+          parser.load_from_data (text_json);
+    } catch (Error e) {
+        print ("\nCannot: " + e.message);
+    }
 
     var root = parser.get_root ();
-    var array = root.get_array ();
-    var item = array.get_elements();
+    var objects = root.get_object ();
+    //var items = objects.get_array_member ("translations");
 
-
-    Json.Generator generator = new Json.Generator ();
-    generator.set_root (root);
-    string str = generator.to_data (null);
-    print (str);
-
-
-    string translated_text = item.get_string_member_with_default ("text",(_("Cannot access translated text!")));
+    string translated_text = objects.get_string_member_with_default ("text", _("Cannot retrieve translated text!"));
     print ("\n Translated text:" + translated_text);
 
-    if (from == "idk") {
-          string detected_language_code = item.get_string_member_with_default ("detected_source_language",(_("Cannot detect!")));
+    if (source_lang == "idk") {
+          string detected_language_code = objects.get_string_member_with_default ("detected_source_language", (_("Cannot detect!")));
           print ("\n Detected language code: " + detected_language_code);
           language_detected (detected_language_code);
     }
