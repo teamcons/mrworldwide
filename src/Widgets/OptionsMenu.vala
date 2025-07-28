@@ -16,14 +16,8 @@ public class MrWorldWide.OptionsMenu : Gtk.Popover {
       margin_end = 6
     };
 
-    var context_label = new Gtk.Label (_("Enter context here")) {
-      halign = Gtk.Align.START
-    };
-    context_label.add_css_class (Granite.STYLE_CLASS_H4_LABEL);
-
-    box.append (context_label);
-
     var context_entry = new Gtk.Entry ();
+    context_entry.placeholder_text = _("Enter context here");
     box.append (context_entry);
 
     child = box;
