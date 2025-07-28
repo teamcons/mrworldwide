@@ -16,7 +16,7 @@
 
         pane.textview.editable = false;
 
-        var copy = new Gtk.Button.from_icon_name ("edit-copy") {
+        var copy = new Gtk.Button.from_icon_name ("edit-copy-symbolic") {
             tooltip_text = _("Copy to clipboard")
         };
         pane.actionbar.pack_end (copy);

@@ -15,7 +15,7 @@
         pane = new MrWorldWide.Pane (MrWorldWide.SourceLang ());
         append (pane);
 
-        var paste = new Gtk.Button.from_icon_name ("edit-paste") {
+        var paste = new Gtk.Button.from_icon_name ("edit-paste-symbolic") {
             tooltip_text = _("Paste from clipboard")
         };
         pane.actionbar.pack_end (paste);
