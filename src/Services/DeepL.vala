@@ -15,6 +15,7 @@ public class MrWorldWide.DeepL : Object {
   private string base_url;
 
   public signal void answer_received (string translated_text);
+  public signal void language_detected (string? detected_language_code = null);
 
   private const string URL_DEEPL_FREE = "https://api-free.deepl.com";
   private const string URL_DEEPL_PRO = "https://api.deepl.com";
@@ -70,7 +71,8 @@ public class MrWorldWide.DeepL : Object {
       try {
         var bytes = session.send_and_read_async.end (res);
         var answer = (string)bytes.get_data ();
-        answer_received (answer);                  
+        var unwrapped_text = unwrap_json (answer);
+        answer_received (unwrapped_text);
 
       } catch (Error e) {
         stderr.printf ("Got: %s\n", e.message);
@@ -106,6 +108,38 @@ public class MrWorldWide.DeepL : Object {
     string str = generator.to_data (null);
     return str;
   }
+
+
+  public string unwrap_json (string text_json) {
+
+    print ("\n Answer we got: " + text_json);
+
+    var parser = new Json.Parser ();
+    parser.load_from_data (text_json);
+
+    var root = parser.get_root ();
+    var array = root.get_array ();
+    var item = array.get_elements();
+
+
+    Json.Generator generator = new Json.Generator ();
+    generator.set_root (root);
+    string str = generator.to_data (null);
+    print (str);
+
+
+    string translated_text = item.get_string_member_with_default ("text",(_("Cannot access translated text!")));
+    print ("\n Translated text:" + translated_text);
+
+    if (from == "idk") {
+          string detected_language_code = item.get_string_member_with_default ("detected_source_language",(_("Cannot detect!")));
+          print ("\n Detected language code: " + detected_language_code);
+          language_detected (detected_language_code);
+    }
+
+    return translated_text;
+  }
+
 
 }
 
