@@ -2,269 +2,269 @@ msgid ""
 msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Language: es\n"
+"Language: ru\n"
 "Language-Team: none\n"
 "Last-Translator: Automatically generated\n"
 "MIME-Version: 1.0\n"
-"PO-Revision-Date: 2025-07-26 13:10+0200\n"
+"PO-Revision-Date: 2025-07-28 21:18+0200\n"
 "POT-Creation-Date: 2025-07-28 21:18+0200\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "Project-Id-Version: io.github.teamcons.mrworldwide\n"
 "Report-Msgid-Bugs-To: \n"
 
 #: src/Widgets/Menu.vala:24
 msgid "Enter API key here"
-msgstr "Introduzca aquí la clave API"
+msgstr "Введите ключ API здесь"
 
 #: src/Widgets/Menu.vala:31
 #: src/Widgets/SourcePane.vala:19
 msgid "Paste from clipboard"
-msgstr "Pegar desde el portapapeles"
+msgstr "Вставить из буфера обмена"
 
 #: src/Widgets/Menu.vala:40
 msgid "DeepL API Keys"
-msgstr "Claves API DeepL"
+msgstr "DeepL API-ключи"
 
 #: src/Widgets/Menu.vala:47
 msgid "You can get an API key on DeepL Website"
-msgstr "Puede obtener una clave API en el sitio web de DeepL"
+msgstr "Получить ключ API можно на сайте DeepL."
 
 #: src/Widgets/OptionsMenu.vala:19
 msgid "Enter context here"
-msgstr "Introduzca aquí el contexto"
+msgstr "Введите контекст здесь"
 
 #. /TRANSLATORS: %s is replaced by a number
 #: src/Widgets/Pane.vala:101
 #, c-format
 msgid "Counted %s characters"
-msgstr "Caracteres %s contados"
+msgstr "Насчитано %s символов"
 
 #: src/Widgets/SourcePane.vala:29
 msgid "Add context to the text to translate"
-msgstr "Añade contexto al texto a traducir"
+msgstr "Добавьте контекст к переводимому тексту"
 
 #: src/Widgets/TargetPane.vala:20
 msgid "Copy to clipboard"
-msgstr "Copiar al portapapeles"
+msgstr "Копировать в буфер обмена"
 
 #: src/Backend/DeepL.vala:165
 msgid "Cannot detect!"
-msgstr "¡No se puede detectar!"
+msgstr "Невозможно обнаружить!"
 
 #: src/Backend/DeepL.vala:173
 msgid "Cannot retrieve translated text!"
-msgstr "No se puede recuperar el texto traducido."
+msgstr "Невозможно получить переведенный текст!"
 
 #. ---------------- HEADERBAR ----------------
 #: src/Windows/Window.vala:41
 #: src/Windows/Window.vala:59
 #: src/Windows/Window.vala:60
 msgid "Mr WorldWide"
-msgstr "Mr WorldWide"
+msgstr "Мистер Всемирный"
 
 #: src/Windows/Window.vala:70
 msgid "Switch orientation"
-msgstr "Orientación del interruptor"
+msgstr "Ориентация переключателя"
 
 #: src/Windows/Window.vala:76
 msgid "Settings"
-msgstr "Ajustes"
+msgstr "Настройки"
 
 #: src/Constants.vala:15
 msgid "Detect automatically"
-msgstr "Detectar automáticamente"
+msgstr "Обнаружение автоматически"
 
 #: src/Constants.vala:16
 #: src/Constants.vala:55
 msgid "System language"
-msgstr "Idioma del sistema"
+msgstr "Язык системы"
 
 #: src/Constants.vala:17
 #: src/Constants.vala:56
 msgid "Arabic"
-msgstr "Árabe"
+msgstr "Арабский язык"
 
 #: src/Constants.vala:18
 #: src/Constants.vala:57
 msgid "Bulgarian"
-msgstr "Búlgaro"
+msgstr "Болгария"
 
 #: src/Constants.vala:19
 #: src/Constants.vala:58
 msgid "Czech"
-msgstr "Checa"
+msgstr "Чехия"
 
 #: src/Constants.vala:20
 #: src/Constants.vala:59
 msgid "Danish"
-msgstr "Danés"
+msgstr "Датский"
 
 #: src/Constants.vala:21
 #: src/Constants.vala:60
 msgid "German"
-msgstr "Alemán"
+msgstr "Немецкий"
 
 #: src/Constants.vala:22
 #: src/Constants.vala:61
 msgid "Greek"
-msgstr "Griego"
+msgstr "Греция"
 
 #: src/Constants.vala:23
 msgid "English (All)"
-msgstr "Inglés (Todos)"
+msgstr "Английский язык (все)"
 
 #: src/Constants.vala:24
 #: src/Constants.vala:64
 msgid "Spanish (All)"
-msgstr "Español (Todos)"
+msgstr "Испанский язык (все)"
 
 #: src/Constants.vala:25
 #: src/Constants.vala:66
 msgid "Estonian"
-msgstr "Estonia"
+msgstr "Эстония"
 
 #: src/Constants.vala:26
 #: src/Constants.vala:67
 msgid "Finnish"
-msgstr "En finés"
+msgstr "Финский"
 
 #: src/Constants.vala:27
 #: src/Constants.vala:68
 msgid "French"
-msgstr "Francés"
+msgstr "Французский"
 
 #: src/Constants.vala:28
 #: src/Constants.vala:69
 msgid "Hebrew"
-msgstr "Hebreo"
+msgstr "Иврит"
 
 #: src/Constants.vala:29
 #: src/Constants.vala:70
 msgid "Hungarian"
-msgstr "Húngaro"
+msgstr "Венгерский"
 
 #: src/Constants.vala:30
 #: src/Constants.vala:71
 msgid "Indonesian"
-msgstr "Indonesia"
+msgstr "Индонезия"
 
 #: src/Constants.vala:31
 #: src/Constants.vala:72
 msgid "Italian"
-msgstr "Italiano"
+msgstr "Итальянский"
 
 #: src/Constants.vala:32
 #: src/Constants.vala:73
 msgid "Japanese"
-msgstr "Japonés"
+msgstr "Японский"
 
 #: src/Constants.vala:33
 #: src/Constants.vala:74
 msgid "Korean"
-msgstr "Coreano"
+msgstr "Корейский"
 
 #: src/Constants.vala:34
 #: src/Constants.vala:75
 msgid "Lithuanian"
-msgstr "Lituania"
+msgstr "Литва"
 
 #: src/Constants.vala:35
 #: src/Constants.vala:76
 msgid "Latvian"
-msgstr "Letón"
+msgstr "Латвия"
 
 #: src/Constants.vala:36
 #: src/Constants.vala:77
 msgid "Norwegian Bokmål"
-msgstr "Noruego Bokmål"
+msgstr "Норвежский язык Bokmål"
 
 #: src/Constants.vala:37
 #: src/Constants.vala:78
 msgid "Dutch"
-msgstr "Holandés"
+msgstr "Голландия"
 
 #: src/Constants.vala:38
 #: src/Constants.vala:79
 msgid "Polish"
-msgstr "Polaco"
+msgstr "Польша"
 
 #: src/Constants.vala:39
 msgid "Portuguese (All)"
-msgstr "Portugués (Todos)"
+msgstr "Португальский язык (все)"
 
 #: src/Constants.vala:40
 #: src/Constants.vala:82
 msgid "Romanian"
-msgstr "Rumano"
+msgstr "Румыния"
 
 #: src/Constants.vala:41
 #: src/Constants.vala:83
 msgid "Russian"
-msgstr "Ruso"
+msgstr "Русский"
 
 #: src/Constants.vala:42
 #: src/Constants.vala:84
 msgid "Slovak"
-msgstr "Eslovaquia"
+msgstr "Словакия"
 
 #: src/Constants.vala:43
 #: src/Constants.vala:85
 msgid "Slovenian"
-msgstr "Eslovenia"
+msgstr "Словения"
 
 #: src/Constants.vala:44
 #: src/Constants.vala:86
 msgid "Swedish"
-msgstr "Sueco"
+msgstr "Шведский"
 
 #: src/Constants.vala:45
 #: src/Constants.vala:87
 msgid "Thai"
-msgstr "Tailandés"
+msgstr "Тайский"
 
 #: src/Constants.vala:46
 #: src/Constants.vala:88
 msgid "Turkish"
-msgstr "Turco"
+msgstr "Турецкая"
 
 #: src/Constants.vala:47
 #: src/Constants.vala:89
 msgid "Ukrainian"
-msgstr "Ucraniano"
+msgstr "Украина"
 
 #: src/Constants.vala:48
 #: src/Constants.vala:90
 msgid "Vietnamese"
-msgstr "Vietnamita"
+msgstr "Вьетнамцы"
 
 #: src/Constants.vala:49
 msgid "Chinese (All)"
-msgstr "Chino (Todos)"
+msgstr "Китайский язык (все)"
 
 #: src/Constants.vala:62
 msgid "English (GB)"
-msgstr "Inglés (GB)"
+msgstr "Английский язык (GB)"
 
 #: src/Constants.vala:63
 msgid "English (US)"
-msgstr "Inglés (US)"
+msgstr "Английский (США)"
 
 #: src/Constants.vala:65
 msgid "Spanish (Latin American)"
-msgstr "Español (Latinoamérica)"
+msgstr "Испанский язык (Латинская Америка)"
 
 #: src/Constants.vala:80
 msgid "Portuguese (Portugual)"
-msgstr "Portugués (Portugual)"
+msgstr "Португальский язык (Portugual)"
 
 #: src/Constants.vala:81
 msgid "Portuguese (Brazilian)"
-msgstr "Portugués (brasileño)"
+msgstr "Португальский (бразильский)"
 
 #: src/Constants.vala:91
 msgid "Chinese (Simplified)"
-msgstr "Chino (simplificado)"
+msgstr "Китайский (упрощенный)"
 
 #: src/Constants.vala:92
 msgid "Chinese (Traditional)"
-msgstr "Chino (tradicional)"
+msgstr "Китайский (традиционный)"

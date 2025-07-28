@@ -1,12 +1,12 @@
 msgid ""
 msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Language: de\n"
+"Content-Type: text/plain; charset=ASCII\n"
+"Language: pt\n"
 "Language-Team: none\n"
 "Last-Translator: Automatically generated\n"
 "MIME-Version: 1.0\n"
-"PO-Revision-Date: 2025-07-26 13:10+0200\n"
+"PO-Revision-Date: 2025-07-28 21:18+0200\n"
 "POT-Creation-Date: 2025-07-28 21:18+0200\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "Project-Id-Version: extra\n"
@@ -20,72 +20,71 @@ msgstr "mrworldwide"
 #: data/mrworldwide.metainfo.xml.in:13
 #: data/mrworldwide.desktop.in:8
 msgid "Translate text elegantly"
-msgstr "Elegantes Übersetzen von Text"
+msgstr "Traduzir texto de forma elegante"
 
 #: data/mrworldwide.metainfo.xml.in:15
 msgid "The power of language in the palm of your hand"
-msgstr "Die Macht der Sprache in Ihrer Handfläche"
+msgstr "O poder da linguagem na palma da sua mão"
 
 #: data/mrworldwide.metainfo.xml.in:16
 msgid "Yet another translation app. This one uses DeepL as backend, and goes for the no-nonsense, simple and clean route. But i mostly just wanted to try out the UI, and needed something elementary OS to integrate with our elementary OS"
-msgstr "Eine weitere Übersetzungs-App. Diese verwendet DeepL als Backend, und geht für die no-nonsense, einfach und sauber Weg. Aber ich wollte vor allem nur versuchen, die UI, und brauchte etwas elementaren OS mit unseren elementaren OS zu integrieren"
+msgstr "Mais uma aplicação de tradução. Esta usa DeepL como backend e opta por um caminho simples e limpo. Mas eu só queria experimentar a interface do utilizador, e precisava de algo elementar para integrar no nosso sistema operativo elementar"
 
 #: data/mrworldwide.metainfo.xml.in:20
 msgid "Features include:"
-msgstr "Die Merkmale umfassen:"
+msgstr "As caraterísticas incluem:"
 
 #: data/mrworldwide.metainfo.xml.in:22
 msgid "Nimble: Quick to setup: Paste your api key, whether DeepL Free or Pro, and here you go!"
-msgstr "wendig: Schnell einzurichten: Fügen Sie Ihren Api-Schlüssel ein, egal ob DeepL Free oder Pro, und los geht's!"
+msgstr "Ágil: Rápido de configurar: Cole a sua chave api, quer seja DeepL Free ou Pro, e já está!"
 
 #: data/mrworldwide.metainfo.xml.in:23
 msgid "Toggle the view to be either horizontal or vertical"
-msgstr "Umschalten der Ansicht auf horizontal oder vertikal"
+msgstr "Alternar a vista para ser horizontal ou vertical"
 
 #: data/mrworldwide.metainfo.xml.in:24
 msgid "You can add context!"
-msgstr "Sie können Kontext hinzufügen!"
+msgstr "Pode acrescentar contexto!"
 
 #: data/mrworldwide.metainfo.xml.in:25
 msgid "Supported languages: All those available via DeepL API!"
-msgstr "Unterstützte Sprachen: Alle, die über DeepL API verfügbar sind!"
+msgstr "Línguas suportadas: Todas as disponíveis através da API DeepL!"
 
 #: data/mrworldwide.metainfo.xml.in:26
 msgid "Detect language: As expected of a translator!"
-msgstr "Sprache erkennen: Wie von einem Übersetzer erwartet!"
+msgstr "Detetar a língua: Como se espera de um tradutor!"
 
 #: data/mrworldwide.metainfo.xml.in:27
 msgid "System language: No need to search for it in the list ;)"
-msgstr "Systemsprache: Sie müssen sie nicht in der Liste suchen ;)"
+msgstr "Língua do sistema: Não é necessário procurá-la na lista ;)"
 
 #: data/mrworldwide.metainfo.xml.in:28
 msgid "TO COME (maybe): See your current usage!"
-msgstr "TO COME (vielleicht): Sehen Sie Ihre aktuelle Nutzung!"
+msgstr "PARA VIR (talvez): Ver a sua utilização atual!"
 
 #: data/mrworldwide.metainfo.xml.in:30
 msgid "This is still under big development"
-msgstr "Dies ist noch stark in der Entwicklung"
+msgstr "Este projeto ainda está em grande desenvolvimento"
 
 #: data/mrworldwide.metainfo.xml.in:35
 msgid "Main window"
-msgstr "Hauptfenster"
+msgstr "Janela principal"
 
 #: data/mrworldwide.metainfo.xml.in:41
 msgid "Main window with dark theme"
-msgstr "Hauptfenster mit dunklem Thema"
+msgstr "Janela principal com tema escuro"
 
 #: data/mrworldwide.metainfo.xml.in:51
 msgid "Teamcons"
 msgstr "Teamcons"
 
 #: data/mrworldwide.metainfo.xml.in:70
-#, fuzzy
 msgid "Translation"
-msgstr "Aktualisierte Übersetzungen"
+msgstr "Tradução"
 
 #: data/mrworldwide.metainfo.xml.in:71
 msgid "Translate"
-msgstr "Übersetzen Sie"
+msgstr "Traduzir"
 
 #: data/mrworldwide.metainfo.xml.in:72
 msgid "NMT"
@@ -97,11 +96,11 @@ msgstr "DeepL"
 
 #: data/mrworldwide.metainfo.xml.in:74
 msgid "Localization"
-msgstr "Lokalisierung"
+msgstr "Localização"
 
 #: data/mrworldwide.metainfo.xml.in:75
 msgid "Internationalization"
-msgstr "Internationalisierung"
+msgstr "Internacionalização"
 
 #: data/mrworldwide.metainfo.xml.in:76
 msgid "l10n"
@@ -113,42 +112,32 @@ msgstr "i18n"
 
 #: data/mrworldwide.metainfo.xml.in:78
 msgid "Localize"
-msgstr "Lokalisieren Sie"
+msgstr "Localizar"
 
 #: data/mrworldwide.metainfo.xml.in:79
 msgid "Languages"
-msgstr "Sprachen"
+msgstr "Línguas"
 
 #: data/mrworldwide.metainfo.xml.in:80
 msgid "Pantheon"
-msgstr "Pantheon"
+msgstr "Panteão"
 
 #: data/mrworldwide.metainfo.xml.in:81
 msgid "elementary OS"
-msgstr "grundlegendes Betriebssystem"
+msgstr "SO elementar"
 
 #: data/mrworldwide.metainfo.xml.in:97
 msgid "Initial Release"
-msgstr "Erste Veröffentlichung"
+msgstr "Lançamento inicial"
 
 #: data/mrworldwide.metainfo.xml.in:99
 msgid "Updated translations"
-msgstr "Aktualisierte Übersetzungen"
+msgstr "Traduções actualizadas"
 
 #: data/mrworldwide.desktop.in:7
-#, fuzzy
 msgid "Text translator"
-msgstr "Aktualisierte Übersetzungen"
+msgstr "Tradutor de texto"
 
 #: data/mrworldwide.desktop.in:10
 msgid "text;translate;translation;deepl;NMT;lang;localize;l10n;i18n;localization;internationalization;"
-msgstr "text;übersetzen;Übersetzung;deepl;NMT;lang;lokalisieren;l10n;i18n;Lokalisierung;Internationalisierung;"
-
-#~ msgid "Proves that we can use Vala and Gtk"
-#~ msgstr "Beweist, dass wir Vala und Gtk verwenden können"
-
-#~ msgid "A quick summary of your app's main selling points and features. Just a couple sentences per paragraph is best"
-#~ msgstr "Eine kurze Zusammenfassung der wichtigsten Verkaufsargumente und Funktionen Ihrer App. Am besten nur ein paar Sätze pro Absatz"
-
-#~ msgid "Minor updates:"
-#~ msgstr "Kleinere Aktualisierungen:"
+msgstr "texto;traduzir;tradução;deepl;NMT;lang;localizar;l10n;i18n;localização;internacionalização;"
