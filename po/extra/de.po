@@ -1,39 +1,164 @@
 msgid ""
 msgstr ""
-"Content-Transfer-Encoding: 8bit\n"
-"Content-Type: text/plain; charset=ASCII\n"
-"Language: de\n"
-"Language-Team: none\n"
-"Last-Translator: Automatically generated\n"
-"MIME-Version: 1.0\n"
-"PO-Revision-Date: 2025-07-26 13:10+0200\n"
-"POT-Creation-Date: 2025-07-26 13:10+0200\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-07-28 21:14+0200\n"
+"PO-Revision-Date: 2025-07-26 13:10+0200\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: data/mrworldwide.metainfo.xml.in:9
-#: data/mrworldwide.desktop.in:6
+#: data/mrworldwide.metainfo.xml.in:12 data/mrworldwide.desktop.in:6
 msgid "mrworldwide"
 msgstr "mrworldwide"
 
-#: data/mrworldwide.metainfo.xml.in:10
-#: data/mrworldwide.desktop.in:7
-msgid "Proves that we can use Vala and Gtk"
-msgstr "Beweist, dass wir Vala und Gtk verwenden können"
+#: data/mrworldwide.metainfo.xml.in:13 data/mrworldwide.desktop.in:8
+msgid "Translate text elegantly"
+msgstr ""
 
-#: data/mrworldwide.metainfo.xml.in:12
-msgid "A quick summary of your app's main selling points and features. Just a couple sentences per paragraph is best"
-msgstr "Eine kurze Zusammenfassung der wichtigsten Verkaufsargumente und Funktionen Ihrer App. Am besten nur ein paar Sätze pro Absatz"
+#: data/mrworldwide.metainfo.xml.in:15
+msgid "The power of language in the palm of your hand"
+msgstr ""
 
-#: data/mrworldwide.metainfo.xml.in:36
+#: data/mrworldwide.metainfo.xml.in:16
+msgid ""
+"Yet another translation app. This one uses DeepL as backend, and goes for "
+"the no-nonsense, simple and clean route. But i mostly just wanted to try out "
+"the UI, and needed something elementary OS to integrate with our elementary "
+"OS"
+msgstr ""
+
+#: data/mrworldwide.metainfo.xml.in:20
+msgid "Features include:"
+msgstr ""
+
+#: data/mrworldwide.metainfo.xml.in:22
+msgid ""
+"Nimble: Quick to setup: Paste your api key, whether DeepL Free or Pro, and "
+"here you go!"
+msgstr ""
+
+#: data/mrworldwide.metainfo.xml.in:23
+msgid "Toggle the view to be either horizontal or vertical"
+msgstr ""
+
+#: data/mrworldwide.metainfo.xml.in:24
+msgid "You can add context!"
+msgstr ""
+
+#: data/mrworldwide.metainfo.xml.in:25
+msgid "Supported languages: All those available via DeepL API!"
+msgstr ""
+
+#: data/mrworldwide.metainfo.xml.in:26
+msgid "Detect language: As expected of a translator!"
+msgstr ""
+
+#: data/mrworldwide.metainfo.xml.in:27
+msgid "System language: No need to search for it in the list ;)"
+msgstr ""
+
+#: data/mrworldwide.metainfo.xml.in:28
+msgid "TO COME (maybe): See your current usage!"
+msgstr ""
+
+#: data/mrworldwide.metainfo.xml.in:30
+msgid "This is still under big development"
+msgstr ""
+
+#: data/mrworldwide.metainfo.xml.in:35
+msgid "Main window"
+msgstr ""
+
+#: data/mrworldwide.metainfo.xml.in:41
+msgid "Main window with dark theme"
+msgstr ""
+
+#: data/mrworldwide.metainfo.xml.in:51
 msgid "Teamcons"
 msgstr "Teamcons"
 
-#: data/mrworldwide.metainfo.xml.in:43
-msgid "Minor updates:"
-msgstr "Kleinere Aktualisierungen:"
+#: data/mrworldwide.metainfo.xml.in:70
+#, fuzzy
+msgid "Translation"
+msgstr "Aktualisierte Übersetzungen"
 
-#: data/mrworldwide.metainfo.xml.in:45
+#: data/mrworldwide.metainfo.xml.in:71
+msgid "Translate"
+msgstr ""
+
+#: data/mrworldwide.metainfo.xml.in:72
+msgid "NMT"
+msgstr ""
+
+#: data/mrworldwide.metainfo.xml.in:73
+msgid "DeepL"
+msgstr ""
+
+#: data/mrworldwide.metainfo.xml.in:74
+msgid "Localization"
+msgstr ""
+
+#: data/mrworldwide.metainfo.xml.in:75
+msgid "Internationalization"
+msgstr ""
+
+#: data/mrworldwide.metainfo.xml.in:76
+msgid "l10n"
+msgstr ""
+
+#: data/mrworldwide.metainfo.xml.in:77
+msgid "i18n"
+msgstr ""
+
+#: data/mrworldwide.metainfo.xml.in:78
+msgid "Localize"
+msgstr ""
+
+#: data/mrworldwide.metainfo.xml.in:79
+msgid "Languages"
+msgstr ""
+
+#: data/mrworldwide.metainfo.xml.in:80
+msgid "Pantheon"
+msgstr ""
+
+#: data/mrworldwide.metainfo.xml.in:81
+msgid "elementary OS"
+msgstr ""
+
+#: data/mrworldwide.metainfo.xml.in:97
+msgid "Initial Release"
+msgstr ""
+
+#: data/mrworldwide.metainfo.xml.in:99
 msgid "Updated translations"
 msgstr "Aktualisierte Übersetzungen"
+
+#: data/mrworldwide.desktop.in:7
+#, fuzzy
+msgid "Text translator"
+msgstr "Aktualisierte Übersetzungen"
+
+#: data/mrworldwide.desktop.in:10
+msgid ""
+"text;translate;translation;deepl;NMT;lang;localize;l10n;i18n;localization;"
+"internationalization;"
+msgstr ""
+
+#~ msgid "Proves that we can use Vala and Gtk"
+#~ msgstr "Beweist, dass wir Vala und Gtk verwenden können"
+
+#~ msgid ""
+#~ "A quick summary of your app's main selling points and features. Just a "
+#~ "couple sentences per paragraph is best"
+#~ msgstr ""
+#~ "Eine kurze Zusammenfassung der wichtigsten Verkaufsargumente und "
+#~ "Funktionen Ihrer App. Am besten nur ein paar Sätze pro Absatz"
+
+#~ msgid "Minor updates:"
+#~ msgstr "Kleinere Aktualisierungen:"
