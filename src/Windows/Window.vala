@@ -133,6 +133,12 @@ public class MrWorldWide.Window : Gtk.Window {
         backend = new DeepL ();
         source_pane.pane.textview.buffer.changed.connect (on_text_to_translate);
         backend.answer_received.connect (on_answer_received);
+
+        backend.language_detected.connect ((detected_language_code) => {
+            if (detected_language_code != null) {
+                source_pane.pane.set_selected_language (detected_language_code);
+            }
+        });
     }
 
     private void on_menu () {

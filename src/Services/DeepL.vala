@@ -9,8 +9,8 @@
 // Translation service that use translate
 public class MrWorldWide.DeepL : Object {
 
-  private string from;
-  private string to;
+  private string source_lang;
+  private string target_lang;
   private string api_key;
   private string base_url;
 
@@ -31,14 +31,14 @@ public class MrWorldWide.DeepL : Object {
     }'  */
 
   public void reload () {
-    from = Application.settings.get_string ("source-language");
-    if (from == "system") {
-      from = detect_system ();
+    source_lang = Application.settings.get_string ("source-language");
+    if (source_lang == "system") {
+      source_lang = detect_system ();
     }
 
-    to = Application.settings.get_string ("target-language");
-    if (to == "system") {
-      to = detect_system ();
+    target_lang = Application.settings.get_string ("target-language");
+    if (target_lang == "system") {
+      target_lang = detect_system ();
     }
 
     api_key = Application.settings.get_string ("key");
@@ -93,13 +93,13 @@ public class MrWorldWide.DeepL : Object {
     builder.add_string_value (text);
     builder.end_array ();
 
-    if (from != "idk") {
+    if (source_lang != "idk") {
       builder.set_member_name ("source_lang");
-      builder.add_string_value (from);
+      builder.add_string_value (source_lang);
     }
 
     builder.set_member_name ("target_lang");
-    builder.add_string_value (to);
+    builder.add_string_value (target_lang);
     builder.end_object ();
 
     Json.Generator generator = new Json.Generator ();
