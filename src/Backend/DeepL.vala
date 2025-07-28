@@ -25,10 +25,12 @@ The object has two signals:
 
   public string unwrap_json (text_json)
   does the whole unwrapping response from a json we get back
- */
-
-
-
+ 
+ 
+  If you want to write your own backend, everything would pretty much work if you
+   do a drop in replacement with send_request (text) and the two signals to retrieve
+   i may open up a bit more the possibilities to do other backends in the future
+  */
 
 // Translation service that use translate
 public class MrWorldWide.DeepL : Object {
@@ -102,17 +104,6 @@ public class MrWorldWide.DeepL : Object {
     });
   }
 
-  // FUCKY
-  public string detect_system () {
-    unowned string system_language = Environment.get_variable ("LANG");
-    var minicode = system_language.substring (0, 2).ascii_up (-1);
-
-    //TODO: correct for PT_PT, PT_BR, NO being NB, the ZH gang
-
-    print ("\nBackend: Detected system language: " + minicode);
-    return minicode;
-  }
-
   public string prep_json (string text) {
     var builder = new Json.Builder ();
 
@@ -177,5 +168,45 @@ public class MrWorldWide.DeepL : Object {
   }
 
 
-}
+  // FUCKY: DeepL is a bit weird with some codes
+  // We have to hack at it for edge cases
+  public string detect_system () {
+    string system_language = Environment.get_variable ("LANG").ascii_up ();
+    var minicode = system_language.substring (0, 2).ascii_up (-1);
 
+    if (system_language.has_prefix ("PT_BR")) {
+      return "PT-BR";
+    }
+
+    if (system_language.has_prefix ("PT_PT")) {
+      return "PT-PT";
+    }
+
+    if (minicode == "NO") {
+      return "NB";
+    }
+
+    if (system_language.has_prefix ("ZH_CN")) {
+      return "ZH-HANS";
+    }
+
+    if (system_language.has_prefix ("ZH_TW")) {
+      return "ZH-HANT";
+    }
+
+    if (system_language.has_prefix ("EN_GB")) {
+      return "EN-GB";
+    }
+
+    if (system_language.has_prefix ("EN_US")) {
+      return "EN-US";
+    }
+
+    if (system_language.substring (0, 5) != "ES_ES") {
+      return "ES-419";
+    }
+
+    print ("\nBackend: Detected system language: " + minicode);
+    return minicode;
+  }
+}
