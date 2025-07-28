@@ -13,6 +13,7 @@ public class MrWorldWide.DeepL : Object {
   private string target_lang;
   private string api_key;
   private string base_url;
+  private string system_language;
 
   public signal void answer_received (string translated_text);
   public signal void language_detected (string? detected_language_code = null);
@@ -31,14 +32,17 @@ public class MrWorldWide.DeepL : Object {
     }'  */
 
   public void reload () {
+
+    system_language = detect_system ();
+
     source_lang = Application.settings.get_string ("source-language");
     if (source_lang == "system") {
-      source_lang = detect_system ();
+      source_lang = system_language;
     }
 
     target_lang = Application.settings.get_string ("target-language");
     if (target_lang == "system") {
-      target_lang = detect_system ();
+      target_lang = system_language;
     }
 
     api_key = Application.settings.get_string ("key");
