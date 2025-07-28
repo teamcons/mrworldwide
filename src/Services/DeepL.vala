@@ -4,7 +4,31 @@
  */
 
 
-//https://dev.to/sdv43/how-to-use-curl-in-vala-i60
+ /*
+The object has two signals:
+  answer_received (translated_text): This one tells us we have translated text
+  language_detected (detected_language_code): this one is to set language detected to detected language
+
+  Handlers on the other side will know what to do with the signals.
+
+  public void reload:
+  Set the various object properties
+
+  public void send_request (string text)
+  allrounder for the service, takes a text to translate and takes care of the rest
+
+  public string detect_system
+  Detects what system language code we do be do having
+
+  public string prep_json (string text)
+  does the whole wrapping request into a json we can send
+
+  public string unwrap_json (text_json)
+  does the whole unwrapping response from a json we get back
+ */
+
+
+
 
 // Translation service that use translate
 public class MrWorldWide.DeepL : Object {
@@ -32,7 +56,6 @@ public class MrWorldWide.DeepL : Object {
     }'  */
 
   public void reload () {
-
     system_language = detect_system ();
 
     source_lang = Application.settings.get_string ("source-language");
