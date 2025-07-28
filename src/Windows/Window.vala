@@ -122,8 +122,8 @@ public class MrWorldWide.Window : Gtk.Window {
         Application.settings.changed["vertical-layout"].connect (on_toggle_pane_changed);
 
         // Simply save up selected languages
-        source_pane.pane.changed.connect (on_source_changed);
-        target_pane.pane.changed.connect (on_target_changed);
+        source_pane.pane.language_changed.connect (on_source_changed);
+        target_pane.pane.language_changed.connect (on_target_changed);
 
         // Backend takes care of the async for us. We give it the text
         // And it will emit a signal whenever finished, which we can connect to
@@ -131,8 +131,8 @@ public class MrWorldWide.Window : Gtk.Window {
 
         // translate when text is entered or user changes any language
         source_pane.pane.textview.buffer.changed.connect (on_text_to_translate);
-        source_pane.pane.changed.connect (on_text_to_translate);
-        target_pane.pane.changed.connect (on_text_to_translate);
+        source_pane.pane.language_changed.connect (on_text_to_translate);
+        target_pane.pane.language_changed.connect (on_text_to_translate);
 
         // Connect to the backend and do stuff if answer
         backend.answer_received.connect (on_answer_received);
@@ -177,21 +177,27 @@ public class MrWorldWide.Window : Gtk.Window {
     }
     
     private void on_text_to_translate () {
-        debug ("The buffer has been modified, starting the debounce timer");
+        // Avoid translating empty text (useless request)
+        if (source_pane.pane.get_text () != "") {
 
-        if (debounce_timer_id != 0) {
-            GLib.Source.remove (debounce_timer_id);
+            debug ("The buffer has been modified, starting the debounce timer");
+            if (debounce_timer_id != 0) {
+                GLib.Source.remove (debounce_timer_id);
+            }
+
+            debounce_timer_id = Timeout.add (interval, () => {
+                debounce_timer_id = 0;
+
+                    // Start translating!
+                    loading.start ();
+                    loading_revealer.reveal_child = true;
+                    backend.send_request (source_pane.pane.get_text ());
+
+                return GLib.Source.REMOVE;
+            });
+        } else {
+            target_pane.pane.set_text ("");
         }
-
-        debounce_timer_id = Timeout.add (interval, () => {
-            debounce_timer_id = 0;
-
-            loading.start ();
-            loading_revealer.reveal_child = true;
-
-            backend.send_request (source_pane.pane.get_text ());
-            return GLib.Source.REMOVE;
-        });
     }
 
     private void on_answer_received (string answer) {

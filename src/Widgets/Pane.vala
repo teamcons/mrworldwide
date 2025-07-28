@@ -17,7 +17,7 @@
     public MrWorldWide.Lang[] langs;
 
 
-    public signal void changed (string code = "");
+    public signal void language_changed (string code = "");
 
     public Pane (Lang[] langs) {
 
@@ -35,7 +35,6 @@
 		dropdown.factory = model.factory;
 		dropdown.notify["selected-item"].connect(on_selected_language);
 
-        
         append (dropdown);
 
         textview = new Gtk.TextView () {
@@ -84,7 +83,7 @@
 
     public void on_selected_language () {
         selected = dropdown.get_selected_item() as Lang;
-		changed (selected.code);
+		language_changed (selected.code);
         print ("\nS selected %s:%s", selected.code, selected.name);
     }
 
