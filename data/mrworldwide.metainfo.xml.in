@@ -5,14 +5,29 @@
   <translation type="gettext">io.github.teamcons.mrworldwide</translation>
   <metadata_license>CC-BY-4.0</metadata_license>
   <project_license>GPL-3.0-or-later</project_license>
-  
+   <provides>
+    <binary>io.github.teamcons.mrworldwide</binary>
+  </provides>
+
   <name>mrworldwide</name>
-  <summary>Hold the power of languages</summary>
+  <summary>Translate text elegantly</summary>
   <description>
+    <p>The power of language in the palm of your hand</p>
     <p>
       Yet another translation app. This one uses DeepL as backend, and goes for the no-nonsense, simple and clean route.
       But i mostly just wanted to try out the UI, and needed something elementary OS to integrate with our elementary OS
     </p>
+    <p>Features include:</p>
+      <ul>
+            <li>Nimble: Quick to setup: Paste your api key, whether DeepL Free or Pro, and here you go!</li>
+            <li>Toggle the view to be either horizontal or vertical</li>
+            <li>Supported languages: All those available via DeepL API!</li>
+            <li>Detect language: As expected of a translator!</li>
+            <li>System language: No need to search for it in the list ;)</li>
+            <li>TO COME: See your current usage!</li>
+            <li>TO COME: Add context!</li>
+      </ul>
+    <p>This is still under big development</p>
   </description>
 
   <screenshots>
@@ -32,20 +47,49 @@
 
   <content_rating type="oars-1.1" />
 
-  <provides>
-    <binary>io.github.teamcons.mrworldwide</binary>
-  </provides>
-
-  <url type="homepage"></url>
-  <url type="bugtracker"></url>
-  <url type="donation"></url>
-  <url type="help"></url>
-  <url type="translate"></url>
-
-  <developer id="io.github.ellie_commons">
+  <developer id="io.github.teamcons">
     <name>Teamcons</name>
   </developer>
-  <update_contact>stella.menier@posteo.de</update_contact>
+    <url type="homepage">https://github.com/teamcons/mrworldwide</url>
+    <url type="bugtracker">https://github.com/teamcons/mrworldwide/issues</url>
+    <url type="help">https://github.com/teamcons/mrworldwide/issues</url>
+    <url type="translate">https://github.com/teamcons/mrworldwide/blob/main/po/README.md</url>
+    <url type="donation">https://ko-fi.com/teamcons</url>
+
+  <branding>
+    <color type="primary" scheme_preference="light">#ff8c82</color>
+    <color type="primary" scheme_preference="dark">#7a0000</color>
+  </branding>
+
+  <custom>
+    <value key="x-appcenter-suggested-price">5</value>
+    <value key="x-appcenter-stripe">pk_live_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</value>
+  </custom>
+
+  <keywords>
+        <keyword>Translation</keyword>
+        <keyword>Translate</keyword>
+        <keyword>NMT</keyword>
+        <keyword>DeepL</keyword>
+        <keyword>Localization</keyword>
+        <keyword>Internationalization</keyword>
+        <keyword>l10n</keyword>
+        <keyword>i18n</keyword>
+        <keyword>Localize</keyword>
+        <keyword>Languages</keyword>
+        <keyword>Pantheon</keyword>
+        <keyword>elementary OS</keyword>
+  </keywords>
+  <suggests>
+        <id>io.github.ellie_commons.jorts</id>
+        <id>com.github.elfenware.badger</id>
+        <id>io.github.ellie_commons.reminduck</id>
+  </suggests>
+  <recommends>
+    <control>keyboard</control>
+    <control>pointing</control>
+    <control>touch</control>
+  </recommends>
 
   <releases>
     <release version="1.0.0" date="2024-11-20" urgency="medium">
@@ -61,13 +105,4 @@
     </release>
   </releases>
 
-  <branding>
-    <color type="primary" scheme_preference="light">#ff8c82</color>
-    <color type="primary" scheme_preference="dark">#7a0000</color>
-  </branding>
-
-  <custom>
-    <value key="x-appcenter-suggested-price">5</value>
-    <value key="x-appcenter-stripe">pk_live_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</value>
-  </custom>
 </component>
