@@ -81,7 +81,10 @@ public class MrWorldWide.DeepL : Object {
   }
 
   public string detect_system () {
-    return "de";
+    unowned string system_language = Environment.get_variable ("LANG");
+    var minicode = system_language.substring (0, 2).to_upper ()
+    print ("\nDetected system language: " + minicode);
+    return minicode;
   }
 
   public string prep_json (string text) {
