@@ -15,12 +15,18 @@
         pane = new MrWorldWide.Pane (MrWorldWide.SourceLang ());
         append (pane);
 
+
+        var clear = new Gtk.Button.from_icon_name ("edit-clear") {
+            tooltip_text = _("Clear text"),
+            margin_start = 6
+        };
+        pane.actionbar.pack_end (clear);
+
         var paste = new Gtk.Button.from_icon_name ("edit-paste") {
             tooltip_text = _("Paste from clipboard"),
             margin_start = 6
         };
         pane.actionbar.pack_end (paste);
-
 
         var options_menu = new MrWorldWide.OptionsMenu ();
         var options_button = new Gtk.MenuButton () {
@@ -31,7 +37,9 @@
         options_button.direction = Gtk.ArrowType.UP;
         pane.actionbar.pack_end (options_button);
 
-
+        clear.clicked.connect (() => {
+          pane.set_text ("");
+        });
         paste.clicked.connect (paste_from_clipboard);
     }
 
