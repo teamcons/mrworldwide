@@ -28,13 +28,28 @@
     </key>
     <key name="source-language" type="s">
       <default>"idk"</default>
-      <summary>deepl key</summary>
-      <description>language code</description>
+      <summary>Language code to translate from</summary>
+      <description>Represents a language code. "idk" is to autodetect, and "system" for the system language.</description>
     </key>
     <key name="target-language" type="s">
       <default>"system"</default>
-      <summary>deepl key</summary>
-      <description>language code</description>
+      <summary>Language code to translate to</summary>
+      <description>Represents a language code. "system" for the system language.</description>
+    </key>
+    <key name="context" type="s">
+      <default>""</default>
+      <summary>context for translations</summary>
+      <description>Passed as context parameter to the DeepL API</description>
+    </key>
+    <key name="current-usage" type="i">
+      <default>0</default>
+      <summary>Current API usage</summary>
+      <description>How many characters have been translated</description>
+    </key>
+    <key name="max-usage" type="i">
+      <default>0</default>
+      <summary>Max API usage</summary>
+      <description>How many characters can be translated</description>
     </key>
   </schema>
 </schemalist>
