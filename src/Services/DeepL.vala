@@ -98,8 +98,9 @@ public class MrWorldWide.DeepL : Object {
       try {
         var bytes = session.send_and_read_async.end (res);
         var answer = (string)bytes.get_data ();
-        var unwrapped_text = unwrap_json (answer);
-        answer_received (unwrapped_text);
+        //var unwrapped_text = unwrap_json (answer);
+        //answer_received (unwrapped_text);
+        answer_received (answer);
 
       } catch (Error e) {
         stderr.printf ("Got: %s\n", e.message);
@@ -107,6 +108,7 @@ public class MrWorldWide.DeepL : Object {
     });
   }
 
+  // FUCKY
   public string detect_system () {
     unowned string system_language = Environment.get_variable ("LANG");
     var minicode = system_language.substring (0, 2).to_upper ()
