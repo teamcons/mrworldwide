@@ -202,7 +202,7 @@ public class MrWorldWide.DeepL : Object {
       return "EN-US";
     }
 
-    if (system_language.substring (0, 5) != "ES_ES") {
+    if ((system_language.has_prefix ("ES_")) && (system_language.substring (0, 5) != "ES_ES")) {
       return "ES-419";
     }
 

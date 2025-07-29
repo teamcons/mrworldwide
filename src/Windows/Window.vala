@@ -25,11 +25,13 @@ public class MrWorldWide.Window : Gtk.Window {
     public const string ACTION_PREFIX = "app.";
     public const string ACTION_MENU = "menu";
     public const string ACTION_TOGGLE_VIEW = "toggle_view";
+    public const string ACTION_SWITCH_LANG = "switch_languages";
     public static Gee.MultiMap<string, string> action_accelerators = new Gee.HashMultiMap<string, string> ();
 
     private const GLib.ActionEntry[] ACTION_ENTRIES = {
         { ACTION_MENU, on_menu},
-        { ACTION_TOGGLE_VIEW, toggle_view}
+        { ACTION_TOGGLE_VIEW, toggle_view},
+        { ACTION_SWITCH_LANG, switch_languages}
     };
 
 
@@ -68,7 +70,7 @@ public class MrWorldWide.Window : Gtk.Window {
         set_titlebar (headerbar);
 
         toggleview_button = new Gtk.Button.from_icon_name ("view-dual") {
-            tooltip_markup = Granite.markup_accel_tooltip ({"<Ctrl>T"}, _("Switch orientation")),
+            tooltip_markup = Granite.markup_accel_tooltip ({"<Ctrl>O"}, _("Switch orientation")),
         };
         headerbar.pack_start (toggleview_button);
 

@@ -43,22 +43,22 @@ public class MrWorldWide.Application : Gtk.Application {
                 );
         });
 
-        
-
         var quit_action = new SimpleAction ("quit", null);
         add_action (quit_action);
         set_accels_for_action ("app.quit", {"<Control>q"});
         quit_action.activate.connect (quit);
 
-
         var menu_action = new SimpleAction ("menu", null);
         add_action (menu_action);
-        set_accels_for_action ("app.toggle_view", {"<Control>t"});
+        set_accels_for_action ("app.menu", {"<Control>m"});
 
         var toggle_view_action = new SimpleAction ("toggle_view", null);
         add_action (toggle_view_action);
-        set_accels_for_action ("app.toggle_view", {"<Control>t"});
+        set_accels_for_action ("app.toggle_view", {"<Control>o"});
 
+        var switch_languages = new SimpleAction ("switch_languages", null);
+        add_action (switch_languages);
+        set_accels_for_action ("app.switch_languages", {"<Control>i"});
     }
 
     protected override void activate () {
