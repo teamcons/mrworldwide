@@ -68,12 +68,11 @@ msgstr "Mr WorldWide"
 
 #: src/Windows/Window.vala:73
 msgid "Switch orientation"
-msgstr "Orientation du commutateur"
+msgstr "Intervertir orientation"
 
 #: src/Windows/Window.vala:78
-#, fuzzy
 msgid "Switch languages"
-msgstr "Langue du système"
+msgstr "Intervertir languages"
 
 #: src/Windows/Window.vala:84
 msgid "Settings"
@@ -81,7 +80,7 @@ msgstr "Paramètres"
 
 #: src/Constants.vala:15
 msgid "Detect automatically"
-msgstr "Détection automatique"
+msgstr "Automatiquement détecter"
 
 #: src/Constants.vala:16
 #: src/Constants.vala:55
@@ -91,7 +90,7 @@ msgstr "Langue du système"
 #: src/Constants.vala:17
 #: src/Constants.vala:56
 msgid "Arabic"
-msgstr "L'arabe"
+msgstr "Arabe"
 
 #: src/Constants.vala:18
 #: src/Constants.vala:57

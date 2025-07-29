@@ -41,7 +41,7 @@ msgstr "%s Zeichen"
 
 #: src/Widgets/SourcePane.vala:20
 msgid "Clear text"
-msgstr "Klarer Text"
+msgstr "Text klären"
 
 #: src/Widgets/SourcePane.vala:35
 msgid "Add context to the text to translate"
