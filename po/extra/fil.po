@@ -7,16 +7,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-28 21:18+0200\n"
+"POT-Creation-Date: 2025-07-29 17:21+0200\n"
 "PO-Revision-Date: 2025-07-28 21:18+0200\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "Language: fil\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=ASCII\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: data/mrworldwide.metainfo.xml.in:12 data/mrworldwide.desktop.in:6
+#: data/mrworldwide.metainfo.xml.in:12
 msgid "mrworldwide"
 msgstr ""
 
@@ -140,6 +140,10 @@ msgstr ""
 
 #: data/mrworldwide.metainfo.xml.in:99
 msgid "Updated translations"
+msgstr ""
+
+#: data/mrworldwide.desktop.in:6
+msgid "Mr WorldWide"
 msgstr ""
 
 #: data/mrworldwide.desktop.in:7

@@ -7,7 +7,7 @@ msgstr ""
 "Last-Translator: Automatically generated\n"
 "MIME-Version: 1.0\n"
 "PO-Revision-Date: 2025-07-28 21:18+0200\n"
-"POT-Creation-Date: 2025-07-28 21:18+0200\n"
+"POT-Creation-Date: 2025-07-29 17:20+0200\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "Project-Id-Version: io.github.teamcons.mrworldwide\n"
 "Report-Msgid-Bugs-To: \n"
@@ -17,7 +17,7 @@ msgid "Enter API key here"
 msgstr "Введіть ключ API тут"
 
 #: src/Widgets/Menu.vala:31
-#: src/Widgets/SourcePane.vala:19
+#: src/Widgets/SourcePane.vala:26
 msgid "Paste from clipboard"
 msgstr "Вставити з буфера обміну"
 
@@ -29,17 +29,21 @@ msgstr "DeepL Ключі API"
 msgid "You can get an API key on DeepL Website"
 msgstr "Отримати ключ API можна на сайті DeepL"
 
-#: src/Widgets/OptionsMenu.vala:19
+#: src/Widgets/OptionsMenu.vala:20
 msgid "Enter context here"
 msgstr "Введіть контекст тут"
 
 #. /TRANSLATORS: %s is replaced by a number
-#: src/Widgets/Pane.vala:101
+#: src/Widgets/Pane.vala:104
 #, c-format
 msgid "Counted %s characters"
 msgstr "Підраховано %s символів"
 
-#: src/Widgets/SourcePane.vala:29
+#: src/Widgets/SourcePane.vala:20
+msgid "Clear text"
+msgstr "Чистий текст"
+
+#: src/Widgets/SourcePane.vala:35
 msgid "Add context to the text to translate"
 msgstr "Додайте контекст до тексту для перекладу"
 
@@ -47,26 +51,31 @@ msgstr "Додайте контекст до тексту для перекла�
 msgid "Copy to clipboard"
 msgstr "Скопіювати в буфер обміну"
 
-#: src/Backend/DeepL.vala:165
+#: src/Backend/DeepL.vala:156
 msgid "Cannot detect!"
 msgstr "Не можу виявити!"
 
-#: src/Backend/DeepL.vala:173
+#: src/Backend/DeepL.vala:164
 msgid "Cannot retrieve translated text!"
 msgstr "Не вдається отримати перекладений текст!"
 
 #. ---------------- HEADERBAR ----------------
-#: src/Windows/Window.vala:41
-#: src/Windows/Window.vala:59
-#: src/Windows/Window.vala:60
+#: src/Windows/Window.vala:44
+#: src/Windows/Window.vala:62
+#: src/Windows/Window.vala:63
 msgid "Mr WorldWide"
 msgstr "Містере Ворлдвайд."
 
-#: src/Windows/Window.vala:70
+#: src/Windows/Window.vala:73
 msgid "Switch orientation"
 msgstr "Орієнтація перемикача"
 
-#: src/Windows/Window.vala:76
+#: src/Windows/Window.vala:78
+#, fuzzy
+msgid "Switch languages"
+msgstr "Мова системи"
+
+#: src/Windows/Window.vala:84
 msgid "Settings"
 msgstr "Налаштування"
 

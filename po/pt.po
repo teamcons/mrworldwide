@@ -7,7 +7,7 @@ msgstr ""
 "Last-Translator: Automatically generated\n"
 "MIME-Version: 1.0\n"
 "PO-Revision-Date: 2025-07-28 21:18+0200\n"
-"POT-Creation-Date: 2025-07-28 21:18+0200\n"
+"POT-Creation-Date: 2025-07-29 17:20+0200\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "Project-Id-Version: io.github.teamcons.mrworldwide\n"
 "Report-Msgid-Bugs-To: \n"
@@ -17,7 +17,7 @@ msgid "Enter API key here"
 msgstr "Introduzir a chave API aqui"
 
 #: src/Widgets/Menu.vala:31
-#: src/Widgets/SourcePane.vala:19
+#: src/Widgets/SourcePane.vala:26
 msgid "Paste from clipboard"
 msgstr "Colar da área de transferência"
 
@@ -29,17 +29,21 @@ msgstr "DeepL Chaves da API"
 msgid "You can get an API key on DeepL Website"
 msgstr "Pode obter uma chave API no sítio Web DeepL"
 
-#: src/Widgets/OptionsMenu.vala:19
+#: src/Widgets/OptionsMenu.vala:20
 msgid "Enter context here"
 msgstr "Introduzir contexto aqui"
 
 #. /TRANSLATORS: %s is replaced by a number
-#: src/Widgets/Pane.vala:101
+#: src/Widgets/Pane.vala:104
 #, c-format
 msgid "Counted %s characters"
 msgstr "Caracteres %s contados"
 
-#: src/Widgets/SourcePane.vala:29
+#: src/Widgets/SourcePane.vala:20
+msgid "Clear text"
+msgstr "Texto claro"
+
+#: src/Widgets/SourcePane.vala:35
 msgid "Add context to the text to translate"
 msgstr "Adicionar contexto ao texto a traduzir"
 
@@ -47,26 +51,31 @@ msgstr "Adicionar contexto ao texto a traduzir"
 msgid "Copy to clipboard"
 msgstr "Copiar para a área de transferência"
 
-#: src/Backend/DeepL.vala:165
+#: src/Backend/DeepL.vala:156
 msgid "Cannot detect!"
 msgstr "Não é possível detetar!"
 
-#: src/Backend/DeepL.vala:173
+#: src/Backend/DeepL.vala:164
 msgid "Cannot retrieve translated text!"
 msgstr "Não é possível recuperar o texto traduzido!"
 
 #. ---------------- HEADERBAR ----------------
-#: src/Windows/Window.vala:41
-#: src/Windows/Window.vala:59
-#: src/Windows/Window.vala:60
+#: src/Windows/Window.vala:44
+#: src/Windows/Window.vala:62
+#: src/Windows/Window.vala:63
 msgid "Mr WorldWide"
 msgstr "Sr. WorldWide"
 
-#: src/Windows/Window.vala:70
+#: src/Windows/Window.vala:73
 msgid "Switch orientation"
 msgstr "Orientação do interrutor"
 
-#: src/Windows/Window.vala:76
+#: src/Windows/Window.vala:78
+#, fuzzy
+msgid "Switch languages"
+msgstr "Língua do sistema"
+
+#: src/Windows/Window.vala:84
 msgid "Settings"
 msgstr "Definições"
 

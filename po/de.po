@@ -7,7 +7,7 @@ msgstr ""
 "Last-Translator: Automatically generated\n"
 "MIME-Version: 1.0\n"
 "PO-Revision-Date: 2025-07-26 13:10+0200\n"
-"POT-Creation-Date: 2025-07-28 21:18+0200\n"
+"POT-Creation-Date: 2025-07-29 17:20+0200\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "Project-Id-Version: io.github.teamcons.mrworldwide\n"
 "Report-Msgid-Bugs-To: \n"
@@ -17,7 +17,7 @@ msgid "Enter API key here"
 msgstr "API-Schlüssel hier eingeben"
 
 #: src/Widgets/Menu.vala:31
-#: src/Widgets/SourcePane.vala:19
+#: src/Widgets/SourcePane.vala:26
 msgid "Paste from clipboard"
 msgstr "Einfügen aus der Zwischenablage"
 
@@ -29,17 +29,21 @@ msgstr "DeepL API-Schlüssel"
 msgid "You can get an API key on DeepL Website"
 msgstr "Sie können einen API-Schlüssel auf der DeepL Website erhalten"
 
-#: src/Widgets/OptionsMenu.vala:19
+#: src/Widgets/OptionsMenu.vala:20
 msgid "Enter context here"
 msgstr "Kontext hier eingeben"
 
 #. /TRANSLATORS: %s is replaced by a number
-#: src/Widgets/Pane.vala:101
+#: src/Widgets/Pane.vala:104
 #, c-format
 msgid "Counted %s characters"
 msgstr "%s Zeichen"
 
-#: src/Widgets/SourcePane.vala:29
+#: src/Widgets/SourcePane.vala:20
+msgid "Clear text"
+msgstr "Klarer Text"
+
+#: src/Widgets/SourcePane.vala:35
 msgid "Add context to the text to translate"
 msgstr "Kontext zum zu übersetzenden Text hinzufügen"
 
@@ -47,26 +51,31 @@ msgstr "Kontext zum zu übersetzenden Text hinzufügen"
 msgid "Copy to clipboard"
 msgstr "In die Zwischenablage kopieren"
 
-#: src/Backend/DeepL.vala:165
+#: src/Backend/DeepL.vala:156
 msgid "Cannot detect!"
 msgstr "Nicht zu erkennen!"
 
-#: src/Backend/DeepL.vala:173
+#: src/Backend/DeepL.vala:164
 msgid "Cannot retrieve translated text!"
 msgstr "Der übersetzte Text kann nicht abgerufen werden!"
 
 #. ---------------- HEADERBAR ----------------
-#: src/Windows/Window.vala:41
-#: src/Windows/Window.vala:59
-#: src/Windows/Window.vala:60
+#: src/Windows/Window.vala:44
+#: src/Windows/Window.vala:62
+#: src/Windows/Window.vala:63
 msgid "Mr WorldWide"
 msgstr "Mr WorldWide"
 
-#: src/Windows/Window.vala:70
+#: src/Windows/Window.vala:73
 msgid "Switch orientation"
 msgstr "Ausrichtung des Schalters"
 
-#: src/Windows/Window.vala:76
+#: src/Windows/Window.vala:78
+#, fuzzy
+msgid "Switch languages"
+msgstr "Systemsprache"
+
+#: src/Windows/Window.vala:84
 msgid "Settings"
 msgstr "Einstellungen"
 

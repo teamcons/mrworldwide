@@ -1,19 +1,18 @@
 msgid ""
 msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
-"Content-Type: text/plain; charset=ASCII\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Language: nb\n"
 "Language-Team: none\n"
 "Last-Translator: Automatically generated\n"
 "MIME-Version: 1.0\n"
 "PO-Revision-Date: 2025-07-28 21:18+0200\n"
-"POT-Creation-Date: 2025-07-28 21:18+0200\n"
+"POT-Creation-Date: 2025-07-29 17:21+0200\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 
 #: data/mrworldwide.metainfo.xml.in:12
-#: data/mrworldwide.desktop.in:6
 msgid "mrworldwide"
 msgstr "mrworldwide"
 
@@ -133,6 +132,11 @@ msgstr "Første utgivelse"
 #: data/mrworldwide.metainfo.xml.in:99
 msgid "Updated translations"
 msgstr "Oppdaterte oversettelser"
+
+#: data/mrworldwide.desktop.in:6
+#, fuzzy
+msgid "Mr WorldWide"
+msgstr "mrworldwide"
 
 #: data/mrworldwide.desktop.in:7
 msgid "Text translator"
