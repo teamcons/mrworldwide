@@ -37,10 +37,19 @@
         options_button.direction = Gtk.ArrowType.UP;
         pane.actionbar.pack_end (options_button);
 
+
+
         clear.clicked.connect (() => {
           pane.set_text ("");
         });
+
         paste.clicked.connect (paste_from_clipboard);
+
+        pane.language_changed.connect ((code) => {
+          Application.settings.set_string ("source-language", code);
+        });
+
+
     }
 
   private void paste_from_clipboard () {

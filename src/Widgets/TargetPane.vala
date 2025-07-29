@@ -22,6 +22,10 @@
         pane.actionbar.pack_end (copy);
 
         copy.clicked.connect (copy_to_clipboard);
+
+        pane.language_changed.connect ((code) => {
+          Application.settings.set_string ("target-language", code);
+        });
     }
 
   private void copy_to_clipboard () {

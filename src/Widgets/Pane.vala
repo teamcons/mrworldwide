@@ -92,6 +92,11 @@
         dropdown.set_selected (position);
     }
 
+    public string get_selected_language () {
+        selected = dropdown.get_selected_item() as Lang;
+        return selected.code;
+    }
+
     public void on_buffer_changed () {
         var len = textview.buffer.text.length.to_string ();
         count.label = len;

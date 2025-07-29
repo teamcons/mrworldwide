@@ -6,6 +6,7 @@
 public class MrWorldWide.Window : Gtk.Window {
 
     private Gtk.Button toggleview_button;
+    private Gtk.Button switchlang_button;
     private Gtk.MenuButton popover_button;
     private Gtk.Spinner loading;
     private Gtk.Revealer loading_revealer;
@@ -71,6 +72,11 @@ public class MrWorldWide.Window : Gtk.Window {
         };
         headerbar.pack_start (toggleview_button);
 
+        switchlang_button = new Gtk.Button.from_icon_name ("media-playlist-repeat") {
+            tooltip_markup = Granite.markup_accel_tooltip ({"<Ctrl>I"}, _("Switch languages")),
+        };
+        headerbar.pack_start (switchlang_button);
+
         popover_button = new Gtk.MenuButton () {
         icon_name = "open-menu",
         tooltip_markup = Granite.markup_accel_tooltip ({"<Ctrl>M"}, _("Settings")),
@@ -117,13 +123,11 @@ public class MrWorldWide.Window : Gtk.Window {
 
         /* ---------------- CONNECTS ---------------- */
         // Logic for toggling the panes/layout
-        on_toggle_pane_changed ();
         toggleview_button.clicked.connect (toggle_view);
+        on_toggle_pane_changed ();
         Application.settings.changed["vertical-layout"].connect (on_toggle_pane_changed);
 
-        // Simply save up selected languages
-        source_pane.pane.language_changed.connect (on_source_changed);
-        target_pane.pane.language_changed.connect (on_target_changed);
+        switchlang_button.clicked.connect (switch_languages);    
 
         // Backend takes care of the async for us. We give it the text
         // And it will emit a signal whenever finished, which we can connect to
@@ -157,12 +161,12 @@ public class MrWorldWide.Window : Gtk.Window {
         );
     }
 
-    private void on_source_changed (string code) {
-        Application.settings.set_string ("source-language", code);
-    }
+    private void switch_languages () {
+        var newtarget = source_pane.pane.get_selected_language ();
+        var newsource = target_pane.pane.get_selected_language ();
 
-    private void on_target_changed (string code) {
-        Application.settings.set_string ("target-language", code);
+        source_pane.pane.set_selected_language (newsource);
+        target_pane.pane.set_selected_language (newtarget);
     }
 
     private void on_toggle_pane_changed () {
