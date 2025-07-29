@@ -17,7 +17,7 @@
 
 
         var clear = new Gtk.Button.from_icon_name ("edit-clear") {
-            tooltip_text = _("Clear text"),
+            tooltip_markup = Granite.markup_accel_tooltip ({"<Ctrl>L"}, _("Clear text")),
             margin_start = 6
         };
         pane.actionbar.pack_end (clear);
@@ -37,8 +37,6 @@
         options_button.direction = Gtk.ArrowType.UP;
         pane.actionbar.pack_end (options_button);
 
-
-
         clear.clicked.connect (() => {
           pane.set_text ("");
         });
@@ -48,8 +46,6 @@
         pane.language_changed.connect ((code) => {
           Application.settings.set_string ("source-language", code);
         });
-
-
     }
 
   private void paste_from_clipboard () {

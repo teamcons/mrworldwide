@@ -59,6 +59,10 @@ public class MrWorldWide.Application : Gtk.Application {
         var switch_languages = new SimpleAction ("switch_languages", null);
         add_action (switch_languages);
         set_accels_for_action ("app.switch_languages", {"<Control>i"});
+
+        var clear_source = new SimpleAction ("clear_source", null);
+        add_action (clear_source);
+        set_accels_for_action ("app.clear_source", {"<Control>l"});
     }
 
     protected override void activate () {

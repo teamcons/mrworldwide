@@ -26,12 +26,14 @@ public class MrWorldWide.Window : Gtk.Window {
     public const string ACTION_MENU = "menu";
     public const string ACTION_TOGGLE_VIEW = "toggle_view";
     public const string ACTION_SWITCH_LANG = "switch_languages";
+    public const string ACTION_CLEAR = "clear_source";
     public static Gee.MultiMap<string, string> action_accelerators = new Gee.HashMultiMap<string, string> ();
 
     private const GLib.ActionEntry[] ACTION_ENTRIES = {
         { ACTION_MENU, on_menu},
         { ACTION_TOGGLE_VIEW, toggle_view},
-        { ACTION_SWITCH_LANG, switch_languages}
+        { ACTION_SWITCH_LANG, switch_languages},
+        { ACTION_CLEAR, clear_source}
     };
 
 
@@ -145,11 +147,11 @@ public class MrWorldWide.Window : Gtk.Window {
 
         // Listen if the backend recognize a language to switch to it
         // debatable whether to keep this idk
-        backend.language_detected.connect ((detected_language_code) => {
+/*          backend.language_detected.connect ((detected_language_code) => {
             if (detected_language_code != null) {
                 source_pane.pane.set_selected_language (detected_language_code);
             }
-        });
+        });  */
     }
 
     private void on_menu () {
@@ -211,5 +213,10 @@ public class MrWorldWide.Window : Gtk.Window {
         loading_revealer.reveal_child = false;
         loading.stop ();
     }
+
+    
+  private void clear_source () {
+    source_pane.pane.set_text ("");
+  }
 
 }
