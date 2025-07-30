@@ -49,6 +49,8 @@ public class MrWorldWide.DeepL : Object {
   private const string URL_DEEPL_PRO = "https://api.deepl.com";
   private const string REST_OF_THE_URL = "/v2/translate";
 
+  public static string[] SUPPORTED_FORMALITY = {"DE", "FR", "IT", "ES", "NL", "PL", "PT-BR", "PT-PT", "JA", "RU"};
+
   public void reload () {
     system_language = detect_system ();
 
@@ -124,6 +126,23 @@ public class MrWorldWide.DeepL : Object {
     if (context != "") {
       builder.set_member_name ("context");
       builder.add_string_value (context);
+    }
+
+    // TODO: This but cleaner
+    if (target_lang in SUPPORTED_FORMALITY) {
+      string formality;
+
+      switch (Application.settings.get_enum ("formality")) {
+        case 0: formality = "more"; break;
+        case 1: formality = "prefer-more"; break;
+        case 2: formality = "default"; break;
+        case 3: formality = "prefer-less"; break;
+        case 4: formality = "less"; break;
+        default: formality = "default"; break;
+      }
+
+      builder.set_member_name ("formality");
+      builder.add_string_value (formality);
     }
 
     builder.end_object ();

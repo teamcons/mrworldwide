@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <schemalist>
+  <enum id="io.github.teamcons.mrworldwide.formality">
+    <value value='0' nick="more"/>
+    <value value='1' nick="prefer-more"/>
+    <value value='2' nick="default"/>
+    <value value='3' nick="prefer-less"/>
+    <value value='4' nick="less"/>
+  </enum>
+
   <schema path="/io/github/teamcons/mrworldwide/" id="io.github.teamcons.mrworldwide">
     <key name="window-height" type="i">
       <default>700</default>
@@ -40,6 +48,11 @@
       <default>""</default>
       <summary>context for translations</summary>
       <description>Passed as context parameter to the DeepL API</description>
+    </key>
+    <key enum="io.github.teamcons.mrworldwide.formality" name="formality">
+      <default>'default'</default>
+      <summary>Level of formality</summary>
+      <description>For supported languages, how format the output should be</description>
     </key>
     <key name="current-usage" type="i">
       <default>0</default>

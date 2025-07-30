@@ -8,8 +8,7 @@ namespace MrWorldWide {
 
 
 	// https://developers.deepl.com/docs/getting-started/supported-languages
-	// TODO: new Lang ("guess",_("Detect language"))
-	// TODO: In the far future people might declare their own in a Json
+	// TODO: In the far future people might declare their own in a backend file
 	public Lang[] SourceLang () {
 		return {
 			new Lang ("idk",_("Detect automatically")),
