@@ -142,6 +142,9 @@ public class MrWorldWide.Window : Gtk.Window {
         source_pane.pane.language_changed.connect (on_text_to_translate);
         target_pane.pane.language_changed.connect (on_text_to_translate);
 
+        Application.settings.changed["context"].connect (on_text_to_translate);
+        Application.settings.changed["formality"].connect (on_text_to_translate);
+
         // Connect to the backend and do stuff if answer
         backend.answer_received.connect (on_answer_received);
 
