@@ -32,7 +32,7 @@
         var options_button = new Gtk.MenuButton () {
           icon_name = "tag",
           popover = options_menu,
-          tooltip_text = _("Add context to the text to translate"),
+          tooltip_text = _("Change options for the translation"),
         };
         options_button.direction = Gtk.ArrowType.UP;
         pane.actionbar.pack_end (options_button);
