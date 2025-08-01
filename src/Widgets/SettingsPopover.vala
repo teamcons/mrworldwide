@@ -41,16 +41,7 @@ public class MrWorldWide.SettingsPopover : Gtk.Popover {
 
     box.append (api_field);
 
-    var link = "https://www.deepl.com/your-account/keys";
-    var linkname = _("DeepL API Keys");
 
-    var hint = new Gtk.LinkButton.with_label (
-                                              link,
-                                              linkname
-      );
-
-
-    box.append (hint);
 
 
     var api_usage_label = new Gtk.Label (_("API Usage")) {
@@ -63,6 +54,20 @@ public class MrWorldWide.SettingsPopover : Gtk.Popover {
     api_usage.min_value = 0;
 
     box.append (api_usage);
+
+
+    var link = "https://www.deepl.com/your-account/keys";
+    var linkname = _("DeepL API Keys");
+
+    var hint = new Gtk.LinkButton.with_label (
+                                              link,
+                                              linkname
+      );
+
+
+    box.append (hint);
+
+
 
     child = box;
 
