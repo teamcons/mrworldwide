@@ -13,7 +13,7 @@ Store the key when the PassWordEntry in Menu is changed
 Retrieve upon Menu creation.
 Let the backend access it in a cache called "attributes" so there is no async BS.
 
-Store in a table, under "deepl", as in the future we may want to save keys in other backends
+
 
 */
 
@@ -24,37 +24,59 @@ public class MrWorldWide.Secrets : Object {
     private Secret.Schema secret;
     private GLib.HashTable<string,string> attributes;
 
+    private string cached_password;
+
+
     public Secrets () {
-        secret = new Secret.Schema (Application.application_id,
+        secret = new Secret.Schema ("io.github.teamcons.mrworldwide",
                                         Secret.SchemaFlags.NONE,
-                                        "api_key",
+                                        "backend",
                                         Secret.SchemaAttributeType.STRING);
 
 
-        attributes = new GLib.HashTable<string,string> ();                                        
+        attributes = new GLib.HashTable<string,string> (null, null);
     }
 
-    public void set_api_key (string api_key) {
-        attributes["deepl"] = api_key;
-        Secret.password_storev.begin (Application.application_id,
+    public void set_api_key (string backend, string api_key) {
+        attributes["backend"] = backend;
+        Secret.password_storev.begin (secret,
                                     attributes,
                                     Secret.COLLECTION_DEFAULT,
-                                    "api_key", api_key, null, (obj, async_res) => {
-            
-                                    bool res = Secret.password_store.end (async_res);
+                                    backend, api_key, null, (obj, async_res) => {
+
+                                    try {
+                                        bool res = Secret.password_store.end (async_res);
+                                        print ("\n Finished saving %s:%s".printf (api_key,res.to_string ()));
+
+                                    } catch (Error e) {
+                                        print ("S Secrets: %s".printf (e.message));
+                                    }
+
         });
     }
 
-    public void retrieve_api_key () {
-        Secret.password_lookup.begin (Application.application_id, attributes, null, (obj, async_res) => {
-            string password = Secret.password_lookup.end (async_res);
-            // What password exactly is this?...
-            retrieved (password);
+    public void retrieve_api_key (string backend) {
+        attributes["backend"] = backend;
+        Secret.password_lookupv.begin (
+            secret,
+            attributes,
+            null, (obj, async_res) => {
+
+            try {
+                string password = Secret.password_lookup.end (async_res);
+                cached_password = password;
+                retrieved (password);
+                print ("\nRETRIEVED: %s".printf (password));
+
+            } catch (Error e) {
+                print ("S Secrets: %s".printf (e.message));
+            }
+
         });
     }
 
-    public string whats_key (string backend_name) {
-        return attributes[backend_name];
+    public string whats_key (string backend) {
+        return cached_password;
     }
 
 }
