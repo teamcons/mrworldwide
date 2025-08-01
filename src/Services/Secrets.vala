@@ -5,15 +5,14 @@
 
 /*
 The plan: Something that replaces pretty much in-place gsettings
+You call the object from anywhere and it manages the rest
 
 a function to set and forget
 a function to trigger retrieval. The relevant part of the API will be connected to the signal spitting the key out.
 
+Retrieve key upon Menu creation.
 Store the key when the PassWordEntry in Menu is changed
-Retrieve upon Menu creation.
-Let the backend access it in a cache called "attributes" so there is no async BS.
-
-
+Let the backend access it in a cache so there is no async BS.
 
 */
 
@@ -51,7 +50,6 @@ public class MrWorldWide.Secrets : Object {
                                     } catch (Error e) {
                                         print ("S Secrets: %s".printf (e.message));
                                     }
-
         });
     }
 
