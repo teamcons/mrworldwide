@@ -85,7 +85,7 @@ public class MrWorldWide.OptionsMenu : Gtk.Popover {
     this.show.connect (() => {
 
       // I know this could be a cool one liner, but the one liner is ugly and unreadable
-      if (Application.settings.get_string ("target-language") in MrWorldWide.DeepL.SUPPORTED_FORMALITY) {
+      if (Application.settings.get_string ("target-language") in DeepL.SUPPORTED_FORMALITY) {
         formalbox.sensitive = true;
         formalbox.tooltip_text = _("Set how formal the translation should be");
 

@@ -5,7 +5,8 @@
 
 public class MrWorldWide.Menu : Gtk.Popover {
 
-  public Gtk.PasswordEntry api_entry;
+  private Gtk.PasswordEntry api_entry;
+  private Gtk.LevelBar api_usage;
 
   construct {
       width_request = 340;
@@ -45,19 +46,21 @@ public class MrWorldWide.Menu : Gtk.Popover {
                                               linkname
       );
 
-    var hint_label = new Granite.HeaderLabel (_("You can get an API key on DeepL Website")) {
-                mnemonic_widget = hint,
-                halign = Gtk.Align.START,
-                hexpand = true,
-                valign = Gtk.Align.START,
-                margin_top = 0
-    };
 
     box.append (hint);
-    //box.append (hint_label);
+
+    api_usage = new Gtk.LevelBar ();
+    api_usage.min_value = 0;
+    api_usage.max_value = Application.backend.max_word_usage;
+    api_usage.value = Application.backend.current_word_usage;
+
+
+    box.append (api_usage);
 
     child = box;
 
+    on_translations ();
+    Application.backend.answer_received.connect (on_translations);
 
     Application.settings.bind (
       "key", 
@@ -67,8 +70,6 @@ public class MrWorldWide.Menu : Gtk.Popover {
     );
 
     api_paste.clicked.connect (paste_from_clipboard);
-
-
   }
 
   private void paste_from_clipboard () {
@@ -89,5 +90,15 @@ public class MrWorldWide.Menu : Gtk.Popover {
         print ("Cannot access clipboard: " + e.message);
       }
     });
+  }
+
+  private void on_translations () {
+
+    api_usage.value = Application.backend.current_word_usage;
+
+    api_usage.tooltip_text = _("%s characters translated / %s maximum characters on your plan").printf (
+      api_usage.value.to_string (), 
+      api_usage.max_value.to_string ());
+    
   }
 }

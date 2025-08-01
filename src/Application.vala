@@ -7,6 +7,7 @@ public class MrWorldWide.Application : Gtk.Application {
     public Window main_window;
 
     public static Settings settings;
+    public static DeepL backend;
 
     public Application () {
         Object (
@@ -17,6 +18,10 @@ public class MrWorldWide.Application : Gtk.Application {
 
     static construct {
         settings = new GLib.Settings ("io.github.teamcons.mrworldwide");
+
+        // Backend takes care of the async for us. We give it the text
+        // And it will emit a signal whenever finished, which we can connect to
+        backend = new DeepL ();
     }
 
     protected override void startup () {
@@ -70,6 +75,8 @@ public class MrWorldWide.Application : Gtk.Application {
 			main_window.present ();
 			return;
 		}
+
+
 
         var main_window = new Window (this);
 

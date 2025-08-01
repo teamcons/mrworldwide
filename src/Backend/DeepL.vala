@@ -49,7 +49,12 @@ public class MrWorldWide.DeepL : Object {
   private const string URL_DEEPL_PRO = "https://api.deepl.com";
   private const string REST_OF_THE_URL = "/v2/translate";
 
-  public static string[] SUPPORTED_FORMALITY = {"DE", "FR", "IT", "ES", "NL", "PL", "PT-BR", "PT-PT", "JA", "RU"};
+  public const string[] SUPPORTED_FORMALITY = {"DE", "FR", "IT", "ES", "NL", "PL", "PT-BR", "PT-PT", "JA", "RU"};
+
+
+  public int current_word_usage = 0;
+  public int max_word_usage = 0;
+
 
   public void reload () {
     system_language = detect_system ();
@@ -145,6 +150,9 @@ public class MrWorldWide.DeepL : Object {
       builder.add_string_value (formality);
     }
 
+    builder.set_member_name ("show_billed_characters");
+    builder.add_boolean_value (true);
+
     builder.end_object ();
 
     Json.Generator generator = new Json.Generator ();
@@ -169,20 +177,23 @@ public class MrWorldWide.DeepL : Object {
     var array = objects.get_array_member ("translations");
     var translation = array.get_object_element (0);
 
+    var billed_characters = (int)translation.get_int_member_with_default (
+                                                                          "billed_characters",
+                                                                          0);
+    current_word_usage = current_word_usage + billed_characters;
+
     if (source_lang == "idk") {
           var detected_language_code = translation.get_string_member_with_default (
                                                                                           "detected_source_language",
-                                                                                           (_("Cannot detect!"))
-                                                                                          );
+                                                                                           (_("Cannot detect!")));
           print ("\n Detected language code: " + detected_language_code);
           language_detected (detected_language_code);
     }
 
+
     string translated_text = translation.get_string_member_with_default (
                                                                         "text",
-                                                                        _("Cannot retrieve translated text!")
-                                                                        );
-
+                                                                        _("Cannot retrieve translated text!"));
     return translated_text;
   }
 

@@ -15,8 +15,6 @@ public class MrWorldWide.Window : Gtk.Window {
     public MrWorldWide.TargetPane target_pane;
     public MrWorldWide.Menu menu_popover;
 
-    private DeepL backend;
-
     // Add a debounce so we aren't requesting the API constantly
     public int interval = 2000; // ms
     public uint debounce_timer_id = 0;
@@ -133,9 +131,7 @@ public class MrWorldWide.Window : Gtk.Window {
 
         switchlang_button.clicked.connect (switch_languages);    
 
-        // Backend takes care of the async for us. We give it the text
-        // And it will emit a signal whenever finished, which we can connect to
-        backend = new DeepL ();
+
 
         // translate when text is entered or user changes any language
         source_pane.pane.textview.buffer.changed.connect (on_text_to_translate);
@@ -146,7 +142,7 @@ public class MrWorldWide.Window : Gtk.Window {
         Application.settings.changed["formality"].connect (on_text_to_translate);
 
         // Connect to the backend and do stuff if answer
-        backend.answer_received.connect (on_answer_received);
+        Application.backend.answer_received.connect (on_answer_received);
 
         // Listen if the backend recognize a language to switch to it
         // debatable whether to keep this idk
@@ -202,7 +198,7 @@ public class MrWorldWide.Window : Gtk.Window {
                     // Start translating!
                     loading.start ();
                     loading_revealer.reveal_child = true;
-                    backend.send_request (source_pane.pane.get_text ());
+                    Application.backend.send_request (source_pane.pane.get_text ());
 
                 return GLib.Source.REMOVE;
             });
