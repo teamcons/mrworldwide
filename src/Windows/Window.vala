@@ -5,7 +5,6 @@
 
 public class MrWorldWide.Window : Gtk.Window {
 
-    private Gtk.Button toggleview_button;
     private Gtk.Button switchlang_button;
     private Gtk.MenuButton popover_button;
     private Gtk.Spinner loading;
@@ -13,7 +12,7 @@ public class MrWorldWide.Window : Gtk.Window {
     private Gtk.Paned paned;
     public MrWorldWide.SourcePane source_pane;
     public MrWorldWide.TargetPane target_pane;
-    public MrWorldWide.Menu menu_popover;
+    public MrWorldWide.SettingsPopover menu_popover;
 
     // Add a debounce so we aren't requesting the API constantly
     public int interval = 2000; // ms
@@ -67,12 +66,9 @@ public class MrWorldWide.Window : Gtk.Window {
         headerbar.title_widget = title_widget;
         headerbar.add_css_class (Granite.STYLE_CLASS_FLAT);
 
-        set_titlebar (headerbar);
 
-        toggleview_button = new Gtk.Button.from_icon_name ("view-dual") {
-            tooltip_markup = Granite.markup_accel_tooltip ({"<Ctrl>O"}, _("Switch orientation")),
-        };
-        headerbar.pack_start (toggleview_button);
+
+        set_titlebar (headerbar);
 
         switchlang_button = new Gtk.Button.from_icon_name ("media-playlist-repeat") {
             tooltip_markup = Granite.markup_accel_tooltip ({"<Ctrl>I"}, _("Switch languages")),
@@ -87,7 +83,7 @@ public class MrWorldWide.Window : Gtk.Window {
         popover_button.set_primary (true);
         popover_button.set_direction (Gtk.ArrowType.NONE);
 
-        var menu_popover = new MrWorldWide.Menu ();
+        var menu_popover = new MrWorldWide.SettingsPopover ();
         popover_button.popover = menu_popover;
 
         headerbar.pack_end (popover_button);
@@ -121,16 +117,11 @@ public class MrWorldWide.Window : Gtk.Window {
         set_focus (source_pane.pane.textview);
 
 
-
-
         /* ---------------- CONNECTS ---------------- */
         // Logic for toggling the panes/layout
-        toggleview_button.clicked.connect (toggle_view);
         on_toggle_pane_changed ();
         Application.settings.changed["vertical-layout"].connect (on_toggle_pane_changed);
-
         switchlang_button.clicked.connect (switch_languages);    
-
 
 
         // translate when text is entered or user changes any language
@@ -175,14 +166,12 @@ public class MrWorldWide.Window : Gtk.Window {
     private void on_toggle_pane_changed () {
         if (Application.settings.get_boolean ("vertical-layout")) {            
             paned.orientation = Gtk.Orientation.VERTICAL;
-            toggleview_button.remove_css_class ("rotated");
 
         } else {
             paned.orientation = Gtk.Orientation.HORIZONTAL;
-            toggleview_button.add_css_class ("rotated");
         }
     }
-    
+
     private void on_text_to_translate () {
         // Avoid translating empty text (useless request)
         if (source_pane.pane.get_text () != "") {
@@ -213,9 +202,7 @@ public class MrWorldWide.Window : Gtk.Window {
         loading.stop ();
     }
 
-    
-  private void clear_source () {
-    source_pane.pane.set_text ("");
-  }
-
+    private void clear_source () {
+        source_pane.pane.set_text ("");
+    }
 }

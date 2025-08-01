@@ -3,7 +3,7 @@
  * SPDX-FileCopyrightText:  2025 Stella & Charlie (teamcons.carrd.co)
  */
 
-public class MrWorldWide.Menu : Gtk.Popover {
+public class MrWorldWide.SettingsPopover : Gtk.Popover {
 
   private Gtk.PasswordEntry api_entry;
   private Gtk.LevelBar api_usage;
@@ -16,6 +16,9 @@ public class MrWorldWide.Menu : Gtk.Popover {
       margin_start = 12,
       margin_end = 12
     };
+
+    box.append (new OrientationBox ());
+    box.append (new Gtk.Separator (HORIZONTAL));
 
     var api_field = new Gtk.Box (HORIZONTAL, 6) {
     hexpand = true,

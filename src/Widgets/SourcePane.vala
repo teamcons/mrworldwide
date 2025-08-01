@@ -28,7 +28,7 @@
         };
         pane.actionbar.pack_end (paste);
 
-        var options_menu = new MrWorldWide.OptionsMenu ();
+        var options_menu = new MrWorldWide.ContextPopover ();
         var options_button = new Gtk.MenuButton () {
           icon_name = "tag",
           popover = options_menu,

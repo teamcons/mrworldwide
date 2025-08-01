@@ -3,7 +3,7 @@
  * SPDX-FileCopyrightText:  2025 Stella & Charlie (teamcons.carrd.co)
  */
 
-public class MrWorldWide.OptionsMenu : Gtk.Popover {
+public class MrWorldWide.ContextPopover : Gtk.Popover {
 
 
   construct {
