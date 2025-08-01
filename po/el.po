@@ -7,27 +7,32 @@ msgstr ""
 "Last-Translator: Automatically generated\n"
 "MIME-Version: 1.0\n"
 "PO-Revision-Date: 2025-07-28 21:18+0200\n"
-"POT-Creation-Date: 2025-07-31 19:37+0200\n"
+"POT-Creation-Date: 2025-08-01 20:41+0200\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "Project-Id-Version: io.github.teamcons.mrworldwide\n"
 "Report-Msgid-Bugs-To: \n"
 
-#: src/Widgets/Menu.vala:25
+#: src/Widgets/Menu.vala:26
 msgid "Enter API key here"
 msgstr "Εισάγετε το κλειδί API εδώ"
 
-#: src/Widgets/Menu.vala:32
+#: src/Widgets/Menu.vala:33
 #: src/Widgets/SourcePane.vala:26
 msgid "Paste from clipboard"
 msgstr "Επικόλληση από το πρόχειρο"
 
-#: src/Widgets/Menu.vala:41
+#: src/Widgets/Menu.vala:42
 msgid "DeepL API Keys"
 msgstr "DeepL Κλειδιά API"
 
-#: src/Widgets/Menu.vala:48
-msgid "You can get an API key on DeepL Website"
-msgstr "Μπορείτε να αποκτήσετε ένα κλειδί API στον ιστότοπο DeepL"
+#: src/Widgets/Menu.vala:53
+msgid "API Usage"
+msgstr "Χρήση API"
+
+#: src/Widgets/Menu.vala:104
+#, c-format
+msgid "%s characters translated / %s maximum characters on your plan"
+msgstr "%s μεταφρασμένοι χαρακτήρες / %s μέγιστοι χαρακτήρες στο πρόγραμμά σας"
 
 #: src/Widgets/OptionsMenu.vala:25
 #: src/Widgets/OptionsMenu.vala:90
@@ -65,38 +70,39 @@ msgid "Clear text"
 msgstr "Καθαρό κείμενο"
 
 #: src/Widgets/SourcePane.vala:35
-msgid "Add context to the text to translate"
-msgstr "Προσθέστε περιεχόμενο στο κείμενο προς μετάφραση"
+#, fuzzy
+msgid "Change options for the translation"
+msgstr "Ορίστε πόσο επίσημη θα πρέπει να είναι η μετάφραση"
 
 #: src/Widgets/TargetPane.vala:20
 msgid "Copy to clipboard"
 msgstr "Αντιγραφή στο πρόχειρο"
 
-#: src/Backend/DeepL.vala:175
+#: src/Backend/DeepL.vala:199
 msgid "Cannot detect!"
 msgstr "Δεν μπορεί να ανιχνεύσει!"
 
-#: src/Backend/DeepL.vala:183
+#: src/Backend/DeepL.vala:207
 msgid "Cannot retrieve translated text!"
 msgstr "Δεν είναι δυνατή η ανάκτηση μεταφρασμένου κειμένου!"
 
 #. ---------------- HEADERBAR ----------------
-#: src/Windows/Window.vala:46
-#: src/Windows/Window.vala:64
-#: src/Windows/Window.vala:65
+#: src/Windows/Window.vala:44
+#: src/Windows/Window.vala:62
+#: src/Windows/Window.vala:63
 msgid "Mr WorldWide"
 msgstr "Ο κ. WorldWide"
 
-#: src/Windows/Window.vala:75
+#: src/Windows/Window.vala:73
 msgid "Switch orientation"
 msgstr "Προσανατολισμός διακόπτη"
 
-#: src/Windows/Window.vala:80
+#: src/Windows/Window.vala:78
 #, fuzzy
 msgid "Switch languages"
 msgstr "Γλώσσα συστήματος"
 
-#: src/Windows/Window.vala:86
+#: src/Windows/Window.vala:84
 msgid "Settings"
 msgstr "Ρυθμίσεις"
 
@@ -298,3 +304,9 @@ msgstr "Κινέζικα (απλοποιημένα)"
 #: src/Constants.vala:91
 msgid "Chinese (Traditional)"
 msgstr "Κινέζικα (παραδοσιακά)"
+
+#~ msgid "You can get an API key on DeepL Website"
+#~ msgstr "Μπορείτε να αποκτήσετε ένα κλειδί API στον ιστότοπο DeepL"
+
+#~ msgid "Add context to the text to translate"
+#~ msgstr "Προσθέστε περιεχόμενο στο κείμενο προς μετάφραση"

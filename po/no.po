@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: io.github.teamcons.mrworldwide\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-31 19:37+0200\n"
+"POT-Creation-Date: 2025-08-01 20:41+0200\n"
 "PO-Revision-Date: 2025-07-28 21:18+0200\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -17,20 +17,25 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: src/Widgets/Menu.vala:25
+#: src/Widgets/Menu.vala:26
 msgid "Enter API key here"
 msgstr ""
 
-#: src/Widgets/Menu.vala:32 src/Widgets/SourcePane.vala:26
+#: src/Widgets/Menu.vala:33 src/Widgets/SourcePane.vala:26
 msgid "Paste from clipboard"
 msgstr ""
 
-#: src/Widgets/Menu.vala:41
+#: src/Widgets/Menu.vala:42
 msgid "DeepL API Keys"
 msgstr ""
 
-#: src/Widgets/Menu.vala:48
-msgid "You can get an API key on DeepL Website"
+#: src/Widgets/Menu.vala:53
+msgid "API Usage"
+msgstr ""
+
+#: src/Widgets/Menu.vala:104
+#, c-format
+msgid "%s characters translated / %s maximum characters on your plan"
 msgstr ""
 
 #: src/Widgets/OptionsMenu.vala:25 src/Widgets/OptionsMenu.vala:90
@@ -68,36 +73,36 @@ msgid "Clear text"
 msgstr ""
 
 #: src/Widgets/SourcePane.vala:35
-msgid "Add context to the text to translate"
+msgid "Change options for the translation"
 msgstr ""
 
 #: src/Widgets/TargetPane.vala:20
 msgid "Copy to clipboard"
 msgstr ""
 
-#: src/Backend/DeepL.vala:175
+#: src/Backend/DeepL.vala:199
 msgid "Cannot detect!"
 msgstr ""
 
-#: src/Backend/DeepL.vala:183
+#: src/Backend/DeepL.vala:207
 msgid "Cannot retrieve translated text!"
 msgstr ""
 
 #. ---------------- HEADERBAR ----------------
-#: src/Windows/Window.vala:46 src/Windows/Window.vala:64
-#: src/Windows/Window.vala:65
+#: src/Windows/Window.vala:44 src/Windows/Window.vala:62
+#: src/Windows/Window.vala:63
 msgid "Mr WorldWide"
 msgstr ""
 
-#: src/Windows/Window.vala:75
+#: src/Windows/Window.vala:73
 msgid "Switch orientation"
 msgstr ""
 
-#: src/Windows/Window.vala:80
+#: src/Windows/Window.vala:78
 msgid "Switch languages"
 msgstr ""
 
-#: src/Windows/Window.vala:86
+#: src/Windows/Window.vala:84
 msgid "Settings"
 msgstr ""
 

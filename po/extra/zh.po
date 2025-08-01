@@ -7,7 +7,7 @@ msgstr ""
 "Last-Translator: Automatically generated\n"
 "MIME-Version: 1.0\n"
 "PO-Revision-Date: 2025-07-28 21:18+0200\n"
-"POT-Creation-Date: 2025-07-29 17:21+0200\n"
+"POT-Creation-Date: 2025-08-01 20:41+0200\n"
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 
@@ -41,94 +41,100 @@ msgid "Toggle the view to be either horizontal or vertical"
 msgstr "将视图切换为水平或垂直视图"
 
 #: data/mrworldwide.metainfo.xml.in:24
-msgid "You can add context!"
+#, fuzzy
+msgid "You can add context to the text to translate!"
 msgstr "您可以添加上下文！"
 
 #: data/mrworldwide.metainfo.xml.in:25
+msgid "You can choose level of formality for the supported languages!"
+msgstr "您可以为支持的语言选择正式程度！"
+
+#: data/mrworldwide.metainfo.xml.in:26
+#, fuzzy
+msgid "You can see your current API usage!"
+msgstr "未来（可能）：查看您当前的使用情况！"
+
+#: data/mrworldwide.metainfo.xml.in:27
 msgid "Supported languages: All those available via DeepL API!"
 msgstr "支持的语言：所有通过 DeepL API 提供的语言！"
 
-#: data/mrworldwide.metainfo.xml.in:26
+#: data/mrworldwide.metainfo.xml.in:28
 msgid "Detect language: As expected of a translator!"
 msgstr "检测语言：符合翻译员的预期！"
 
-#: data/mrworldwide.metainfo.xml.in:27
+#: data/mrworldwide.metainfo.xml.in:29
 msgid "System language: No need to search for it in the list ;)"
 msgstr "系统语言：无需在列表中搜索 ;)"
 
-#: data/mrworldwide.metainfo.xml.in:28
-msgid "TO COME (maybe): See your current usage!"
-msgstr "未来（可能）：查看您当前的使用情况！"
-
-#: data/mrworldwide.metainfo.xml.in:30
+#: data/mrworldwide.metainfo.xml.in:31
 msgid "This is still under big development"
 msgstr "仍在大力开发中"
 
-#: data/mrworldwide.metainfo.xml.in:35
+#: data/mrworldwide.metainfo.xml.in:36
 msgid "Main window"
 msgstr "主窗口"
 
-#: data/mrworldwide.metainfo.xml.in:41
+#: data/mrworldwide.metainfo.xml.in:42
 msgid "Main window with dark theme"
 msgstr "深色主题主窗口"
 
-#: data/mrworldwide.metainfo.xml.in:51
+#: data/mrworldwide.metainfo.xml.in:52
 msgid "Teamcons"
 msgstr "团队赞助商"
 
-#: data/mrworldwide.metainfo.xml.in:70
+#: data/mrworldwide.metainfo.xml.in:71
 msgid "Translation"
 msgstr "翻译"
 
-#: data/mrworldwide.metainfo.xml.in:71
+#: data/mrworldwide.metainfo.xml.in:72
 msgid "Translate"
 msgstr "翻译"
 
-#: data/mrworldwide.metainfo.xml.in:72
+#: data/mrworldwide.metainfo.xml.in:73
 msgid "NMT"
 msgstr "NMT"
 
-#: data/mrworldwide.metainfo.xml.in:73
+#: data/mrworldwide.metainfo.xml.in:74
 msgid "DeepL"
 msgstr "DeepL"
 
-#: data/mrworldwide.metainfo.xml.in:74
+#: data/mrworldwide.metainfo.xml.in:75
 msgid "Localization"
 msgstr "本地化"
 
-#: data/mrworldwide.metainfo.xml.in:75
+#: data/mrworldwide.metainfo.xml.in:76
 msgid "Internationalization"
 msgstr "国际化"
 
-#: data/mrworldwide.metainfo.xml.in:76
+#: data/mrworldwide.metainfo.xml.in:77
 msgid "l10n"
 msgstr "l10n"
 
-#: data/mrworldwide.metainfo.xml.in:77
+#: data/mrworldwide.metainfo.xml.in:78
 msgid "i18n"
 msgstr "i18n"
 
-#: data/mrworldwide.metainfo.xml.in:78
+#: data/mrworldwide.metainfo.xml.in:79
 msgid "Localize"
 msgstr "本地化"
 
-#: data/mrworldwide.metainfo.xml.in:79
+#: data/mrworldwide.metainfo.xml.in:80
 msgid "Languages"
 msgstr "语言"
 
-#: data/mrworldwide.metainfo.xml.in:80
+#: data/mrworldwide.metainfo.xml.in:81
 msgid "Pantheon"
 msgstr "万神殿"
 
-#: data/mrworldwide.metainfo.xml.in:81
+#: data/mrworldwide.metainfo.xml.in:82
 msgid "elementary OS"
 msgstr "初级操作系统"
 
-#: data/mrworldwide.metainfo.xml.in:97
+#: data/mrworldwide.metainfo.xml.in:98
 msgid "Initial Release"
 msgstr "首次发布"
 
-#: data/mrworldwide.metainfo.xml.in:99
+#: data/mrworldwide.metainfo.xml.in:100
 msgid "Updated translations"
 msgstr "更新翻译"
 

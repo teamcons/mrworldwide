@@ -21,12 +21,12 @@
       <ul>
             <li>Nimble: Quick to setup: Paste your api key, whether DeepL Free or Pro, and here you go!</li>
             <li>Toggle the view to be either horizontal or vertical</li>
-            <li>You can add context!</li>
+            <li>You can add context to the text to translate!</li>
             <li>You can choose level of formality for the supported languages!</li>
+            <li>You can see your current API usage!</li>
             <li>Supported languages: All those available via DeepL API!</li>
             <li>Detect language: As expected of a translator!</li>
             <li>System language: No need to search for it in the list ;)</li>
-            <li>TO COME (maybe): See your current usage!</li>
       </ul>
     <p>This is still under big development</p>
   </description>

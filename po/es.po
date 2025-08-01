@@ -7,27 +7,32 @@ msgstr ""
 "Last-Translator: Automatically generated\n"
 "MIME-Version: 1.0\n"
 "PO-Revision-Date: 2025-07-26 13:10+0200\n"
-"POT-Creation-Date: 2025-07-31 19:37+0200\n"
+"POT-Creation-Date: 2025-08-01 20:41+0200\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "Project-Id-Version: io.github.teamcons.mrworldwide\n"
 "Report-Msgid-Bugs-To: \n"
 
-#: src/Widgets/Menu.vala:25
+#: src/Widgets/Menu.vala:26
 msgid "Enter API key here"
 msgstr "Introduzca aquí la clave API"
 
-#: src/Widgets/Menu.vala:32
+#: src/Widgets/Menu.vala:33
 #: src/Widgets/SourcePane.vala:26
 msgid "Paste from clipboard"
 msgstr "Pegar desde el portapapeles"
 
-#: src/Widgets/Menu.vala:41
+#: src/Widgets/Menu.vala:42
 msgid "DeepL API Keys"
 msgstr "Claves API DeepL"
 
-#: src/Widgets/Menu.vala:48
-msgid "You can get an API key on DeepL Website"
-msgstr "Puede obtener una clave API en el sitio web de DeepL"
+#: src/Widgets/Menu.vala:53
+msgid "API Usage"
+msgstr "Uso de la API"
+
+#: src/Widgets/Menu.vala:104
+#, c-format
+msgid "%s characters translated / %s maximum characters on your plan"
+msgstr "%s caracteres traducidos / %s caracteres máximos en su plan"
 
 #: src/Widgets/OptionsMenu.vala:25
 #: src/Widgets/OptionsMenu.vala:90
@@ -65,38 +70,39 @@ msgid "Clear text"
 msgstr "Texto claro"
 
 #: src/Widgets/SourcePane.vala:35
-msgid "Add context to the text to translate"
-msgstr "Añade contexto al texto a traducir"
+#, fuzzy
+msgid "Change options for the translation"
+msgstr "Establezca el grado de formalidad de la traducción"
 
 #: src/Widgets/TargetPane.vala:20
 msgid "Copy to clipboard"
 msgstr "Copiar al portapapeles"
 
-#: src/Backend/DeepL.vala:175
+#: src/Backend/DeepL.vala:199
 msgid "Cannot detect!"
 msgstr "¡No se puede detectar!"
 
-#: src/Backend/DeepL.vala:183
+#: src/Backend/DeepL.vala:207
 msgid "Cannot retrieve translated text!"
 msgstr "No se puede recuperar el texto traducido."
 
 #. ---------------- HEADERBAR ----------------
-#: src/Windows/Window.vala:46
-#: src/Windows/Window.vala:64
-#: src/Windows/Window.vala:65
+#: src/Windows/Window.vala:44
+#: src/Windows/Window.vala:62
+#: src/Windows/Window.vala:63
 msgid "Mr WorldWide"
 msgstr "Mr WorldWide"
 
-#: src/Windows/Window.vala:75
+#: src/Windows/Window.vala:73
 msgid "Switch orientation"
 msgstr "Orientación del interruptor"
 
-#: src/Windows/Window.vala:80
+#: src/Windows/Window.vala:78
 #, fuzzy
 msgid "Switch languages"
 msgstr "Idioma del sistema"
 
-#: src/Windows/Window.vala:86
+#: src/Windows/Window.vala:84
 msgid "Settings"
 msgstr "Ajustes"
 
@@ -298,3 +304,9 @@ msgstr "Chino (simplificado)"
 #: src/Constants.vala:91
 msgid "Chinese (Traditional)"
 msgstr "Chino (tradicional)"
+
+#~ msgid "You can get an API key on DeepL Website"
+#~ msgstr "Puede obtener una clave API en el sitio web de DeepL"
+
+#~ msgid "Add context to the text to translate"
+#~ msgstr "Añade contexto al texto a traducir"

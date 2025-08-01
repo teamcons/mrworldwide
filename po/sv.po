@@ -7,27 +7,32 @@ msgstr ""
 "Last-Translator: Automatically generated\n"
 "MIME-Version: 1.0\n"
 "PO-Revision-Date: 2025-07-28 21:18+0200\n"
-"POT-Creation-Date: 2025-07-31 19:37+0200\n"
+"POT-Creation-Date: 2025-08-01 20:41+0200\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "Project-Id-Version: io.github.teamcons.mrworldwide\n"
 "Report-Msgid-Bugs-To: \n"
 
-#: src/Widgets/Menu.vala:25
+#: src/Widgets/Menu.vala:26
 msgid "Enter API key here"
 msgstr "Ange API-nyckel här"
 
-#: src/Widgets/Menu.vala:32
+#: src/Widgets/Menu.vala:33
 #: src/Widgets/SourcePane.vala:26
 msgid "Paste from clipboard"
 msgstr "Klistra in från urklipp"
 
-#: src/Widgets/Menu.vala:41
+#: src/Widgets/Menu.vala:42
 msgid "DeepL API Keys"
 msgstr "DeepL API-nycklar"
 
-#: src/Widgets/Menu.vala:48
-msgid "You can get an API key on DeepL Website"
-msgstr "Du kan få en API-nyckel på DeepL Webbplats"
+#: src/Widgets/Menu.vala:53
+msgid "API Usage"
+msgstr "API-användning"
+
+#: src/Widgets/Menu.vala:104
+#, c-format
+msgid "%s characters translated / %s maximum characters on your plan"
+msgstr "%s tecken översatta / %s maximalt antal tecken på din plan"
 
 #: src/Widgets/OptionsMenu.vala:25
 #: src/Widgets/OptionsMenu.vala:90
@@ -65,38 +70,39 @@ msgid "Clear text"
 msgstr "Klar text"
 
 #: src/Widgets/SourcePane.vala:35
-msgid "Add context to the text to translate"
-msgstr "Lägg till sammanhang i den text som ska översättas"
+#, fuzzy
+msgid "Change options for the translation"
+msgstr "Ange hur formell översättningen ska vara"
 
 #: src/Widgets/TargetPane.vala:20
 msgid "Copy to clipboard"
 msgstr "Kopiera till urklipp"
 
-#: src/Backend/DeepL.vala:175
+#: src/Backend/DeepL.vala:199
 msgid "Cannot detect!"
 msgstr "Kan inte upptäcka!"
 
-#: src/Backend/DeepL.vala:183
+#: src/Backend/DeepL.vala:207
 msgid "Cannot retrieve translated text!"
 msgstr "Det går inte att hämta översatt text!"
 
 #. ---------------- HEADERBAR ----------------
-#: src/Windows/Window.vala:46
-#: src/Windows/Window.vala:64
-#: src/Windows/Window.vala:65
+#: src/Windows/Window.vala:44
+#: src/Windows/Window.vala:62
+#: src/Windows/Window.vala:63
 msgid "Mr WorldWide"
 msgstr "Mr WorldWide"
 
-#: src/Windows/Window.vala:75
+#: src/Windows/Window.vala:73
 msgid "Switch orientation"
 msgstr "Brytarens orientering"
 
-#: src/Windows/Window.vala:80
+#: src/Windows/Window.vala:78
 #, fuzzy
 msgid "Switch languages"
 msgstr "Systemets språk"
 
-#: src/Windows/Window.vala:86
+#: src/Windows/Window.vala:84
 msgid "Settings"
 msgstr "Inställningar"
 
@@ -298,3 +304,9 @@ msgstr "Kinesiska (förenklad)"
 #: src/Constants.vala:91
 msgid "Chinese (Traditional)"
 msgstr "Kinesiska (traditionell)"
+
+#~ msgid "You can get an API key on DeepL Website"
+#~ msgstr "Du kan få en API-nyckel på DeepL Webbplats"
+
+#~ msgid "Add context to the text to translate"
+#~ msgstr "Lägg till sammanhang i den text som ska översättas"

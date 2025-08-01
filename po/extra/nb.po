@@ -7,7 +7,7 @@ msgstr ""
 "Last-Translator: Automatically generated\n"
 "MIME-Version: 1.0\n"
 "PO-Revision-Date: 2025-07-28 21:18+0200\n"
-"POT-Creation-Date: 2025-07-29 17:21+0200\n"
+"POT-Creation-Date: 2025-08-01 20:41+0200\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
@@ -42,94 +42,100 @@ msgid "Toggle the view to be either horizontal or vertical"
 msgstr "Veksle mellom horisontal eller vertikal visning"
 
 #: data/mrworldwide.metainfo.xml.in:24
-msgid "You can add context!"
+#, fuzzy
+msgid "You can add context to the text to translate!"
 msgstr "Du kan legge til kontekst!"
 
 #: data/mrworldwide.metainfo.xml.in:25
+msgid "You can choose level of formality for the supported languages!"
+msgstr "Du kan velge formalitetsnivå for språkene som støttes!"
+
+#: data/mrworldwide.metainfo.xml.in:26
+#, fuzzy
+msgid "You can see your current API usage!"
+msgstr "KOMMER (kanskje): Se din nåværende bruk!"
+
+#: data/mrworldwide.metainfo.xml.in:27
 msgid "Supported languages: All those available via DeepL API!"
 msgstr "Språk som støttes: Alle de som er tilgjengelige via DeepL API!"
 
-#: data/mrworldwide.metainfo.xml.in:26
+#: data/mrworldwide.metainfo.xml.in:28
 msgid "Detect language: As expected of a translator!"
 msgstr "Oppdag språk: Som forventet av en oversetter!"
 
-#: data/mrworldwide.metainfo.xml.in:27
+#: data/mrworldwide.metainfo.xml.in:29
 msgid "System language: No need to search for it in the list ;)"
 msgstr "Systemspråk: Du trenger ikke å søke etter det i listen ;)"
 
-#: data/mrworldwide.metainfo.xml.in:28
-msgid "TO COME (maybe): See your current usage!"
-msgstr "KOMMER (kanskje): Se din nåværende bruk!"
-
-#: data/mrworldwide.metainfo.xml.in:30
+#: data/mrworldwide.metainfo.xml.in:31
 msgid "This is still under big development"
 msgstr "Dette er fortsatt under stor utvikling"
 
-#: data/mrworldwide.metainfo.xml.in:35
+#: data/mrworldwide.metainfo.xml.in:36
 msgid "Main window"
 msgstr "Hovedvindu"
 
-#: data/mrworldwide.metainfo.xml.in:41
+#: data/mrworldwide.metainfo.xml.in:42
 msgid "Main window with dark theme"
 msgstr "Hovedvindu med mørkt tema"
 
-#: data/mrworldwide.metainfo.xml.in:51
+#: data/mrworldwide.metainfo.xml.in:52
 msgid "Teamcons"
 msgstr "Teamcons"
 
-#: data/mrworldwide.metainfo.xml.in:70
+#: data/mrworldwide.metainfo.xml.in:71
 msgid "Translation"
 msgstr "Oversettelse"
 
-#: data/mrworldwide.metainfo.xml.in:71
+#: data/mrworldwide.metainfo.xml.in:72
 msgid "Translate"
 msgstr "Oversett"
 
-#: data/mrworldwide.metainfo.xml.in:72
+#: data/mrworldwide.metainfo.xml.in:73
 msgid "NMT"
 msgstr "NMT"
 
-#: data/mrworldwide.metainfo.xml.in:73
+#: data/mrworldwide.metainfo.xml.in:74
 msgid "DeepL"
 msgstr "DeepL"
 
-#: data/mrworldwide.metainfo.xml.in:74
+#: data/mrworldwide.metainfo.xml.in:75
 msgid "Localization"
 msgstr "Lokalisering"
 
-#: data/mrworldwide.metainfo.xml.in:75
+#: data/mrworldwide.metainfo.xml.in:76
 msgid "Internationalization"
 msgstr "Internasjonalisering"
 
-#: data/mrworldwide.metainfo.xml.in:76
+#: data/mrworldwide.metainfo.xml.in:77
 msgid "l10n"
 msgstr "l10n"
 
-#: data/mrworldwide.metainfo.xml.in:77
+#: data/mrworldwide.metainfo.xml.in:78
 msgid "i18n"
 msgstr "i18n"
 
-#: data/mrworldwide.metainfo.xml.in:78
+#: data/mrworldwide.metainfo.xml.in:79
 msgid "Localize"
 msgstr "Lokaliser"
 
-#: data/mrworldwide.metainfo.xml.in:79
+#: data/mrworldwide.metainfo.xml.in:80
 msgid "Languages"
 msgstr "Språk"
 
-#: data/mrworldwide.metainfo.xml.in:80
+#: data/mrworldwide.metainfo.xml.in:81
 msgid "Pantheon"
 msgstr "Pantheon"
 
-#: data/mrworldwide.metainfo.xml.in:81
+#: data/mrworldwide.metainfo.xml.in:82
 msgid "elementary OS"
 msgstr "elementært operativsystem"
 
-#: data/mrworldwide.metainfo.xml.in:97
+#: data/mrworldwide.metainfo.xml.in:98
 msgid "Initial Release"
 msgstr "Første utgivelse"
 
-#: data/mrworldwide.metainfo.xml.in:99
+#: data/mrworldwide.metainfo.xml.in:100
 msgid "Updated translations"
 msgstr "Oppdaterte oversettelser"
 
