@@ -44,16 +44,27 @@ public class MrWorldWide.DeepL : Object {
 
   public signal void answer_received (string translated_text);
   public signal void language_detected (string? detected_language_code = null);
+  public signal void usage_retrieved ();
 
   private const string URL_DEEPL_FREE = "https://api-free.deepl.com";
   private const string URL_DEEPL_PRO = "https://api.deepl.com";
   private const string REST_OF_THE_URL = "/v2/translate";
+  private const string URL_USAGE = "/v2/usage";
 
   public const string[] SUPPORTED_FORMALITY = {"DE", "FR", "IT", "ES", "NL", "PL", "PT-BR", "PT-PT", "JA", "RU"};
 
 
   public int current_word_usage = 0;
   public int max_word_usage = 0;
+
+  construct {
+    reload ();
+    check_usage ();
+
+    Application.settings.changed["key"].connect (() => {
+      check_usage ();
+    });
+  }
 
 
   public void reload () {
@@ -195,6 +206,44 @@ public class MrWorldWide.DeepL : Object {
                                                                         "text",
                                                                         _("Cannot retrieve translated text!"));
     return translated_text;
+  }
+
+
+  private void check_usage () {
+
+    var msg = new Soup.Message ("GET", base_url + URL_USAGE);
+    msg.request_headers.append ("Authorization", "DeepL-Auth-Key %s".printf (api_key));
+
+    var session = new Soup.Session ();
+
+
+    var logger = new Soup.Logger (Soup.LoggerLogLevel.BODY);
+    session.add_feature (logger);
+    // optional, stderr (vice stdout)
+    logger.set_printer ((_1, _2, dir, text) => {
+      stderr.printf ("%c %s\n", dir, text);
+    });
+
+
+    session.send_and_read_async.begin (msg, 0, null, (obj, res) => {
+      try {
+        var bytes = session.send_and_read_async.end (res);
+        var answer = (string)bytes.get_data ();
+
+        var parser = new Json.Parser ();
+        parser.load_from_data (answer);
+
+        var root = parser.get_root ();
+        var objects = root.get_object ();
+        this.current_word_usage = (int)objects.get_int_member ("character_count");
+        this.max_word_usage = (int)objects.get_int_member ("character_limit");
+
+        usage_retrieved ();
+
+      } catch (Error e) {
+        stderr.printf ("Got: %s\n", e.message);
+      }
+    });
   }
 
 

@@ -49,18 +49,22 @@ public class MrWorldWide.Menu : Gtk.Popover {
 
     box.append (hint);
 
+
+    var api_usage_label = new Gtk.Label (_("API Usage")) {
+      halign = Gtk.Align.START
+    };
+    box.append (api_usage_label);
+
+
     api_usage = new Gtk.LevelBar ();
     api_usage.min_value = 0;
-    api_usage.max_value = Application.backend.max_word_usage;
-    api_usage.value = Application.backend.current_word_usage;
-
 
     box.append (api_usage);
 
     child = box;
 
-    on_translations ();
-    Application.backend.answer_received.connect (on_translations);
+    Application.backend.usage_retrieved.connect (update_usage);
+    Application.backend.answer_received.connect (update_usage);
 
     Application.settings.bind (
       "key", 
@@ -92,8 +96,9 @@ public class MrWorldWide.Menu : Gtk.Popover {
     });
   }
 
-  private void on_translations () {
+  private void update_usage () {
 
+    api_usage.max_value = Application.backend.max_word_usage;
     api_usage.value = Application.backend.current_word_usage;
 
     api_usage.tooltip_text = _("%s characters translated / %s maximum characters on your plan").printf (
