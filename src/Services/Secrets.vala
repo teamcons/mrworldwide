@@ -3,26 +3,58 @@
  * SPDX-FileCopyrightText:  2025 Stella & Charlie (teamcons.carrd.co)
  */
 
-public class MrWorldWide.SecretInfo : Object {
+/*
+The plan: Something that replaces pretty much in-place gsettings
 
-    signal retrieved (string result);
-    signal stored (string result);
+a function to set and forget
+a function to trigger retrieval. The relevant part of the API will be connected to the signal spitting the key out.
 
-    public async void start_retrieve_api () {
+Store the key when the PassWordEntry in Menu is changed
+Retrieve upon Menu creation.
+Let the backend access it in a cache called "attributes" so there is no async BS.
 
+Store in a table, under "deepl", as in the future we may want to save keys in other backends
+
+*/
+
+public class MrWorldWide.Secrets : Object {
+
+    public signal void retrieved (string result);
+
+    private Secret.Schema secret;
+    private GLib.HashTable<string,string> attributes;
+
+    public Secrets () {
+        secret = new Secret.Schema (Application.application_id,
+                                        Secret.SchemaFlags.NONE,
+                                        "api_key",
+                                        Secret.SchemaAttributeType.STRING);
+
+
+        attributes = new GLib.HashTable<string,string> ();                                        
     }
 
-    private void retrieved_api (string api) {
-
+    public void set_api_key (string api_key) {
+        attributes["deepl"] = api_key;
+        Secret.password_storev.begin (Application.application_id,
+                                    attributes,
+                                    Secret.COLLECTION_DEFAULT,
+                                    "api_key", api_key, null, (obj, async_res) => {
+            
+                                    bool res = Secret.password_store.end (async_res);
+        });
     }
 
-    public async void start_store_api (string api) {
-
+    public void retrieve_api_key () {
+        Secret.password_lookup.begin (Application.application_id, attributes, null, (obj, async_res) => {
+            string password = Secret.password_lookup.end (async_res);
+            // What password exactly is this?...
+            retrieved (password);
+        });
     }
 
-    private void stored_api () {
-
+    public string whats_key (string backend_name) {
+        return attributes[backend_name];
     }
-    
 
 }
