@@ -8,6 +8,7 @@ public class MrWorldWide.ContextPopover : Gtk.Popover {
 
   construct {
     width_request = 260;
+    halign = Gtk.Align.START;
 
     var box = new Gtk.Box (VERTICAL,0) {
       margin_top = 12,
@@ -20,7 +21,6 @@ public class MrWorldWide.ContextPopover : Gtk.Popover {
     var formalbox = new Gtk.Box (VERTICAL, 0) {
       margin_bottom = 12
     };
-
 
     var formal_label = new Gtk.Label (_("Set how formal the translation should be")) {
       halign = Gtk.Align.START
@@ -57,14 +57,12 @@ public class MrWorldWide.ContextPopover : Gtk.Popover {
 
     formalbox.append (formal_level);
 
-
     box.append (formalbox);
 
     /***************** CONTEXT *****************/
     var context_entry = new Gtk.Entry ();
     context_entry.placeholder_text = _("Enter context here");
     box.append (context_entry);
-
 
     child = box;
 
@@ -79,8 +77,6 @@ public class MrWorldWide.ContextPopover : Gtk.Popover {
       var value_as_int = (int)formal_level.get_value ();
       Application.settings.set_enum ("formality", value_as_int);
     });
-
-
 
     this.show.connect (() => {
 

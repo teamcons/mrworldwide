@@ -66,9 +66,17 @@ public class MrWorldWide.Window : Gtk.Window {
         headerbar.title_widget = title_widget;
         headerbar.add_css_class (Granite.STYLE_CLASS_FLAT);
 
-
-
         set_titlebar (headerbar);
+
+        var options_menu = new MrWorldWide.ContextPopover ();
+        var options_button = new Gtk.MenuButton () {
+          icon_name = "tag",
+          popover = options_menu,
+          tooltip_text = _("Change options for the translation"),
+        };
+        options_button.direction = Gtk.ArrowType.DOWN;
+
+        headerbar.pack_start (options_button);
 
         switchlang_button = new Gtk.Button.from_icon_name ("media-playlist-repeat") {
             tooltip_markup = Granite.markup_accel_tooltip ({"<Ctrl>I"}, _("Switch languages")),

@@ -28,15 +28,6 @@
         };
         pane.actionbar.pack_end (paste);
 
-        var options_menu = new MrWorldWide.ContextPopover ();
-        var options_button = new Gtk.MenuButton () {
-          icon_name = "tag",
-          popover = options_menu,
-          tooltip_text = _("Change options for the translation"),
-        };
-        options_button.direction = Gtk.ArrowType.UP;
-        pane.actionbar.pack_end (options_button);
-
         clear.clicked.connect (() => {
           pane.set_text ("");
         });
