@@ -5,17 +5,13 @@
 
  public class MrWorldWide.Pane : Gtk.Box {
 
-
     public MrWorldWide.DDModel model;
     public Gtk.DropDown dropdown;
     public MrWorldWide.Lang selected;
-
     public Gtk.TextView textview;
     public Gtk.ActionBar actionbar;
     public Gtk.Label count;
-
     public MrWorldWide.Lang[] langs;
-
 
     public signal void language_changed (string code = "");
 
@@ -111,5 +107,4 @@
     public string get_text () {
         return this.textview.buffer.text;
     }
-
 }

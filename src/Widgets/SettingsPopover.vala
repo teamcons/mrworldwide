@@ -9,7 +9,8 @@ public class MrWorldWide.SettingsPopover : Gtk.Popover {
   private Gtk.LevelBar api_usage;
 
   construct {
-      width_request = 340;
+    width_request = 340;
+    //halign = Gtk.Align.END;
 
     var box = new Gtk.Box (VERTICAL, 12) {
       margin_top = margin_bottom = 12,
@@ -41,9 +42,6 @@ public class MrWorldWide.SettingsPopover : Gtk.Popover {
 
     box.append (api_field);
 
-
-
-
     var api_usage_label = new Gtk.Label (_("API Usage")) {
       halign = Gtk.Align.START
     };
@@ -61,13 +59,9 @@ public class MrWorldWide.SettingsPopover : Gtk.Popover {
 
     var hint = new Gtk.LinkButton.with_label (
                                               link,
-                                              linkname
-      );
-
+                                              linkname);
 
     box.append (hint);
-
-
 
     child = box;
 
@@ -105,13 +99,11 @@ public class MrWorldWide.SettingsPopover : Gtk.Popover {
   }
 
   private void update_usage () {
-
     api_usage.max_value = Application.backend.max_word_usage;
     api_usage.value = Application.backend.current_word_usage;
 
     api_usage.tooltip_text = _("%s characters translated / %s maximum characters on your plan").printf (
       api_usage.value.to_string (), 
       api_usage.max_value.to_string ());
-    
   }
 }
