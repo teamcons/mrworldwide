@@ -57,6 +57,9 @@ public class MrWorldWide.Window : Gtk.Window {
         actions.add_action_entries (ACTION_ENTRIES, this);
         insert_action_group ("app", actions);
 
+        height_request = 240;
+
+
         /* ---------------- HEADERBAR ---------------- */
         title = _("Mr WorldWide");
         Gtk.Label title_widget = new Gtk.Label (_("Mr WorldWide"));
