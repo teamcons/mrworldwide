@@ -8,7 +8,7 @@ public class MrWorldWide.ContextPopover : Gtk.Popover {
 
   construct {
     width_request = 260;
-    halign = Gtk.Align.START;
+    //halign = Gtk.Align.START;
 
     var box = new Gtk.Box (VERTICAL,0) {
       margin_top = 12,
