@@ -18,9 +18,8 @@ You can download and install Mr WorldWide from various sources:
 
 ## 🛣️ Roadmap
 
--Backend that works
--Show usage
--Add popover to add context
+- icon
+
 -Switch backends
 
 ## 💝 Donations
