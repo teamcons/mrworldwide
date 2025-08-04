@@ -30,6 +30,17 @@ The object has two signals:
   If you want to write your own backend, everything would pretty much work if you
    do a drop in replacement with send_request (text) and the two signals to retrieve
    i may open up a bit more the possibilities to do other backends in the future
+
+
+  public void send_request (text);
+  public signal void answer_received (string translated_text);
+  public signal void language_detected (string? detected_language_code = null);
+  public signal void usage_retrieved (int current_word_usage, int max_word_usage);
+
+  public const string SUPPORTED_FORMALITY
+public const SUPPORTED_SOURCE
+public const SUPPORTED_TARGET
+
   */
 
 // Translation service that use translate
@@ -44,7 +55,7 @@ public class MrWorldWide.DeepL : Object {
 
   public signal void answer_received (string translated_text);
   public signal void language_detected (string? detected_language_code = null);
-  public signal void usage_retrieved ();
+  public signal void usage_retrieved (int current_word_usage, int max_word_usage);
 
   private const string URL_DEEPL_FREE = "https://api-free.deepl.com";
   private const string URL_DEEPL_PRO = "https://api.deepl.com";
@@ -238,7 +249,7 @@ public class MrWorldWide.DeepL : Object {
         this.current_word_usage = (int)objects.get_int_member ("character_count");
         this.max_word_usage = (int)objects.get_int_member ("character_limit");
 
-        usage_retrieved ();
+        usage_retrieved (current_word_usage, max_word_usage);
 
       } catch (Error e) {
         stderr.printf ("Got: %s\n", e.message);

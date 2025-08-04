@@ -51,8 +51,15 @@ public class MrWorldWide.SettingsPopover : Gtk.Popover {
     api_usage = new Gtk.LevelBar ();
     api_usage.min_value = 0;
 
-    box.append (api_usage);
 
+
+    usage_revealer = new Gtk.Revealer () {
+      transition_type = Gtk.RevealerTransitionType.SLIDE_DOWN,
+      transition_duration = 500,
+      child = api_usage
+    };
+
+    box.append (usage_revealer);
 
     var link = "https://www.deepl.com/your-account/keys";
     var linkname = _("DeepL API Keys");
@@ -74,6 +81,11 @@ public class MrWorldWide.SettingsPopover : Gtk.Popover {
       "text", 
       SettingsBindFlags.DEFAULT
     );
+
+    //  if (api_entry.text != "") {
+    //    api_usage.value = Application.settings.get_int ("current-usage");
+    //    api_usage.max_value = Application.settings.get_int ("max-usage");
+    //  }
 
     api_paste.clicked.connect (paste_from_clipboard);
   }
@@ -98,12 +110,14 @@ public class MrWorldWide.SettingsPopover : Gtk.Popover {
     });
   }
 
-  private void update_usage () {
-    api_usage.max_value = Application.backend.max_word_usage;
-    api_usage.value = Application.backend.current_word_usage;
+  private void update_usage (int current_word_usage, int max_word_usage) {
+    api_usage.value = current_word_usage;
+    api_usage.max_value = max_word_usage;
 
     api_usage.tooltip_text = _("%s characters translated / %s maximum characters on your plan").printf (
       api_usage.value.to_string (), 
       api_usage.max_value.to_string ());
   }
+
+
 }
