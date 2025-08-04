@@ -45,18 +45,20 @@ public class MrWorldWide.SettingsPopover : Gtk.Popover {
     var api_usage_label = new Gtk.Label (_("API Usage")) {
       halign = Gtk.Align.START
     };
-    box.append (api_usage_label);
-
 
     api_usage = new Gtk.LevelBar ();
     api_usage.min_value = 0;
 
 
+    var usage_box = new Gtk.Box (VERTICAL, 3);
+    usage_box.append (api_usage_label);
+    usage_box.append (api_usage);
+
 
     var usage_revealer = new Gtk.Revealer () {
       transition_type = Gtk.RevealerTransitionType.SLIDE_DOWN,
       transition_duration = 500,
-      child = api_usage
+      child = usage_box
     };
     usage_revealer.reveal_child = true;
 
