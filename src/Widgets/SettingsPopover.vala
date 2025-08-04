@@ -50,7 +50,7 @@ public class MrWorldWide.SettingsPopover : Gtk.Popover {
     api_usage.min_value = 0;
 
 
-    var usage_box = new Gtk.Box (VERTICAL, 3);
+    var usage_box = new Gtk.Box (VERTICAL, 6);
     usage_box.append (api_usage_label);
     usage_box.append (api_usage);
 
