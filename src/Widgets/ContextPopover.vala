@@ -40,7 +40,8 @@ public class MrWorldWide.ContextPopover : Gtk.Popover {
 
     var formal_level = new Gtk.Scale.with_range (HORIZONTAL, 0, 4, 1) {
       hexpand = true,
-      halign = Gtk.Align.FILL
+      halign = Gtk.Align.FILL,
+      has_origin = false
     };
 
     formal_level.add_mark (0, Gtk.PositionType.TOP, (null));
