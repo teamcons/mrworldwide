@@ -19,6 +19,7 @@ public class MrWorldWide.ContextPopover : Gtk.Popover {
 
     /***************** FORMALITY *****************/
     var formalbox = new Gtk.Box (VERTICAL, 0) {
+      margin_top = 6,
       margin_bottom = 12
     };
 
