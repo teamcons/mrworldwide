@@ -168,10 +168,16 @@ public class MrWorldWide.Window : Gtk.Window {
 
     private void switch_languages () {
         var newtarget = source_pane.pane.get_selected_language ();
+        var newtarget_text = source_pane.pane.get_text ();
+
         var newsource = target_pane.pane.get_selected_language ();
+        var newsource_text = target_pane.pane.get_text ();
 
         source_pane.pane.set_selected_language (newsource);
+        source_pane.pane.set_text (newsource);
+
         target_pane.pane.set_selected_language (newtarget);
+        target_pane.pane.set_text (newtarget_text);
     }
 
     private void on_toggle_pane_changed () {
