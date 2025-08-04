@@ -21,9 +21,9 @@ public class MrWorldWide.SettingsPopover : Gtk.Popover {
     box.append (new OrientationBox ());
     box.append (new Gtk.Separator (HORIZONTAL));
 
-    var api_field = new Gtk.Box (HORIZONTAL, 6) {
-    hexpand = true,
-    halign = Gtk.Align.FILL
+    var api_field = new Gtk.Box (HORIZONTAL, 9) {
+      hexpand = true,
+      halign = Gtk.Align.FILL
     };
 
     api_entry = new Gtk.PasswordEntry () {
@@ -45,24 +45,23 @@ public class MrWorldWide.SettingsPopover : Gtk.Popover {
     var api_usage_label = new Gtk.Label (_("API Usage")) {
       halign = Gtk.Align.START
     };
+    box.append (api_usage_label);
 
     api_usage = new Gtk.LevelBar ();
     api_usage.min_value = 0;
+    box.append (api_usage);
 
+    //var usage_box = new Gtk.Box (VERTICAL, 6);
+    //usage_box.append (api_usage_label);
+    //usage_box.append (api_usage);
 
-    var usage_box = new Gtk.Box (VERTICAL, 6);
-    usage_box.append (api_usage_label);
-    usage_box.append (api_usage);
-
-
-    var usage_revealer = new Gtk.Revealer () {
-      transition_type = Gtk.RevealerTransitionType.SLIDE_DOWN,
-      transition_duration = 500,
-      child = usage_box
-    };
-    usage_revealer.reveal_child = true;
-
-    box.append (usage_revealer);
+    //  var usage_revealer = new Gtk.Revealer () {
+    //    transition_type = Gtk.RevealerTransitionType.SLIDE_DOWN,
+    //    transition_duration = 500,
+    //    child = usage_box
+    //  };
+    //  usage_revealer.reveal_child = true;
+    //  box.append (usage_revealer);
 
     var link = "https://www.deepl.com/your-account/keys";
     var linkname = _("DeepL API Keys");
