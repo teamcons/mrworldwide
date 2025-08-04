@@ -13,9 +13,7 @@ public class MrWorldWide.SettingsPopover : Gtk.Popover {
     //halign = Gtk.Align.END;
 
     var box = new Gtk.Box (VERTICAL, 12) {
-      margin_top = margin_bottom = 12,
-      margin_start = 12,
-      margin_end = 12
+      margin_top = margin_bottom = 12
     };
 
     box.append (new OrientationBox ());
@@ -23,7 +21,9 @@ public class MrWorldWide.SettingsPopover : Gtk.Popover {
 
     var api_field = new Gtk.Box (HORIZONTAL, 9) {
       hexpand = true,
-      halign = Gtk.Align.FILL
+      halign = Gtk.Align.FILL,
+      margin_start = 12,
+      margin_end = 12
     };
 
     api_entry = new Gtk.PasswordEntry () {
@@ -43,11 +43,15 @@ public class MrWorldWide.SettingsPopover : Gtk.Popover {
     box.append (api_field);
 
     var api_usage_label = new Gtk.Label (_("API Usage")) {
-      halign = Gtk.Align.START
+      halign = Gtk.Align.START,
+      margin_start = 12
     };
     box.append (api_usage_label);
 
-    api_usage = new Gtk.LevelBar ();
+    api_usage = new Gtk.LevelBar () {
+        margin_start = 12,
+        margin_end = 12
+    };
     api_usage.min_value = 0;
     box.append (api_usage);
 

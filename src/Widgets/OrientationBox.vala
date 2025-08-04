@@ -8,6 +8,8 @@ public class MrWorldWide.OrientationBox : Gtk.Box {
     construct {
         homogeneous = true;
         hexpand = true;
+        margin_start = 12;
+        margin_end = 12;
 
         var box_vert = new Gtk.Box (HORIZONTAL,0) {
             halign = Gtk.Align.CENTER
