@@ -53,11 +53,12 @@ public class MrWorldWide.SettingsPopover : Gtk.Popover {
 
 
 
-    usage_revealer = new Gtk.Revealer () {
+    var usage_revealer = new Gtk.Revealer () {
       transition_type = Gtk.RevealerTransitionType.SLIDE_DOWN,
       transition_duration = 500,
       child = api_usage
     };
+    usage_revealer.reveal_child = true;
 
     box.append (usage_revealer);
 
@@ -73,7 +74,12 @@ public class MrWorldWide.SettingsPopover : Gtk.Popover {
     child = box;
 
     Application.backend.usage_retrieved.connect (update_usage);
-    Application.backend.answer_received.connect (update_usage);
+
+    Application.backend.answer_received.connect (() => {
+      update_usage (
+        Application.backend.current_word_usage, 
+        Application.backend.max_word_usage);
+    });
 
     Application.settings.bind (
       "key", 

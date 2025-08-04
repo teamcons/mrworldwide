@@ -174,7 +174,7 @@ public class MrWorldWide.Window : Gtk.Window {
         var newsource_text = target_pane.pane.get_text ();
 
         source_pane.pane.set_selected_language (newsource);
-        source_pane.pane.set_text (newsource);
+        source_pane.pane.set_text (newsource_text);
 
         target_pane.pane.set_selected_language (newtarget);
         target_pane.pane.set_text (newtarget_text);
