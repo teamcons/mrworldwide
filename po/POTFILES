@@ -1,3 +1,4 @@
+src/Views/WelcomeView.vala
 src/Widgets/ApiEntry.vala
 src/Widgets/OrientationBox.vala
 src/Widgets/SettingsPopover.vala

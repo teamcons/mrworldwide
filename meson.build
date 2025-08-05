@@ -47,6 +47,7 @@ executable(
     'src' / 'Objects' / 'Lang.vala',
     'src' / 'Objects' / 'DDModel.vala',
     'src' / 'Backend' / 'DeepL.vala',
+
       'src' / 'Widgets' / 'OrientationBox.vala',
       'src' / 'Widgets' / 'ApiEntry.vala',
     'src' / 'Widgets' / 'SettingsPopover.vala',
@@ -54,6 +55,8 @@ executable(
     'src' / 'Widgets' / 'Pane.vala',
     'src' / 'Widgets' / 'SourcePane.vala',
     'src' / 'Widgets' / 'TargetPane.vala',
+
+        'src' / 'Views' / 'WelcomeView.vala',
     'src' / 'Windows' / 'Window.vala',
     'src' / 'Application.vala',
     dependencies: deps,
