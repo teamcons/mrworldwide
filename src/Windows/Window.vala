@@ -71,7 +71,7 @@ public class MrWorldWide.Window : Gtk.Window {
 
         set_titlebar (headerbar);
 
-        var options_menu = new MrWorldWide.ContextPopover ();
+        var options_menu = new MrWorldWide.OptionsPopover ();
         var options_button = new Gtk.MenuButton () {
           icon_name = "tag",
           popover = options_menu,
