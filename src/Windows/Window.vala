@@ -9,30 +9,27 @@ public class MrWorldWide.Window : Gtk.Window {
     private Gtk.MenuButton popover_button;
     private Gtk.Spinner loading;
     private Gtk.Revealer loading_revealer;
-    private Gtk.Paned paned;
-    public MrWorldWide.SourcePane source_pane;
-    public MrWorldWide.TargetPane target_pane;
+
+    private MrWorldWide.TranslationView translation_view;
+
     public MrWorldWide.SettingsPopover menu_popover;
 
-    // Add a debounce so we aren't requesting the API constantly
-    public int interval = 2000; // ms
-    public uint debounce_timer_id = 0;
+
 
     public SimpleActionGroup actions { get; construct; }
     public const string ACTION_PREFIX = "app.";
     public const string ACTION_MENU = "menu";
-    public const string ACTION_TOGGLE_VIEW = "toggle_view";
+    public const string ACTION_TOGGLE_ORIENTATION = "toggle_orientation";
     public const string ACTION_SWITCH_LANG = "switch_languages";
     public const string ACTION_CLEAR = "clear_source";
     public static Gee.MultiMap<string, string> action_accelerators = new Gee.HashMultiMap<string, string> ();
 
     private const GLib.ActionEntry[] ACTION_ENTRIES = {
         { ACTION_MENU, on_menu},
-        { ACTION_TOGGLE_VIEW, toggle_view},
+        { ACTION_TOGGLE_ORIENTATION, toggle_orientation},
         { ACTION_SWITCH_LANG, switch_languages},
         { ACTION_CLEAR, clear_source}
     };
-
 
     public Window (Gtk.Application application) {
         Object (
@@ -111,40 +108,12 @@ public class MrWorldWide.Window : Gtk.Window {
 
 
         /* ---------------- MAIN VIEW ---------------- */
-        source_pane = new MrWorldWide.SourcePane ();
-        var selected_source_language = Application.settings.get_string ("source-language");
-        source_pane.pane.set_selected_language (selected_source_language);
+        translation_view = new MrWorldWide.TranslationView ();
+        child = translation_view;
 
+        set_focus (translation_view.source_pane.pane.textview);
 
-        target_pane = new MrWorldWide.TargetPane ();
-        var selected_target_language = Application.settings.get_string ("target-language");
-        target_pane.pane.set_selected_language (selected_target_language);
-
-        paned = new Gtk.Paned (HORIZONTAL);
-        paned.start_child = source_pane;
-        paned.end_child = target_pane;
-        child = paned;
-
-        set_focus (source_pane.pane.textview);
-
-
-        /* ---------------- CONNECTS ---------------- */
-        // Logic for toggling the panes/layout
-        on_toggle_pane_changed ();
-        Application.settings.changed["vertical-layout"].connect (on_toggle_pane_changed);
         switchlang_button.clicked.connect (switch_languages);    
-
-
-        // translate when text is entered or user changes any language
-        source_pane.pane.textview.buffer.changed.connect (on_text_to_translate);
-        source_pane.pane.language_changed.connect (on_text_to_translate);
-        target_pane.pane.language_changed.connect (on_text_to_translate);
-
-        Application.settings.changed["context"].connect (on_text_to_translate);
-        Application.settings.changed["formality"].connect (on_text_to_translate);
-
-        // Connect to the backend and do stuff if answer
-        Application.backend.answer_received.connect (on_answer_received);
 
         // Listen if the backend recognize a language to switch to it
         // debatable whether to keep this idk
@@ -159,7 +128,7 @@ public class MrWorldWide.Window : Gtk.Window {
         popover_button.activate ();
     }
 
-    private void toggle_view () {
+    private void toggle_orientation () {
         Application.settings.set_boolean (
             "vertical-layout",
             ! Application.settings.get_boolean ("vertical-layout")
@@ -167,59 +136,10 @@ public class MrWorldWide.Window : Gtk.Window {
     }
 
     private void switch_languages () {
-        var newtarget = source_pane.pane.get_selected_language ();
-        var newtarget_text = source_pane.pane.get_text ();
-
-        var newsource = target_pane.pane.get_selected_language ();
-        var newsource_text = target_pane.pane.get_text ();
-
-        source_pane.pane.set_selected_language (newsource);
-        source_pane.pane.set_text (newsource_text);
-
-        target_pane.pane.set_selected_language (newtarget);
-        target_pane.pane.set_text (newtarget_text);
-    }
-
-    private void on_toggle_pane_changed () {
-        if (Application.settings.get_boolean ("vertical-layout")) {            
-            paned.orientation = Gtk.Orientation.VERTICAL;
-
-        } else {
-            paned.orientation = Gtk.Orientation.HORIZONTAL;
-        }
-    }
-
-    private void on_text_to_translate () {
-        // Avoid translating empty text (useless request)
-        if (source_pane.pane.get_text () != "") {
-
-            debug ("The buffer has been modified, starting the debounce timer");
-            if (debounce_timer_id != 0) {
-                GLib.Source.remove (debounce_timer_id);
-            }
-
-            debounce_timer_id = Timeout.add (interval, () => {
-                debounce_timer_id = 0;
-
-                    // Start translating!
-                    loading.start ();
-                    loading_revealer.reveal_child = true;
-                    Application.backend.send_request (source_pane.pane.get_text ());
-
-                return GLib.Source.REMOVE;
-            });
-        } else {
-            target_pane.pane.set_text ("");
-        }
-    }
-
-    private void on_answer_received (string answer) {
-        target_pane.pane.set_text (answer);
-        loading_revealer.reveal_child = false;
-        loading.stop ();
+        translation_view.switch_languages ();
     }
 
     private void clear_source () {
-        source_pane.pane.set_text ("");
+        translation_view.clear_source ();
     }
 }

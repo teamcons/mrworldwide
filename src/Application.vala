@@ -57,9 +57,9 @@ public class MrWorldWide.Application : Gtk.Application {
         add_action (menu_action);
         set_accels_for_action ("app.menu", {"<Control>m"});
 
-        var toggle_view_action = new SimpleAction ("toggle_view", null);
-        add_action (toggle_view_action);
-        set_accels_for_action ("app.toggle_view", {"<Control>o"});
+        var toggle_orientation_action = new SimpleAction ("toggle_orientation", null);
+        add_action (toggle_orientation_action);
+        set_accels_for_action ("app.toggle_orientation", {"<Control>o"});
 
         var switch_languages = new SimpleAction ("switch_languages", null);
         add_action (switch_languages);

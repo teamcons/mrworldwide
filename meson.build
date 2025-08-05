@@ -57,6 +57,7 @@ executable(
     'src' / 'Widgets' / 'TargetPane.vala',
 
         'src' / 'Views' / 'WelcomeView.vala',
+            'src' / 'Views' / 'TranslationView.vala',
     'src' / 'Windows' / 'Window.vala',
     'src' / 'Application.vala',
     dependencies: deps,
