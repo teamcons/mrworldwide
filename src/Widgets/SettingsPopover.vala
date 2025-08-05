@@ -79,12 +79,7 @@ public class MrWorldWide.SettingsPopover : Gtk.Popover {
     child = box;
 
     Application.backend.usage_retrieved.connect (update_usage);
-
-    Application.backend.answer_received.connect (() => {
-      update_usage (
-        Application.backend.current_word_usage, 
-        Application.backend.max_word_usage);
-    });
+    Application.backend.answer_received.connect (update_usage);
 
     Application.settings.bind (
       "key", 
@@ -121,9 +116,9 @@ public class MrWorldWide.SettingsPopover : Gtk.Popover {
     });
   }
 
-  private void update_usage (int current_word_usage, int max_word_usage) {
-    api_usage.value = current_word_usage;
-    api_usage.max_value = max_word_usage;
+  private void update_usage () {
+    api_usage.value = Application.backend.current_word_usage;
+    api_usage.max_value = Application.backend.max_word_usage;
 
     api_usage.tooltip_text = _("%s characters translated / %s maximum characters on your plan").printf (
       api_usage.value.to_string (), 

@@ -50,12 +50,12 @@ public class MrWorldWide.DeepL : Object {
   private string target_lang;
   private string api_key;
   private string base_url;
-  private string system_language;
+  public string system_language;
   private string context;
 
   public signal void answer_received (string translated_text);
   public signal void language_detected (string? detected_language_code = null);
-  public signal void usage_retrieved (int current_word_usage, int max_word_usage);
+  public signal void usage_retrieved ();
 
   private const string URL_DEEPL_FREE = "https://api-free.deepl.com";
   private const string URL_DEEPL_PRO = "https://api.deepl.com";
@@ -235,7 +235,6 @@ public class MrWorldWide.DeepL : Object {
       stderr.printf ("%c %s\n", dir, text);
     });
 
-
     session.send_and_read_async.begin (msg, 0, null, (obj, res) => {
       try {
         var bytes = session.send_and_read_async.end (res);
@@ -249,7 +248,7 @@ public class MrWorldWide.DeepL : Object {
         this.current_word_usage = (int)objects.get_int_member ("character_count");
         this.max_word_usage = (int)objects.get_int_member ("character_limit");
 
-        usage_retrieved (current_word_usage, max_word_usage);
+        usage_retrieved ();
 
       } catch (Error e) {
         stderr.printf ("Got: %s\n", e.message);
@@ -264,16 +263,16 @@ public class MrWorldWide.DeepL : Object {
     string system_language = Environment.get_variable ("LANG").ascii_up ();
     var minicode = system_language.substring (0, 2).ascii_up (-1);
 
+    if (system_language == "C") {
+      return "EN-GB";
+    }
+
     if (system_language.has_prefix ("PT_BR")) {
       return "PT-BR";
     }
 
     if (system_language.has_prefix ("PT_PT")) {
       return "PT-PT";
-    }
-
-    if (minicode == "NO") {
-      return "NB";
     }
 
     if (system_language.has_prefix ("ZH_CN")) {
@@ -294,6 +293,10 @@ public class MrWorldWide.DeepL : Object {
 
     if ((system_language.has_prefix ("ES_")) && (system_language.substring (0, 5) != "ES_ES")) {
       return "ES-419";
+    }
+
+    if (minicode == "NO") {
+      return "NB";
     }
 
     print ("\nBackend: Detected system language: " + minicode);

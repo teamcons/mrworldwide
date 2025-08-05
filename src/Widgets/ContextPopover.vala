@@ -82,8 +82,14 @@ public class MrWorldWide.ContextPopover : Gtk.Popover {
 
     this.show.connect (() => {
 
+      var target = Application.settings.get_string ("target-language");
+
+      if (target == "system") {
+        target = Application.backend.system_language;
+      }
+
       // I know this could be a cool one liner, but the one liner is ugly and unreadable
-      if (Application.settings.get_string ("target-language") in DeepL.SUPPORTED_FORMALITY) {
+      if (target in DeepL.SUPPORTED_FORMALITY) {
         formalbox.sensitive = true;
         formalbox.tooltip_text = _("Set how formal the translation should be");
 
