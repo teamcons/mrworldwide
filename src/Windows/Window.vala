@@ -11,10 +11,7 @@ public class MrWorldWide.Window : Gtk.Window {
     private Gtk.Revealer loading_revealer;
 
     private MrWorldWide.TranslationView translation_view;
-
     public MrWorldWide.SettingsPopover menu_popover;
-
-
 
     public SimpleActionGroup actions { get; construct; }
     public const string ACTION_PREFIX = "app.";
@@ -45,7 +42,6 @@ public class MrWorldWide.Window : Gtk.Window {
 		weak Gtk.IconTheme default_theme = Gtk.IconTheme.get_for_display (Gdk.Display.get_default ());
 		default_theme.add_resource_path ("io/github/teamcons/mrworldwide/");
 	}
-
 
     construct {
         Intl.setlocale ();
@@ -79,13 +75,14 @@ public class MrWorldWide.Window : Gtk.Window {
         headerbar.pack_start (options_button);
 
         switchlang_button = new Gtk.Button.from_icon_name ("media-playlist-repeat") {
-            tooltip_markup = Granite.markup_accel_tooltip ({"<Ctrl>I"}, _("Switch languages")),
+            tooltip_markup = Granite.markup_accel_tooltip ({"<Ctrl>I"}, _("Switch languages"))
         };
+        switchlang_button.action_name = Window.ACTION_PREFIX + Window.ACTION_SWITCH_LANG;
         headerbar.pack_start (switchlang_button);
 
         popover_button = new Gtk.MenuButton () {
-        icon_name = "open-menu",
-        tooltip_markup = Granite.markup_accel_tooltip ({"<Ctrl>M"}, _("Settings")),
+            icon_name = "open-menu",
+            tooltip_markup = Granite.markup_accel_tooltip ({"<Ctrl>M"}, _("Settings")),
         };
 
         popover_button.set_primary (true);
@@ -106,14 +103,11 @@ public class MrWorldWide.Window : Gtk.Window {
 
         headerbar.pack_end (loading_revealer);
 
-
         /* ---------------- MAIN VIEW ---------------- */
         translation_view = new MrWorldWide.TranslationView ();
         child = translation_view;
 
         set_focus (translation_view.source_pane.pane.textview);
-
-        switchlang_button.clicked.connect (switch_languages);    
 
         // Listen if the backend recognize a language to switch to it
         // debatable whether to keep this idk
