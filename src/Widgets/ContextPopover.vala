@@ -5,6 +5,7 @@
 
 public class MrWorldWide.ContextPopover : Gtk.Popover {
 
+  private Gtk.Box formalbox;
 
   construct {
     width_request = 260;
@@ -18,7 +19,7 @@ public class MrWorldWide.ContextPopover : Gtk.Popover {
     };
 
     /***************** FORMALITY *****************/
-    var formalbox = new Gtk.Box (VERTICAL, 0) {
+    formalbox = new Gtk.Box (VERTICAL, 0) {
       margin_top = 6,
       margin_bottom = 12
     };
@@ -80,8 +81,10 @@ public class MrWorldWide.ContextPopover : Gtk.Popover {
       Application.settings.set_enum ("formality", value_as_int);
     });
 
-    this.show.connect (() => {
+    this.show.connect (formalities_supported);
+  }
 
+  private void formalities_supported () {
       var target = Application.settings.get_string ("target-language");
 
       if (target == "system") {
@@ -98,6 +101,5 @@ public class MrWorldWide.ContextPopover : Gtk.Popover {
         formalbox.tooltip_text = _("Formality control is not available for this target language");
       }
 
-    });
   }
 }
