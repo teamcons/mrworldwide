@@ -49,7 +49,7 @@ executable(
     'src' / 'Backend' / 'DeepL.vala',
       'src' / 'Widgets' / 'OrientationBox.vala',
     'src' / 'Widgets' / 'SettingsPopover.vala',
-    'src' / 'Widgets' / 'ContextPopover.vala',
+    'src' / 'Widgets' / 'OptionsPopover.vala',
     'src' / 'Widgets' / 'Pane.vala',
     'src' / 'Widgets' / 'SourcePane.vala',
     'src' / 'Widgets' / 'TargetPane.vala',
