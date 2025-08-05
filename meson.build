@@ -48,6 +48,7 @@ executable(
     'src' / 'Objects' / 'DDModel.vala',
     'src' / 'Backend' / 'DeepL.vala',
       'src' / 'Widgets' / 'OrientationBox.vala',
+      'src' / 'Widgets' / 'ApiEntry.vala',
     'src' / 'Widgets' / 'SettingsPopover.vala',
     'src' / 'Widgets' / 'OptionsPopover.vala',
     'src' / 'Widgets' / 'Pane.vala',

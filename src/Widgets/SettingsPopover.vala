@@ -5,7 +5,7 @@
 
 public class MrWorldWide.SettingsPopover : Gtk.Popover {
 
-  private Gtk.PasswordEntry api_entry;
+  private MrWorldWide.ApiEntry api_entry;
   private Gtk.LevelBar api_usage;
 
   construct {
@@ -19,28 +19,12 @@ public class MrWorldWide.SettingsPopover : Gtk.Popover {
     box.append (new OrientationBox ());
     box.append (new Gtk.Separator (HORIZONTAL));
 
-    var api_field = new Gtk.Box (HORIZONTAL, 9) {
-      hexpand = true,
-      halign = Gtk.Align.FILL,
+    api_entry = new MrWorldWide.ApiEntry () {
       margin_start = 12,
       margin_end = 12
     };
 
-    api_entry = new Gtk.PasswordEntry () {
-      placeholder_text = _("Enter API key here"),
-      show_peek_icon = true,
-      hexpand = true,
-      halign = Gtk.Align.FILL
-    };
-
-    var api_paste = new Gtk.Button.from_icon_name ("edit-paste") {
-    tooltip_text = _("Paste from clipboard")
-    };
-
-    api_field.append (api_entry);
-    api_field.append (api_paste);
-
-    box.append (api_field);
+    box.append (api_entry);
 
     var api_usage_label = new Gtk.Label (_("API Usage")) {
       halign = Gtk.Align.START,
@@ -81,39 +65,13 @@ public class MrWorldWide.SettingsPopover : Gtk.Popover {
     Application.backend.usage_retrieved.connect (update_usage);
     Application.backend.answer_received.connect (update_usage);
 
-    Application.settings.bind (
-      "key", 
-      api_entry, 
-      "text", 
-      SettingsBindFlags.DEFAULT
-    );
+
 
     //  if (api_entry.text != "") {
     //    api_usage.value = Application.settings.get_int ("current-usage");
     //    api_usage.max_value = Application.settings.get_int ("max-usage");
     //  }
 
-    api_paste.clicked.connect (paste_from_clipboard);
-  }
-
-  private void paste_from_clipboard () {
-    var clipboard = Gdk.Display.get_default ().get_clipboard ();
-    clipboard.read_text_async.begin ((null), (obj, res) => {
-      try {
-
-        var pasted_text = clipboard.read_text_async.end (res);
-        /* Clean up a bit this mess as the user is likely to have copied unwanted strings with it */
-        string[] clutter_chars = {" ", "\n", ";"};
-        foreach (var clutter in clutter_chars) {
-          pasted_text = pasted_text.replace (clutter, "");
-        }
-
-        this.api_entry.text = pasted_text;
-
-      } catch (Error e) {
-        print ("Cannot access clipboard: " + e.message);
-      }
-    });
   }
 
   private void update_usage () {
