@@ -107,4 +107,8 @@
     public string get_text () {
         return this.textview.buffer.text;
     }
+
+    public void clear () {
+        this.textview.buffer.text = "";
+    }
 }

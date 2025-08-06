@@ -89,18 +89,6 @@ public class MrWorldWide.Window : Gtk.Window {
 
 
 
-
-        var translate_button = new Gtk.Button () {
-            label = _("Translate")
-        };
-        translate_button.add_css_class (Granite.STYLE_CLASS_SUGGESTED_ACTION);
-
-        var translate_revealer = new Gtk.Revealer () {
-            child = translate_button,
-            transition_type = Gtk.RevealerTransitionType.SWING_LEFT,
-            transition_duration = 500
-        };
-
         popover_button = new Gtk.MenuButton () {
             icon_name = "open-menu",
             tooltip_markup = Granite.markup_accel_tooltip ({"<Ctrl>M"}, _("Settings")),
@@ -113,13 +101,28 @@ public class MrWorldWide.Window : Gtk.Window {
         popover_button.popover = menu_popover;
 
         headerbar.pack_end (popover_button);
-        loading = new Gtk.Spinner ();
 
+
+        var translate_button = new Gtk.Button () {
+            label = _("Translate")
+        };
+        translate_button.add_css_class (Granite.STYLE_CLASS_SUGGESTED_ACTION);
+
+        var translate_revealer = new Gtk.Revealer () {
+            child = translate_button,
+            transition_type = Gtk.RevealerTransitionType.SWING_LEFT,
+            transition_duration = 250
+        };
+        
+        headerbar.pack_end (translate_revealer);
+
+
+        loading = new Gtk.Spinner ();
         loading_revealer = new Gtk.Revealer () {
             child = loading,
             reveal_child = false,
             transition_type = Gtk.RevealerTransitionType.SWING_LEFT,
-            transition_duration = 500
+            transition_duration = 250
         };
 
         headerbar.pack_end (loading_revealer);
@@ -138,6 +141,8 @@ public class MrWorldWide.Window : Gtk.Window {
             }
         });  */
 
+        translate_button.clicked.connect (on_translate);
+
         Application.settings.bind (
             "auto-translate", 
             translate_revealer, 
@@ -145,6 +150,10 @@ public class MrWorldWide.Window : Gtk.Window {
             SettingsBindFlags.INVERT_BOOLEAN
         );
 
+    }
+
+    private void on_translate () {
+        Application.backend.send_request (translation_view.source_pane.pane.get_text ());
     }
 
     private void on_menu () {

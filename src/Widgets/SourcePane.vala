@@ -34,10 +34,12 @@
 
         paste.clicked.connect (paste_from_clipboard);
 
-        pane.language_changed.connect ((code) => {
-          Application.settings.set_string ("source-language", code);
-        });
+        pane.language_changed.connect (on_language_changed);
     }
+
+    private void on_language_changed (string code) {
+          Application.settings.set_string ("source-language", code);
+  }
 
   private void paste_from_clipboard () {
     var clipboard = Gdk.Display.get_default ().get_clipboard ();

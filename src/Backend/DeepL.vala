@@ -64,46 +64,52 @@ public class MrWorldWide.DeepL : Object {
 
   public const string[] SUPPORTED_FORMALITY = {"DE", "FR", "IT", "ES", "NL", "PL", "PT-BR", "PT-PT", "JA", "RU"};
 
-
   public int current_word_usage = 0;
   public int max_word_usage = 0;
 
   construct {
-    reload ();
-    check_usage ();
-
-    Application.settings.changed["key"].connect (() => {
-      check_usage ();
-    });
-  }
-
-
-  public void reload () {
     system_language = detect_system ();
 
+    on_key_changed ();
+    on_source_lang_changed ();
+    on_target_lang_changed ();
+
+    Application.settings.changed["key"].connect (on_key_changed);
+    Application.settings.changed["source-language"].connect (on_source_lang_changed);
+    Application.settings.changed["target-language"].connect (on_target_lang_changed);
+  }
+
+  public void on_source_lang_changed () {
     source_lang = Application.settings.get_string ("source-language");
     if (source_lang == "system") {
       source_lang = system_language;
     }
+  }
 
-    target_lang = Application.settings.get_string ("target-language");
+  public void on_target_lang_changed () {
+        target_lang = Application.settings.get_string ("target-language");
     if (target_lang == "system") {
       target_lang = system_language;
     }
+  }
 
+  public void on_key_changed () {
     api_key = Application.settings.get_string ("key");
-    if (api_key.has_suffix (":fx")) {
-      base_url = URL_DEEPL_FREE;
-    } else {
-      base_url = URL_DEEPL_PRO;
-    }
 
-    context = Application.settings.get_string ("context");
+    if (api_key != "") {
+        if (api_key.has_suffix (":fx")) {
+          base_url = URL_DEEPL_FREE;
+        } else {
+          base_url = URL_DEEPL_PRO;
+        }
+        check_usage ();
+      }
   }
 
   public void send_request (string text) {
 
-    reload ();
+    context = Application.settings.get_string ("context");
+
     var a = prep_json (text);
     var session = new Soup.Session ();
 

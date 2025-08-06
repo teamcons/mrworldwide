@@ -61,17 +61,22 @@ public class MrWorldWide.SettingsPopover : Gtk.Popover {
     box.append (hint);
 
 
-    var auto_box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 6);
+    var auto_box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0) {
+      halign = Gtk.Align.START,
+      hexpand = true,
+      margin_start = margin_end = 12
+    };
 
     var auto_toggle = new Gtk.Switch () {
       halign = Gtk.Align.END,
       hexpand = true,
-      valign = Gtk.Align.CENTER,
+      valign = Gtk.Align.CENTER
     };
 
-    var auto_label = new Granite.HeaderLabel (_("Automatically translate")) {
+    var auto_label = new Granite.HeaderLabel (_("Translate automatically")) {
       mnemonic_widget = auto_toggle,
-      secondary_text = _("The translation will start 2 seconds after typing has stopped")
+      secondary_text = _("The translation will start 2 seconds after typing has stopped"),
+      halign = Gtk.Align.START,
     };
 
     auto_box.append (auto_label);
@@ -94,7 +99,6 @@ public class MrWorldWide.SettingsPopover : Gtk.Popover {
     //    api_usage.value = Application.settings.get_int ("current-usage");
     //    api_usage.max_value = Application.settings.get_int ("max-usage");
     //  }
-
   }
 
   private void update_usage () {
@@ -105,6 +109,4 @@ public class MrWorldWide.SettingsPopover : Gtk.Popover {
       api_usage.value.to_string (), 
       api_usage.max_value.to_string ());
   }
-
-
 }

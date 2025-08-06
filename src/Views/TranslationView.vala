@@ -74,7 +74,8 @@
 
     public void on_text_to_translate () {
         // Avoid translating empty text (useless request)
-        if (source_pane.pane.get_text () != "") {
+        // If auto translate is off, forget it
+        if (Application.settings.get_boolean ("auto-translate") && (source_pane.pane.get_text () != "" )) {
 
             debug ("The buffer has been modified, starting the debounce timer");
             if (debounce_timer_id != 0) {
@@ -92,7 +93,11 @@
                 return GLib.Source.REMOVE;
             });
         } else {
-            target_pane.pane.set_text ("");
+
+            // Only in the case the source text is empty, do a cleanup
+            if (source_pane.pane.get_text () == "" ) {
+                target_pane.pane.clear ();
+            }
         }
     }
 
