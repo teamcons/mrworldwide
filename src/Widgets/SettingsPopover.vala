@@ -27,6 +27,20 @@ public class MrWorldWide.SettingsPopover : Gtk.Popover {
 
     box.append (api_entry);
 
+
+
+    var link = "https://www.deepl.com/your-account/keys";
+    var linkname = _("You can get an API key here");
+
+    var hint = new Gtk.LinkButton.with_label (link, linkname) {
+      halign = Gtk.Align.START,
+      margin_start = 12
+    };
+
+    box.append (hint);
+
+
+
     var api_usage_label = new Gtk.Label (_("API Usage")) {
       halign = Gtk.Align.START,
       margin_start = 12
@@ -52,14 +66,6 @@ public class MrWorldWide.SettingsPopover : Gtk.Popover {
     //  usage_revealer.reveal_child = true;
     //  box.append (usage_revealer);
 
-    var link = "https://www.deepl.com/your-account/keys";
-    var linkname = _("DeepL API Keys");
-
-    var hint = new Gtk.LinkButton.with_label (
-                                              link,
-                                              linkname);
-
-    box.append (hint);
 
 
     var auto_box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0) {
@@ -71,7 +77,8 @@ public class MrWorldWide.SettingsPopover : Gtk.Popover {
     var auto_toggle = new Gtk.Switch () {
       halign = Gtk.Align.END,
       hexpand = true,
-      valign = Gtk.Align.CENTER
+      valign = Gtk.Align.CENTER,
+      margin_start = 6
     };
 
     var auto_label = new Granite.HeaderLabel (_("Translate automatically")) {
