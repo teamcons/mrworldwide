@@ -34,7 +34,9 @@ public class MrWorldWide.SettingsPopover : Gtk.Popover {
 
     var hint = new Gtk.LinkButton.with_label (link, linkname) {
       halign = Gtk.Align.START,
-      margin_start = 12
+      margin_start = 12,
+      margin_bottom = 6
+
     };
 
     box.append (hint);
@@ -49,7 +51,8 @@ public class MrWorldWide.SettingsPopover : Gtk.Popover {
 
     api_usage = new Gtk.LevelBar () {
         margin_start = 12,
-        margin_end = 12
+        margin_end = 12,
+        margin_bottom = 6
     };
     api_usage.min_value = 0;
     box.append (api_usage);
