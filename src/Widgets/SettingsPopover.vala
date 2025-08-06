@@ -9,11 +9,12 @@ public class MrWorldWide.SettingsPopover : Gtk.Popover {
   private Gtk.LevelBar api_usage;
 
   construct {
-    width_request = 340;
+    width_request = 300;
     //halign = Gtk.Align.END;
 
     var box = new Gtk.Box (VERTICAL, 12) {
-      margin_top = margin_bottom = 12
+      margin_top = 12,
+      margin_bottom = 18
     };
 
     box.append (new OrientationBox ());
