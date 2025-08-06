@@ -22,12 +22,17 @@
     <key name="window-maximized" type="b">
       <default>false</default>
       <summary>Open window maximized.</summary>
-      <description>Whether the main window of the application should open maximized or not.</description>
+      <description>Whether the main window of the application should open maximized or not</description>
     </key>
     <key name="vertical-layout" type="b">
       <default>false</default>
       <summary>if the layout is vertical</summary>
       <description>whether the panes are horizontal or vertical</description>
+    </key>
+    <key name="auto-translate" type="b">
+      <default>true</default>
+      <summary>Whether to automatically translate text</summary>
+      <description>Represents whether the application should automatically translate text or not</description>
     </key>
     <key name="key" type="s">
       <default>""</default>

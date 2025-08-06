@@ -64,6 +64,8 @@ public class MrWorldWide.Window : Gtk.Window {
 
         set_titlebar (headerbar);
 
+        /* ---------------- PACK START ---------------- */
+
         var options_menu = new MrWorldWide.OptionsPopover ();
         var options_button = new Gtk.MenuButton () {
           icon_name = "tag",
@@ -79,6 +81,25 @@ public class MrWorldWide.Window : Gtk.Window {
         };
         switchlang_button.action_name = Window.ACTION_PREFIX + Window.ACTION_SWITCH_LANG;
         headerbar.pack_start (switchlang_button);
+
+
+
+
+        /* ---------------- PACK END ---------------- */
+
+
+
+
+        var translate_button = new Gtk.Button () {
+            label = _("Translate")
+        };
+        translate_button.add_css_class (Granite.STYLE_CLASS_SUGGESTED_ACTION);
+
+        var translate_revealer = new Gtk.Revealer () {
+            child = translate_button,
+            transition_type = Gtk.RevealerTransitionType.SWING_LEFT,
+            transition_duration = 500
+        };
 
         popover_button = new Gtk.MenuButton () {
             icon_name = "open-menu",
@@ -116,6 +137,14 @@ public class MrWorldWide.Window : Gtk.Window {
                 source_pane.pane.set_selected_language (detected_language_code);
             }
         });  */
+
+        Application.settings.bind (
+            "auto-translate", 
+            translate_revealer, 
+            "reveal_child", 
+            SettingsBindFlags.INVERT_BOOLEAN
+        );
+
     }
 
     private void on_menu () {

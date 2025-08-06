@@ -60,12 +60,35 @@ public class MrWorldWide.SettingsPopover : Gtk.Popover {
 
     box.append (hint);
 
+
+    var auto_box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 6);
+
+    auto_toggle = new Gtk.Switch () {
+      halign = Gtk.Align.END,
+      hexpand = true,
+      valign = Gtk.Align.CENTER,
+    };
+
+    var auto_label = new Granite.HeaderLabel (_("Automatically translate")) {
+      mnemonic_widget = auto_toggle,
+      secondary_text = _("The translation will start 2 seconds after typing has stopped")
+    };
+
+    auto_box.append (auto_label);
+    auto_box.append (auto_toggle);
+    box.append (auto_box);
+
+    Application.settings.bind (
+      "auto-translate", 
+      auto_toggle, 
+      "active", 
+      SettingsBindFlags.DEFAULT
+    );
+
     child = box;
 
     Application.backend.usage_retrieved.connect (update_usage);
     Application.backend.answer_received.connect (update_usage);
-
-
 
     //  if (api_entry.text != "") {
     //    api_usage.value = Application.settings.get_int ("current-usage");
