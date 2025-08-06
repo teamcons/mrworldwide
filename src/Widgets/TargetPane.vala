@@ -12,6 +12,7 @@
         spacing = 0;
 
         pane = new MrWorldWide.Pane (MrWorldWide.TargetLang ());
+        pane.dropdown.tooltip_text = _("Set the language to translate to");
         append (pane);
 
         pane.textview.editable = false;
