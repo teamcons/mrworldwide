@@ -4,7 +4,7 @@
 */
 
 public class MrWorldWide.Application : Gtk.Application {
-    public Window main_window;
+    public MainWindow main_window;
 
     public static Settings settings;
     public static DeepL backend;
@@ -78,7 +78,7 @@ public class MrWorldWide.Application : Gtk.Application {
 
 
 
-        var main_window = new Window (this);
+        var main_window = new MainWindow (this);
 
         /*
         * This is very finicky. Bind size after present else set_titlebar gives us bad sizes

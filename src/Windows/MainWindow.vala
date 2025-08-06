@@ -3,7 +3,7 @@
  * SPDX-FileCopyrightText:  2025 Stella & Charlie (teamcons.carrd.co)
  */
 
-public class MrWorldWide.Window : Gtk.Window {
+public class MrWorldWide.MainWindow : Gtk.Window {
 
     private Gtk.Button switchlang_button;
     private Gtk.MenuButton popover_button;
@@ -28,7 +28,7 @@ public class MrWorldWide.Window : Gtk.Window {
         { ACTION_CLEAR, clear_source}
     };
 
-    public Window (Gtk.Application application) {
+    public MainWindow (Gtk.Application application) {
         Object (
             application: application,
             default_height: 300,
@@ -79,7 +79,7 @@ public class MrWorldWide.Window : Gtk.Window {
         switchlang_button = new Gtk.Button.from_icon_name ("media-playlist-repeat") {
             tooltip_markup = Granite.markup_accel_tooltip ({"<Ctrl>I"}, _("Switch languages"))
         };
-        switchlang_button.action_name = Window.ACTION_PREFIX + Window.ACTION_SWITCH_LANG;
+        switchlang_button.action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_SWITCH_LANG;
         headerbar.pack_start (switchlang_button);
 
 

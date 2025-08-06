@@ -59,7 +59,7 @@ executable(
     'src' / 'Views' / 'WelcomeView.vala',
     'src' / 'Views' / 'TranslationView.vala',
     'src' / 'Views' / 'NoInternetView.vala',
-    'src' / 'Windows' / 'Window.vala',
+    'src' / 'Windows' / 'MainWindow.vala',
     'src' / 'Application.vala',
     dependencies: deps,
     install: true
