@@ -46,14 +46,14 @@ public class MrWorldWide.OrientationBox : Gtk.Box {
             "vertical-layout",
             toggle_vertical,
             "active",
-            SettingsBindFlags.INVERT_BOOLEAN
+            SettingsBindFlags.DEFAULT
         );
 
                 Application.settings.bind (
             "vertical-layout",
             toggle_horizontal,
             "active",
-            SettingsBindFlags.DEFAULT
+            SettingsBindFlags.INVERT_BOOLEAN
         );
 
         append (toggle_vertical);
