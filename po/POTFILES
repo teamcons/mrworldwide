@@ -1,6 +1,7 @@
 src/Views/WelcomeView.vala
 src/Views/TranslationView.vala
-
+src/Views/NoInternetView.vala
+src/Windows/Window.vala
 src/Widgets/ApiEntry.vala
 src/Widgets/OrientationBox.vala
 src/Widgets/SettingsPopover.vala
@@ -9,6 +10,5 @@ src/Widgets/Pane.vala
 src/Widgets/SourcePane.vala
 src/Widgets/TargetPane.vala
 src/Backend/DeepL.vala
-src/Windows/Window.vala
 src/Constants.vala
 src/Application.vala
