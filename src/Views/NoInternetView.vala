@@ -13,15 +13,15 @@
         hexpand = true;
         vexpand = true;
 
-        image = new Gtk.Image.from_icon_name ("network-offline-symbolic", Gtk.IconSize.LARGE_TOOLBAR);
+        var image = new Gtk.Image.from_icon_name ("network-offline-symbolic");
         append (image);
 
-        title = new Granite.Placeholder (_("No Internet Connection")) {
+        var title = new Granite.Placeholder (_("No Internet Connection")) {
             description = _("Please check your internet connection and try again."),
         };
         append (title);
 
-        button_retry = new Gtk.Button.with_label (_("Retry")) {
+        var button_retry = new Gtk.Button.with_label (_("Retry")) {
             halign = Gtk.Align.CENTER,
             valign = Gtk.Align.CENTER
         };

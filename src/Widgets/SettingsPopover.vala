@@ -63,7 +63,7 @@ public class MrWorldWide.SettingsPopover : Gtk.Popover {
 
     var auto_box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 6);
 
-    auto_toggle = new Gtk.Switch () {
+    var auto_toggle = new Gtk.Switch () {
       halign = Gtk.Align.END,
       hexpand = true,
       valign = Gtk.Align.CENTER,

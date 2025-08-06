@@ -220,7 +220,7 @@ public class MrWorldWide.DeepL : Object {
   }
 
 
-  private void check_usage () {
+  public void check_usage () {
 
     var msg = new Soup.Message ("GET", base_url + URL_USAGE);
     msg.request_headers.append ("Authorization", "DeepL-Auth-Key %s".printf (api_key));
