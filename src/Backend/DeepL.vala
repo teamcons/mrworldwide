@@ -70,6 +70,11 @@ public class MrWorldWide.DeepL : Object {
   construct {
     system_language = detect_system ();
 
+    // Fallback
+    this.current_word_usage = Application.settings.get_int ("current-usage");
+    this.max_word_usage = Application.settings.get_int ("max-usage");
+
+    // on_key_changed does a request to check usage
     on_key_changed ();
     on_source_lang_changed ();
     on_target_lang_changed ();
@@ -87,7 +92,7 @@ public class MrWorldWide.DeepL : Object {
   }
 
   public void on_target_lang_changed () {
-        target_lang = Application.settings.get_string ("target-language");
+    target_lang = Application.settings.get_string ("target-language");
     if (target_lang == "system") {
       target_lang = system_language;
     }
@@ -233,7 +238,6 @@ public class MrWorldWide.DeepL : Object {
 
     var session = new Soup.Session ();
 
-
     var logger = new Soup.Logger (Soup.LoggerLogLevel.BODY);
     session.add_feature (logger);
     // optional, stderr (vice stdout)
@@ -253,6 +257,9 @@ public class MrWorldWide.DeepL : Object {
         var objects = root.get_object ();
         this.current_word_usage = (int)objects.get_int_member ("character_count");
         this.max_word_usage = (int)objects.get_int_member ("character_limit");
+
+        Application.settings.set_int ("current-usage", current_word_usage);
+        Application.settings.set_int ("max-usage", max_word_usage);
 
         usage_retrieved ();
 
