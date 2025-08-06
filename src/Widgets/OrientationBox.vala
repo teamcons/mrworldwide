@@ -17,6 +17,7 @@ public class MrWorldWide.OrientationBox : Gtk.Box {
         //TRANSLATORS: This refers to the panels: Either side by side vertically, or two horizontal rectangles
         box_vert.append (new Gtk.Image.from_icon_name ("view-dual"));
         box_vert.append (new Gtk.Label (_("Vertical")));
+        box_vert.add_css_class ("rotated");
 
         var toggle_vertical = new Gtk.ToggleButton () {
             child = box_vert,
@@ -31,7 +32,6 @@ public class MrWorldWide.OrientationBox : Gtk.Box {
         };
         box_horiz.append (new Gtk.Image.from_icon_name ("view-dual"));
         box_horiz.append (new Gtk.Label (_("Horizontal")));
-        box_horiz.add_css_class ("rotated");
 
         var toggle_horizontal = new Gtk.ToggleButton () {
             child = box_horiz,
