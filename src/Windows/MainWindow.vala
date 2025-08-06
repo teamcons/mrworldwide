@@ -18,6 +18,7 @@ public class MrWorldWide.MainWindow : Gtk.Window {
     public const string ACTION_MENU = "menu";
     public const string ACTION_TOGGLE_ORIENTATION = "toggle_orientation";
     public const string ACTION_SWITCH_LANG = "switch_languages";
+    public const string ACTION_TRANSLATE = "translate";
     public const string ACTION_CLEAR = "clear_source";
     public static Gee.MultiMap<string, string> action_accelerators = new Gee.HashMultiMap<string, string> ();
 
@@ -25,6 +26,7 @@ public class MrWorldWide.MainWindow : Gtk.Window {
         { ACTION_MENU, on_menu},
         { ACTION_TOGGLE_ORIENTATION, toggle_orientation},
         { ACTION_SWITCH_LANG, switch_languages},
+        { ACTION_TRANSLATE, on_translate},
         { ACTION_CLEAR, clear_source}
     };
 
@@ -107,6 +109,7 @@ public class MrWorldWide.MainWindow : Gtk.Window {
             label = _("Translate")
         };
         translate_button.add_css_class (Granite.STYLE_CLASS_SUGGESTED_ACTION);
+        translate_button.action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_TRANSLATE;
 
         var translate_revealer = new Gtk.Revealer () {
             child = translate_button,
@@ -140,8 +143,6 @@ public class MrWorldWide.MainWindow : Gtk.Window {
                 source_pane.pane.set_selected_language (detected_language_code);
             }
         });  */
-
-        translate_button.clicked.connect (on_translate);
 
         Application.settings.bind (
             "auto-translate", 
