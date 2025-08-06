@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: io.github.teamcons.mrworldwide\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-01 20:41+0200\n"
+"POT-Creation-Date: 2025-08-06 19:43+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,53 +17,127 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: src/Widgets/Menu.vala:26
+#: src/Views/WelcomeView.vala:20
+msgid "Hello World!"
+msgstr ""
+
+#: src/Views/WelcomeView.vala:21
+msgid "To start translating, enter your DeepL API Key below"
+msgstr ""
+
+#: src/Views/WelcomeView.vala:29
+msgid "You can get an API Key here"
+msgstr ""
+
+#: src/Views/NoInternetView.vala:19
+msgid "No Internet Connection"
+msgstr ""
+
+#: src/Views/NoInternetView.vala:20
+msgid "Please check your internet connection and try again."
+msgstr ""
+
+#: src/Views/NoInternetView.vala:24
+msgid "Retry"
+msgstr ""
+
+#: src/Views/NoInternetView.vala:32
+msgid "Check if Mr WorldWide is allowed to access the internet"
+msgstr ""
+
+#. ---------------- HEADERBAR ----------------
+#: src/Windows/MainWindow.vala:37 src/Windows/MainWindow.vala:57
+#: src/Windows/MainWindow.vala:58
+msgid "Mr WorldWide"
+msgstr ""
+
+#: src/Windows/MainWindow.vala:73
+msgid "Change options for the translation"
+msgstr ""
+
+#: src/Windows/MainWindow.vala:80
+msgid "Switch languages"
+msgstr ""
+
+#: src/Windows/MainWindow.vala:94
+msgid "Settings"
+msgstr ""
+
+#: src/Windows/MainWindow.vala:107
+msgid "Translate"
+msgstr ""
+
+#: src/Widgets/ApiEntry.vala:16
 msgid "Enter API key here"
 msgstr ""
 
-#: src/Widgets/Menu.vala:33 src/Widgets/SourcePane.vala:26
+#: src/Widgets/ApiEntry.vala:23 src/Widgets/SourcePane.vala:26
 msgid "Paste from clipboard"
 msgstr ""
 
-#: src/Widgets/Menu.vala:42
-msgid "DeepL API Keys"
+#: src/Widgets/OrientationBox.vala:18
+msgid "Vertical"
 msgstr ""
 
-#: src/Widgets/Menu.vala:53
+#: src/Widgets/OrientationBox.vala:24
+msgid "Switch orientation to vertical"
+msgstr ""
+
+#: src/Widgets/OrientationBox.vala:32
+msgid "Horizontal"
+msgstr ""
+
+#: src/Widgets/OrientationBox.vala:39
+msgid "Switch orientation to horizontal"
+msgstr ""
+
+#: src/Widgets/SettingsPopover.vala:33
+msgid "You can get an API key here"
+msgstr ""
+
+#: src/Widgets/SettingsPopover.vala:46
 msgid "API Usage"
 msgstr ""
 
-#: src/Widgets/Menu.vala:104
+#: src/Widgets/SettingsPopover.vala:87
+msgid "Translate automatically"
+msgstr ""
+
+#: src/Widgets/SettingsPopover.vala:89
+msgid "The translation will start 2 seconds after typing has stopped"
+msgstr ""
+
+#: src/Widgets/SettingsPopover.vala:119
 #, c-format
 msgid "%s characters translated / %s maximum characters on your plan"
 msgstr ""
 
-#: src/Widgets/OptionsMenu.vala:25 src/Widgets/OptionsMenu.vala:90
+#: src/Widgets/OptionsPopover.vala:27 src/Widgets/OptionsPopover.vala:97
 msgid "Set how formal the translation should be"
 msgstr ""
 
-#: src/Widgets/OptionsMenu.vala:34
+#: src/Widgets/OptionsPopover.vala:36
 msgid "Formal"
 msgstr ""
 
-#: src/Widgets/OptionsMenu.vala:35
+#: src/Widgets/OptionsPopover.vala:37
 msgid "Default"
 msgstr ""
 
-#: src/Widgets/OptionsMenu.vala:36
+#: src/Widgets/OptionsPopover.vala:38
 msgid "Informal"
 msgstr ""
 
-#: src/Widgets/OptionsMenu.vala:65
+#: src/Widgets/OptionsPopover.vala:67
 msgid "Enter context here"
 msgstr ""
 
-#: src/Widgets/OptionsMenu.vala:94
+#: src/Widgets/OptionsPopover.vala:101
 msgid "Formality control is not available for this target language"
 msgstr ""
 
 #. /TRANSLATORS: %s is replaced by a number
-#: src/Widgets/Pane.vala:104
+#: src/Widgets/Pane.vala:100
 #, c-format
 msgid "Counted %s characters"
 msgstr ""
@@ -72,38 +146,16 @@ msgstr ""
 msgid "Clear text"
 msgstr ""
 
-#: src/Widgets/SourcePane.vala:35
-msgid "Change options for the translation"
-msgstr ""
-
 #: src/Widgets/TargetPane.vala:20
 msgid "Copy to clipboard"
 msgstr ""
 
-#: src/Backend/DeepL.vala:199
+#: src/Backend/DeepL.vala:221
 msgid "Cannot detect!"
 msgstr ""
 
-#: src/Backend/DeepL.vala:207
+#: src/Backend/DeepL.vala:229
 msgid "Cannot retrieve translated text!"
-msgstr ""
-
-#. ---------------- HEADERBAR ----------------
-#: src/Windows/Window.vala:44 src/Windows/Window.vala:62
-#: src/Windows/Window.vala:63
-msgid "Mr WorldWide"
-msgstr ""
-
-#: src/Windows/Window.vala:73
-msgid "Switch orientation"
-msgstr ""
-
-#: src/Windows/Window.vala:78
-msgid "Switch languages"
-msgstr ""
-
-#: src/Windows/Window.vala:84
-msgid "Settings"
 msgstr ""
 
 #: src/Constants.vala:14

@@ -7,60 +7,142 @@ msgstr ""
 "Last-Translator: Automatically generated\n"
 "MIME-Version: 1.0\n"
 "PO-Revision-Date: 2025-07-28 21:18+0200\n"
-"POT-Creation-Date: 2025-08-01 20:41+0200\n"
+"POT-Creation-Date: 2025-08-06 19:43+0200\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "Project-Id-Version: io.github.teamcons.mrworldwide\n"
 "Report-Msgid-Bugs-To: \n"
 
-#: src/Widgets/Menu.vala:26
+#: src/Views/WelcomeView.vala:20
+msgid "Hello World!"
+msgstr "Hej verden!"
+
+#: src/Views/WelcomeView.vala:21
+msgid "To start translating, enter your DeepL API Key below"
+msgstr "For at begynde at oversætte skal du indtaste din DeepL API-nøgle nedenfor."
+
+#: src/Views/WelcomeView.vala:29
+#, fuzzy
+msgid "You can get an API Key here"
+msgstr "Du kan få en API-nøgle på DeepL Website"
+
+#: src/Views/NoInternetView.vala:19
+msgid "No Internet Connection"
+msgstr "Ingen internetforbindelse"
+
+#: src/Views/NoInternetView.vala:20
+msgid "Please check your internet connection and try again."
+msgstr "Tjek venligst din internetforbindelse og prøv igen."
+
+#: src/Views/NoInternetView.vala:24
+msgid "Retry"
+msgstr "Prøv igen"
+
+#: src/Views/NoInternetView.vala:32
+msgid "Check if Mr WorldWide is allowed to access the internet"
+msgstr "Tjek, om Mr WorldWide har adgang til internettet"
+
+#. ---------------- HEADERBAR ----------------
+#: src/Windows/MainWindow.vala:37
+#: src/Windows/MainWindow.vala:57
+#: src/Windows/MainWindow.vala:58
+msgid "Mr WorldWide"
+msgstr "Mr WorldWide"
+
+#: src/Windows/MainWindow.vala:73
+#, fuzzy
+msgid "Change options for the translation"
+msgstr "Indstil, hvor formel oversættelsen skal være"
+
+#: src/Windows/MainWindow.vala:80
+#, fuzzy
+msgid "Switch languages"
+msgstr "Systemets sprog"
+
+#: src/Windows/MainWindow.vala:94
+msgid "Settings"
+msgstr "Indstillinger"
+
+#: src/Windows/MainWindow.vala:107
+msgid "Translate"
+msgstr "Oversæt"
+
+#: src/Widgets/ApiEntry.vala:16
 msgid "Enter API key here"
 msgstr "Indtast API-nøgle her"
 
-#: src/Widgets/Menu.vala:33
+#: src/Widgets/ApiEntry.vala:23
 #: src/Widgets/SourcePane.vala:26
 msgid "Paste from clipboard"
 msgstr "Indsæt fra udklipsholder"
 
-#: src/Widgets/Menu.vala:42
-msgid "DeepL API Keys"
-msgstr "DeepL API-nøgler"
+#: src/Widgets/OrientationBox.vala:18
+msgid "Vertical"
+msgstr "Lodret"
 
-#: src/Widgets/Menu.vala:53
+#: src/Widgets/OrientationBox.vala:24
+#, fuzzy
+msgid "Switch orientation to vertical"
+msgstr "Skiftets retning"
+
+#: src/Widgets/OrientationBox.vala:32
+msgid "Horizontal"
+msgstr "Vandret"
+
+#: src/Widgets/OrientationBox.vala:39
+#, fuzzy
+msgid "Switch orientation to horizontal"
+msgstr "Skiftets retning"
+
+#: src/Widgets/SettingsPopover.vala:33
+#, fuzzy
+msgid "You can get an API key here"
+msgstr "Du kan få en API-nøgle på DeepL Website"
+
+#: src/Widgets/SettingsPopover.vala:46
 msgid "API Usage"
 msgstr "API-brug"
 
-#: src/Widgets/Menu.vala:104
+#: src/Widgets/SettingsPopover.vala:87
+#, fuzzy
+msgid "Translate automatically"
+msgstr "Registrerer automatisk"
+
+#: src/Widgets/SettingsPopover.vala:89
+msgid "The translation will start 2 seconds after typing has stopped"
+msgstr "Oversættelsen starter 2 sekunder efter, at indtastningen er stoppet."
+
+#: src/Widgets/SettingsPopover.vala:119
 #, c-format
 msgid "%s characters translated / %s maximum characters on your plan"
 msgstr "%s tegn oversat / %s maksimale tegn på din plan"
 
-#: src/Widgets/OptionsMenu.vala:25
-#: src/Widgets/OptionsMenu.vala:90
+#: src/Widgets/OptionsPopover.vala:27
+#: src/Widgets/OptionsPopover.vala:97
 msgid "Set how formal the translation should be"
 msgstr "Indstil, hvor formel oversættelsen skal være"
 
-#: src/Widgets/OptionsMenu.vala:34
+#: src/Widgets/OptionsPopover.vala:36
 msgid "Formal"
 msgstr "Formelt"
 
-#: src/Widgets/OptionsMenu.vala:35
+#: src/Widgets/OptionsPopover.vala:37
 msgid "Default"
 msgstr "Standard"
 
-#: src/Widgets/OptionsMenu.vala:36
+#: src/Widgets/OptionsPopover.vala:38
 msgid "Informal"
 msgstr "Uformel"
 
-#: src/Widgets/OptionsMenu.vala:65
+#: src/Widgets/OptionsPopover.vala:67
 msgid "Enter context here"
 msgstr "Indtast kontekst her"
 
-#: src/Widgets/OptionsMenu.vala:94
+#: src/Widgets/OptionsPopover.vala:101
 msgid "Formality control is not available for this target language"
 msgstr "Formalitetskontrol er ikke tilgængelig for dette målsprog"
 
 #. /TRANSLATORS: %s is replaced by a number
-#: src/Widgets/Pane.vala:104
+#: src/Widgets/Pane.vala:100
 #, c-format
 msgid "Counted %s characters"
 msgstr "Optælling af %s tegn"
@@ -69,42 +151,17 @@ msgstr "Optælling af %s tegn"
 msgid "Clear text"
 msgstr "Klar tekst"
 
-#: src/Widgets/SourcePane.vala:35
-#, fuzzy
-msgid "Change options for the translation"
-msgstr "Indstil, hvor formel oversættelsen skal være"
-
 #: src/Widgets/TargetPane.vala:20
 msgid "Copy to clipboard"
 msgstr "Kopier til udklipsholder"
 
-#: src/Backend/DeepL.vala:199
+#: src/Backend/DeepL.vala:221
 msgid "Cannot detect!"
 msgstr "Kan ikke opdage det!"
 
-#: src/Backend/DeepL.vala:207
+#: src/Backend/DeepL.vala:229
 msgid "Cannot retrieve translated text!"
 msgstr "Kan ikke hente oversat tekst!"
-
-#. ---------------- HEADERBAR ----------------
-#: src/Windows/Window.vala:44
-#: src/Windows/Window.vala:62
-#: src/Windows/Window.vala:63
-msgid "Mr WorldWide"
-msgstr "Mr WorldWide"
-
-#: src/Windows/Window.vala:73
-msgid "Switch orientation"
-msgstr "Skiftets retning"
-
-#: src/Windows/Window.vala:78
-#, fuzzy
-msgid "Switch languages"
-msgstr "Systemets sprog"
-
-#: src/Windows/Window.vala:84
-msgid "Settings"
-msgstr "Indstillinger"
 
 #: src/Constants.vala:14
 msgid "Detect automatically"
@@ -305,8 +362,8 @@ msgstr "Kinesisk (forenklet)"
 msgid "Chinese (Traditional)"
 msgstr "Kinesisk (traditionel)"
 
-#~ msgid "You can get an API key on DeepL Website"
-#~ msgstr "Du kan få en API-nøgle på DeepL Website"
+#~ msgid "DeepL API Keys"
+#~ msgstr "DeepL API-nøgler"
 
 #~ msgid "Add context to the text to translate"
 #~ msgstr "Tilføj kontekst til den tekst, der skal oversættes"

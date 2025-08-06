@@ -7,60 +7,142 @@ msgstr ""
 "Last-Translator: Automatically generated\n"
 "MIME-Version: 1.0\n"
 "PO-Revision-Date: 2025-07-28 21:18+0200\n"
-"POT-Creation-Date: 2025-08-01 20:41+0200\n"
+"POT-Creation-Date: 2025-08-06 19:43+0200\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "Project-Id-Version: io.github.teamcons.mrworldwide\n"
 "Report-Msgid-Bugs-To: \n"
 
-#: src/Widgets/Menu.vala:26
+#: src/Views/WelcomeView.vala:20
+msgid "Hello World!"
+msgstr "Olá mundo!"
+
+#: src/Views/WelcomeView.vala:21
+msgid "To start translating, enter your DeepL API Key below"
+msgstr "Para começar a traduzir, introduza a sua chave API DeepL abaixo"
+
+#: src/Views/WelcomeView.vala:29
+#, fuzzy
+msgid "You can get an API Key here"
+msgstr "Pode obter uma chave API no sítio Web DeepL"
+
+#: src/Views/NoInternetView.vala:19
+msgid "No Internet Connection"
+msgstr "Sem ligação à Internet"
+
+#: src/Views/NoInternetView.vala:20
+msgid "Please check your internet connection and try again."
+msgstr "Verifique a sua ligação à Internet e tente novamente."
+
+#: src/Views/NoInternetView.vala:24
+msgid "Retry"
+msgstr "Repetir"
+
+#: src/Views/NoInternetView.vala:32
+msgid "Check if Mr WorldWide is allowed to access the internet"
+msgstr "Verificar se o Mr WorldWide tem autorização para aceder à Internet"
+
+#. ---------------- HEADERBAR ----------------
+#: src/Windows/MainWindow.vala:37
+#: src/Windows/MainWindow.vala:57
+#: src/Windows/MainWindow.vala:58
+msgid "Mr WorldWide"
+msgstr "Sr. WorldWide"
+
+#: src/Windows/MainWindow.vala:73
+#, fuzzy
+msgid "Change options for the translation"
+msgstr "Definir o carácter formal da tradução"
+
+#: src/Windows/MainWindow.vala:80
+#, fuzzy
+msgid "Switch languages"
+msgstr "Língua do sistema"
+
+#: src/Windows/MainWindow.vala:94
+msgid "Settings"
+msgstr "Definições"
+
+#: src/Windows/MainWindow.vala:107
+msgid "Translate"
+msgstr "Traduzir"
+
+#: src/Widgets/ApiEntry.vala:16
 msgid "Enter API key here"
 msgstr "Introduzir a chave API aqui"
 
-#: src/Widgets/Menu.vala:33
+#: src/Widgets/ApiEntry.vala:23
 #: src/Widgets/SourcePane.vala:26
 msgid "Paste from clipboard"
 msgstr "Colar da área de transferência"
 
-#: src/Widgets/Menu.vala:42
-msgid "DeepL API Keys"
-msgstr "DeepL Chaves da API"
+#: src/Widgets/OrientationBox.vala:18
+msgid "Vertical"
+msgstr "Vertical"
 
-#: src/Widgets/Menu.vala:53
+#: src/Widgets/OrientationBox.vala:24
+#, fuzzy
+msgid "Switch orientation to vertical"
+msgstr "Orientação do interrutor"
+
+#: src/Widgets/OrientationBox.vala:32
+msgid "Horizontal"
+msgstr "Horizontal"
+
+#: src/Widgets/OrientationBox.vala:39
+#, fuzzy
+msgid "Switch orientation to horizontal"
+msgstr "Orientação do interrutor"
+
+#: src/Widgets/SettingsPopover.vala:33
+#, fuzzy
+msgid "You can get an API key here"
+msgstr "Pode obter uma chave API no sítio Web DeepL"
+
+#: src/Widgets/SettingsPopover.vala:46
 msgid "API Usage"
 msgstr "Utilização da API"
 
-#: src/Widgets/Menu.vala:104
+#: src/Widgets/SettingsPopover.vala:87
+#, fuzzy
+msgid "Translate automatically"
+msgstr "Detetar automaticamente"
+
+#: src/Widgets/SettingsPopover.vala:89
+msgid "The translation will start 2 seconds after typing has stopped"
+msgstr "A tradução começará 2 segundos depois de a digitação ter parado"
+
+#: src/Widgets/SettingsPopover.vala:119
 #, c-format
 msgid "%s characters translated / %s maximum characters on your plan"
 msgstr "%s caracteres traduzidos / %s caracteres máximos no seu plano"
 
-#: src/Widgets/OptionsMenu.vala:25
-#: src/Widgets/OptionsMenu.vala:90
+#: src/Widgets/OptionsPopover.vala:27
+#: src/Widgets/OptionsPopover.vala:97
 msgid "Set how formal the translation should be"
 msgstr "Definir o carácter formal da tradução"
 
-#: src/Widgets/OptionsMenu.vala:34
+#: src/Widgets/OptionsPopover.vala:36
 msgid "Formal"
 msgstr "Formal"
 
-#: src/Widgets/OptionsMenu.vala:35
+#: src/Widgets/OptionsPopover.vala:37
 msgid "Default"
 msgstr "Predefinição"
 
-#: src/Widgets/OptionsMenu.vala:36
+#: src/Widgets/OptionsPopover.vala:38
 msgid "Informal"
 msgstr "Informal"
 
-#: src/Widgets/OptionsMenu.vala:65
+#: src/Widgets/OptionsPopover.vala:67
 msgid "Enter context here"
 msgstr "Introduzir contexto aqui"
 
-#: src/Widgets/OptionsMenu.vala:94
+#: src/Widgets/OptionsPopover.vala:101
 msgid "Formality control is not available for this target language"
 msgstr "O controlo da formalidade não está disponível para esta língua-alvo"
 
 #. /TRANSLATORS: %s is replaced by a number
-#: src/Widgets/Pane.vala:104
+#: src/Widgets/Pane.vala:100
 #, c-format
 msgid "Counted %s characters"
 msgstr "Caracteres %s contados"
@@ -69,42 +151,17 @@ msgstr "Caracteres %s contados"
 msgid "Clear text"
 msgstr "Texto claro"
 
-#: src/Widgets/SourcePane.vala:35
-#, fuzzy
-msgid "Change options for the translation"
-msgstr "Definir o carácter formal da tradução"
-
 #: src/Widgets/TargetPane.vala:20
 msgid "Copy to clipboard"
 msgstr "Copiar para a área de transferência"
 
-#: src/Backend/DeepL.vala:199
+#: src/Backend/DeepL.vala:221
 msgid "Cannot detect!"
 msgstr "Não é possível detetar!"
 
-#: src/Backend/DeepL.vala:207
+#: src/Backend/DeepL.vala:229
 msgid "Cannot retrieve translated text!"
 msgstr "Não é possível recuperar o texto traduzido!"
-
-#. ---------------- HEADERBAR ----------------
-#: src/Windows/Window.vala:44
-#: src/Windows/Window.vala:62
-#: src/Windows/Window.vala:63
-msgid "Mr WorldWide"
-msgstr "Sr. WorldWide"
-
-#: src/Windows/Window.vala:73
-msgid "Switch orientation"
-msgstr "Orientação do interrutor"
-
-#: src/Windows/Window.vala:78
-#, fuzzy
-msgid "Switch languages"
-msgstr "Língua do sistema"
-
-#: src/Windows/Window.vala:84
-msgid "Settings"
-msgstr "Definições"
 
 #: src/Constants.vala:14
 msgid "Detect automatically"
@@ -305,8 +362,8 @@ msgstr "Chinês (simplificado)"
 msgid "Chinese (Traditional)"
 msgstr "Chinês (tradicional)"
 
-#~ msgid "You can get an API key on DeepL Website"
-#~ msgstr "Pode obter uma chave API no sítio Web DeepL"
+#~ msgid "DeepL API Keys"
+#~ msgstr "DeepL Chaves da API"
 
 #~ msgid "Add context to the text to translate"
 #~ msgstr "Adicionar contexto ao texto a traduzir"

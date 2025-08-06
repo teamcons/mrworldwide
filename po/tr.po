@@ -7,60 +7,142 @@ msgstr ""
 "Last-Translator: Automatically generated\n"
 "MIME-Version: 1.0\n"
 "PO-Revision-Date: 2025-07-28 21:18+0200\n"
-"POT-Creation-Date: 2025-08-01 20:41+0200\n"
+"POT-Creation-Date: 2025-08-06 19:43+0200\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "Project-Id-Version: io.github.teamcons.mrworldwide\n"
 "Report-Msgid-Bugs-To: \n"
 
-#: src/Widgets/Menu.vala:26
+#: src/Views/WelcomeView.vala:20
+msgid "Hello World!"
+msgstr "Merhaba Dünya!"
+
+#: src/Views/WelcomeView.vala:21
+msgid "To start translating, enter your DeepL API Key below"
+msgstr "Çeviriye başlamak için DeepL API Anahtarınızı aşağıya girin"
+
+#: src/Views/WelcomeView.vala:29
+#, fuzzy
+msgid "You can get an API Key here"
+msgstr "API anahtarı almak için DeepL web sitesini ziyaret edebilirsiniz."
+
+#: src/Views/NoInternetView.vala:19
+msgid "No Internet Connection"
+msgstr "İnternet Bağlantısı Yok"
+
+#: src/Views/NoInternetView.vala:20
+msgid "Please check your internet connection and try again."
+msgstr "Lütfen internet bağlantınızı kontrol edin ve tekrar deneyin."
+
+#: src/Views/NoInternetView.vala:24
+msgid "Retry"
+msgstr "Yeniden Dene"
+
+#: src/Views/NoInternetView.vala:32
+msgid "Check if Mr WorldWide is allowed to access the internet"
+msgstr "Bay WorldWide'ın internete erişim izni olup olmadığını kontrol edin"
+
+#. ---------------- HEADERBAR ----------------
+#: src/Windows/MainWindow.vala:37
+#: src/Windows/MainWindow.vala:57
+#: src/Windows/MainWindow.vala:58
+msgid "Mr WorldWide"
+msgstr "Bay WorldWide"
+
+#: src/Windows/MainWindow.vala:73
+#, fuzzy
+msgid "Change options for the translation"
+msgstr "Çevirinin ne kadar resmi olması gerektiğini ayarlayın"
+
+#: src/Windows/MainWindow.vala:80
+#, fuzzy
+msgid "Switch languages"
+msgstr "Sistem dili"
+
+#: src/Windows/MainWindow.vala:94
+msgid "Settings"
+msgstr "Ayarlar"
+
+#: src/Windows/MainWindow.vala:107
+msgid "Translate"
+msgstr "Tercüme et"
+
+#: src/Widgets/ApiEntry.vala:16
 msgid "Enter API key here"
 msgstr "API anahtarını buraya girin"
 
-#: src/Widgets/Menu.vala:33
+#: src/Widgets/ApiEntry.vala:23
 #: src/Widgets/SourcePane.vala:26
 msgid "Paste from clipboard"
 msgstr "Panodan yapıştır"
 
-#: src/Widgets/Menu.vala:42
-msgid "DeepL API Keys"
-msgstr "DeepL API Anahtarları"
+#: src/Widgets/OrientationBox.vala:18
+msgid "Vertical"
+msgstr "Dikey"
 
-#: src/Widgets/Menu.vala:53
+#: src/Widgets/OrientationBox.vala:24
+#, fuzzy
+msgid "Switch orientation to vertical"
+msgstr "Anahtar yönü"
+
+#: src/Widgets/OrientationBox.vala:32
+msgid "Horizontal"
+msgstr "Yatay"
+
+#: src/Widgets/OrientationBox.vala:39
+#, fuzzy
+msgid "Switch orientation to horizontal"
+msgstr "Anahtar yönü"
+
+#: src/Widgets/SettingsPopover.vala:33
+#, fuzzy
+msgid "You can get an API key here"
+msgstr "API anahtarı almak için DeepL web sitesini ziyaret edebilirsiniz."
+
+#: src/Widgets/SettingsPopover.vala:46
 msgid "API Usage"
 msgstr "API Kullanımı"
 
-#: src/Widgets/Menu.vala:104
+#: src/Widgets/SettingsPopover.vala:87
+#, fuzzy
+msgid "Translate automatically"
+msgstr "Otomatik olarak algıla"
+
+#: src/Widgets/SettingsPopover.vala:89
+msgid "The translation will start 2 seconds after typing has stopped"
+msgstr "Yazma işlemi durduktan 2 saniye sonra çeviri başlayacaktır"
+
+#: src/Widgets/SettingsPopover.vala:119
 #, c-format
 msgid "%s characters translated / %s maximum characters on your plan"
 msgstr "çevrilen %s karakter / planınızdaki maksimum %s karakter"
 
-#: src/Widgets/OptionsMenu.vala:25
-#: src/Widgets/OptionsMenu.vala:90
+#: src/Widgets/OptionsPopover.vala:27
+#: src/Widgets/OptionsPopover.vala:97
 msgid "Set how formal the translation should be"
 msgstr "Çevirinin ne kadar resmi olması gerektiğini ayarlayın"
 
-#: src/Widgets/OptionsMenu.vala:34
+#: src/Widgets/OptionsPopover.vala:36
 msgid "Formal"
 msgstr "Resmi"
 
-#: src/Widgets/OptionsMenu.vala:35
+#: src/Widgets/OptionsPopover.vala:37
 msgid "Default"
 msgstr "Varsayılan"
 
-#: src/Widgets/OptionsMenu.vala:36
+#: src/Widgets/OptionsPopover.vala:38
 msgid "Informal"
 msgstr "Gayri resmi"
 
-#: src/Widgets/OptionsMenu.vala:65
+#: src/Widgets/OptionsPopover.vala:67
 msgid "Enter context here"
 msgstr "Bağlamı buraya girin"
 
-#: src/Widgets/OptionsMenu.vala:94
+#: src/Widgets/OptionsPopover.vala:101
 msgid "Formality control is not available for this target language"
 msgstr "Bu hedef dil için resmiyet kontrolü mevcut değildir"
 
 #. /TRANSLATORS: %s is replaced by a number
-#: src/Widgets/Pane.vala:104
+#: src/Widgets/Pane.vala:100
 #, c-format
 msgid "Counted %s characters"
 msgstr "Sayılan %s karakterleri"
@@ -69,42 +151,17 @@ msgstr "Sayılan %s karakterleri"
 msgid "Clear text"
 msgstr "Açık metin"
 
-#: src/Widgets/SourcePane.vala:35
-#, fuzzy
-msgid "Change options for the translation"
-msgstr "Çevirinin ne kadar resmi olması gerektiğini ayarlayın"
-
 #: src/Widgets/TargetPane.vala:20
 msgid "Copy to clipboard"
 msgstr "Panoya kopyala"
 
-#: src/Backend/DeepL.vala:199
+#: src/Backend/DeepL.vala:221
 msgid "Cannot detect!"
 msgstr "Tespit edilemiyor!"
 
-#: src/Backend/DeepL.vala:207
+#: src/Backend/DeepL.vala:229
 msgid "Cannot retrieve translated text!"
 msgstr "Çevrilmiş metin alınamıyor!"
-
-#. ---------------- HEADERBAR ----------------
-#: src/Windows/Window.vala:44
-#: src/Windows/Window.vala:62
-#: src/Windows/Window.vala:63
-msgid "Mr WorldWide"
-msgstr "Bay WorldWide"
-
-#: src/Windows/Window.vala:73
-msgid "Switch orientation"
-msgstr "Anahtar yönü"
-
-#: src/Windows/Window.vala:78
-#, fuzzy
-msgid "Switch languages"
-msgstr "Sistem dili"
-
-#: src/Windows/Window.vala:84
-msgid "Settings"
-msgstr "Ayarlar"
 
 #: src/Constants.vala:14
 msgid "Detect automatically"
@@ -305,8 +362,8 @@ msgstr "Çince (Basitleştirilmiş)"
 msgid "Chinese (Traditional)"
 msgstr "Çince (Geleneksel)"
 
-#~ msgid "You can get an API key on DeepL Website"
-#~ msgstr "API anahtarı almak için DeepL web sitesini ziyaret edebilirsiniz."
+#~ msgid "DeepL API Keys"
+#~ msgstr "DeepL API Anahtarları"
 
 #~ msgid "Add context to the text to translate"
 #~ msgstr "Çevrilecek metne bağlam ekleyin"

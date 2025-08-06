@@ -7,60 +7,142 @@ msgstr ""
 "Last-Translator: Automatically generated\n"
 "MIME-Version: 1.0\n"
 "PO-Revision-Date: 2025-07-28 21:18+0200\n"
-"POT-Creation-Date: 2025-08-01 20:41+0200\n"
+"POT-Creation-Date: 2025-08-06 19:43+0200\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "Project-Id-Version: io.github.teamcons.mrworldwide\n"
 "Report-Msgid-Bugs-To: \n"
 
-#: src/Widgets/Menu.vala:26
+#: src/Views/WelcomeView.vala:20
+msgid "Hello World!"
+msgstr "Sveikas, pasauli!"
+
+#: src/Views/WelcomeView.vala:21
+msgid "To start translating, enter your DeepL API Key below"
+msgstr "Norėdami pradėti vertimą, toliau įveskite DeepL API raktą"
+
+#: src/Views/WelcomeView.vala:29
+#, fuzzy
+msgid "You can get an API Key here"
+msgstr "API raktą galite gauti DeepL svetainėje."
+
+#: src/Views/NoInternetView.vala:19
+msgid "No Internet Connection"
+msgstr "Nėra interneto ryšio"
+
+#: src/Views/NoInternetView.vala:20
+msgid "Please check your internet connection and try again."
+msgstr "Patikrinkite interneto ryšį ir bandykite dar kartą."
+
+#: src/Views/NoInternetView.vala:24
+msgid "Retry"
+msgstr "Pakartoti"
+
+#: src/Views/NoInternetView.vala:32
+msgid "Check if Mr WorldWide is allowed to access the internet"
+msgstr "Patikrinkite, ar \"Mr WorldWide\" leidžiama naudotis internetu"
+
+#. ---------------- HEADERBAR ----------------
+#: src/Windows/MainWindow.vala:37
+#: src/Windows/MainWindow.vala:57
+#: src/Windows/MainWindow.vala:58
+msgid "Mr WorldWide"
+msgstr "Ponas WorldWide"
+
+#: src/Windows/MainWindow.vala:73
+#, fuzzy
+msgid "Change options for the translation"
+msgstr "Nustatykite, kiek oficialus turėtų būti vertimas"
+
+#: src/Windows/MainWindow.vala:80
+#, fuzzy
+msgid "Switch languages"
+msgstr "Sistemos kalba"
+
+#: src/Windows/MainWindow.vala:94
+msgid "Settings"
+msgstr "Nustatymai"
+
+#: src/Windows/MainWindow.vala:107
+msgid "Translate"
+msgstr "Išversti"
+
+#: src/Widgets/ApiEntry.vala:16
 msgid "Enter API key here"
 msgstr "Čia įveskite API raktą"
 
-#: src/Widgets/Menu.vala:33
+#: src/Widgets/ApiEntry.vala:23
 #: src/Widgets/SourcePane.vala:26
 msgid "Paste from clipboard"
 msgstr "Įklijuoti iš iškarpinės"
 
-#: src/Widgets/Menu.vala:42
-msgid "DeepL API Keys"
-msgstr "DeepL API raktai"
+#: src/Widgets/OrientationBox.vala:18
+msgid "Vertical"
+msgstr "Vertikalus"
 
-#: src/Widgets/Menu.vala:53
+#: src/Widgets/OrientationBox.vala:24
+#, fuzzy
+msgid "Switch orientation to vertical"
+msgstr "Jungiklio orientacija"
+
+#: src/Widgets/OrientationBox.vala:32
+msgid "Horizontal"
+msgstr "Horizontalus"
+
+#: src/Widgets/OrientationBox.vala:39
+#, fuzzy
+msgid "Switch orientation to horizontal"
+msgstr "Jungiklio orientacija"
+
+#: src/Widgets/SettingsPopover.vala:33
+#, fuzzy
+msgid "You can get an API key here"
+msgstr "API raktą galite gauti DeepL svetainėje."
+
+#: src/Widgets/SettingsPopover.vala:46
 msgid "API Usage"
 msgstr "API naudojimas"
 
-#: src/Widgets/Menu.vala:104
+#: src/Widgets/SettingsPopover.vala:87
+#, fuzzy
+msgid "Translate automatically"
+msgstr "Aptikti automatiškai"
+
+#: src/Widgets/SettingsPopover.vala:89
+msgid "The translation will start 2 seconds after typing has stopped"
+msgstr "Vertimas prasidės praėjus 2 sekundėms po to, kai nustosite rašyti"
+
+#: src/Widgets/SettingsPopover.vala:119
 #, c-format
 msgid "%s characters translated / %s maximum characters on your plan"
 msgstr "%s išverstų simbolių / %s maksimalus simbolių skaičius jūsų plane"
 
-#: src/Widgets/OptionsMenu.vala:25
-#: src/Widgets/OptionsMenu.vala:90
+#: src/Widgets/OptionsPopover.vala:27
+#: src/Widgets/OptionsPopover.vala:97
 msgid "Set how formal the translation should be"
 msgstr "Nustatykite, kiek oficialus turėtų būti vertimas"
 
-#: src/Widgets/OptionsMenu.vala:34
+#: src/Widgets/OptionsPopover.vala:36
 msgid "Formal"
 msgstr "Oficiali svetainė"
 
-#: src/Widgets/OptionsMenu.vala:35
+#: src/Widgets/OptionsPopover.vala:37
 msgid "Default"
 msgstr "Numatytoji"
 
-#: src/Widgets/OptionsMenu.vala:36
+#: src/Widgets/OptionsPopover.vala:38
 msgid "Informal"
 msgstr "Neoficialus"
 
-#: src/Widgets/OptionsMenu.vala:65
+#: src/Widgets/OptionsPopover.vala:67
 msgid "Enter context here"
 msgstr "Čia įveskite kontekstą"
 
-#: src/Widgets/OptionsMenu.vala:94
+#: src/Widgets/OptionsPopover.vala:101
 msgid "Formality control is not available for this target language"
 msgstr "Formalumo kontrolė šiai tikslinei kalbai negalima"
 
 #. /TRANSLATORS: %s is replaced by a number
-#: src/Widgets/Pane.vala:104
+#: src/Widgets/Pane.vala:100
 #, c-format
 msgid "Counted %s characters"
 msgstr "Suskaičiuota %s simbolių"
@@ -69,42 +151,17 @@ msgstr "Suskaičiuota %s simbolių"
 msgid "Clear text"
 msgstr "Aiškus tekstas"
 
-#: src/Widgets/SourcePane.vala:35
-#, fuzzy
-msgid "Change options for the translation"
-msgstr "Nustatykite, kiek oficialus turėtų būti vertimas"
-
 #: src/Widgets/TargetPane.vala:20
 msgid "Copy to clipboard"
 msgstr "Kopijuoti į iškarpinę"
 
-#: src/Backend/DeepL.vala:199
+#: src/Backend/DeepL.vala:221
 msgid "Cannot detect!"
 msgstr "Negalima aptikti!"
 
-#: src/Backend/DeepL.vala:207
+#: src/Backend/DeepL.vala:229
 msgid "Cannot retrieve translated text!"
 msgstr "Negalima gauti išversto teksto!"
-
-#. ---------------- HEADERBAR ----------------
-#: src/Windows/Window.vala:44
-#: src/Windows/Window.vala:62
-#: src/Windows/Window.vala:63
-msgid "Mr WorldWide"
-msgstr "Ponas WorldWide"
-
-#: src/Windows/Window.vala:73
-msgid "Switch orientation"
-msgstr "Jungiklio orientacija"
-
-#: src/Windows/Window.vala:78
-#, fuzzy
-msgid "Switch languages"
-msgstr "Sistemos kalba"
-
-#: src/Windows/Window.vala:84
-msgid "Settings"
-msgstr "Nustatymai"
 
 #: src/Constants.vala:14
 msgid "Detect automatically"
@@ -305,8 +362,8 @@ msgstr "Kinų kalba (supaprastinta)"
 msgid "Chinese (Traditional)"
 msgstr "Kinų kalba (tradicinė)"
 
-#~ msgid "You can get an API key on DeepL Website"
-#~ msgstr "API raktą galite gauti DeepL svetainėje."
+#~ msgid "DeepL API Keys"
+#~ msgstr "DeepL API raktai"
 
 #~ msgid "Add context to the text to translate"
 #~ msgstr "Pridėkite verčiamo teksto kontekstą"

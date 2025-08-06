@@ -7,59 +7,141 @@ msgstr ""
 "Last-Translator: Automatically generated\n"
 "MIME-Version: 1.0\n"
 "PO-Revision-Date: 2025-07-28 21:18+0200\n"
-"POT-Creation-Date: 2025-08-01 20:41+0200\n"
+"POT-Creation-Date: 2025-08-06 19:43+0200\n"
 "Project-Id-Version: io.github.teamcons.mrworldwide\n"
 "Report-Msgid-Bugs-To: \n"
 
-#: src/Widgets/Menu.vala:26
+#: src/Views/WelcomeView.vala:20
+msgid "Hello World!"
+msgstr "世界你好"
+
+#: src/Views/WelcomeView.vala:21
+msgid "To start translating, enter your DeepL API Key below"
+msgstr "要开始翻译，请在下面输入您的 DeepL API 密钥"
+
+#: src/Views/WelcomeView.vala:29
+#, fuzzy
+msgid "You can get an API Key here"
+msgstr "您可以在 DeepL 网站上获取 API 密钥。"
+
+#: src/Views/NoInternetView.vala:19
+msgid "No Internet Connection"
+msgstr "无互联网连接"
+
+#: src/Views/NoInternetView.vala:20
+msgid "Please check your internet connection and try again."
+msgstr "请检查网络连接并重试。"
+
+#: src/Views/NoInternetView.vala:24
+msgid "Retry"
+msgstr "重试"
+
+#: src/Views/NoInternetView.vala:32
+msgid "Check if Mr WorldWide is allowed to access the internet"
+msgstr "检查是否允许 WorldWide 先生访问互联网"
+
+#. ---------------- HEADERBAR ----------------
+#: src/Windows/MainWindow.vala:37
+#: src/Windows/MainWindow.vala:57
+#: src/Windows/MainWindow.vala:58
+msgid "Mr WorldWide"
+msgstr "世界先生"
+
+#: src/Windows/MainWindow.vala:73
+#, fuzzy
+msgid "Change options for the translation"
+msgstr "设置翻译的正式程度"
+
+#: src/Windows/MainWindow.vala:80
+#, fuzzy
+msgid "Switch languages"
+msgstr "系统语言"
+
+#: src/Windows/MainWindow.vala:94
+msgid "Settings"
+msgstr "设置"
+
+#: src/Windows/MainWindow.vala:107
+msgid "Translate"
+msgstr "翻译"
+
+#: src/Widgets/ApiEntry.vala:16
 msgid "Enter API key here"
 msgstr "在此输入 API 密钥"
 
-#: src/Widgets/Menu.vala:33
+#: src/Widgets/ApiEntry.vala:23
 #: src/Widgets/SourcePane.vala:26
 msgid "Paste from clipboard"
 msgstr "从剪贴板粘贴"
 
-#: src/Widgets/Menu.vala:42
-msgid "DeepL API Keys"
-msgstr "DeepL API 密钥"
+#: src/Widgets/OrientationBox.vala:18
+msgid "Vertical"
+msgstr "垂直"
 
-#: src/Widgets/Menu.vala:53
+#: src/Widgets/OrientationBox.vala:24
+#, fuzzy
+msgid "Switch orientation to vertical"
+msgstr "开关方向"
+
+#: src/Widgets/OrientationBox.vala:32
+msgid "Horizontal"
+msgstr "横向"
+
+#: src/Widgets/OrientationBox.vala:39
+#, fuzzy
+msgid "Switch orientation to horizontal"
+msgstr "开关方向"
+
+#: src/Widgets/SettingsPopover.vala:33
+#, fuzzy
+msgid "You can get an API key here"
+msgstr "您可以在 DeepL 网站上获取 API 密钥。"
+
+#: src/Widgets/SettingsPopover.vala:46
 msgid "API Usage"
 msgstr "应用程序接口的使用"
 
-#: src/Widgets/Menu.vala:104
+#: src/Widgets/SettingsPopover.vala:87
+#, fuzzy
+msgid "Translate automatically"
+msgstr "自动检测"
+
+#: src/Widgets/SettingsPopover.vala:89
+msgid "The translation will start 2 seconds after typing has stopped"
+msgstr "翻译将在输入停止 2 秒后开始"
+
+#: src/Widgets/SettingsPopover.vala:119
 #, c-format
 msgid "%s characters translated / %s maximum characters on your plan"
 msgstr "%s 翻译字符数/ %s 计划中的最大字符数"
 
-#: src/Widgets/OptionsMenu.vala:25
-#: src/Widgets/OptionsMenu.vala:90
+#: src/Widgets/OptionsPopover.vala:27
+#: src/Widgets/OptionsPopover.vala:97
 msgid "Set how formal the translation should be"
 msgstr "设置翻译的正式程度"
 
-#: src/Widgets/OptionsMenu.vala:34
+#: src/Widgets/OptionsPopover.vala:36
 msgid "Formal"
 msgstr "正式"
 
-#: src/Widgets/OptionsMenu.vala:35
+#: src/Widgets/OptionsPopover.vala:37
 msgid "Default"
 msgstr "默认值"
 
-#: src/Widgets/OptionsMenu.vala:36
+#: src/Widgets/OptionsPopover.vala:38
 msgid "Informal"
 msgstr "非正式"
 
-#: src/Widgets/OptionsMenu.vala:65
+#: src/Widgets/OptionsPopover.vala:67
 msgid "Enter context here"
 msgstr "在此输入上下文"
 
-#: src/Widgets/OptionsMenu.vala:94
+#: src/Widgets/OptionsPopover.vala:101
 msgid "Formality control is not available for this target language"
 msgstr "该目标语言不提供格式控制"
 
 #. /TRANSLATORS: %s is replaced by a number
-#: src/Widgets/Pane.vala:104
+#: src/Widgets/Pane.vala:100
 #, c-format
 msgid "Counted %s characters"
 msgstr "已计数 %s 字符"
@@ -68,42 +150,17 @@ msgstr "已计数 %s 字符"
 msgid "Clear text"
 msgstr "清除文本"
 
-#: src/Widgets/SourcePane.vala:35
-#, fuzzy
-msgid "Change options for the translation"
-msgstr "设置翻译的正式程度"
-
 #: src/Widgets/TargetPane.vala:20
 msgid "Copy to clipboard"
 msgstr "复制到剪贴板"
 
-#: src/Backend/DeepL.vala:199
+#: src/Backend/DeepL.vala:221
 msgid "Cannot detect!"
 msgstr "无法检测！"
 
-#: src/Backend/DeepL.vala:207
+#: src/Backend/DeepL.vala:229
 msgid "Cannot retrieve translated text!"
 msgstr "无法检索翻译文本！"
-
-#. ---------------- HEADERBAR ----------------
-#: src/Windows/Window.vala:44
-#: src/Windows/Window.vala:62
-#: src/Windows/Window.vala:63
-msgid "Mr WorldWide"
-msgstr "世界先生"
-
-#: src/Windows/Window.vala:73
-msgid "Switch orientation"
-msgstr "开关方向"
-
-#: src/Windows/Window.vala:78
-#, fuzzy
-msgid "Switch languages"
-msgstr "系统语言"
-
-#: src/Windows/Window.vala:84
-msgid "Settings"
-msgstr "设置"
 
 #: src/Constants.vala:14
 msgid "Detect automatically"
@@ -304,8 +361,8 @@ msgstr "简体中文"
 msgid "Chinese (Traditional)"
 msgstr "中文（繁体）"
 
-#~ msgid "You can get an API key on DeepL Website"
-#~ msgstr "您可以在 DeepL 网站上获取 API 密钥。"
+#~ msgid "DeepL API Keys"
+#~ msgstr "DeepL API 密钥"
 
 #~ msgid "Add context to the text to translate"
 #~ msgstr "为要翻译的文本添加上下文"

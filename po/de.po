@@ -7,60 +7,142 @@ msgstr ""
 "Last-Translator: Automatically generated\n"
 "MIME-Version: 1.0\n"
 "PO-Revision-Date: 2025-07-26 13:10+0200\n"
-"POT-Creation-Date: 2025-08-01 20:41+0200\n"
+"POT-Creation-Date: 2025-08-06 19:43+0200\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "Project-Id-Version: io.github.teamcons.mrworldwide\n"
 "Report-Msgid-Bugs-To: \n"
 
-#: src/Widgets/Menu.vala:26
+#: src/Views/WelcomeView.vala:20
+msgid "Hello World!"
+msgstr "Hallo Welt!"
+
+#: src/Views/WelcomeView.vala:21
+msgid "To start translating, enter your DeepL API Key below"
+msgstr "Um mit der Übersetzung zu beginnen, geben Sie unten Ihren DeepL API-Schlüssel ein."
+
+#: src/Views/WelcomeView.vala:29
+#, fuzzy
+msgid "You can get an API Key here"
+msgstr "Sie können einen API-Schlüssel auf der DeepL Website erhalten"
+
+#: src/Views/NoInternetView.vala:19
+msgid "No Internet Connection"
+msgstr "Keine Internetverbindung"
+
+#: src/Views/NoInternetView.vala:20
+msgid "Please check your internet connection and try again."
+msgstr "Bitte überprüfen Sie Ihre Internetverbindung und versuchen Sie es erneut."
+
+#: src/Views/NoInternetView.vala:24
+msgid "Retry"
+msgstr "Wiederholung"
+
+#: src/Views/NoInternetView.vala:32
+msgid "Check if Mr WorldWide is allowed to access the internet"
+msgstr "Prüfen Sie, ob Mr WorldWide Zugang zum Internet hat"
+
+#. ---------------- HEADERBAR ----------------
+#: src/Windows/MainWindow.vala:37
+#: src/Windows/MainWindow.vala:57
+#: src/Windows/MainWindow.vala:58
+msgid "Mr WorldWide"
+msgstr "Mr WorldWide"
+
+#: src/Windows/MainWindow.vala:73
+#, fuzzy
+msgid "Change options for the translation"
+msgstr "Festlegen, wie formal die Übersetzung sein soll"
+
+#: src/Windows/MainWindow.vala:80
+#, fuzzy
+msgid "Switch languages"
+msgstr "Systemsprache"
+
+#: src/Windows/MainWindow.vala:94
+msgid "Settings"
+msgstr "Einstellungen"
+
+#: src/Windows/MainWindow.vala:107
+msgid "Translate"
+msgstr "Übersetzen Sie"
+
+#: src/Widgets/ApiEntry.vala:16
 msgid "Enter API key here"
 msgstr "API-Schlüssel hier eingeben"
 
-#: src/Widgets/Menu.vala:33
+#: src/Widgets/ApiEntry.vala:23
 #: src/Widgets/SourcePane.vala:26
 msgid "Paste from clipboard"
 msgstr "Einfügen aus der Zwischenablage"
 
-#: src/Widgets/Menu.vala:42
-msgid "DeepL API Keys"
-msgstr "DeepL API-Schlüssel"
+#: src/Widgets/OrientationBox.vala:18
+msgid "Vertical"
+msgstr "Vertikal"
 
-#: src/Widgets/Menu.vala:53
+#: src/Widgets/OrientationBox.vala:24
+#, fuzzy
+msgid "Switch orientation to vertical"
+msgstr "Ausrichtung des Schalters"
+
+#: src/Widgets/OrientationBox.vala:32
+msgid "Horizontal"
+msgstr "Horizontal"
+
+#: src/Widgets/OrientationBox.vala:39
+#, fuzzy
+msgid "Switch orientation to horizontal"
+msgstr "Ausrichtung des Schalters"
+
+#: src/Widgets/SettingsPopover.vala:33
+#, fuzzy
+msgid "You can get an API key here"
+msgstr "Sie können einen API-Schlüssel auf der DeepL Website erhalten"
+
+#: src/Widgets/SettingsPopover.vala:46
 msgid "API Usage"
 msgstr "API-Verwendung"
 
-#: src/Widgets/Menu.vala:104
+#: src/Widgets/SettingsPopover.vala:87
+#, fuzzy
+msgid "Translate automatically"
+msgstr "Automatisch erkennen"
+
+#: src/Widgets/SettingsPopover.vala:89
+msgid "The translation will start 2 seconds after typing has stopped"
+msgstr "Die Übersetzung beginnt 2 Sekunden nach Beendigung des Tippens."
+
+#: src/Widgets/SettingsPopover.vala:119
 #, c-format
 msgid "%s characters translated / %s maximum characters on your plan"
 msgstr "%s Zeichen übersetzt / %s maximale Zeichen auf Ihrem Plan"
 
-#: src/Widgets/OptionsMenu.vala:25
-#: src/Widgets/OptionsMenu.vala:90
+#: src/Widgets/OptionsPopover.vala:27
+#: src/Widgets/OptionsPopover.vala:97
 msgid "Set how formal the translation should be"
 msgstr "Festlegen, wie formal die Übersetzung sein soll"
 
-#: src/Widgets/OptionsMenu.vala:34
+#: src/Widgets/OptionsPopover.vala:36
 msgid "Formal"
 msgstr "Formal"
 
-#: src/Widgets/OptionsMenu.vala:35
+#: src/Widgets/OptionsPopover.vala:37
 msgid "Default"
 msgstr "Standard"
 
-#: src/Widgets/OptionsMenu.vala:36
+#: src/Widgets/OptionsPopover.vala:38
 msgid "Informal"
 msgstr "Informell"
 
-#: src/Widgets/OptionsMenu.vala:65
+#: src/Widgets/OptionsPopover.vala:67
 msgid "Enter context here"
 msgstr "Kontext hier eingeben"
 
-#: src/Widgets/OptionsMenu.vala:94
+#: src/Widgets/OptionsPopover.vala:101
 msgid "Formality control is not available for this target language"
 msgstr "Die Formalitätskontrolle ist für diese Zielsprache nicht verfügbar."
 
 #. /TRANSLATORS: %s is replaced by a number
-#: src/Widgets/Pane.vala:104
+#: src/Widgets/Pane.vala:100
 #, c-format
 msgid "Counted %s characters"
 msgstr "%s Zeichen"
@@ -69,42 +151,17 @@ msgstr "%s Zeichen"
 msgid "Clear text"
 msgstr "Text klären"
 
-#: src/Widgets/SourcePane.vala:35
-#, fuzzy
-msgid "Change options for the translation"
-msgstr "Festlegen, wie formal die Übersetzung sein soll"
-
 #: src/Widgets/TargetPane.vala:20
 msgid "Copy to clipboard"
 msgstr "In die Zwischenablage kopieren"
 
-#: src/Backend/DeepL.vala:199
+#: src/Backend/DeepL.vala:221
 msgid "Cannot detect!"
 msgstr "Nicht zu erkennen!"
 
-#: src/Backend/DeepL.vala:207
+#: src/Backend/DeepL.vala:229
 msgid "Cannot retrieve translated text!"
 msgstr "Der übersetzte Text kann nicht abgerufen werden!"
-
-#. ---------------- HEADERBAR ----------------
-#: src/Windows/Window.vala:44
-#: src/Windows/Window.vala:62
-#: src/Windows/Window.vala:63
-msgid "Mr WorldWide"
-msgstr "Mr WorldWide"
-
-#: src/Windows/Window.vala:73
-msgid "Switch orientation"
-msgstr "Ausrichtung des Schalters"
-
-#: src/Windows/Window.vala:78
-#, fuzzy
-msgid "Switch languages"
-msgstr "Systemsprache"
-
-#: src/Windows/Window.vala:84
-msgid "Settings"
-msgstr "Einstellungen"
 
 #: src/Constants.vala:14
 msgid "Detect automatically"
@@ -305,8 +362,8 @@ msgstr "Chinesisch (vereinfacht)"
 msgid "Chinese (Traditional)"
 msgstr "Chinesisch (traditionell)"
 
-#~ msgid "You can get an API key on DeepL Website"
-#~ msgstr "Sie können einen API-Schlüssel auf der DeepL Website erhalten"
+#~ msgid "DeepL API Keys"
+#~ msgstr "DeepL API-Schlüssel"
 
 #~ msgid "Add context to the text to translate"
 #~ msgstr "Kontext zum zu übersetzenden Text hinzufügen"
