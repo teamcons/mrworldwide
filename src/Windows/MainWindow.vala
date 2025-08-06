@@ -106,7 +106,8 @@ public class MrWorldWide.MainWindow : Gtk.Window {
 
 
         var translate_button = new Gtk.Button () {
-            label = _("Translate")
+            label = _("Translate"),
+            tooltip_markup = Granite.markup_accel_tooltip ({"<Ctrl>T"}, _("Start translating the entered text"))
         };
         translate_button.add_css_class (Granite.STYLE_CLASS_SUGGESTED_ACTION);
         translate_button.action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_TRANSLATE;
