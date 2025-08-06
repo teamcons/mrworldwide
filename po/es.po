@@ -7,7 +7,7 @@ msgstr ""
 "Last-Translator: Automatically generated\n"
 "MIME-Version: 1.0\n"
 "PO-Revision-Date: 2025-07-26 13:10+0200\n"
-"POT-Creation-Date: 2025-08-06 19:43+0200\n"
+"POT-Creation-Date: 2025-08-06 21:53+0200\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "Project-Id-Version: io.github.teamcons.mrworldwide\n"
 "Report-Msgid-Bugs-To: \n"
@@ -42,29 +42,33 @@ msgid "Check if Mr WorldWide is allowed to access the internet"
 msgstr "Comprueba si el Sr. WorldWide puede acceder a Internet"
 
 #. ---------------- HEADERBAR ----------------
-#: src/Windows/MainWindow.vala:37
-#: src/Windows/MainWindow.vala:57
-#: src/Windows/MainWindow.vala:58
+#: src/Windows/MainWindow.vala:39
+#: src/Windows/MainWindow.vala:59
+#: src/Windows/MainWindow.vala:60
 msgid "Mr WorldWide"
 msgstr "Mr WorldWide"
 
-#: src/Windows/MainWindow.vala:73
+#: src/Windows/MainWindow.vala:75
 #, fuzzy
 msgid "Change options for the translation"
 msgstr "Establezca el grado de formalidad de la traducción"
 
-#: src/Windows/MainWindow.vala:80
+#: src/Windows/MainWindow.vala:82
 #, fuzzy
 msgid "Switch languages"
 msgstr "Idioma del sistema"
 
-#: src/Windows/MainWindow.vala:94
+#: src/Windows/MainWindow.vala:96
 msgid "Settings"
 msgstr "Ajustes"
 
-#: src/Windows/MainWindow.vala:107
+#: src/Windows/MainWindow.vala:109
 msgid "Translate"
 msgstr "Traducir"
+
+#: src/Windows/MainWindow.vala:110
+msgid "Start translating the entered text"
+msgstr "Empezar a traducir el texto introducido"
 
 #: src/Widgets/ApiEntry.vala:16
 msgid "Enter API key here"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: io.github.teamcons.mrworldwide\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-06 19:43+0200\n"
+"POT-Creation-Date: 2025-08-06 21:53+0200\n"
 "PO-Revision-Date: 2025-07-28 21:18+0200\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -46,25 +46,29 @@ msgid "Check if Mr WorldWide is allowed to access the internet"
 msgstr ""
 
 #. ---------------- HEADERBAR ----------------
-#: src/Windows/MainWindow.vala:37 src/Windows/MainWindow.vala:57
-#: src/Windows/MainWindow.vala:58
+#: src/Windows/MainWindow.vala:39 src/Windows/MainWindow.vala:59
+#: src/Windows/MainWindow.vala:60
 msgid "Mr WorldWide"
 msgstr ""
 
-#: src/Windows/MainWindow.vala:73
+#: src/Windows/MainWindow.vala:75
 msgid "Change options for the translation"
 msgstr ""
 
-#: src/Windows/MainWindow.vala:80
+#: src/Windows/MainWindow.vala:82
 msgid "Switch languages"
 msgstr ""
 
-#: src/Windows/MainWindow.vala:94
+#: src/Windows/MainWindow.vala:96
 msgid "Settings"
 msgstr ""
 
-#: src/Windows/MainWindow.vala:107
+#: src/Windows/MainWindow.vala:109
 msgid "Translate"
+msgstr ""
+
+#: src/Windows/MainWindow.vala:110
+msgid "Start translating the entered text"
 msgstr ""
 
 #: src/Widgets/ApiEntry.vala:16

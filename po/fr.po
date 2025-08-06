@@ -7,7 +7,7 @@ msgstr ""
 "Last-Translator: Automatically generated\n"
 "MIME-Version: 1.0\n"
 "PO-Revision-Date: 2025-07-26 13:10+0200\n"
-"POT-Creation-Date: 2025-08-06 19:43+0200\n"
+"POT-Creation-Date: 2025-08-06 21:53+0200\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "Project-Id-Version: io.github.teamcons.mrworldwide\n"
 "Report-Msgid-Bugs-To: \n"
@@ -21,9 +21,8 @@ msgid "To start translating, enter your DeepL API Key below"
 msgstr "Pour commencer à traduire, entrez votre clé API DeepL ci-dessous"
 
 #: src/Views/WelcomeView.vala:29
-#, fuzzy
 msgid "You can get an API Key here"
-msgstr "Vous pouvez obtenir une clé API sur le site de DeepL."
+msgstr "Vous pouvez obtenir une clé API ici"
 
 #: src/Views/NoInternetView.vala:19
 msgid "No Internet Connection"
@@ -42,28 +41,31 @@ msgid "Check if Mr WorldWide is allowed to access the internet"
 msgstr "Vérifier si Mr WorldWide est autorisé à accéder à l'internet"
 
 #. ---------------- HEADERBAR ----------------
-#: src/Windows/MainWindow.vala:37
-#: src/Windows/MainWindow.vala:57
-#: src/Windows/MainWindow.vala:58
+#: src/Windows/MainWindow.vala:39
+#: src/Windows/MainWindow.vala:59
+#: src/Windows/MainWindow.vala:60
 msgid "Mr WorldWide"
 msgstr "Mr WorldWide"
 
-#: src/Windows/MainWindow.vala:73
-#, fuzzy
+#: src/Windows/MainWindow.vala:75
 msgid "Change options for the translation"
-msgstr "Définir le degré de formalisme de la traduction"
+msgstr "Modifier les options de traduction"
 
-#: src/Windows/MainWindow.vala:80
+#: src/Windows/MainWindow.vala:82
 msgid "Switch languages"
 msgstr "Intervertir languages"
 
-#: src/Windows/MainWindow.vala:94
+#: src/Windows/MainWindow.vala:96
 msgid "Settings"
 msgstr "Paramètres"
 
-#: src/Windows/MainWindow.vala:107
+#: src/Windows/MainWindow.vala:109
 msgid "Translate"
 msgstr "Traduire"
+
+#: src/Windows/MainWindow.vala:110
+msgid "Start translating the entered text"
+msgstr "Lancer la traduction du texte saisi"
 
 #: src/Widgets/ApiEntry.vala:16
 msgid "Enter API key here"
@@ -79,21 +81,18 @@ msgid "Vertical"
 msgstr "Vertical"
 
 #: src/Widgets/OrientationBox.vala:24
-#, fuzzy
 msgid "Switch orientation to vertical"
-msgstr "Intervertir orientation"
+msgstr "Passer à l'orientation verticale"
 
 #: src/Widgets/OrientationBox.vala:32
 msgid "Horizontal"
 msgstr "Horizontal"
 
 #: src/Widgets/OrientationBox.vala:39
-#, fuzzy
 msgid "Switch orientation to horizontal"
-msgstr "Intervertir orientation"
+msgstr "Changement d'orientation à l'horizontale"
 
 #: src/Widgets/SettingsPopover.vala:33
-#, fuzzy
 msgid "You can get an API key here"
 msgstr "Vous pouvez obtenir une clé API sur le site de DeepL."
 
@@ -102,9 +101,8 @@ msgid "API Usage"
 msgstr "Utilisation de l'API"
 
 #: src/Widgets/SettingsPopover.vala:87
-#, fuzzy
 msgid "Translate automatically"
-msgstr "Automatiquement détecter"
+msgstr "Traduire automatiquement"
 
 #: src/Widgets/SettingsPopover.vala:89
 msgid "The translation will start 2 seconds after typing has stopped"

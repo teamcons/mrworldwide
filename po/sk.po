@@ -7,7 +7,7 @@ msgstr ""
 "Last-Translator: Automatically generated\n"
 "MIME-Version: 1.0\n"
 "PO-Revision-Date: 2025-07-28 21:18+0200\n"
-"POT-Creation-Date: 2025-08-06 19:43+0200\n"
+"POT-Creation-Date: 2025-08-06 21:53+0200\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 "Project-Id-Version: io.github.teamcons.mrworldwide\n"
 "Report-Msgid-Bugs-To: \n"
@@ -42,29 +42,33 @@ msgid "Check if Mr WorldWide is allowed to access the internet"
 msgstr "Skontrolujte, či má pán WorldWide povolený prístup na internet"
 
 #. ---------------- HEADERBAR ----------------
-#: src/Windows/MainWindow.vala:37
-#: src/Windows/MainWindow.vala:57
-#: src/Windows/MainWindow.vala:58
+#: src/Windows/MainWindow.vala:39
+#: src/Windows/MainWindow.vala:59
+#: src/Windows/MainWindow.vala:60
 msgid "Mr WorldWide"
 msgstr "Pán WorldWide"
 
-#: src/Windows/MainWindow.vala:73
+#: src/Windows/MainWindow.vala:75
 #, fuzzy
 msgid "Change options for the translation"
 msgstr "Nastavenie formálnej stránky prekladu"
 
-#: src/Windows/MainWindow.vala:80
+#: src/Windows/MainWindow.vala:82
 #, fuzzy
 msgid "Switch languages"
 msgstr "Jazyk systému"
 
-#: src/Windows/MainWindow.vala:94
+#: src/Windows/MainWindow.vala:96
 msgid "Settings"
 msgstr "Nastavenia"
 
-#: src/Windows/MainWindow.vala:107
+#: src/Windows/MainWindow.vala:109
 msgid "Translate"
 msgstr "Preložiť"
+
+#: src/Windows/MainWindow.vala:110
+msgid "Start translating the entered text"
+msgstr "Spustenie prekladu zadaného textu"
 
 #: src/Widgets/ApiEntry.vala:16
 msgid "Enter API key here"
