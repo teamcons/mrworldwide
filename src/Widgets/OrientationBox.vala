@@ -14,6 +14,7 @@ public class MrWorldWide.OrientationBox : Gtk.Box {
         var box_vert = new Gtk.Box (HORIZONTAL,0) {
             halign = Gtk.Align.CENTER
         };
+        //TRANSLATORS: This refers to the panels: Either side by side vertically, or two horizontal rectangles
         box_vert.append (new Gtk.Image.from_icon_name ("view-dual"));
         box_vert.append (new Gtk.Label (_("Vertical")));
 

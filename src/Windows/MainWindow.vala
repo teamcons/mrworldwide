@@ -78,6 +78,7 @@ public class MrWorldWide.MainWindow : Gtk.Window {
 
         headerbar.pack_start (options_button);
 
+        //TRANSLATORS: This is for a button that switches source and target language
         switchlang_button = new Gtk.Button.from_icon_name ("media-playlist-repeat") {
             tooltip_markup = Granite.markup_accel_tooltip ({"<Ctrl>I"}, _("Switch languages"))
         };
@@ -104,7 +105,7 @@ public class MrWorldWide.MainWindow : Gtk.Window {
 
         headerbar.pack_end (popover_button);
 
-
+        //TRANSLATORS: This appears on a button at the top of the window. User clicks it to start translating
         var translate_button = new Gtk.Button () {
             label = _("Translate"),
             tooltip_markup = Granite.markup_accel_tooltip ({"<Ctrl>T"}, _("Start translating the entered text"))
