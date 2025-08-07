@@ -21,10 +21,7 @@ public class MrWorldWide.OrientationBox : Gtk.Box {
 
         var toggle_vertical = new Gtk.ToggleButton () {
             child = box_vert,
-            tooltip_markup = Granite.markup_accel_tooltip (
-                {"<Ctrl>"},
-                _("Switch orientation to vertical")
-            )
+            tooltip_text = _("Switch orientation to vertical")
         };
 
         var box_horiz = new Gtk.Box (HORIZONTAL,0) {
@@ -35,10 +32,7 @@ public class MrWorldWide.OrientationBox : Gtk.Box {
 
         var toggle_horizontal = new Gtk.ToggleButton () {
             child = box_horiz,
-            tooltip_markup = Granite.markup_accel_tooltip (
-                {"<Ctrl>"},
-                _("Switch orientation to horizontal")
-            )
+            tooltip_text = _("Switch orientation to horizontal")
         };
         //toggle_horizontal.add_css_class ("rotated");
 
