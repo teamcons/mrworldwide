@@ -7,7 +7,7 @@ msgstr ""
 "Last-Translator: Automatically generated\n"
 "MIME-Version: 1.0\n"
 "PO-Revision-Date: 2025-07-28 21:18+0200\n"
-"POT-Creation-Date: 2025-08-06 21:53+0200\n"
+"POT-Creation-Date: 2025-08-07 20:25+0200\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "Project-Id-Version: io.github.teamcons.mrworldwide\n"
 "Report-Msgid-Bugs-To: \n"
@@ -42,31 +42,33 @@ msgid "Check if Mr WorldWide is allowed to access the internet"
 msgstr "Controllare se Mr WorldWide ha il permesso di accedere a Internet."
 
 #. ---------------- HEADERBAR ----------------
-#: src/Windows/MainWindow.vala:39
-#: src/Windows/MainWindow.vala:59
-#: src/Windows/MainWindow.vala:60
+#: src/Windows/MainWindow.vala:43
+#: src/Windows/MainWindow.vala:63
+#: src/Windows/MainWindow.vala:64
 msgid "Mr WorldWide"
 msgstr "Mr WorldWide"
 
-#: src/Windows/MainWindow.vala:75
+#: src/Windows/MainWindow.vala:79
 #, fuzzy
 msgid "Change options for the translation"
 msgstr "Impostare la formalità della traduzione"
 
-#: src/Windows/MainWindow.vala:82
+#. TRANSLATORS: This is for a button that switches source and target language
+#: src/Windows/MainWindow.vala:87
 #, fuzzy
 msgid "Switch languages"
 msgstr "Lingua del sistema"
 
-#: src/Windows/MainWindow.vala:96
+#: src/Windows/MainWindow.vala:101
 msgid "Settings"
 msgstr "Impostazioni"
 
-#: src/Windows/MainWindow.vala:109
+#. TRANSLATORS: This appears on a button at the top of the window. User clicks it to start translating
+#: src/Windows/MainWindow.vala:114
 msgid "Translate"
 msgstr "Tradurre"
 
-#: src/Windows/MainWindow.vala:110
+#: src/Windows/MainWindow.vala:115
 msgid "Start translating the entered text"
 msgstr "Avviare la traduzione del testo inserito"
 
@@ -79,20 +81,21 @@ msgstr "Inserire qui la chiave API"
 msgid "Paste from clipboard"
 msgstr "Incolla dagli appunti"
 
-#: src/Widgets/OrientationBox.vala:18
+#. TRANSLATORS: This refers to the view: Either the panels are stacked vertically, or lined horizontally
+#: src/Widgets/OrientationBox.vala:19
 msgid "Vertical"
 msgstr "Verticale"
 
-#: src/Widgets/OrientationBox.vala:24
+#: src/Widgets/OrientationBox.vala:26
 #, fuzzy
 msgid "Switch orientation to vertical"
 msgstr "Orientamento dell'interruttore"
 
-#: src/Widgets/OrientationBox.vala:32
+#: src/Widgets/OrientationBox.vala:34
 msgid "Horizontal"
 msgstr "Orizzontale"
 
-#: src/Widgets/OrientationBox.vala:39
+#: src/Widgets/OrientationBox.vala:40
 #, fuzzy
 msgid "Switch orientation to horizontal"
 msgstr "Orientamento dell'interruttore"
@@ -146,18 +149,42 @@ msgid "Formality control is not available for this target language"
 msgstr "Il controllo della formalità non è disponibile per questa lingua di destinazione."
 
 #. /TRANSLATORS: %s is replaced by a number
-#: src/Widgets/Pane.vala:100
+#: src/Widgets/Pane.vala:101
 #, c-format
 msgid "Counted %s characters"
 msgstr "Caratteri contati %s"
 
-#: src/Widgets/SourcePane.vala:20
+#: src/Widgets/SourcePane.vala:16
+#, fuzzy
+msgid "Set the language to translate from"
+msgstr "Aggiungere un contesto al testo da tradurre"
+
+#: src/Widgets/SourcePane.vala:21
 msgid "Clear text"
 msgstr "Testo in chiaro"
 
-#: src/Widgets/TargetPane.vala:20
+#: src/Widgets/SourcePane.vala:33
+msgid "Load text from a file"
+msgstr "Caricare il testo da un file"
+
+#: src/Widgets/TargetPane.vala:15
+#, fuzzy
+msgid "Set the language to translate to"
+msgstr "Aggiungere un contesto al testo da tradurre"
+
+#: src/Widgets/TargetPane.vala:21
 msgid "Copy to clipboard"
 msgstr "Copia negli appunti"
+
+#: src/Widgets/TargetPane.vala:30
+#, fuzzy
+msgid "Save the translation in a text file"
+msgstr "Avviare la traduzione del testo inserito"
+
+#. TRANSLATORS: Default name for files containing a translation
+#: src/Widgets/TargetPane.vala:55
+msgid "translation.txt"
+msgstr "traduzione.txt"
 
 #: src/Backend/DeepL.vala:221
 msgid "Cannot detect!"
@@ -368,6 +395,3 @@ msgstr "Cinese (tradizionale)"
 
 #~ msgid "DeepL API Keys"
 #~ msgstr "DeepL Chiavi API"
-
-#~ msgid "Add context to the text to translate"
-#~ msgstr "Aggiungere un contesto al testo da tradurre"

@@ -7,7 +7,7 @@ msgstr ""
 "Last-Translator: Automatically generated\n"
 "MIME-Version: 1.0\n"
 "PO-Revision-Date: 2025-07-26 13:10+0200\n"
-"POT-Creation-Date: 2025-08-06 21:53+0200\n"
+"POT-Creation-Date: 2025-08-07 20:25+0200\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "Project-Id-Version: io.github.teamcons.mrworldwide\n"
 "Report-Msgid-Bugs-To: \n"
@@ -42,31 +42,33 @@ msgid "Check if Mr WorldWide is allowed to access the internet"
 msgstr "Comprueba si el Sr. WorldWide puede acceder a Internet"
 
 #. ---------------- HEADERBAR ----------------
-#: src/Windows/MainWindow.vala:39
-#: src/Windows/MainWindow.vala:59
-#: src/Windows/MainWindow.vala:60
+#: src/Windows/MainWindow.vala:43
+#: src/Windows/MainWindow.vala:63
+#: src/Windows/MainWindow.vala:64
 msgid "Mr WorldWide"
 msgstr "Mr WorldWide"
 
-#: src/Windows/MainWindow.vala:75
+#: src/Windows/MainWindow.vala:79
 #, fuzzy
 msgid "Change options for the translation"
 msgstr "Establezca el grado de formalidad de la traducción"
 
-#: src/Windows/MainWindow.vala:82
+#. TRANSLATORS: This is for a button that switches source and target language
+#: src/Windows/MainWindow.vala:87
 #, fuzzy
 msgid "Switch languages"
 msgstr "Idioma del sistema"
 
-#: src/Windows/MainWindow.vala:96
+#: src/Windows/MainWindow.vala:101
 msgid "Settings"
 msgstr "Ajustes"
 
-#: src/Windows/MainWindow.vala:109
+#. TRANSLATORS: This appears on a button at the top of the window. User clicks it to start translating
+#: src/Windows/MainWindow.vala:114
 msgid "Translate"
 msgstr "Traducir"
 
-#: src/Windows/MainWindow.vala:110
+#: src/Windows/MainWindow.vala:115
 msgid "Start translating the entered text"
 msgstr "Empezar a traducir el texto introducido"
 
@@ -79,20 +81,21 @@ msgstr "Introduzca aquí la clave API"
 msgid "Paste from clipboard"
 msgstr "Pegar desde el portapapeles"
 
-#: src/Widgets/OrientationBox.vala:18
+#. TRANSLATORS: This refers to the view: Either the panels are stacked vertically, or lined horizontally
+#: src/Widgets/OrientationBox.vala:19
 msgid "Vertical"
 msgstr "Vertical"
 
-#: src/Widgets/OrientationBox.vala:24
+#: src/Widgets/OrientationBox.vala:26
 #, fuzzy
 msgid "Switch orientation to vertical"
 msgstr "Orientación del interruptor"
 
-#: src/Widgets/OrientationBox.vala:32
+#: src/Widgets/OrientationBox.vala:34
 msgid "Horizontal"
 msgstr "Horizontal"
 
-#: src/Widgets/OrientationBox.vala:39
+#: src/Widgets/OrientationBox.vala:40
 #, fuzzy
 msgid "Switch orientation to horizontal"
 msgstr "Orientación del interruptor"
@@ -146,18 +149,42 @@ msgid "Formality control is not available for this target language"
 msgstr "El control de formalidad no está disponible para esta lengua de destino"
 
 #. /TRANSLATORS: %s is replaced by a number
-#: src/Widgets/Pane.vala:100
+#: src/Widgets/Pane.vala:101
 #, c-format
 msgid "Counted %s characters"
 msgstr "Caracteres %s contados"
 
-#: src/Widgets/SourcePane.vala:20
+#: src/Widgets/SourcePane.vala:16
+#, fuzzy
+msgid "Set the language to translate from"
+msgstr "Añade contexto al texto a traducir"
+
+#: src/Widgets/SourcePane.vala:21
 msgid "Clear text"
 msgstr "Texto claro"
 
-#: src/Widgets/TargetPane.vala:20
+#: src/Widgets/SourcePane.vala:33
+msgid "Load text from a file"
+msgstr "Cargar texto desde un archivo"
+
+#: src/Widgets/TargetPane.vala:15
+#, fuzzy
+msgid "Set the language to translate to"
+msgstr "Añade contexto al texto a traducir"
+
+#: src/Widgets/TargetPane.vala:21
 msgid "Copy to clipboard"
 msgstr "Copiar al portapapeles"
+
+#: src/Widgets/TargetPane.vala:30
+#, fuzzy
+msgid "Save the translation in a text file"
+msgstr "Empezar a traducir el texto introducido"
+
+#. TRANSLATORS: Default name for files containing a translation
+#: src/Widgets/TargetPane.vala:55
+msgid "translation.txt"
+msgstr "translation.txt"
 
 #: src/Backend/DeepL.vala:221
 msgid "Cannot detect!"
@@ -368,6 +395,3 @@ msgstr "Chino (tradicional)"
 
 #~ msgid "DeepL API Keys"
 #~ msgstr "Claves API DeepL"
-
-#~ msgid "Add context to the text to translate"
-#~ msgstr "Añade contexto al texto a traducir"
