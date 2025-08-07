@@ -16,23 +16,23 @@ public class MrWorldWide.OrientationBox : Gtk.Box {
         };
         //TRANSLATORS: This refers to the view: Either the panels are stacked vertically, or lined horizontally
         box_vert.append (new Gtk.Image.from_icon_name ("view-dual"));
-        box_vert.append (new Gtk.Label (_("Vertical")));
+        box_vert.append (new Gtk.Label (_("Vertical view")));
         box_vert.add_css_class ("rotated");
 
         var toggle_vertical = new Gtk.ToggleButton () {
             child = box_vert,
-            tooltip_text = _("Switch orientation to vertical")
+            tooltip_text = _("Switch the view to vertically stacked panes")
         };
 
         var box_horiz = new Gtk.Box (HORIZONTAL,0) {
             halign = Gtk.Align.CENTER
         };
         box_horiz.append (new Gtk.Image.from_icon_name ("view-dual"));
-        box_horiz.append (new Gtk.Label (_("Horizontal")));
+        box_horiz.append (new Gtk.Label (_("Horizontal view")));
 
         var toggle_horizontal = new Gtk.ToggleButton () {
             child = box_horiz,
-            tooltip_text = _("Switch orientation to horizontal")
+            tooltip_text = _("Switch the view to horizontally aligned panes")
         };
         //toggle_horizontal.add_css_class ("rotated");
 
