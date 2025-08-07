@@ -14,7 +14,7 @@ public class MrWorldWide.OrientationBox : Gtk.Box {
         var box_vert = new Gtk.Box (HORIZONTAL,0) {
             halign = Gtk.Align.CENTER
         };
-        //TRANSLATORS: This refers to the panels: Either side by side vertically, or two horizontal rectangles
+        //TRANSLATORS: This refers to the view: Either the panels are stacked vertically, or lined horizontally
         box_vert.append (new Gtk.Image.from_icon_name ("view-dual"));
         box_vert.append (new Gtk.Label (_("Vertical")));
         box_vert.add_css_class ("rotated");
@@ -22,7 +22,7 @@ public class MrWorldWide.OrientationBox : Gtk.Box {
         var toggle_vertical = new Gtk.ToggleButton () {
             child = box_vert,
             tooltip_markup = Granite.markup_accel_tooltip (
-                {"<Ctrl>O"},
+                {"<Ctrl>"},
                 _("Switch orientation to vertical")
             )
         };
@@ -36,14 +36,14 @@ public class MrWorldWide.OrientationBox : Gtk.Box {
         var toggle_horizontal = new Gtk.ToggleButton () {
             child = box_horiz,
             tooltip_markup = Granite.markup_accel_tooltip (
-                {"<Ctrl>O"},
+                {"<Ctrl>"},
                 _("Switch orientation to horizontal")
             )
         };
-            //toggle_horizontal.add_css_class ("rotated");
+        //toggle_horizontal.add_css_class ("rotated");
 
 
-        /***************** CONNECTS *****************/    
+        /***************** CONNECTS *****************/
         Application.settings.bind (
             "vertical-layout",
             toggle_vertical,
