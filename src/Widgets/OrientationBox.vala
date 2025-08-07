@@ -42,6 +42,8 @@ public class MrWorldWide.OrientationBox : Gtk.Box {
         };
             //toggle_horizontal.add_css_class ("rotated");
 
+
+        /***************** CONNECTS *****************/    
         Application.settings.bind (
             "vertical-layout",
             toggle_vertical,

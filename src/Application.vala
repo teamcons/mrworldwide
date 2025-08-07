@@ -4,7 +4,7 @@
 */
 
 public class MrWorldWide.Application : Gtk.Application {
-    public MainWindow main_window;
+    public static MainWindow main_window;
 
     public static Settings settings;
     public static DeepL backend;
@@ -59,7 +59,7 @@ public class MrWorldWide.Application : Gtk.Application {
 
         var toggle_orientation_action = new SimpleAction ("toggle_orientation", null);
         add_action (toggle_orientation_action);
-        set_accels_for_action ("app.toggle_orientation", {"<Control>o"});
+        //set_accels_for_action ("app.toggle_orientation", {"<Control>o"});
 
         var switch_languages = new SimpleAction ("switch_languages", null);
         add_action (switch_languages);
@@ -72,6 +72,14 @@ public class MrWorldWide.Application : Gtk.Application {
         var clear_source = new SimpleAction ("clear_source", null);
         add_action (clear_source);
         set_accels_for_action ("app.clear_source", {"<Control>l"});
+
+        var open_file = new SimpleAction ("open_file", null);
+        add_action (open_file);
+        set_accels_for_action ("app.open_file", {"<Control>o"});
+
+        var save_file = new SimpleAction ("save_file", null);
+        add_action (save_file);
+        set_accels_for_action ("app.save_file", {"<Control><Shift>s"});
     }
 
     protected override void activate () {

@@ -20,6 +20,8 @@ public class MrWorldWide.MainWindow : Gtk.Window {
     public const string ACTION_SWITCH_LANG = "switch_languages";
     public const string ACTION_TRANSLATE = "translate";
     public const string ACTION_CLEAR = "clear_source";
+    public const string ACTION_OPEN_FILE = "open_file";
+    public const string ACTION_SAVE_FILE = "save_file";
     public static Gee.MultiMap<string, string> action_accelerators = new Gee.HashMultiMap<string, string> ();
 
     private const GLib.ActionEntry[] ACTION_ENTRIES = {
@@ -27,7 +29,9 @@ public class MrWorldWide.MainWindow : Gtk.Window {
         { ACTION_TOGGLE_ORIENTATION, toggle_orientation},
         { ACTION_SWITCH_LANG, switch_languages},
         { ACTION_TRANSLATE, on_translate},
-        { ACTION_CLEAR, clear_source}
+        { ACTION_CLEAR, clear_source},
+        { ACTION_OPEN_FILE, action_open_file},
+        { ACTION_SAVE_FILE, action_save_file}
     };
 
     public MainWindow (Gtk.Application application) {
@@ -146,6 +150,7 @@ public class MrWorldWide.MainWindow : Gtk.Window {
             }
         });  */
 
+        /***************** CONNECTS *****************/
         Application.settings.bind (
             "auto-translate", 
             translate_revealer, 
@@ -176,5 +181,13 @@ public class MrWorldWide.MainWindow : Gtk.Window {
 
     private void clear_source () {
         translation_view.clear_source ();
+    }
+
+    private void action_open_file () {
+        translation_view.source_pane.on_open_file ();
+    }
+
+    private void action_save_file () {
+        translation_view.target_pane.on_save_as ();
     }
 }

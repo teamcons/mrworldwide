@@ -72,6 +72,7 @@
 
         append (handle);
 
+        /***************** CONNECTS *****************/
         on_buffer_changed ();
         textview.buffer.changed.connect (on_buffer_changed);
 

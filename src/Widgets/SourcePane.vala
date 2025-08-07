@@ -17,25 +17,28 @@
 
         append (pane);
 
-
         var clear = new Gtk.Button.from_icon_name ("edit-clear") {
-            tooltip_markup = Granite.markup_accel_tooltip ({"<Ctrl>L"}, _("Clear text")),
-            margin_start = 6
+            tooltip_markup = Granite.markup_accel_tooltip ({"<Ctrl>L"}, _("Clear text"))
         };
         pane.actionbar.pack_end (clear);
 
         var paste = new Gtk.Button.from_icon_name ("edit-paste") {
-            tooltip_text = _("Paste from clipboard"),
-            margin_start = 6
+            tooltip_text = _("Paste from clipboard")
         };
         pane.actionbar.pack_end (paste);
 
-        clear.clicked.connect (() => {
-          pane.set_text ("");
-        });
+        var open_button = new Gtk.Button.from_icon_name ("document-open") {
+            tooltip_markup = Granite.markup_accel_tooltip (
+                    {"<Control>o"},
+                    _("Open file…")
+            )
+        };
+        pane.actionbar.pack_end (open_button);
 
+        /***************** CONNECTS *****************/
+        clear.clicked.connect (pane.clear);
         paste.clicked.connect (paste_from_clipboard);
-
+        open_button.clicked.connect (on_open_file);
         pane.language_changed.connect (on_language_changed);
     }
 
@@ -56,6 +59,22 @@
 
       } catch (Error e) {
         print ("Cannot access clipboard: " + e.message);
+      }
+    });
+  }
+
+  public void on_open_file () {
+    var open_dialog = new Gtk.FileDialog ();
+    open_dialog.open.begin ((Application).main_window, null, (obj, res) => {
+      try {
+        var file = open_dialog.open.end (res);
+        var content = "";
+        FileUtils.get_contents (file.get_path (), out content);
+
+        this.pane.set_text (content);
+
+      } catch (Error err) {
+        warning ("Failed to select file to open: %s", err.message);
       }
     });
   }

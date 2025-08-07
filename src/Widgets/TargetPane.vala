@@ -22,8 +22,20 @@
         };
         pane.actionbar.pack_end (copy);
 
-        copy.clicked.connect (copy_to_clipboard);
 
+
+        var save_as_button = new Gtk.Button.from_icon_name ("document-save-as") {
+            tooltip_markup = Granite.markup_accel_tooltip (
+                    {"<Control><Shift>s"},
+                    _("Save as…")
+            )
+        };
+
+        pane.actionbar.pack_end (save_as_button);
+
+        /***************** CONNECTS *****************/
+        copy.clicked.connect (copy_to_clipboard);
+        save_as_button.clicked.connect (on_save_as);
         pane.language_changed.connect (on_language_changed);
     }
 
@@ -36,4 +48,22 @@
         var clipboard = Gdk.Display.get_default ().get_clipboard ();
         clipboard.set_text (pane.textview.buffer.text);
   }
+
+  public void on_save_as () {
+    var save_dialog = new Gtk.FileDialog () {
+        //TRANSLATORS: Default name for files containing a translation
+        initial_name = _("translation.txt")
+    };
+
+    save_dialog.save.begin ((Application).main_window, null, (obj, res) => {
+        try {
+            var file = save_dialog.save.end (res);
+                var content = this.pane.get_text ();
+                FileUtils.set_contents (file.get_path (), content);
+
+        } catch (Error err) {
+            warning ("Failed to save file: %s", err.message);
+        }
+    });
+}
 }
