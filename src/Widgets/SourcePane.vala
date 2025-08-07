@@ -30,7 +30,7 @@
         var open_button = new Gtk.Button.from_icon_name ("document-open") {
             tooltip_markup = Granite.markup_accel_tooltip (
                     {"<Control>o"},
-                    _("Open file…")
+                    _("Load text from a file")
             )
         };
         pane.actionbar.pack_end (open_button);

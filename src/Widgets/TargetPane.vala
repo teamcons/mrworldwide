@@ -27,7 +27,7 @@
         var save_as_button = new Gtk.Button.from_icon_name ("document-save-as") {
             tooltip_markup = Granite.markup_accel_tooltip (
                     {"<Control><Shift>s"},
-                    _("Save as…")
+                    _("Save the translation in a text file")
             )
         };
 
