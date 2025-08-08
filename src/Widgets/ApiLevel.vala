@@ -11,6 +11,7 @@
         orientation = Gtk.Orientation.VERTICAL;
         spacing = 6;
         margin_start = margin_end = 3;
+        margin_bottom = 6;
 
         var api_usage_label = new Gtk.Label (_("API Usage")) {
           halign = Gtk.Align.START
@@ -30,8 +31,8 @@
     }
 
     private void updated_usage () {
-        api_usage.value = Application.backend.current_word_usage;
-        api_usage.max_value = Application.backend.max_word_usage;
+        api_usage.value = Application.backend.current_usage;
+        api_usage.max_value = Application.backend.max_usage;
 
         this.tooltip_text = _("%s characters translated / %s maximum characters on your plan").printf (
             api_usage.value.to_string (),

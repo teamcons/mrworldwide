@@ -64,15 +64,15 @@ public class MrWorldWide.DeepL : Object {
 
   public const string[] SUPPORTED_FORMALITY = {"DE", "FR", "IT", "ES", "NL", "PL", "PT-BR", "PT-PT", "JA", "RU"};
 
-  public int current_word_usage = 0;
-  public int max_word_usage = 0;
+  public int current_usage = 0;
+  public int max_usage = 0;
 
   construct {
     system_language = detect_system ();
 
     // Fallback
-    this.current_word_usage = Application.settings.get_int ("current-usage");
-    this.max_word_usage = Application.settings.get_int ("max-usage");
+    this.current_usage = Application.settings.get_int ("current-usage");
+    this.max_usage = Application.settings.get_int ("max-usage");
 
     // on_key_changed does a request to check usage
     on_key_changed ();
@@ -213,7 +213,7 @@ public class MrWorldWide.DeepL : Object {
     var billed_characters = (int)translation.get_int_member_with_default (
                                                                           "billed_characters",
                                                                           0);
-    current_word_usage = current_word_usage + billed_characters;
+    current_usage = current_usage + billed_characters;
 
     if (source_lang == "idk") {
           var detected_language_code = translation.get_string_member_with_default (
@@ -255,11 +255,11 @@ public class MrWorldWide.DeepL : Object {
 
         var root = parser.get_root ();
         var objects = root.get_object ();
-        this.current_word_usage = (int)objects.get_int_member ("character_count");
-        this.max_word_usage = (int)objects.get_int_member ("character_limit");
+        this.current_usage = (int)objects.get_int_member ("character_count");
+        this.max_usage = (int)objects.get_int_member ("character_limit");
 
-        Application.settings.set_int ("current-usage", current_word_usage);
-        Application.settings.set_int ("max-usage", max_word_usage);
+        Application.settings.set_int ("current-usage", current_usage);
+        Application.settings.set_int ("max-usage", max_usage);
 
         usage_retrieved ();
 
