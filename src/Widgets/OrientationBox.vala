@@ -10,6 +10,7 @@ public class MrWorldWide.OrientationBox : Gtk.Box {
         hexpand = true;
         margin_start = 12;
         margin_end = 12;
+        margin_bottom = 3;
 
 
         var box_horiz = new Gtk.Box (HORIZONTAL, 3) {

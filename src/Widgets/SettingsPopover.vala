@@ -7,30 +7,39 @@ public class MrWorldWide.SettingsPopover : Gtk.Popover {
 
   private MrWorldWide.ApiEntry api_entry;
   private Gtk.Revealer usage_revealer;
+  private const string LINK = "https://www.deepl.com/your-account/keys";
 
   construct {
     width_request = 200;
     //halign = Gtk.Align.END;
 
-    var box = new Gtk.Box (VERTICAL, 12) {
+    var box = new Gtk.Box (VERTICAL, 9) {
       margin_top = 12,
       margin_bottom = 6
     };
 
     box.append (new OrientationBox ());
 
-    var auto_switch = new Granite.SwitchModelButton (_("Translate automatically")) {
-      description = _("The translation will start 2 seconds after typing has stopped"),
-      hexpand = true
-    };
-
     box.append (new Gtk.Separator (HORIZONTAL));
+
+    var cb = new Gtk.CenterBox () {
+      margin_end = 12
+    };
 
     var api_label = new Gtk.Label (_("DeepL API Key")) {
       halign = Gtk.Align.START,
-      margin_start = 12
+      margin_start = 12,
+      margin_top = 3
     };
-    box.append (api_label);
+    cb.start_widget = api_label;
+
+    var hint = new Gtk.Button.from_icon_name ("help-contents") {
+          tooltip_text = _("You can get an API key here")
+    };
+    cb.end_widget = hint;
+
+  
+    box.append (cb);
 
     api_entry = new MrWorldWide.ApiEntry () {
       margin_start = 12,
@@ -41,7 +50,8 @@ public class MrWorldWide.SettingsPopover : Gtk.Popover {
 
     var api_level = new MrWorldWide.ApiLevel () {
       margin_start = 15,
-      margin_end = 15
+      margin_end = 15,
+      margin_top = 3
     };
 
     usage_revealer = new Gtk.Revealer () {
@@ -52,10 +62,18 @@ public class MrWorldWide.SettingsPopover : Gtk.Popover {
 
     box.append (usage_revealer);
     box.append (new Gtk.Separator (HORIZONTAL));
+
+    var auto_switch = new Granite.SwitchModelButton (_("Translate automatically")) {
+      description = _("The translation will start 2 seconds after typing has stopped"),
+      hexpand = true,
+      margin_top = 3
+    };
+
     box.append (auto_switch);
 
     child = box;
 
+    hint.clicked.connect (open_webpage);
     api_entry.api_entry.changed.connect (relevant_levelbar);
     relevant_levelbar ();
 
@@ -71,4 +89,11 @@ public class MrWorldWide.SettingsPopover : Gtk.Popover {
     }
   }
 
+  private void open_webpage () {
+    try {
+      AppInfo.launch_default_for_uri (LINK, null);
+    } catch (Error e) {
+      warning ("%s\n", e.message);
+    }
+  }
 }
