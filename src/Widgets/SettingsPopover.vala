@@ -14,7 +14,7 @@ public class MrWorldWide.SettingsPopover : Gtk.Popover {
 
     var box = new Gtk.Box (VERTICAL, 12) {
       margin_top = 12,
-      margin_bottom = 18
+      margin_bottom = 6
     };
 
     box.append (new OrientationBox ());
@@ -69,34 +69,18 @@ public class MrWorldWide.SettingsPopover : Gtk.Popover {
     //  usage_revealer.reveal_child = true;
     //  box.append (usage_revealer);
 
+    box.append (new Gtk.Separator (HORIZONTAL));
 
-
-    var auto_box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0) {
-      halign = Gtk.Align.START,
-      hexpand = true,
-      margin_start = margin_end = 12
+    var auto_switch = new Granite.SwitchModelButton (_("Translate automatically")) {
+      description = _("The translation will start 2 seconds after typing has stopped"),
+      hexpand = true
     };
 
-    var auto_toggle = new Gtk.Switch () {
-      halign = Gtk.Align.END,
-      hexpand = true,
-      valign = Gtk.Align.CENTER,
-      margin_start = 6
-    };
-
-    var auto_label = new Granite.HeaderLabel (_("Translate automatically")) {
-      mnemonic_widget = auto_toggle,
-      secondary_text = _("The translation will start 2 seconds after typing has stopped"),
-      halign = Gtk.Align.START,
-    };
-
-    auto_box.append (auto_label);
-    auto_box.append (auto_toggle);
-    box.append (auto_box);
+    box.append (auto_switch);
 
     Application.settings.bind (
       "auto-translate", 
-      auto_toggle, 
+      auto_switch, 
       "active", 
       SettingsBindFlags.DEFAULT
     );
