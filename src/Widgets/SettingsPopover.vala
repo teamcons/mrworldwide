@@ -34,8 +34,8 @@ public class MrWorldWide.SettingsPopover : Gtk.Popover {
     box.append (api_entry);
 
     var api_level = new MrWorldWide.ApiLevel () {
-      margin_start = 12,
-      margin_end = 12
+      margin_start = 15,
+      margin_end = 15
     };
 
     usage_revealer = new Gtk.Revealer () {

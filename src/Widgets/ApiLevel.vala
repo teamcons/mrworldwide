@@ -9,8 +9,7 @@
 
     construct {
         orientation = Gtk.Orientation.VERTICAL;
-        spacing = 6;
-        margin_start = margin_end = 3;
+        spacing = 9;
         margin_bottom = 6;
 
         var api_usage_label = new Gtk.Label (_("API Usage")) {
