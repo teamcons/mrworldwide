@@ -11,7 +11,7 @@ public class MrWorldWide.OrientationBox : Gtk.Box {
         margin_start = 12;
         margin_end = 12;
 
-        var box_vert = new Gtk.Box (HORIZONTAL,0) {
+        var box_vert = new Gtk.Box (HORIZONTAL, 6) {
             halign = Gtk.Align.CENTER
         };
         //TRANSLATORS: This refers to the view: Either the panels are stacked vertically, or lined horizontally
@@ -24,7 +24,7 @@ public class MrWorldWide.OrientationBox : Gtk.Box {
             tooltip_text = _("Switch the view to vertically stacked panes")
         };
 
-        var box_horiz = new Gtk.Box (HORIZONTAL,0) {
+        var box_horiz = new Gtk.Box (HORIZONTAL, 6) {
             halign = Gtk.Align.CENTER
         };
         box_horiz.append (new Gtk.Image.from_icon_name ("view-dual"));
