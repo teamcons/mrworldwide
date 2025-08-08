@@ -9,7 +9,7 @@ public class MrWorldWide.SettingsPopover : Gtk.Popover {
   private Gtk.LevelBar api_usage;
 
   construct {
-    width_request = 240;
+    width_request = 200;
     //halign = Gtk.Align.END;
 
     var box = new Gtk.Box (VERTICAL, 12) {
