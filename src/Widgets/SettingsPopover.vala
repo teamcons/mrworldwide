@@ -26,6 +26,12 @@ public class MrWorldWide.SettingsPopover : Gtk.Popover {
 
     box.append (new Gtk.Separator (HORIZONTAL));
 
+    var api_label = new Gtk.Label (_("DeepL API Key")) {
+      halign = Gtk.Align.START,
+      margin_start = 12
+    };
+    box.append (api_label);
+
     api_entry = new MrWorldWide.ApiEntry () {
       margin_start = 12,
       margin_end = 12
