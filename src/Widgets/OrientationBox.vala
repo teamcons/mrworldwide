@@ -11,18 +11,6 @@ public class MrWorldWide.OrientationBox : Gtk.Box {
         margin_start = 12;
         margin_end = 12;
 
-        var box_vert = new Gtk.Box (HORIZONTAL, 3) {
-            halign = Gtk.Align.CENTER
-        };
-        //TRANSLATORS: This refers to the view: Either the panels are stacked vertically, or lined horizontally
-        box_vert.append (new Gtk.Image.from_icon_name ("view-dual"));
-        box_vert.append (new Gtk.Label (_("Vertical view")));
-        box_vert.add_css_class ("rotated");
-
-        var toggle_vertical = new Gtk.ToggleButton () {
-            child = box_vert,
-            tooltip_text = _("Switch the view to vertically stacked panes")
-        };
 
         var box_horiz = new Gtk.Box (HORIZONTAL, 3) {
             halign = Gtk.Align.CENTER
@@ -37,7 +25,27 @@ public class MrWorldWide.OrientationBox : Gtk.Box {
         //toggle_horizontal.add_css_class ("rotated");
 
 
+        var box_vert = new Gtk.Box (HORIZONTAL, 3) {
+            halign = Gtk.Align.CENTER
+        };
+        //TRANSLATORS: This refers to the view: Either the panels are stacked vertically, or lined horizontally
+        box_vert.append (new Gtk.Image.from_icon_name ("view-dual"));
+        box_vert.append (new Gtk.Label (_("Vertical view")));
+        box_vert.add_css_class ("rotated");
+
+        var toggle_vertical = new Gtk.ToggleButton () {
+            child = box_vert,
+            tooltip_text = _("Switch the view to vertically stacked panes")
+        };
+
         /***************** CONNECTS *****************/
+        Application.settings.bind (
+            "vertical-layout",
+            toggle_horizontal,
+            "active",
+            SettingsBindFlags.INVERT_BOOLEAN
+        );
+
         Application.settings.bind (
             "vertical-layout",
             toggle_vertical,
@@ -45,15 +53,9 @@ public class MrWorldWide.OrientationBox : Gtk.Box {
             SettingsBindFlags.DEFAULT
         );
 
-                Application.settings.bind (
-            "vertical-layout",
-            toggle_horizontal,
-            "active",
-            SettingsBindFlags.INVERT_BOOLEAN
-        );
-
-        append (toggle_vertical);
         append (toggle_horizontal);
+        append (toggle_vertical);
+
         add_css_class (Granite.STYLE_CLASS_LINKED);
     }
 }

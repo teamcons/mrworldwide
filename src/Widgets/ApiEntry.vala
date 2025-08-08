@@ -7,10 +7,11 @@
 
     private Gtk.PasswordEntry api_entry;
     private Gtk.Button api_paste;
+    private const string LINK = "https://www.deepl.com/your-account/keys";
 
     construct {
         orientation = Gtk.Orientation.HORIZONTAL;
-        spacing = 9;
+        spacing = 3;
 
         api_entry = new Gtk.PasswordEntry () {
         placeholder_text = _("Enter API key here"),
@@ -26,6 +27,12 @@
         append (api_entry);
         append (api_paste);
 
+        var hint = new Gtk.Button.from_icon_name ("help-contents") {
+          tooltip_text = _("You can get an API key here")
+        };
+
+        append (hint);
+
         Application.settings.bind (
             "key",
             api_entry,
@@ -33,6 +40,7 @@
             SettingsBindFlags.DEFAULT
         );
 
+        hint.clicked.connect (open_webpage);
         api_paste.clicked.connect (paste_from_clipboard);
     }
 
@@ -57,4 +65,11 @@
     });
   }
 
+  private void open_webpage () {
+    try {
+      AppInfo.launch_default_for_uri (LINK, null);
+    } catch (Error e) {
+      warning ("%s\n", e.message);
+    }
+  }
 }

@@ -18,6 +18,14 @@ public class MrWorldWide.SettingsPopover : Gtk.Popover {
     };
 
     box.append (new OrientationBox ());
+
+    var auto_switch = new Granite.SwitchModelButton (_("Translate automatically")) {
+      description = _("The translation will start 2 seconds after typing has stopped"),
+      hexpand = true
+    };
+
+    box.append (auto_switch);
+
     box.append (new Gtk.Separator (HORIZONTAL));
 
     api_entry = new MrWorldWide.ApiEntry () {
@@ -26,22 +34,6 @@ public class MrWorldWide.SettingsPopover : Gtk.Popover {
     };
 
     box.append (api_entry);
-
-
-
-    var link = "https://www.deepl.com/your-account/keys";
-    var linkname = _("You can get an API key here");
-
-    var hint = new Gtk.LinkButton.with_label (link, linkname) {
-      halign = Gtk.Align.START,
-      margin_start = 12,
-      margin_bottom = 6
-
-    };
-
-    box.append (hint);
-
-
 
     var api_usage_label = new Gtk.Label (_("API Usage")) {
       halign = Gtk.Align.START,
@@ -68,15 +60,6 @@ public class MrWorldWide.SettingsPopover : Gtk.Popover {
     //  };
     //  usage_revealer.reveal_child = true;
     //  box.append (usage_revealer);
-
-    box.append (new Gtk.Separator (HORIZONTAL));
-
-    var auto_switch = new Granite.SwitchModelButton (_("Translate automatically")) {
-      description = _("The translation will start 2 seconds after typing has stopped"),
-      hexpand = true
-    };
-
-    box.append (auto_switch);
 
     Application.settings.bind (
       "auto-translate", 
