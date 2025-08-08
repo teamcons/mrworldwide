@@ -12,8 +12,7 @@
         spacing = 6;
 
         var api_usage_label = new Gtk.Label (_("API Usage")) {
-          halign = Gtk.Align.START,
-          margin_start = 12
+          halign = Gtk.Align.START
         };
         append (api_usage_label);
 
@@ -33,7 +32,7 @@
         api_usage.value = Application.backend.current_word_usage;
         api_usage.max_value = Application.backend.max_word_usage;
 
-        api_usage.tooltip_text = _("%s characters translated / %s maximum characters on your plan").printf (
+        this.tooltip_text = _("%s characters translated / %s maximum characters on your plan").printf (
             api_usage.value.to_string (),
             api_usage.max_value.to_string ());
     }

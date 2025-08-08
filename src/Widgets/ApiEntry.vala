@@ -5,7 +5,7 @@
 
  public class MrWorldWide.ApiEntry : Gtk.Box {
 
-    private Gtk.PasswordEntry api_entry;
+    public Gtk.PasswordEntry api_entry;
     private Gtk.Button api_paste;
     private const string LINK = "https://www.deepl.com/your-account/keys";
 
@@ -14,10 +14,10 @@
         spacing = 3;
 
         api_entry = new Gtk.PasswordEntry () {
-        placeholder_text = _("Enter API key here"),
-        show_peek_icon = true,
-        hexpand = true,
-        halign = Gtk.Align.FILL
+          placeholder_text = _("Enter API key here"),
+          show_peek_icon = true,
+          hexpand = true,
+          halign = Gtk.Align.FILL
         };
 
         api_paste = new Gtk.Button.from_icon_name ("edit-paste") {

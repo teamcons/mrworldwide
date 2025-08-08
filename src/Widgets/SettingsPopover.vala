@@ -6,6 +6,7 @@
 public class MrWorldWide.SettingsPopover : Gtk.Popover {
 
   private MrWorldWide.ApiEntry api_entry;
+  private Gtk.Revealer usage_revealer;
 
   construct {
     width_request = 200;
@@ -37,31 +38,31 @@ public class MrWorldWide.SettingsPopover : Gtk.Popover {
       margin_end = 12
     };
 
-    box.append (api_level);
+    usage_revealer = new Gtk.Revealer () {
+      transition_type = Gtk.RevealerTransitionType.SLIDE_DOWN,
+      transition_duration = 500,
+      child = api_level
+    };
 
-/*           var usage_revealer = new Gtk.Revealer () {
-            transition_type = Gtk.RevealerTransitionType.SLIDE_DOWN,
-            transition_duration = 500,
-            child = usage_box
-          };
-          usage_revealer.reveal_child = true; */
-
-
+    box.append (usage_revealer);
     box.append (new Gtk.Separator (HORIZONTAL));
     box.append (auto_switch);
 
     child = box;
 
-    //  if (api_entry.text != "") {
-    //    api_usage.value = Application.settings.get_int ("current-usage");
-    //    api_usage.max_value = Application.settings.get_int ("max-usage");
-    //  }
+    api_entry.api_entry.changed.connect (relevant_levelbar);
+    relevant_levelbar ();
 
-    Application.settings.bind (
-      "auto-translate", 
-      auto_switch, 
-      "active", 
-      SettingsBindFlags.DEFAULT
-    );
+    Application.settings.bind ("auto-translate", auto_switch, "active", SettingsBindFlags.DEFAULT);
   }
+
+  private void relevant_levelbar () {
+    if (api_entry.api_entry.text == "") {
+      usage_revealer.reveal_child = false;
+
+    } else {
+      usage_revealer.reveal_child = true;
+    }
+  }
+
 }
