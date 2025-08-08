@@ -50,6 +50,7 @@ executable(
 
       'src' / 'Widgets' / 'OrientationBox.vala',
       'src' / 'Widgets' / 'ApiEntry.vala',
+      'src' / 'Widgets' / 'ApiLevel.vala',
     'src' / 'Widgets' / 'SettingsPopover.vala',
     'src' / 'Widgets' / 'OptionsPopover.vala',
     'src' / 'Widgets' / 'Pane.vala',

@@ -3,6 +3,7 @@ src/Views/TranslationView.vala
 src/Views/NoInternetView.vala
 src/Windows/MainWindow.vala
 src/Widgets/ApiEntry.vala
+src/Widgets/ApiLevel.vala
 src/Widgets/OrientationBox.vala
 src/Widgets/SettingsPopover.vala
 src/Widgets/OptionsPopover.vala
