@@ -64,7 +64,30 @@
   }
 
   public void on_open_file () {
-    var open_dialog = new Gtk.FileDialog ();
+
+    var all_files_filter = new Gtk.FileFilter () {
+      name = _("All files"),
+    };
+    all_files_filter.add_pattern ("*");
+
+    var text_files_filter = new Gtk.FileFilter () {
+      name = _("Text files"),
+    };
+    text_files_filter.add_mime_type ("text/*");
+
+    var filter_model = new ListStore (typeof (Gtk.FileFilter));
+    filter_model.append (all_files_filter);
+    filter_model.append (text_files_filter);
+
+    var open_dialog = new Gtk.FileDialog () {
+      //TRANSLATORS: The following text is for the dialog to load a text file to translate
+      title = _("Open text file to translate"),
+        accept_label = _("Open"),
+        default_filter = text_files_filter,
+        filters = filter_model,
+        modal = true
+    };
+
     open_dialog.open.begin ((Application).main_window, null, (obj, res) => {
       try {
         var file = open_dialog.open.end (res);

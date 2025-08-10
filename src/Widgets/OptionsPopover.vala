@@ -56,7 +56,7 @@ public class MrWorldWide.OptionsPopover : Gtk.Popover {
     formal_level.set_show_fill_level (false);
 
     formal_level.set_value (Application.settings.get_enum ("formality"));
-    formal_level.add_css_class (Granite.STYLE_CLASS_WARMTH);
+    formal_level.add_css_class (Granite.STYLE_CLASS_TEMPERATURE);
 
     formalbox.append (formal_level);
 

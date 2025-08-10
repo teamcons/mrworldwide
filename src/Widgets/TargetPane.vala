@@ -50,9 +50,29 @@
   }
 
   public void on_save_as () {
+
+    var all_files_filter = new Gtk.FileFilter () {
+      name = _("All files"),
+    };
+    all_files_filter.add_pattern ("*");
+
+    var text_files_filter = new Gtk.FileFilter () {
+      name = _("Text files"),
+    };
+    text_files_filter.add_mime_type ("text/*");
+
+    var filter_model = new ListStore (typeof (Gtk.FileFilter));
+    filter_model.append (all_files_filter);
+    filter_model.append (text_files_filter);
+
     var save_dialog = new Gtk.FileDialog () {
-        //TRANSLATORS: Default name for files containing a translation
-        initial_name = _("translation.txt")
+        //TRANSLATORS: The following text is for the dialog to save the translation
+        title = _("Save translation to text file"),
+        accept_label = _("Save"),
+        initial_name = _("translation.txt"),
+        default_filter = text_files_filter,
+        filters = filter_model,
+        modal = true
     };
 
     save_dialog.save.begin ((Application).main_window, null, (obj, res) => {
