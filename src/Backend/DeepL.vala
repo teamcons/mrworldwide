@@ -172,9 +172,9 @@ public class MrWorldWide.DeepL : Object {
 
       switch (Application.settings.get_enum ("formality")) {
         case 0: formality = "more"; break;
-        case 1: formality = "prefer-more"; break;
+        case 1: formality = "prefer_more"; break;
         case 2: formality = "default"; break;
-        case 3: formality = "prefer-less"; break;
+        case 3: formality = "prefer_less"; break;
         case 4: formality = "less"; break;
         default: formality = "default"; break;
       }

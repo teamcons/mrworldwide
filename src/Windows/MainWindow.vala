@@ -10,7 +10,7 @@ public class MrWorldWide.MainWindow : Gtk.Window {
     private Gtk.Spinner loading;
     private Gtk.Revealer loading_revealer;
 
-    private MrWorldWide.TranslationView translation_view;
+    public MrWorldWide.TranslationView translation_view;
     public MrWorldWide.SettingsPopover menu_popover;
 
     public SimpleActionGroup actions { get; construct; }
@@ -68,16 +68,6 @@ public class MrWorldWide.MainWindow : Gtk.Window {
         set_titlebar (headerbar);
 
         /* ---------------- PACK START ---------------- */
-
-        var options_menu = new MrWorldWide.OptionsPopover ();
-        var options_button = new Gtk.MenuButton () {
-          icon_name = "tag",
-          popover = options_menu,
-          tooltip_text = _("Change options for the translation"),
-        };
-        options_button.direction = Gtk.ArrowType.DOWN;
-
-        headerbar.pack_start (options_button);
 
         //TRANSLATORS: This is for a button that switches source and target language
         switchlang_button = new Gtk.Button.from_icon_name ("media-playlist-repeat") {

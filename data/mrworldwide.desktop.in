@@ -13,3 +13,4 @@ Exec=io.github.teamcons.mrworldwide
 Terminal=false
 StartupNotify=true
 SingleMainWindow=true
+MimeType=text/plain;

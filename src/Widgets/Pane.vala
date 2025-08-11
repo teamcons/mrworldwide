@@ -12,6 +12,7 @@
     public Gtk.ActionBar actionbar;
     public Gtk.Label count;
     public MrWorldWide.Lang[] langs;
+    public Gtk.MenuButton options_button;
 
     public signal void language_changed (string code = "");
 
@@ -59,7 +60,24 @@
             valign = Gtk.Align.END
         };
         actionbar.add_css_class (Granite.STYLE_CLASS_FLAT);
+        actionbar.height_request = 32;
 
+        var options_button_label = new Gtk.Label (_("Options"));
+        var options_button_box = new Gtk.Box (HORIZONTAL, 0);
+        options_button_box.append (new Gtk.Image.from_icon_name ("tag"));
+        options_button_box.append (options_button_label);
+
+        options_button = new Gtk.MenuButton () {
+            child = options_button_box,
+            tooltip_text = _("Change options for the translation"),
+            margin_end = 6
+        };
+        options_button.add_css_class (Granite.STYLE_CLASS_FLAT);
+        options_button_label.mnemonic_widget = options_button;
+        options_button.popover = new MrWorldWide.OptionsPopover () {halign = Gtk.Align.START};
+        options_button.direction = Gtk.ArrowType.UP;
+
+        actionbar.pack_start (options_button);
 
         count = new Gtk.Label ("") {
             sensitive = false

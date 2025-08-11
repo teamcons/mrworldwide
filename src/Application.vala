@@ -12,7 +12,7 @@ public class MrWorldWide.Application : Gtk.Application {
     public Application () {
         Object (
             application_id: "io.github.teamcons.mrworldwide",
-            flags: ApplicationFlags.FLAGS_NONE
+            flags: ApplicationFlags.HANDLES_OPEN
         );
     }
 
@@ -117,6 +117,34 @@ public class MrWorldWide.Application : Gtk.Application {
         );
 
         main_window.present ();
+    }
+
+    protected override void open (File[] files, string hint) {
+        if (active_window == null) {
+            activate ();
+        }
+        var file = files [0];
+
+        try {
+            var content = "";
+            FileUtils.get_contents (file.get_path (), out content);
+            main_window.translation_view.source_pane.pane.set_text (content);
+
+        } catch (Error e) {
+            warning ("Failed to open file: %s", e.message);
+
+            var dialog = new Granite.MessageDialog (
+                _("Couldn't open file"),
+                e.message,
+                new ThemedIcon ("document-open")
+            ) {
+                badge_icon = new ThemedIcon ("dialog-error"),
+                modal = true,
+                transient_for = main_window
+            };
+            dialog.present ();
+            dialog.response.connect (dialog.destroy);
+        }
     }
 
     public static int main (string[] args) {

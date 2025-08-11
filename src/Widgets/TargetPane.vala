@@ -12,6 +12,7 @@
         spacing = 0;
 
         pane = new MrWorldWide.Pane (MrWorldWide.TargetLang ());
+        pane.options_button.visible = false;
         pane.dropdown.tooltip_text = _("Set the language to translate to");
         append (pane);
 
@@ -21,8 +22,6 @@
             tooltip_text = _("Copy to clipboard")
         };
         pane.actionbar.pack_end (copy);
-
-
 
         var save_as_button = new Gtk.Button.from_icon_name ("document-save-as") {
             tooltip_markup = Granite.markup_accel_tooltip (
