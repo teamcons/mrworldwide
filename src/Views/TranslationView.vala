@@ -108,6 +108,7 @@
     }
 
     public void clear_source () {
-        source_pane.pane.set_text ("");
+        source_pane.pane.clear ();
+        target_pane.pane.clear ();
     }
 }
