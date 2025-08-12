@@ -13,10 +13,30 @@
         spacing = 0;
 
         pane = new MrWorldWide.Pane (MrWorldWide.SourceLang ());
-        pane.options_button.visible = true;
         pane.dropdown.tooltip_text = _("Set the language to translate from");
 
         append (pane);
+
+
+
+        var options_button_label = new Gtk.Label (_("Options"));
+        var options_button_box = new Gtk.Box (HORIZONTAL, 0);
+        options_button_box.append (new Gtk.Image.from_icon_name ("tag"));
+        options_button_box.append (options_button_label);
+
+        var options_button = new Gtk.MenuButton () {
+            child = options_button_box,
+            tooltip_text = _("Change options for the translation"),
+            margin_end = 6
+        };
+        options_button.add_css_class (Granite.STYLE_CLASS_FLAT);
+        options_button_label.mnemonic_widget = options_button;
+        options_button.popover = new MrWorldWide.OptionsPopover () {halign = Gtk.Align.START};
+        options_button.direction = Gtk.ArrowType.UP;
+
+        pane.actionbar.pack_start (options_button);
+
+
 
         var clear = new Gtk.Button.from_icon_name ("edit-clear") {
             tooltip_markup = Granite.markup_accel_tooltip ({"<Ctrl>L"}, _("Clear text"))
