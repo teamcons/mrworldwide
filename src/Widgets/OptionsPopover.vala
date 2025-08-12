@@ -65,9 +65,13 @@ public class MrWorldWide.OptionsPopover : Gtk.Popover {
     /***************** CONTEXT *****************/
     var context_entry = new Gtk.Entry ();
     context_entry.placeholder_text = _("Enter context here");
+    context_entry.secondary_icon_name = "edit-clear";
+    context_entry.secondary_icon_tooltip_text = _("Clear text");
     box.append (context_entry);
 
     child = box;
+
+    context_entry.icon_release.connect (() => {context_entry.text = "";});
 
     Application.settings.bind (
       "context", 
