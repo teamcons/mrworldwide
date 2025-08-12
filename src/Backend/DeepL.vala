@@ -215,6 +215,7 @@ public class MrWorldWide.DeepL : Object {
                                                                           "billed_characters",
                                                                           0);
     current_usage = current_usage + billed_characters;
+    Application.settings.set_int ("current-usage", current_usage);
 
     if (source_lang == "idk") {
           var detected_language_code = translation.get_string_member_with_default (

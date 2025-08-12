@@ -44,8 +44,8 @@
         api_usage.min_value = 0;
         append (api_usage);
 
-        Application.settings.bind ("current-usage", api_usage, "value", SettingsBindFlags.DEFAULT);
-        Application.settings.bind ("max-usage", api_usage, "max-value", SettingsBindFlags.DEFAULT);
+        //Application.settings.bind ("current-usage", api_usage, "value", SettingsBindFlags.DEFAULT);
+        //Application.settings.bind ("max-usage", api_usage, "max-value", SettingsBindFlags.DEFAULT);
 
         hint.clicked.connect (on_refresh);
         Application.backend.answer_received.connect (updated_usage);
@@ -56,6 +56,23 @@
     private void updated_usage () {
         api_usage.value = Application.backend.current_usage;
         api_usage.max_value = Application.backend.max_usage;
+/*  
+        // Depending on fill, usage 
+        if (api_usage.value > api_usage.max_value) {
+            api_usage.remove_css_class (Granite.STYLE_CLASS_SUCCESS);
+            api_usage.remove_css_class (Granite.STYLE_CLASS_WARNING);
+            api_usage.add_css_class (Granite.STYLE_CLASS_ERROR);
+
+        } else if (api_usage.value > (api_usage.max_value / 2)) {
+            api_usage.remove_css_class (Granite.STYLE_CLASS_SUCCESS);
+            api_usage.add_css_class (Granite.STYLE_CLASS_WARNING);
+            api_usage.remove_css_class (Granite.STYLE_CLASS_ERROR);
+
+        } else {
+            api_usage.add_css_class (Granite.STYLE_CLASS_SUCCESS);
+            api_usage.remove_css_class (Granite.STYLE_CLASS_WARNING);
+            api_usage.remove_css_class (Granite.STYLE_CLASS_ERROR);
+        }  */
 
         this.tooltip_text = _("%s characters translated / %s maximum characters on your plan").printf (
             api_usage.value.to_string (),
