@@ -75,7 +75,9 @@ public class MrWorldWide.DeepL : Object {
     this.max_usage = Application.settings.get_int ("max-usage");
 
     // on_key_changed does a request to check usage
-    on_key_changed ();
+    // I dont want that at each app start
+    on_key_changed (false);
+
     on_source_lang_changed ();
     on_target_lang_changed ();
 
@@ -98,7 +100,7 @@ public class MrWorldWide.DeepL : Object {
     }
   }
 
-  public void on_key_changed () {
+  public void on_key_changed (bool do_check = true) {
     api_key = Application.settings.get_string ("key");
 
     if (api_key != "") {
@@ -107,8 +109,9 @@ public class MrWorldWide.DeepL : Object {
         } else {
           base_url = URL_DEEPL_PRO;
         }
-        check_usage ();
-      }
+
+        if (do_check) {check_usage ();}
+    }
   }
 
   public void send_request (string text) {
