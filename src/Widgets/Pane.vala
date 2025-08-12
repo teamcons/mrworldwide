@@ -79,10 +79,10 @@
 
         actionbar.pack_start (options_button);
 
-        count = new Gtk.Label ("") {
+/*          count = new Gtk.Label ("") {
             sensitive = false
         };
-        actionbar.pack_start (count);
+        actionbar.pack_start (count);  */
 
         var handle = new Gtk.WindowHandle () {
             child = actionbar
@@ -91,8 +91,8 @@
         append (handle);
 
         /***************** CONNECTS *****************/
-        on_buffer_changed ();
-        textview.buffer.changed.connect (on_buffer_changed);
+        //on_buffer_changed ();
+        //textview.buffer.changed.connect (on_buffer_changed);
 
     }
 
