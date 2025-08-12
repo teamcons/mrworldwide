@@ -44,8 +44,8 @@
         api_usage.min_value = 0;
         append (api_usage);
 
-        //Application.settings.bind ("current-usage", api_usage, "value", SettingsBindFlags.DEFAULT);
-        //Application.settings.bind ("max-usage", api_usage, "max-value", SettingsBindFlags.DEFAULT);
+        Application.settings.bind ("current-usage", api_usage, "value", SettingsBindFlags.DEFAULT);
+        Application.settings.bind ("max-usage", api_usage, "max-value", SettingsBindFlags.DEFAULT);
 
         hint.clicked.connect (on_refresh);
         Application.backend.answer_received.connect (updated_usage);
@@ -54,8 +54,6 @@
     }
 
     private void updated_usage () {
-        api_usage.value = Application.backend.current_usage;
-        api_usage.max_value = Application.backend.max_usage;
 /*  
         // Depending on fill, usage 
         if (api_usage.value > api_usage.max_value) {
@@ -74,9 +72,10 @@
             api_usage.remove_css_class (Granite.STYLE_CLASS_ERROR);
         }  */
 
+        // Picking from settings as im not super sure what fires first between connect and binds
         this.tooltip_text = _("%s characters translated / %s maximum characters on your plan").printf (
-            api_usage.value.to_string (),
-            api_usage.max_value.to_string ());
+            Application.settings.get_int ("current-usage").to_string (),
+            Application.settings.get_int ("max-usage").to_string ());
 
         if (refresher.visible_child_name == "loading") {
             refresher.visible_child_name = "hint";
