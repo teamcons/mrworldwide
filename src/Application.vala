@@ -66,7 +66,7 @@ public class MrWorldWide.Application : Gtk.Application {
         set_accels_for_action ("app.switch_languages", {"<Control>i"});
 
         var translate = new SimpleAction ("translate", null);
-        add_action (switch_languages);
+        add_action (translate);
         set_accels_for_action ("app.translate", {"<Control>t"});
 
         var clear_source = new SimpleAction ("clear_source", null);
@@ -87,8 +87,6 @@ public class MrWorldWide.Application : Gtk.Application {
 			main_window.present ();
 			return;
 		}
-
-
 
         var main_window = new MainWindow (this);
 

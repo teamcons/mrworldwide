@@ -76,12 +76,12 @@ public class MrWorldWide.DeepL : Object {
 
     // on_key_changed does a request to check usage
     // I dont want that at each app start
-    on_key_changed (false);
+    on_key_changed ();
 
     on_source_lang_changed ();
     on_target_lang_changed ();
 
-    Application.settings.changed["key"].connect (on_key_changed);
+    Application.settings.changed["key"].connect (() => {on_key_changed (); check_usage ();});
     Application.settings.changed["source-language"].connect (on_source_lang_changed);
     Application.settings.changed["target-language"].connect (on_target_lang_changed);
   }
@@ -100,7 +100,7 @@ public class MrWorldWide.DeepL : Object {
     }
   }
 
-  public void on_key_changed (bool do_check = true) {
+  public void on_key_changed (bool? do_check = true) {
     api_key = Application.settings.get_string ("key");
 
     if (api_key != "") {
@@ -109,8 +109,6 @@ public class MrWorldWide.DeepL : Object {
         } else {
           base_url = URL_DEEPL_PRO;
         }
-
-        if (do_check) {check_usage ();}
     }
   }
 
