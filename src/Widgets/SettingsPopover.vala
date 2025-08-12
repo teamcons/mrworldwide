@@ -20,6 +20,15 @@ public class MrWorldWide.SettingsPopover : Gtk.Popover {
 
     box.append (new OrientationBox ());
 
+    var auto_switch = new Granite.SwitchModelButton (_("Translate automatically")) {
+      description = _("The translation will start 2 seconds after typing has stopped"),
+      hexpand = true,
+      margin_top = 3
+    };
+
+    box.append (auto_switch);
+
+
     box.append (new Gtk.Separator (HORIZONTAL));
 
     var cb = new Gtk.CenterBox () {
@@ -61,15 +70,6 @@ public class MrWorldWide.SettingsPopover : Gtk.Popover {
     };
 
     box.append (usage_revealer);
-    box.append (new Gtk.Separator (HORIZONTAL));
-
-    var auto_switch = new Granite.SwitchModelButton (_("Translate automatically")) {
-      description = _("The translation will start 2 seconds after typing has stopped"),
-      hexpand = true,
-      margin_top = 3
-    };
-
-    box.append (auto_switch);
 
     child = box;
 
