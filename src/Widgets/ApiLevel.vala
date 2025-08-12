@@ -36,7 +36,7 @@
         Application.settings.bind ("current-usage", api_usage, "value", SettingsBindFlags.DEFAULT);
         Application.settings.bind ("max-usage", api_usage, "max-value", SettingsBindFlags.DEFAULT);
 
-        hint.clicked.connect (Application.backend.check_usage);
+        hint.clicked.connect (on_refresh);
         Application.backend.answer_received.connect (updated_usage);
         Application.backend.usage_retrieved.connect (updated_usage);
         updated_usage ();
@@ -49,5 +49,9 @@
         this.tooltip_text = _("%s characters translated / %s maximum characters on your plan").printf (
             api_usage.value.to_string (),
             api_usage.max_value.to_string ());
+    }
+
+    private void on_refresh () {
+        Application.backend.check_usage ();
     }
 }
