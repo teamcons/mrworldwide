@@ -106,7 +106,7 @@ public class MrWorldWide.MainWindow : Gtk.Window {
 
         var translate_revealer = new Gtk.Revealer () {
             child = translate_button,
-            transition_type = Gtk.RevealerTransitionType.SWING_LEFT,
+            transition_type = Gtk.RevealerTransitionType.SLIDE_LEFT,
             transition_duration = 250
         };
         
@@ -117,7 +117,7 @@ public class MrWorldWide.MainWindow : Gtk.Window {
         loading_revealer = new Gtk.Revealer () {
             child = loading,
             reveal_child = false,
-            transition_type = Gtk.RevealerTransitionType.SWING_LEFT,
+            transition_type = Gtk.RevealerTransitionType.CROSSFADE,
             transition_duration = 250
         };
 
