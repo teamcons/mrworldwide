@@ -26,7 +26,6 @@ public class MrWorldWide.Application : Gtk.Application {
 
     protected override void startup () {
         base.startup ();
-
         Granite.init ();
 
         Intl.setlocale (LocaleCategory.ALL, "");

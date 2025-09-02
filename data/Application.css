@@ -17,6 +17,14 @@
 * Boston, MA 02110-1301 USA
 */
 
+/* Latte */
+@define-color accent_color_100  #efdfc4;
+@define-color accent_color_300 #e7c591;
+@define-color accent_color_500 #cfa25e;
+@define-color accent_color_700  #b6802e;
+@define-color accent_color_900 #804b00;
+@define-color accent_color mix(#e7c591, #cfa25e, 0.25);
+
 .rotated * {
     -gtk-icon-transform: rotate(90deg);
 }
