@@ -38,8 +38,6 @@
             vexpand = true,
             valign = Gtk.Align.FILL,
             halign = Gtk.Align.FILL,
-            bottom_margin = 6,
-            top_margin = 6,
             left_margin = 12,
             right_margin = 12
         };
