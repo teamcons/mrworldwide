@@ -16,12 +16,9 @@
     public signal void language_changed (string code = "");
 
     public Pane (Lang[] langs) {
-
         orientation = Gtk.Orientation.VERTICAL;
-        spacing = 6;
 
 		model = new MrWorldWide.DDModel ();
-
         foreach (var language in langs) {
             model.model_append (language);
         }
@@ -39,11 +36,11 @@
             valign = Gtk.Align.FILL,
             halign = Gtk.Align.FILL,
             left_margin = 12,
-            right_margin = 12
+            right_margin = 12,
+            top_margin = 6,
+            bottom_margin = 6
         };
-
         textview.set_wrap_mode (Gtk.WrapMode.WORD_CHAR);
-
 
         var scrolled = new Gtk.ScrolledWindow () {
             child = textview
