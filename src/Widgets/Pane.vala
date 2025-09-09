@@ -38,10 +38,10 @@
             vexpand = true,
             valign = Gtk.Align.FILL,
             halign = Gtk.Align.FILL,
-            margin_top = 6,
-            margin_bottom = 12,
-            margin_start = 12,
-            margin_end = 12
+            bottom_margin = 6,
+            top_margin = 6,
+            left_margin = 12,
+            right_margin = 12
         };
 
         textview.set_wrap_mode (Gtk.WrapMode.WORD_CHAR);

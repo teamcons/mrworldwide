@@ -106,7 +106,7 @@ public class MrWorldWide.MainWindow : Gtk.Window {
 
         var translate_revealer = new Gtk.Revealer () {
             child = translate_button,
-            transition_type = Gtk.RevealerTransitionType.SLIDE_LEFT,
+            transition_type = Gtk.RevealerTransitionType.CROSSFADE,
             transition_duration = 250
         };
         
