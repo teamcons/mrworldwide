@@ -115,7 +115,7 @@
         var content = "";
         FileUtils.get_contents (file.get_path (), out content);
 
-        this.pane.set_text (content);
+        this.pane.text = content;
 
       } catch (Error err) {
         warning ("Failed to select file to open: %s", err.message);

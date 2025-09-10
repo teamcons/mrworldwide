@@ -148,7 +148,7 @@ public class MrWorldWide.MainWindow : Gtk.Window {
     }
 
     public void on_translate () {
-        Application.backend.send_request (translation_view.source_pane.pane.get_text ());
+        Application.backend.send_request (translation_view.source_pane.pane.text);
     }
 
     private void on_menu () {

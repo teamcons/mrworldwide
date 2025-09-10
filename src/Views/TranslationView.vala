@@ -51,16 +51,16 @@
 
     public void switch_languages () {
         var newtarget = source_pane.pane.get_selected_language ();
-        var newtarget_text = source_pane.pane.get_text ();
+        var newtarget_text = source_pane.pane.text;
 
         var newsource = target_pane.pane.get_selected_language ();
-        var newsource_text = target_pane.pane.get_text ();
+        var newsource_text = target_pane.pane.text;
 
         source_pane.pane.set_selected_language (newsource);
-        source_pane.pane.set_text (newsource_text);
+        source_pane.pane.text = newsource_text;
 
         target_pane.pane.set_selected_language (newtarget);
-        target_pane.pane.set_text (newtarget_text);
+        target_pane.pane.text = newtarget_text;
     }
 
     public void on_orientation_toggled () {
@@ -75,7 +75,7 @@
     public void on_text_to_translate () {
         // Avoid translating empty text (useless request)
         // If auto translate is off, forget it
-        if (Application.settings.get_boolean ("auto-translate") && (source_pane.pane.get_text () != "" )) {
+        if (Application.settings.get_boolean ("auto-translate") && (source_pane.pane.text != "" )) {
 
             debug ("The buffer has been modified, starting the debounce timer");
             if (debounce_timer_id != 0) {
@@ -88,21 +88,21 @@
                     // Start translating!
                     //loading.start ();
                     //loading_revealer.reveal_child = true;
-                    Application.backend.send_request (source_pane.pane.get_text ());
+                    Application.backend.send_request (source_pane.pane.text);
 
                 return GLib.Source.REMOVE;
             });
         } else {
 
             // Only in the case the source text is empty, do a cleanup
-            if (source_pane.pane.get_text () == "" ) {
+            if (source_pane.pane.text == "" ) {
                 target_pane.pane.clear ();
             }
         }
     }
 
     public void on_answer_received (string answer) {
-        target_pane.pane.set_text (answer);
+        target_pane.pane.text = answer;
         //loading_revealer.reveal_child = false;
         //loading.stop ();
     }

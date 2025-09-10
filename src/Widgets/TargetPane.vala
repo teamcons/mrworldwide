@@ -76,7 +76,7 @@
     save_dialog.save.begin ((Application).main_window, null, (obj, res) => {
         try {
             var file = save_dialog.save.end (res);
-                var content = this.pane.get_text ();
+                var content = this.pane.text;
                 FileUtils.set_contents (file.get_path (), content);
 
         } catch (Error err) {
