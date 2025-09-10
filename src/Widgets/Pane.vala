@@ -12,11 +12,15 @@
     public Gtk.TextView textview;
     public Gtk.ActionBar actionbar;
     public Gtk.Label count;
-    public MrWorldWide.Lang[] langs;
 
     public string text {
         owned get { return textview.buffer.text;}
         set { textview.buffer.text = value;}
+    }
+
+    public string language {
+        owned get { return get_selected_language ();}
+        set { set_selected_language (value);}
     }
 
     public bool show_ui {
@@ -26,14 +30,11 @@
 
     public signal void language_changed (string code = "");
 
-    public Pane (Lang[] langs) {
+    construct {
         orientation = Gtk.Orientation.VERTICAL;
+        spacing = 0;
 
-		model = new MrWorldWide.DDModel ();
-        foreach (var language in langs) {
-            model.model_append (language);
-        }
-
+        model = new MrWorldWide.DDModel ();
 		dropdown = new Gtk.DropDown (null, null);
 		dropdown.model = model.model;
 		dropdown.factory = model.factory;
@@ -95,17 +96,17 @@
         print ("\nS selected %s:%s", selected.code, selected.name);
     }
 
-    public void set_selected_language (string code) {
+    private void set_selected_language (string code) {
         var position = model.model_where_code (code);
         dropdown.set_selected (position);
     }
 
-    public string get_selected_language () {
+    private string get_selected_language () {
         selected = dropdown.get_selected_item() as Lang;
         return selected.code;
     }
 
-    public void on_buffer_changed () {
+    private void on_buffer_changed () {
         var len = textview.buffer.text.length.to_string ();
         count.label = len;
         ///TRANSLATORS: %s is replaced by a number
@@ -114,5 +115,12 @@
 
     public void clear () {
         this.textview.buffer.text = "";
+    }
+
+    public void load_model (Lang[] langs) {
+                foreach (var language in langs) {
+            model.model_append (language);
+        }
+
     }
 }

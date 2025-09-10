@@ -19,12 +19,12 @@
 
         source_pane = new MrWorldWide.SourcePane ();
         var selected_source_language = Application.settings.get_string ("source-language");
-        source_pane.set_selected_language (selected_source_language);
+        source_pane.language = selected_source_language;
 
 
         target_pane = new MrWorldWide.TargetPane ();
         var selected_target_language = Application.settings.get_string ("target-language");
-        target_pane.set_selected_language (selected_target_language);
+        target_pane.language = selected_target_language;
 
         paned = new Gtk.Paned (HORIZONTAL);
         paned.start_child = source_pane;
@@ -50,16 +50,16 @@
     }
 
     public void switch_languages () {
-        var newtarget = source_pane.get_selected_language ();
+        var newtarget = source_pane.language;
         var newtarget_text = source_pane.text;
 
-        var newsource = target_pane.get_selected_language ();
+        var newsource = target_pane.language;
         var newsource_text = target_pane.text;
 
-        source_pane.set_selected_language (newsource);
+        source_pane.language = newsource;
         source_pane.text = newsource_text;
 
-        target_pane.set_selected_language (newtarget);
+        target_pane.language = newtarget;
         target_pane.text = newtarget_text;
     }
 

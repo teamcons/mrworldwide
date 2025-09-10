@@ -4,14 +4,8 @@
  */
  public class MrWorldWide.TargetPane : MrWorldWide.Pane {
 
-    public TargetPane () {
-      base (MrWorldWide.TargetLang ());
-    }
-
     construct {
-        orientation = VERTICAL;
-        spacing = 0;
-
+        load_model (MrWorldWide.TargetLang ());
         dropdown.tooltip_text = _("Set the language to translate to");
 
         textview.editable = false;
@@ -23,7 +17,7 @@
 
         var save_as_button = new Gtk.Button.from_icon_name ("document-save-as") {
             tooltip_markup = Granite.markup_accel_tooltip (
-                    {"<Control><Shift>s"},
+                    {"<Control><Shift>s"}, 
                     _("Save the translation in a text file")
             )
         };

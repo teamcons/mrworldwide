@@ -5,13 +5,9 @@
 
  public class MrWorldWide.SourcePane : MrWorldWide.Pane {
 
-    public SourcePane () {
-      base (MrWorldWide.SourceLang ());
-    }
-
     construct {
-        orientation = VERTICAL;
-        spacing = 0;
+
+        load_model (MrWorldWide.SourceLang ());
 
         dropdown.tooltip_text = _("Set the language to translate from");
 
