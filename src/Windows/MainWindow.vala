@@ -127,7 +127,7 @@ public class MrWorldWide.MainWindow : Gtk.Window {
         translation_view = new MrWorldWide.TranslationView ();
         child = translation_view;
 
-        set_focus (translation_view.source_pane.pane.textview);
+        set_focus (translation_view.source_pane.textview);
 
         // Listen if the backend recognize a language to switch to it
         // debatable whether to keep this idk
@@ -148,7 +148,7 @@ public class MrWorldWide.MainWindow : Gtk.Window {
     }
 
     public void on_translate () {
-        Application.backend.send_request (translation_view.source_pane.pane.text);
+        Application.backend.send_request (translation_view.source_pane.text);
     }
 
     private void on_menu () {

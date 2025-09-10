@@ -126,7 +126,7 @@ public class MrWorldWide.Application : Gtk.Application {
         try {
             var content = "";
             FileUtils.get_contents (file.get_path (), out content);
-            main_window.translation_view.source_pane.pane.text = content;
+            main_window.translation_view.source_pane.text = content;
 
         } catch (Error e) {
             warning ("Failed to open file: %s", e.message);

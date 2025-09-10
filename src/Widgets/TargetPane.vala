@@ -2,25 +2,24 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
  * SPDX-FileCopyrightText:  2025 Stella & Charlie (teamcons.carrd.co)
  */
- public class MrWorldWide.TargetPane : Gtk.Box {
+ public class MrWorldWide.TargetPane : MrWorldWide.Pane {
 
-    //TODO: I dont know how to chain constructs when an argument is requested
-    public MrWorldWide.Pane pane;
+    public TargetPane () {
+      base (MrWorldWide.TargetLang ());
+    }
 
     construct {
         orientation = VERTICAL;
         spacing = 0;
 
-        pane = new MrWorldWide.Pane (MrWorldWide.TargetLang ());
-        pane.dropdown.tooltip_text = _("Set the language to translate to");
-        append (pane);
+        dropdown.tooltip_text = _("Set the language to translate to");
 
-        pane.textview.editable = false;
+        textview.editable = false;
 
         var copy = new Gtk.Button.from_icon_name ("edit-copy") {
             tooltip_text = _("Copy to clipboard")
         };
-        pane.actionbar.pack_end (copy);
+        actionbar.pack_end (copy);
 
         var save_as_button = new Gtk.Button.from_icon_name ("document-save-as") {
             tooltip_markup = Granite.markup_accel_tooltip (
@@ -29,22 +28,22 @@
             )
         };
 
-        pane.actionbar.pack_end (save_as_button);
+        actionbar.pack_end (save_as_button);
 
         /***************** CONNECTS *****************/
         copy.clicked.connect (copy_to_clipboard);
         save_as_button.clicked.connect (on_save_as);
-        pane.language_changed.connect (on_language_changed);
+        language_changed.connect (on_language_changed);
     }
 
   private void on_language_changed (string code) {
       Application.settings.set_string ("target-language", code);
-      pane.clear ();
+      clear ();
   }
 
   private void copy_to_clipboard () {
         var clipboard = Gdk.Display.get_default ().get_clipboard ();
-        clipboard.set_text (pane.textview.buffer.text);
+        clipboard.set_text (textview.buffer.text);
   }
 
   public void on_save_as () {
@@ -76,7 +75,7 @@
     save_dialog.save.begin ((Application).main_window, null, (obj, res) => {
         try {
             var file = save_dialog.save.end (res);
-                var content = this.pane.text;
+                var content = this.text;
                 FileUtils.set_contents (file.get_path (), content);
 
         } catch (Error err) {

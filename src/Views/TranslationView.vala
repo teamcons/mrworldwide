@@ -19,12 +19,12 @@
 
         source_pane = new MrWorldWide.SourcePane ();
         var selected_source_language = Application.settings.get_string ("source-language");
-        source_pane.pane.set_selected_language (selected_source_language);
+        source_pane.set_selected_language (selected_source_language);
 
 
         target_pane = new MrWorldWide.TargetPane ();
         var selected_target_language = Application.settings.get_string ("target-language");
-        target_pane.pane.set_selected_language (selected_target_language);
+        target_pane.set_selected_language (selected_target_language);
 
         paned = new Gtk.Paned (HORIZONTAL);
         paned.start_child = source_pane;
@@ -38,9 +38,9 @@
         Application.settings.changed["vertical-layout"].connect (on_orientation_toggled);
 
         // translate when text is entered or user changes any language
-        source_pane.pane.textview.buffer.changed.connect (on_text_to_translate);
-        source_pane.pane.language_changed.connect (on_text_to_translate);
-        target_pane.pane.language_changed.connect (on_text_to_translate);
+        source_pane.textview.buffer.changed.connect (on_text_to_translate);
+        source_pane.language_changed.connect (on_text_to_translate);
+        target_pane.language_changed.connect (on_text_to_translate);
 
         Application.settings.changed["context"].connect (on_text_to_translate);
         Application.settings.changed["formality"].connect (on_text_to_translate);
@@ -50,17 +50,17 @@
     }
 
     public void switch_languages () {
-        var newtarget = source_pane.pane.get_selected_language ();
-        var newtarget_text = source_pane.pane.text;
+        var newtarget = source_pane.get_selected_language ();
+        var newtarget_text = source_pane.text;
 
-        var newsource = target_pane.pane.get_selected_language ();
-        var newsource_text = target_pane.pane.text;
+        var newsource = target_pane.get_selected_language ();
+        var newsource_text = target_pane.text;
 
-        source_pane.pane.set_selected_language (newsource);
-        source_pane.pane.text = newsource_text;
+        source_pane.set_selected_language (newsource);
+        source_pane.text = newsource_text;
 
-        target_pane.pane.set_selected_language (newtarget);
-        target_pane.pane.text = newtarget_text;
+        target_pane.set_selected_language (newtarget);
+        target_pane.text = newtarget_text;
     }
 
     public void on_orientation_toggled () {
@@ -75,7 +75,7 @@
     public void on_text_to_translate () {
         // Avoid translating empty text (useless request)
         // If auto translate is off, forget it
-        if (Application.settings.get_boolean ("auto-translate") && (source_pane.pane.text != "" )) {
+        if (Application.settings.get_boolean ("auto-translate") && (source_pane.text != "" )) {
 
             debug ("The buffer has been modified, starting the debounce timer");
             if (debounce_timer_id != 0) {
@@ -88,27 +88,27 @@
                     // Start translating!
                     //loading.start ();
                     //loading_revealer.reveal_child = true;
-                    Application.backend.send_request (source_pane.pane.text);
+                    Application.backend.send_request (source_pane.text);
 
                 return GLib.Source.REMOVE;
             });
         } else {
 
             // Only in the case the source text is empty, do a cleanup
-            if (source_pane.pane.text == "" ) {
-                target_pane.pane.clear ();
+            if (source_pane.text == "" ) {
+                target_pane.clear ();
             }
         }
     }
 
     public void on_answer_received (string answer) {
-        target_pane.pane.text = answer;
+        target_pane.text = answer;
         //loading_revealer.reveal_child = false;
         //loading.stop ();
     }
 
     public void clear_source () {
-        source_pane.pane.clear ();
-        target_pane.pane.clear ();
+        source_pane.clear ();
+        target_pane.clear ();
     }
 }
