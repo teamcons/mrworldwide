@@ -6,6 +6,9 @@
 
     construct {
         load_model (MrWorldWide.TargetLang ());
+        
+        stack.visible_child_name = "placeholder";
+        
         dropdown.tooltip_text = _("Set the language to translate to");
 
         textview.editable = false;
@@ -25,9 +28,19 @@
         actionbar.pack_end (save_as_button);
 
         /***************** CONNECTS *****************/
+
+        language = Application.settings.get_string ("target-language");
+        Application.settings.bind_property (
+          "target-language", 
+          this, 
+          "language", 
+          GLib.BindingFlags.BIDIRECTIONAL
+        );
+
         copy.clicked.connect (copy_to_clipboard);
         save_as_button.clicked.connect (on_save_as);
         language_changed.connect (on_language_changed);
+        textview.buffer.changed.connect (on_buffer_changed);
     }
 
   private void on_language_changed (string code) {
@@ -77,4 +90,14 @@
         }
     });
 }
+
+
+    private void on_buffer_changed () {
+        if (text == "") {
+            stack.visible_child_name = "placeholder";
+        } else {
+            stack.visible_child_name = "readybox";
+        }
+    }
+
 }

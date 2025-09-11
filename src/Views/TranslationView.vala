@@ -19,8 +19,8 @@
 
         source_pane = new MrWorldWide.SourcePane ();
         var selected_source_language = Application.settings.get_string ("source-language");
-        source_pane.language = selected_source_language;
 
+        source_pane.language = selected_source_language;
 
         target_pane = new MrWorldWide.TargetPane ();
         var selected_target_language = Application.settings.get_string ("target-language");
@@ -66,7 +66,6 @@
     public void on_orientation_toggled () {
         if (Application.settings.get_boolean ("vertical-layout")) {            
             paned.orientation = Gtk.Orientation.VERTICAL;
-
         } else {
             paned.orientation = Gtk.Orientation.HORIZONTAL;
         }

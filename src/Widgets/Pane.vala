@@ -11,7 +11,14 @@
     public MrWorldWide.Lang selected;
     public Gtk.TextView textview;
     public Gtk.ActionBar actionbar;
-    public Gtk.Label count;
+    private Gtk.Label count;
+
+    public Gtk.Stack stack;
+    public Granite.Placeholder placeholder;
+    public Gtk.Box ready_box;
+
+    private Gtk.Overlay overlay;
+    private Granite.Toast toast;
 
     public string text {
         owned get { return textview.buffer.text;}
@@ -45,7 +52,6 @@
             reveal_child = true,
             transition_type = Gtk.RevealerTransitionType.SLIDE_DOWN
         };
-        append (dropdown_revealer);
 
         textview = new Gtk.TextView () {
             hexpand = true,
@@ -63,7 +69,6 @@
             child = textview
         };
 
-        append (scrolled);
 
         actionbar = new Gtk.ActionBar () {
             hexpand = true,
@@ -83,7 +88,36 @@
             child = actionbar
         };
 
-        append (handle);
+        ready_box = new Gtk.Box (VERTICAL, 0);
+        
+        ready_box.append (scrolled);
+        ready_box.append (handle);
+
+        placeholder = new Granite.Placeholder (_("Ready!"));
+        //placeholder.icon = new ThemedIcon ("insert-text-symbolic");
+        placeholder.description = _("Add in some text to get a translation");
+
+        var placeholder_handle = new Gtk.WindowHandle () {
+            child = placeholder
+        };
+
+        stack = new Gtk.Stack () {
+            transition_type = Gtk.StackTransitionType.CROSSFADE
+        };
+        stack.height_request = 130;
+        stack.add_named (ready_box, "readybox");
+        stack.add_named (placeholder_handle, "placeholder");
+
+        overlay = new Gtk.Overlay ();
+        toast = new Granite.Toast ("") {
+            valign = Gtk.Align.START
+        };
+
+        append (dropdown_revealer);
+        append (stack);
+
+        //append (scrolled);
+        //append (handle);
 
         /***************** CONNECTS *****************/
         //on_buffer_changed ();
@@ -106,12 +140,12 @@
         return selected.code;
     }
 
-    private void on_buffer_changed () {
+/*      private void on_buffer_changed () {
         var len = textview.buffer.text.length.to_string ();
         count.label = len;
         ///TRANSLATORS: %s is replaced by a number
         count.tooltip_text = _("Counted %s characters").printf (len);
-    }
+    }  */
 
     public void clear () {
         this.textview.buffer.text = "";

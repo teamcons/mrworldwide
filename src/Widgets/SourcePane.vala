@@ -7,7 +7,11 @@
 
     construct {
 
-        load_model (MrWorldWide.SourceLang ());
+        foreach (var language in MrWorldWide.SourceLang ()) {
+            model.model_append (language);
+        }
+
+        stack.visible_child_name = "readybox";
 
         dropdown.tooltip_text = _("Set the language to translate from");
 
@@ -49,6 +53,15 @@
         actionbar.pack_end (open_button);
 
         /***************** CONNECTS *****************/
+
+        language = Application.settings.get_string ("source-language");
+        Application.settings.bind_property (
+          "source-language", 
+          this, 
+          "language", 
+          GLib.BindingFlags.BIDIRECTIONAL
+        );
+
         clear.clicked.connect (this.clear);
         paste.clicked.connect (paste_from_clipboard);
         open_button.clicked.connect (on_open_file);
