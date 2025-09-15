@@ -44,6 +44,7 @@ executable(
     config_file,
     gresource,
     'src' / 'Constants.vala',
+   'src' / 'Enums' / 'Formality.vala',
     'src' / 'Objects' / 'Lang.vala',
     'src' / 'Objects' / 'DDModel.vala',
     'src' / 'Backend' / 'DeepL.vala',
