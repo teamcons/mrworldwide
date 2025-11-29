@@ -4,9 +4,15 @@
  */
  public class MrWorldWide.TargetPane : MrWorldWide.Pane {
 
+    public TargetPane () {
+        var model = new MrWorldWide.DDModel ();
+        foreach (var language in MrWorldWide.TargetLang ()) {
+            model.model_append (language);
+        }
+        base (model);
+    }
+
     construct {
-        load_model (MrWorldWide.TargetLang ());
-        
         stack.visible_child_name = "placeholder";
         
         dropdown.tooltip_text = _("Set the language to translate to");
@@ -30,11 +36,11 @@
         /***************** CONNECTS *****************/
 
         language = Application.settings.get_string ("target-language");
-        Application.settings.bind_property (
+        Application.settings.bind (
           "target-language", 
           this, 
           "language", 
-          GLib.BindingFlags.BIDIRECTIONAL
+          GLib.SettingsBindFlags.DEFAULT
         );
 
         copy.clicked.connect (copy_to_clipboard);
@@ -98,6 +104,7 @@
         } else {
             stack.visible_child_name = "readybox";
         }
+        textview.buffer.changed.disconnect (on_buffer_changed);
     }
 
 }

@@ -5,7 +5,8 @@
 
  public class MrWorldWide.Pane : Gtk.Box {
 
-    public MrWorldWide.DDModel model;
+    public MrWorldWide.DDModel model {get; construct;}
+
     public Gtk.Revealer dropdown_revealer;
     public Gtk.DropDown dropdown;
     public MrWorldWide.Lang selected;
@@ -37,11 +38,14 @@
 
     public signal void language_changed (string code = "");
 
+    public Pane (DDModel model) {
+        Object (model: model);
+    }
+
     construct {
         orientation = Gtk.Orientation.VERTICAL;
         spacing = 0;
 
-        model = new MrWorldWide.DDModel ();
 		dropdown = new Gtk.DropDown (null, null);
 		dropdown.model = model.model;
 		dropdown.factory = model.factory;
@@ -125,18 +129,20 @@
     }
 
     public void on_selected_language () {
-        selected = dropdown.get_selected_item() as Lang;
+        selected = dropdown.get_selected_item () as Lang;
 		language_changed (selected.code);
         print ("\nS selected %s:%s", selected.code, selected.name);
     }
 
     private void set_selected_language (string code) {
+        print ("got " + code + "\n");
         var position = model.model_where_code (code);
         dropdown.set_selected (position);
     }
 
     private string get_selected_language () {
-        selected = dropdown.get_selected_item() as Lang;
+        selected = dropdown.get_selected_item () as Lang;
+                print ("is selected " + selected.code + selected.name + "\n");
         return selected.code;
     }
 
@@ -149,12 +155,5 @@
 
     public void clear () {
         this.textview.buffer.text = "";
-    }
-
-    public void load_model (Lang[] langs) {
-                foreach (var language in langs) {
-            model.model_append (language);
-        }
-
     }
 }

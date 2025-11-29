@@ -5,14 +5,17 @@
 
  public class MrWorldWide.SourcePane : MrWorldWide.Pane {
 
-    construct {
 
+    public SourcePane () {
+        var model = new MrWorldWide.DDModel ();
         foreach (var language in MrWorldWide.SourceLang ()) {
             model.model_append (language);
         }
+        base (model);
+    }
 
+    construct {
         stack.visible_child_name = "readybox";
-
         dropdown.tooltip_text = _("Set the language to translate from");
 
         var options_button_label = new Gtk.Label (_("Options"));
@@ -55,11 +58,11 @@
         /***************** CONNECTS *****************/
 
         language = Application.settings.get_string ("source-language");
-        Application.settings.bind_property (
+        Application.settings.bind (
           "source-language", 
           this, 
           "language", 
-          GLib.BindingFlags.BIDIRECTIONAL
+          GLib.SettingsBindFlags.DEFAULT
         );
 
         clear.clicked.connect (this.clear);
