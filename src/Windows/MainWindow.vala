@@ -5,9 +5,13 @@
 
 public class MrWorldWide.MainWindow : Gtk.Window {
 
+    public Gtk.Revealer back_revealer;
+    private Granite.BackButton back_button;
+
     private Gtk.Button switchlang_button;
     private Gtk.MenuButton popover_button;
 
+    private Gtk.Stack stack_window_view;
     public MrWorldWide.TranslationView translation_view;
     public MrWorldWide.SettingsPopover menu_popover;
 
@@ -67,6 +71,16 @@ public class MrWorldWide.MainWindow : Gtk.Window {
 
         /* ---------------- PACK START ---------------- */
 
+        //TRANSLATORS: Back button to go back to translating
+        var back_button = new Granite.BackButton (_("Back"));
+        var back_revealer = new Gtk.Revealer () {
+            child = back_button,
+            transition_type = Gtk.RevealerTransitionType.SWING_LEFT,
+            reveal_child = false
+        };
+        headerbar.pack_start (back_revealer);
+        
+
         //TRANSLATORS: This is for a button that switches source and target language
         switchlang_button = new Gtk.Button.from_icon_name ("media-playlist-repeat") {
             tooltip_markup = Granite.markup_accel_tooltip ({"<Ctrl>I"}, _("Switch languages"))
@@ -78,8 +92,6 @@ public class MrWorldWide.MainWindow : Gtk.Window {
 
 
         /* ---------------- PACK END ---------------- */
-
-
 
         popover_button = new Gtk.MenuButton () {
             icon_name = "open-menu",
@@ -104,8 +116,7 @@ public class MrWorldWide.MainWindow : Gtk.Window {
 
         var translate_revealer = new Gtk.Revealer () {
             child = translate_button,
-            transition_type = Gtk.RevealerTransitionType.SWING_RIGHT,
-            transition_duration = 250
+            transition_type = Gtk.RevealerTransitionType.SWING_RIGHT
         };
         
         headerbar.pack_end (translate_revealer);
@@ -113,7 +124,12 @@ public class MrWorldWide.MainWindow : Gtk.Window {
 
         /* ---------------- MAIN VIEW ---------------- */
         translation_view = new MrWorldWide.TranslationView ();
-        child = translation_view;
+        stack_window_view = new Gtk.Stack ();
+
+        stack_window_view.add_child (translation_view);
+        stack_window_view.visible_child = stack_window_view;
+
+        child = stack_window_view;
 
         set_focus (translation_view.source_pane.textview);
 
@@ -133,6 +149,7 @@ public class MrWorldWide.MainWindow : Gtk.Window {
             SettingsBindFlags.INVERT_BOOLEAN
         );
 
+        back_button.clicked.connect (() => {stack_window_view.visible_child = stack_window_view;});
     }
 
     public void on_translate () {
