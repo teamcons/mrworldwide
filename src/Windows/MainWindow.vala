@@ -7,8 +7,6 @@ public class MrWorldWide.MainWindow : Gtk.Window {
 
     private Gtk.Button switchlang_button;
     private Gtk.MenuButton popover_button;
-    private Gtk.Spinner loading;
-    private Gtk.Revealer loading_revealer;
 
     public MrWorldWide.TranslationView translation_view;
     public MrWorldWide.SettingsPopover menu_popover;
@@ -112,16 +110,6 @@ public class MrWorldWide.MainWindow : Gtk.Window {
         
         headerbar.pack_end (translate_revealer);
 
-
-        loading = new Gtk.Spinner ();
-        loading_revealer = new Gtk.Revealer () {
-            child = loading,
-            reveal_child = false,
-            transition_type = Gtk.RevealerTransitionType.CROSSFADE,
-            transition_duration = 250
-        };
-
-        headerbar.pack_end (loading_revealer);
 
         /* ---------------- MAIN VIEW ---------------- */
         translation_view = new MrWorldWide.TranslationView ();

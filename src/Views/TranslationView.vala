@@ -85,8 +85,7 @@
                 debounce_timer_id = 0;
 
                     // Start translating!
-                    //loading.start ();
-                    //loading_revealer.reveal_child = true;
+                    target_pane.spin (true);
                     Application.backend.send_request (source_pane.text);
 
                 return GLib.Source.REMOVE;
@@ -102,8 +101,7 @@
 
     public void on_answer_received (string answer) {
         target_pane.text = answer;
-        //loading_revealer.reveal_child = false;
-        //loading.stop ();
+        target_pane.spin (false);
     }
 
     public void clear_source () {

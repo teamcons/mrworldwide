@@ -4,6 +4,9 @@
  */
  public class MrWorldWide.TargetPane : MrWorldWide.Pane {
 
+    private Gtk.Spinner loading;
+    private Gtk.Revealer loading_revealer;
+
     public TargetPane () {
         var model = new MrWorldWide.DDModel ();
         foreach (var language in MrWorldWide.TargetLang ()) {
@@ -18,6 +21,16 @@
         dropdown.tooltip_text = _("Set the language to translate to");
 
         textview.editable = false;
+
+        loading = new Gtk.Spinner ();
+        loading_revealer = new Gtk.Revealer () {
+            child = loading,
+            reveal_child = false,
+            transition_type = Gtk.RevealerTransitionType.CROSSFADE,
+            transition_duration = 250
+        };
+
+        actionbar.pack_start (loading_revealer);
 
         var copy = new Gtk.Button.from_icon_name ("edit-copy") {
             tooltip_text = _("Copy to clipboard")
@@ -57,6 +70,15 @@
   private void copy_to_clipboard () {
         var clipboard = Gdk.Display.get_default ().get_clipboard ();
         clipboard.set_text (textview.buffer.text);
+  }
+
+  public void spin (bool if_spin) {
+    if (if_spin) {
+        loading.start ();
+    } else {
+        loading.stop ();
+    }
+    loading_revealer.reveal_child = if_spin;
   }
 
   public void on_save_as () {
