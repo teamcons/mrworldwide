@@ -46,8 +46,7 @@
         orientation = Gtk.Orientation.VERTICAL;
         spacing = 0;
 
-		dropdown = new Gtk.DropDown (null, null);
-		dropdown.model = model.model;
+		dropdown = new Gtk.DropDown (model.model, null);
 		dropdown.factory = model.factory;
 		dropdown.notify["selected-item"].connect(on_selected_language);
 

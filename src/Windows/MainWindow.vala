@@ -6,7 +6,7 @@
 public class MrWorldWide.MainWindow : Gtk.Window {
 
     public Gtk.Revealer back_revealer;
-    private Granite.BackButton back_button;
+    private Gtk.Button back_button;
 
     private Gtk.Button switchlang_button;
     private Gtk.MenuButton popover_button;
@@ -72,7 +72,9 @@ public class MrWorldWide.MainWindow : Gtk.Window {
         /* ---------------- PACK START ---------------- */
 
         //TRANSLATORS: Back button to go back to translating
-        var back_button = new Granite.BackButton (_("Back"));
+        var back_button = new Gtk.Button.with_label (_("Back"));
+        back_button.add_css_class (Granite.STYLE_CLASS_BACK_BUTTON);
+
         var back_revealer = new Gtk.Revealer () {
             child = back_button,
             transition_type = Gtk.RevealerTransitionType.SWING_LEFT,

@@ -26,7 +26,7 @@ public class MrWorldWide.SettingsPopover : Gtk.Popover {
       margin_top = 3
     };
 
-    box.append (auto_switch);
+    //box.append (auto_switch);
 
 
     box.append (new Gtk.Separator (HORIZONTAL));

@@ -10,7 +10,7 @@
     public MrWorldWide.TargetPane target_pane;
 
     // Add a debounce so we aren't requesting the API constantly
-    public int interval = 2000; // ms
+    public int interval = 1500; // ms
     public uint debounce_timer_id = 0;
 
     construct {
