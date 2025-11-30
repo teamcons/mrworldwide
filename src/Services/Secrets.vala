@@ -16,7 +16,7 @@ Let the backend access it in a cache so there is no async BS.
 
 */
 
-public class MrWorldWide.Secrets : Object {
+public class MrWorldwide.Secrets : Object {
 
     public signal void retrieved (string result);
 

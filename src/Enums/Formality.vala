@@ -3,7 +3,7 @@
  * SPDX-FileCopyrightText:  2025 Stella & Charlie (teamcons.carrd.co)
  */
 
-public enum MrWorldWide.Formality {
+public enum MrWorldwide.Formality {
     MORE,
     PREFER_MORE,
     DEFAULT,

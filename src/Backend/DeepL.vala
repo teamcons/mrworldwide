@@ -44,7 +44,7 @@ public const SUPPORTED_TARGET
   */
 
 // Translation service that use translate
-public class MrWorldWide.DeepL : Object {
+public class MrWorldwide.DeepL : Object {
 
   private string source_lang;
   private string target_lang;
@@ -128,7 +128,7 @@ public class MrWorldWide.DeepL : Object {
 
     var msg = new Soup.Message ("POST", base_url + REST_OF_THE_URL);
     msg.request_headers.append ("Content-Type", "application/json");
-    msg.request_headers.append ("User-Agent", "Mr WorldWide");
+    msg.request_headers.append ("User-Agent", "Mr Worldwide");
     msg.request_headers.append ("Authorization", "DeepL-Auth-Key %s".printf (api_key));
     msg.set_request_body_from_bytes ("application/json", new Bytes (a.data));
 

@@ -3,12 +3,12 @@
  * SPDX-FileCopyrightText:  2025 Stella & Charlie (teamcons.carrd.co)
  */
 
- public class MrWorldWide.SourcePane : MrWorldWide.Pane {
+ public class MrWorldwide.SourcePane : MrWorldwide.Pane {
 
 
     public SourcePane () {
-        var model = new MrWorldWide.DDModel ();
-        foreach (var language in MrWorldWide.SourceLang ()) {
+        var model = new MrWorldwide.DDModel ();
+        foreach (var language in MrWorldwide.SourceLang ()) {
             model.model_append (language);
         }
         base (model);
@@ -30,7 +30,7 @@
         };
         options_button.add_css_class (Granite.STYLE_CLASS_FLAT);
         options_button_label.mnemonic_widget = options_button;
-        options_button.popover = new MrWorldWide.OptionsPopover () {halign = Gtk.Align.START};
+        options_button.popover = new MrWorldwide.OptionsPopover () {halign = Gtk.Align.START};
         options_button.direction = Gtk.ArrowType.UP;
 
         actionbar.pack_start (options_button);

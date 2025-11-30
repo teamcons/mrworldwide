@@ -38,15 +38,15 @@ msgid "Retry"
 msgstr "Pakartoti"
 
 #: src/Views/NoInternetView.vala:32
-msgid "Check if Mr WorldWide is allowed to access the internet"
-msgstr "Patikrinkite, ar \"Mr WorldWide\" leidžiama naudotis internetu"
+msgid "Check if Mr Worldwide is allowed to access the internet"
+msgstr "Patikrinkite, ar \"Mr Worldwide\" leidžiama naudotis internetu"
 
 #. ---------------- HEADERBAR ----------------
 #: src/Windows/MainWindow.vala:43
 #: src/Windows/MainWindow.vala:63
 #: src/Windows/MainWindow.vala:64
-msgid "Mr WorldWide"
-msgstr "Ponas WorldWide"
+msgid "Mr Worldwide"
+msgstr "Ponas Worldwide"
 
 #: src/Windows/MainWindow.vala:79
 #, fuzzy

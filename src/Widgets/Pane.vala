@@ -3,13 +3,13 @@
  * SPDX-FileCopyrightText:  2025 Stella & Charlie (teamcons.carrd.co)
  */
 
- public class MrWorldWide.Pane : Gtk.Box {
+ public class MrWorldwide.Pane : Gtk.Box {
 
-    public MrWorldWide.DDModel model {get; construct;}
+    public MrWorldwide.DDModel model {get; construct;}
 
     public Gtk.Revealer dropdown_revealer;
     public Gtk.DropDown dropdown;
-    public MrWorldWide.Lang selected;
+    public MrWorldwide.Lang selected;
     public Gtk.TextView textview;
     public Gtk.ActionBar actionbar;
     private Gtk.Label count;

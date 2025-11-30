@@ -3,7 +3,7 @@
  * SPDX-FileCopyrightText:  2025 Stella & Charlie (teamcons.carrd.co)
  */
 
- public class MrWorldWide.NoInternetView : Gtk.Box {
+ public class MrWorldwide.NoInternetView : Gtk.Box {
 
     construct {
         orientation = Gtk.Orientation.VERTICAL;

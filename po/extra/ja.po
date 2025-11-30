@@ -141,7 +141,7 @@ msgstr "翻訳の更新"
 
 #: data/mrworldwide.desktop.in:6
 #, fuzzy
-msgid "Mr WorldWide"
+msgid "Mr Worldwide"
 msgstr "全世界"
 
 #: data/mrworldwide.desktop.in:7

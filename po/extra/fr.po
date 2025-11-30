@@ -142,7 +142,7 @@ msgstr "Traductions mises à jour"
 
 #: data/mrworldwide.desktop.in:6
 #, fuzzy
-msgid "Mr WorldWide"
+msgid "Mr Worldwide"
 msgstr "mrworldwide"
 
 #: data/mrworldwide.desktop.in:7

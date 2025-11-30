@@ -2,14 +2,14 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
  * SPDX-FileCopyrightText:  2025 Stella & Charlie (teamcons.carrd.co)
  */
- public class MrWorldWide.TargetPane : MrWorldWide.Pane {
+ public class MrWorldwide.TargetPane : MrWorldwide.Pane {
 
     private Gtk.Spinner loading;
     private Gtk.Revealer loading_revealer;
 
     public TargetPane () {
-        var model = new MrWorldWide.DDModel ();
-        foreach (var language in MrWorldWide.TargetLang ()) {
+        var model = new MrWorldwide.DDModel ();
+        foreach (var language in MrWorldwide.TargetLang ()) {
             model.model_append (language);
         }
         base (model);

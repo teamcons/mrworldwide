@@ -147,7 +147,7 @@ msgid "Updated translations"
 msgstr ""
 
 #: data/mrworldwide.desktop.in:6
-msgid "Mr WorldWide"
+msgid "Mr Worldwide"
 msgstr ""
 
 #: data/mrworldwide.desktop.in:7

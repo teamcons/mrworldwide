@@ -5,7 +5,7 @@
  */
 
  // Thank you stronnag!
-public class MrWorldWide.DDModel : Object {
+public class MrWorldwide.DDModel : Object {
 	public GLib.ListStore model {get; set;}
 	public Gtk.SignalListItemFactory factory {get; set;}
 

@@ -3,7 +3,7 @@
  * SPDX-FileCopyrightText:  2025 Stella & Charlie (teamcons.carrd.co)
  */
 
- public class MrWorldWide.ApiEntry : Gtk.Box {
+ public class MrWorldwide.ApiEntry : Gtk.Box {
 
     public Gtk.PasswordEntry api_entry;
     private Gtk.Button api_paste;

@@ -3,11 +3,11 @@
  * SPDX-FileCopyrightText:  2025 Stella & Charlie (teamcons.carrd.co)
  */
 
- public class MrWorldWide.TranslationView : Gtk.Box {
+ public class MrWorldwide.TranslationView : Gtk.Box {
 
     private Gtk.Paned paned {get; set;}
-    public MrWorldWide.SourcePane source_pane;
-    public MrWorldWide.TargetPane target_pane;
+    public MrWorldwide.SourcePane source_pane;
+    public MrWorldwide.TargetPane target_pane;
 
     // Add a debounce so we aren't requesting the API constantly
     public int interval = 1500; // ms
@@ -17,12 +17,12 @@
         orientation = HORIZONTAL;
         spacing = 0;
 
-        source_pane = new MrWorldWide.SourcePane ();
+        source_pane = new MrWorldwide.SourcePane ();
         var selected_source_language = Application.settings.get_string ("source-language");
 
         source_pane.language = selected_source_language;
 
-        target_pane = new MrWorldWide.TargetPane ();
+        target_pane = new MrWorldwide.TargetPane ();
         var selected_target_language = Application.settings.get_string ("target-language");
         target_pane.language = selected_target_language;
 

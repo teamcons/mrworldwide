@@ -38,15 +38,15 @@ msgid "Retry"
 msgstr "Opakovanie"
 
 #: src/Views/NoInternetView.vala:32
-msgid "Check if Mr WorldWide is allowed to access the internet"
-msgstr "Skontrolujte, či má pán WorldWide povolený prístup na internet"
+msgid "Check if Mr Worldwide is allowed to access the internet"
+msgstr "Skontrolujte, či má pán Worldwide povolený prístup na internet"
 
 #. ---------------- HEADERBAR ----------------
 #: src/Windows/MainWindow.vala:43
 #: src/Windows/MainWindow.vala:63
 #: src/Windows/MainWindow.vala:64
-msgid "Mr WorldWide"
-msgstr "Pán WorldWide"
+msgid "Mr Worldwide"
+msgstr "Pán Worldwide"
 
 #: src/Windows/MainWindow.vala:79
 #, fuzzy

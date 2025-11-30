@@ -38,15 +38,15 @@ msgid "Retry"
 msgstr "Yeniden Dene"
 
 #: src/Views/NoInternetView.vala:32
-msgid "Check if Mr WorldWide is allowed to access the internet"
-msgstr "Bay WorldWide'ın internete erişim izni olup olmadığını kontrol edin"
+msgid "Check if Mr Worldwide is allowed to access the internet"
+msgstr "Bay Worldwide'ın internete erişim izni olup olmadığını kontrol edin"
 
 #. ---------------- HEADERBAR ----------------
 #: src/Windows/MainWindow.vala:43
 #: src/Windows/MainWindow.vala:63
 #: src/Windows/MainWindow.vala:64
-msgid "Mr WorldWide"
-msgstr "Bay WorldWide"
+msgid "Mr Worldwide"
+msgstr "Bay Worldwide"
 
 #: src/Windows/MainWindow.vala:79
 #, fuzzy

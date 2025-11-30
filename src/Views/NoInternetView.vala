@@ -3,7 +3,7 @@
  * SPDX-FileCopyrightText:  2025 Stella & Charlie (teamcons.carrd.co)
  */
 
- public class MrWorldWide.NoInternetView : Gtk.Box {
+ public class MrWorldwide.NoInternetView : Gtk.Box {
 
     construct {
         orientation = Gtk.Orientation.VERTICAL;
@@ -29,7 +29,7 @@
 
         if ( Environment.get_variable ("XDG_CURRENT_DESKTOP") == "Pantheon") {
             var link = Granite.SettingsUri.PERMISSIONS;
-            var linkname = _("Check if Mr WorldWide is allowed to access the internet");
+            var linkname = _("Check if Mr Worldwide is allowed to access the internet");
             var hint = new Gtk.LinkButton.with_label (link, linkname);
             append (hint);
         }

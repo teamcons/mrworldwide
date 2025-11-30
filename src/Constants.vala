@@ -4,7 +4,7 @@
  */
 
 
-namespace MrWorldWide {
+namespace MrWorldwide {
 
 
 	// https://developers.deepl.com/docs/getting-started/supported-languages

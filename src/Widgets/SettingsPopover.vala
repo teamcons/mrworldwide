@@ -3,9 +3,9 @@
  * SPDX-FileCopyrightText:  2025 Stella & Charlie (teamcons.carrd.co)
  */
 
-public class MrWorldWide.SettingsPopover : Gtk.Popover {
+public class MrWorldwide.SettingsPopover : Gtk.Popover {
 
-  private MrWorldWide.ApiEntry api_entry;
+  private MrWorldwide.ApiEntry api_entry;
   private Gtk.Revealer usage_revealer;
   private const string LINK = "https://www.deepl.com/your-account/keys";
 
@@ -50,14 +50,14 @@ public class MrWorldWide.SettingsPopover : Gtk.Popover {
   
     box.append (cb);
 
-    api_entry = new MrWorldWide.ApiEntry () {
+    api_entry = new MrWorldwide.ApiEntry () {
       margin_start = 12,
       margin_end = 12
     };
 
     box.append (api_entry);
 
-    var api_level = new MrWorldWide.ApiLevel () {
+    var api_level = new MrWorldwide.ApiLevel () {
       margin_start = 15,
       margin_end = 15,
       margin_top = 3

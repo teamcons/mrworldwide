@@ -3,7 +3,7 @@
  * SPDX-FileCopyrightText:  2025 Stella & Charlie (teamcons.carrd.co)
  */
 
-public class MrWorldWide.MainWindow : Gtk.Window {
+public class MrWorldwide.MainWindow : Gtk.Window {
 
     public Gtk.Revealer back_revealer;
     private Gtk.Button back_button;
@@ -12,8 +12,8 @@ public class MrWorldWide.MainWindow : Gtk.Window {
     private Gtk.MenuButton popover_button;
 
     private Gtk.Stack stack_window_view;
-    public MrWorldWide.TranslationView translation_view;
-    public MrWorldWide.SettingsPopover menu_popover;
+    public MrWorldwide.TranslationView translation_view;
+    public MrWorldwide.SettingsPopover menu_popover;
 
     public SimpleActionGroup actions { get; construct; }
     public const string ACTION_PREFIX = "app.";
@@ -42,7 +42,7 @@ public class MrWorldWide.MainWindow : Gtk.Window {
             default_height: 300,
             default_width: 300,
             icon_name: "io.github.teamcons.mrworldwide",
-            title: _("Mr WorldWide")
+            title: _("Mr Worldwide")
         );
     }
 
@@ -59,8 +59,8 @@ public class MrWorldWide.MainWindow : Gtk.Window {
         insert_action_group ("app", actions);
 
         /* ---------------- HEADERBAR ---------------- */
-        title = _("Mr WorldWide");
-        Gtk.Label title_widget = new Gtk.Label (_("Mr WorldWide"));
+        title = _("Mr Worldwide");
+        Gtk.Label title_widget = new Gtk.Label (_("Mr Worldwide"));
         title_widget.add_css_class (Granite.STYLE_CLASS_TITLE_LABEL);
 
         var headerbar = new Gtk.HeaderBar ();
@@ -103,7 +103,7 @@ public class MrWorldWide.MainWindow : Gtk.Window {
         popover_button.set_primary (true);
         popover_button.set_direction (Gtk.ArrowType.NONE);
 
-        var menu_popover = new MrWorldWide.SettingsPopover ();
+        var menu_popover = new MrWorldwide.SettingsPopover ();
         popover_button.popover = menu_popover;
 
         headerbar.pack_end (popover_button);
@@ -125,7 +125,7 @@ public class MrWorldWide.MainWindow : Gtk.Window {
 
 
         /* ---------------- MAIN VIEW ---------------- */
-        translation_view = new MrWorldWide.TranslationView ();
+        translation_view = new MrWorldwide.TranslationView ();
         stack_window_view = new Gtk.Stack ();
 
         stack_window_view.add_child (translation_view);

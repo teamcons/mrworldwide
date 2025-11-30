@@ -4,7 +4,7 @@
  * SPDX-FileCopyrightText:  2025 Stella & Charlie (teamcons.carrd.co)
  */
 
-public class MrWorldWide.Lang : Object {
+public class MrWorldwide.Lang : Object {
 
     public string code {get; private set;}
     public string name {get; private set;}

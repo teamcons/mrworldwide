@@ -11,7 +11,7 @@
 ## Installation
 
 NOT YET
-You can download and install Mr WorldWide from various sources:
+You can download and install Mr Worldwide from various sources:
 
 [![Get it on AppCenter](https://appcenter.elementary.io/badge.svg?new)](https://appcenter.elementary.io/io.github.teamcons/mrworldwide) 
 [<img src="https://flathub.org/assets/badges/flathub-badge-en.svg" width="160" alt="Download on Flathub">](https://flathub.org/apps/io.github.teamcons/mrworldwide)

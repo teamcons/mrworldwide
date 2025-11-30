@@ -12,23 +12,18 @@
   <name>mrworldwide</name>
   <summary>Translate text elegantly</summary>
   <description>
-    <p>The power of language in the palm of your hand</p>
+    <p>The power of language in the palm of your hand!</p>
     <p>
-      Yet another translation app. This one uses DeepL as backend, and goes for the no-nonsense, simple and clean route.
-      But i mostly just wanted to try out the UI, and needed something elementary OS to integrate with our elementary OS
+      No nonsense, simple, clean, efficient translation app using DeepL free and paid API
     </p>
-    <p>Features include:</p>
+    <p>Some points:</p>
       <ul>
-            <li>Nimble: Quick to setup: Paste your api key, whether DeepL Free or Pro, and here you go!</li>
-            <li>Toggle the view to be either horizontal or vertical</li>
-            <li>You can add context to the text to translate!</li>
-            <li>You can choose level of formality for the supported languages!</li>
-            <li>You can see your current API usage!</li>
+            <li>Nimble: Paste your api key, and here you go!</li>
+            <li>Out of your way: Remembers context, formality, languages</li>
+            <li>Convenient: lets you check how much you have left</li>
             <li>Supported languages: All those available via DeepL API!</li>
-            <li>Detect language: As expected of a translator!</li>
-            <li>System language: No need to search for it in the list ;)</li>
       </ul>
-    <p>This is still under big development</p>
+    <p>If you like this app please do not hesitate to donate to encourage its development!</p>
   </description>
 
   <screenshots>

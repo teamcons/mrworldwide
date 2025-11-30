@@ -37,15 +37,15 @@ msgid "Retry"
 msgstr "Wiederholung"
 
 #: src/Views/NoInternetView.vala:32
-msgid "Check if Mr WorldWide is allowed to access the internet"
-msgstr "Prüfen Sie, ob Mr WorldWide Zugang zum Internet hat"
+msgid "Check if Mr Worldwide is allowed to access the internet"
+msgstr "Prüfen Sie, ob Mr Worldwide Zugang zum Internet hat"
 
 #. ---------------- HEADERBAR ----------------
 #: src/Windows/MainWindow.vala:43
 #: src/Windows/MainWindow.vala:63
 #: src/Windows/MainWindow.vala:64
-msgid "Mr WorldWide"
-msgstr "Mr WorldWide"
+msgid "Mr Worldwide"
+msgstr "Mr Worldwide"
 
 #: src/Windows/MainWindow.vala:79
 msgid "Change options for the translation"

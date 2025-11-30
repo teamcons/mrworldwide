@@ -3,7 +3,7 @@
 * SPDX-FileCopyrightText: {{YEAR}} {{DEVELOPER_NAME}} <{{DEVELOPER_EMAIL}}>
 */
 
-public class MrWorldWide.Application : Gtk.Application {
+public class MrWorldwide.Application : Gtk.Application {
     public static MainWindow main_window;
 
     public static Settings settings;

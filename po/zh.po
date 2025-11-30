@@ -37,14 +37,14 @@ msgid "Retry"
 msgstr "重试"
 
 #: src/Views/NoInternetView.vala:32
-msgid "Check if Mr WorldWide is allowed to access the internet"
-msgstr "检查是否允许 WorldWide 先生访问互联网"
+msgid "Check if Mr Worldwide is allowed to access the internet"
+msgstr "检查是否允许 Worldwide 先生访问互联网"
 
 #. ---------------- HEADERBAR ----------------
 #: src/Windows/MainWindow.vala:43
 #: src/Windows/MainWindow.vala:63
 #: src/Windows/MainWindow.vala:64
-msgid "Mr WorldWide"
+msgid "Mr Worldwide"
 msgstr "世界先生"
 
 #: src/Windows/MainWindow.vala:79

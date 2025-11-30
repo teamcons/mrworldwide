@@ -3,7 +3,7 @@
  * SPDX-FileCopyrightText:  2025 Stella & Charlie (teamcons.carrd.co)
  */
 
-public class MrWorldWide.OrientationBox : Gtk.Box {
+public class MrWorldwide.OrientationBox : Gtk.Box {
 
     construct {
         homogeneous = true;

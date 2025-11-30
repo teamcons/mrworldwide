@@ -3,7 +3,7 @@
  * SPDX-FileCopyrightText:  2025 Stella & Charlie (teamcons.carrd.co)
  */
 
- public class MrWorldWide.ApiLevel : Gtk.Box {
+ public class MrWorldwide.ApiLevel : Gtk.Box {
 
     private Gtk.LevelBar api_usage;
 

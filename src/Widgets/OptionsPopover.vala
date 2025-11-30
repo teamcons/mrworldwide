@@ -3,7 +3,7 @@
  * SPDX-FileCopyrightText:  2025 Stella & Charlie (teamcons.carrd.co)
  */
 
-public class MrWorldWide.OptionsPopover : Gtk.Popover {
+public class MrWorldwide.OptionsPopover : Gtk.Popover {
 
   private Gtk.Box formalbox;
 
