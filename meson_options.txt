@@ -1,0 +1,1 @@
+option('debug_features', type : 'boolean', value : true, description : 'secret features to make debugging easier')
