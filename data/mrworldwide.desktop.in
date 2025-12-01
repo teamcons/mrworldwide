@@ -6,11 +6,17 @@ Name=Mr Worldwide
 GenericName=Text translator
 Comment=Translate text elegantly
 Categories=Office;Education;GTK;
-Keywords=text;translate;translation;deepl;NMT;lang;localize;l10n;i18n;localization;internationalization;
+Keywords=text;translate;translation;translator;deepl;NMT;lang;localize;l10n;i18n;localization;internationalization;
 
 Icon=io.github.teamcons.mrworldwide
 Exec=io.github.teamcons.mrworldwide
 Terminal=false
+Actions=NewWindow;
 StartupNotify=true
-SingleMainWindow=true
+SingleMainWindow=false
 MimeType=text/plain;
+
+[Desktop Action NewWindow]
+Name=Open new window
+Icon=window-new
+Exec=io.github.teamcons.mrworldwide --new-window
