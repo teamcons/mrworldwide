@@ -107,7 +107,7 @@
         modal = true
     };
 
-    save_dialog.save.begin ((Application).main_window, null, (obj, res) => {
+    save_dialog.save.begin ((MrWorldwide.MainWindow)get_root (), null, (obj, res) => {
         try {
             var file = save_dialog.save.end (res);
                 var content = this.text;

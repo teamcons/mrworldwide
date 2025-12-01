@@ -129,7 +129,7 @@ public class MrWorldwide.MainWindow : Gtk.Window {
         stack_window_view = new Gtk.Stack ();
 
         stack_window_view.add_child (translation_view);
-        stack_window_view.visible_child = stack_window_view;
+        stack_window_view.visible_child = translation_view;
 
         child = stack_window_view;
 

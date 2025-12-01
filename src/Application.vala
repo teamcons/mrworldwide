@@ -94,16 +94,17 @@ public class MrWorldwide.Application : Gtk.Application {
     protected override void activate () {
         if ((get_windows ().length () == 0) || new_window) {
             open_new_window ();
+            new_window = false;
 
         } else {
-            foreach (var window in get_windows) {
+            foreach (var window in get_windows ()) {
                 window.present ();
             }
         }
     }
 
     private void open_new_window () {
-        var window = new MainWindow (this)
+        var window = new MainWindow (this);
         /*
         * This is very finicky. Bind size after present else set_titlebar gives us bad sizes
         * Set maximize after height/width else window is min size on unmaximize
@@ -132,7 +133,7 @@ public class MrWorldwide.Application : Gtk.Application {
         try {
             var content = "";
             FileUtils.get_contents (file.get_path (), out content);
-            main_window.translation_view.source_pane.text = content;
+            ((MrWorldwide.MainWindow)active_window).translation_view.source_pane.text = content;
 
         } catch (Error e) {
             warning ("Failed to open file: %s", e.message);
@@ -144,7 +145,7 @@ public class MrWorldwide.Application : Gtk.Application {
             ) {
                 badge_icon = new ThemedIcon ("dialog-error"),
                 modal = true,
-                transient_for = main_window
+                transient_for = ((MrWorldwide.MainWindow)active_window)
             };
             dialog.present ();
             dialog.response.connect (dialog.destroy);

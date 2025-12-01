@@ -117,7 +117,7 @@
         modal = true
     };
 
-    open_dialog.open.begin ((Application).main_window, null, (obj, res) => {
+    open_dialog.open.begin ((MrWorldwide.MainWindow)get_root (), null, (obj, res) => {
       try {
         var file = open_dialog.open.end (res);
         var content = "";
