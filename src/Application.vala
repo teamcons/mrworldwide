@@ -7,13 +7,12 @@ public class MrWorldwide.Application : Gtk.Application {
 
     public static Settings settings;
     public static DeepL backend;
-
-    private bool new_window = false;
+    public static MainWindow main_window;
 
     public Application () {
         Object (
             application_id: "io.github.teamcons.mrworldwide",
-            flags: ApplicationFlags.HANDLES_OPEN | ApplicationFlags.HANDLES_COMMAND_LINE
+            flags: ApplicationFlags.HANDLES_OPEN
         );
     }
 
@@ -92,36 +91,29 @@ public class MrWorldwide.Application : Gtk.Application {
     }
 
     protected override void activate () {
-        if ((get_windows ().length () == 0) || new_window) {
-            open_new_window ();
-            new_window = false;
-
-        } else {
-            foreach (var window in get_windows ()) {
-                window.present ();
-            }
+        if (main_window != null) {
+            main_window.present ();
+            return;
         }
-    }
 
-    private void open_new_window () {
-        var window = new MainWindow (this);
         /*
         * This is very finicky. Bind size after present else set_titlebar gives us bad sizes
         * Set maximize after height/width else window is min size on unmaximize
         * Bind maximize as SET else get get bad sizes
         */
         settings = new Settings ("io.github.teamcons.mrworldwide");
-        settings.bind ("window-height", window, "default-height", SettingsBindFlags.DEFAULT);
-        settings.bind ("window-width", window, "default-width", SettingsBindFlags.DEFAULT);
+        settings.bind ("window-height", main_window, "default-height", SettingsBindFlags.DEFAULT);
+        settings.bind ("window-width", main_window, "default-width", SettingsBindFlags.DEFAULT);
 
         if (settings.get_boolean ("window-maximized")) {
-            window.maximize ();
+            main_window.maximize ();
         }
 
-        settings.bind ("window-maximized", window, "maximized", SettingsBindFlags.SET);
+        settings.bind ("window-maximized", main_window, "maximized", SettingsBindFlags.SET);
 
-        window.show ();
-        window.present ();
+        main_window.show ();
+        main_window.present ();
+
     }
 
     protected override void open (File[] files, string hint) {
@@ -133,7 +125,7 @@ public class MrWorldwide.Application : Gtk.Application {
         try {
             var content = "";
             FileUtils.get_contents (file.get_path (), out content);
-            ((MrWorldwide.MainWindow)active_window).translation_view.source_pane.text = content;
+            main_window.translation_view.source_pane.text = content;
 
         } catch (Error e) {
             warning ("Failed to open file: %s", e.message);
@@ -145,7 +137,7 @@ public class MrWorldwide.Application : Gtk.Application {
             ) {
                 badge_icon = new ThemedIcon ("dialog-error"),
                 modal = true,
-                transient_for = ((MrWorldwide.MainWindow)active_window)
+                transient_for = main_window
             };
             dialog.present ();
             dialog.response.connect (dialog.destroy);
@@ -154,37 +146,5 @@ public class MrWorldwide.Application : Gtk.Application {
 
     public static int main (string[] args) {
         return new Application ().run (args);
-    }
-
-    public override int command_line (ApplicationCommandLine command_line) {
-        debug ("Parsing commandline arguments...");
-
-        OptionEntry[] CMD_OPTION_ENTRIES = {
-                {"new-window", 'n', OptionFlags.NONE, OptionArg.NONE, ref new_window, _("Open a new window"), null}
-        };
-
-        // We have to make an extra copy of the array, since .parse assumes
-        // that it can remove strings from the array without freeing them.
-        string[] args = command_line.get_arguments ();
-        string[] _args = new string[args.length];
-        for (int i = 0; i < args.length; i++) {
-            _args[i] = args[i];
-        }
-
-        try {
-            var ctx = new OptionContext ();
-            ctx.set_help_enabled (true);
-            ctx.add_main_entries (CMD_OPTION_ENTRIES, null);
-            unowned string[] tmp = _args;
-            ctx.parse (ref tmp);
-
-        } catch (OptionError e) {
-            command_line.print ("error: %s\n", e.message);
-            return 0;
-        }
-
-        hold ();
-        activate ();
-        return 0;
     }
 }

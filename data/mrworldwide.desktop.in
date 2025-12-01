@@ -11,12 +11,6 @@ Keywords=text;translate;translation;translator;deepl;NMT;lang;localize;l10n;i18n
 Icon=io.github.teamcons.mrworldwide
 Exec=io.github.teamcons.mrworldwide
 Terminal=false
-Actions=NewWindow;
 StartupNotify=true
-SingleMainWindow=false
+SingleMainWindow=true
 MimeType=text/plain;
-
-[Desktop Action NewWindow]
-Name=Open new window
-Icon=window-new
-Exec=io.github.teamcons.mrworldwide --new-window
