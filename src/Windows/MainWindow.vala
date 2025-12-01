@@ -151,7 +151,7 @@ public class MrWorldwide.MainWindow : Gtk.Window {
             SettingsBindFlags.INVERT_BOOLEAN
         );
 
-        back_button.clicked.connect (() => {stack_window_view.visible_child = stack_window_view;});
+        //back_button.clicked.connect (() => {stack_window_view.visible_child = stack_window_view;});
     }
 
     public void on_translate () {
