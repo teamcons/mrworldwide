@@ -31,6 +31,5 @@
         append (hint);
 
         //TODO: add button that shows up whenever entry not empty
-        //TODO: also donation link
     }
 }
