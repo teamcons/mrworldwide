@@ -46,9 +46,14 @@
         orientation = Gtk.Orientation.VERTICAL;
         spacing = 0;
 
-		dropdown = new Gtk.DropDown (model.model, null);
-		dropdown.factory = model.factory;
+        var expression = new Gtk.PropertyExpression (typeof(MrWorldwide.Lang), null, "name");
+
+		dropdown = new Gtk.DropDown (model.model, expression) {
+            factory = model.factory,
+            enable_search = true
+        };
 		dropdown.notify["selected-item"].connect(on_selected_language);
+
 
         dropdown_revealer = new Gtk.Revealer () {
             child = dropdown,

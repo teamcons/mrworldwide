@@ -96,6 +96,8 @@ public class MrWorldwide.Application : Gtk.Application {
             return;
         }
 
+        var main_window = new MainWindow (this);
+
         /*
         * This is very finicky. Bind size after present else set_titlebar gives us bad sizes
         * Set maximize after height/width else window is min size on unmaximize
