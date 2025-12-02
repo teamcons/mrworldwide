@@ -53,9 +53,9 @@ public class MrWorldwide.DeepL : Object {
   public string system_language;
   private string context;
 
-  public signal void answer_received (string translated_text);
+  public signal void answer_received (string translated_text, uint status);
   public signal void language_detected (string? detected_language_code = null);
-  public signal void usage_retrieved ();
+  public signal void usage_retrieved (uint status);
 
   private const string URL_DEEPL_FREE = "https://api-free.deepl.com";
   private const string URL_DEEPL_PRO = "https://api.deepl.com";
@@ -132,17 +132,24 @@ public class MrWorldwide.DeepL : Object {
     msg.request_headers.append ("Authorization", "DeepL-Auth-Key %s".printf (api_key));
     msg.set_request_body_from_bytes ("application/json", new Bytes (a.data));
 
-    session.send_and_read_async.begin (msg, 0, null, (obj, res) => {
-      try {
+    session.send_and_read_async.begin (msg, 0, null, request_cb);
+  }
+
+  private void request_cb (Object? object, AsyncResult res) {
+    var session = object as Soup.Session;
+
+    try {
         var bytes = session.send_and_read_async.end (res);
         var answer = (string)bytes.get_data ();
         var unwrapped_text = unwrap_json (answer);
-        answer_received (unwrapped_text);
+
+        var msg = session.get_async_result_message (res);
+
+        answer_received (unwrapped_text, msg.status_code);
 
       } catch (Error e) {
         stderr.printf ("Got: %s\n", e.message);
       }
-    });
   }
 
   public string prep_json (string text) {
@@ -204,6 +211,7 @@ public class MrWorldwide.DeepL : Object {
           parser.load_from_data (text_json);
     } catch (Error e) {
         print ("\nCannot: " + e.message);
+        return text_json;
     }
 
     var root = parser.get_root ();
@@ -211,24 +219,17 @@ public class MrWorldwide.DeepL : Object {
     var array = objects.get_array_member ("translations");
     var translation = array.get_object_element (0);
 
-    var billed_characters = (int)translation.get_int_member_with_default (
-                                                                          "billed_characters",
-                                                                          0);
+    var billed_characters = (int)translation.get_int_member_with_default ("billed_characters", 0);
     current_usage = current_usage + billed_characters;
     Application.settings.set_int ("current-usage", current_usage);
 
     if (source_lang == "idk") {
-          var detected_language_code = translation.get_string_member_with_default (
-                                                                                          "detected_source_language",
-                                                                                           (_("Cannot detect!")));
+          var detected_language_code = translation.get_string_member_with_default ("detected_source_language", (_("Cannot detect!")));
           print ("\n Detected language code: " + detected_language_code);
           language_detected (detected_language_code);
     }
 
-
-    string translated_text = translation.get_string_member_with_default (
-                                                                        "text",
-                                                                        _("Cannot retrieve translated text!"));
+    string translated_text = translation.get_string_member_with_default ("text", _("Cannot retrieve translated text!"));
     return translated_text;
   }
 
@@ -247,8 +248,14 @@ public class MrWorldwide.DeepL : Object {
       stderr.printf ("%c %s\n", dir, text);
     });
 
-    session.send_and_read_async.begin (msg, 0, null, (obj, res) => {
-      try {
+    session.send_and_read_async.begin (msg, 0, null, usage_cb);
+  }
+
+
+  private void usage_cb (Object? object, AsyncResult res) {
+    var session = object as Soup.Session;
+
+    try {
         var bytes = session.send_and_read_async.end (res);
         var answer = (string)bytes.get_data ();
 
@@ -263,12 +270,12 @@ public class MrWorldwide.DeepL : Object {
         Application.settings.set_int ("current-usage", current_usage);
         Application.settings.set_int ("max-usage", max_usage);
 
-        usage_retrieved ();
+        var _msg = session.get_async_result_message (res);
+        usage_retrieved (_msg.status_code);
 
       } catch (Error e) {
         stderr.printf ("Got: %s\n", e.message);
       }
-    });
   }
 
 

@@ -5,13 +5,13 @@
 
  public class MrWorldwide.ErrorView : Gtk.Box {
 
-    public int status { get; construct; }
+    public uint status { get; construct; }
     public string message { get; construct; }
 
     private string explanation_title;
     private string explanation_text;
 
-    public ErrorView (int status, string? message = _("No details available")) {
+    public ErrorView (uint status, string? message = _("No details available")) {
         Object (
             status: status,
             message: message
@@ -63,12 +63,11 @@
         switch_reveal_console.bind_property ("active", revealer_console, "reveal-child", SYNC_CREATE);
     }
 
-    private void status_to_message (int status) {
+    private void status_to_message (uint status) {
         switch (status) {
-#if DEBUG_FEATURES
             case 200: explanation_title = _("Everything works great :)"); explanation_text = _("\n If you see this and are not me, then it means i forgor to disable this error");return;
-#endif
             case 400: explanation_title = _("Bad request"); explanation_text = _("This is an issue on the app side and should not happen");return;
+            case 403: explanation_title = _("Forbidden"); explanation_text = _("Your API key is invalid. Make sure it is the correct one!");return;
             case 429: explanation_title = _("Too many requests"); explanation_text = _("Wait before retrying");return;
             case 456: explanation_title = _("Your monthly quota has been exceeded"); explanation_text = _("If you are a Pro API user, this corresponds to your Cost Control limit");return;
             case 500: explanation_title = _("Internal server error"); explanation_text = _("Retry in a minute? If you see this several times, check online if there is a DeepL service interruption");return;

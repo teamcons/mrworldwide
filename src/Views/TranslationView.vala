@@ -45,8 +45,6 @@
         Application.settings.changed["context"].connect (on_text_to_translate);
         Application.settings.changed["formality"].connect (on_text_to_translate);
 
-        // Connect to the backend and do stuff if answer
-        Application.backend.answer_received.connect (on_answer_received);
     }
 
     public void switch_languages () {
@@ -97,11 +95,6 @@
                 target_pane.clear ();
             }
         }
-    }
-
-    public void on_answer_received (string answer) {
-        target_pane.text = answer;
-        target_pane.spin (false);
     }
 
     public void clear_source () {
