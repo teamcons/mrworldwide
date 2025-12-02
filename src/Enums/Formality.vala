@@ -20,4 +20,15 @@ public enum MrWorldwide.Formality {
         default: return "default";
       }
     }
+
+    public static Formality from_int (int number) {
+      switch (number) {
+        case 0: return MORE;
+        case 1: return PREFER_MORE;
+        case 2: return DEFAULT;
+        case 3: return PREFER_LESS;
+        case 4: return LESS;
+        default: return DEFAULT;
+      }
+    }
 }

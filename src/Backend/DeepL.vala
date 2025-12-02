@@ -174,21 +174,10 @@ public class MrWorldwide.DeepL : Object {
       builder.add_string_value (context);
     }
 
-    // TODO: This but cleaner
     if (target_lang in SUPPORTED_FORMALITY) {
-      string formality;
-
-      switch (Application.settings.get_enum ("formality")) {
-        case 0: formality = "more"; break;
-        case 1: formality = "prefer_more"; break;
-        case 2: formality = "default"; break;
-        case 3: formality = "prefer_less"; break;
-        case 4: formality = "less"; break;
-        default: formality = "default"; break;
-      }
-
+      var formality = Formality.from_int (Application.settings.get_enum ("formality"));
       builder.set_member_name ("formality");
-      builder.add_string_value (formality);
+      builder.add_string_value (formality.to_string ());
     }
 
     builder.set_member_name ("show_billed_characters");

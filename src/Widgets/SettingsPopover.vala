@@ -21,14 +21,12 @@ public class MrWorldwide.SettingsPopover : Gtk.Popover {
     box.append (new OrientationBox ());
 
     var auto_switch = new Granite.SwitchModelButton (_("Translate automatically")) {
-      description = _("The translation will start 2 seconds after typing has stopped"),
+      description = _("The translation will start 1.5 seconds after typing has stopped"),
       hexpand = true,
       margin_top = 3
     };
 
-#if DEBUG_FEATURES
-    box.append (auto_switch);
-#endif
+    //box.append (auto_switch);
 
     box.append (new Gtk.Separator (HORIZONTAL));
 
