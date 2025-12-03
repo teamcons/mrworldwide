@@ -34,33 +34,33 @@
         append (title);
 
         var button_retry = new Gtk.Button.with_label (_("Retry")) {
-            halign = Gtk.Align.CENTER,
+            halign = Gtk.Align.RIGHT,
             valign = Gtk.Align.CENTER
         };
         append (button_retry);
 
         button_retry.clicked.connect (Application.backend.check_usage);
 
-
-        var switch_reveal_console = new Granite.SwitchModelButton (_("Show Console"));
-        append (switch_reveal_console);
-
-        var console = new Gtk.TextView () {
-            editable = false
-        };
-        console.buffer.text = message;
-        console.add_css_class (Granite.STYLE_CLASS_TERMINAL);
-
-        var scroll_console = new Gtk.ScrolledWindow () {
-            child = console
+        var details_view = new Gtk.Label (message) {
+            selectable = true,
+            wrap = true,
+            xalign = 0,
+            yalign = 0
         };
 
-        var revealer_console = new Gtk.Revealer () {
-            child = scroll_console
+        var scroll_box = new Gtk.ScrolledWindow () {
+            child = details_view,
+            margin_top = 12,
+            min_content_height = 70
         };
-        append (revealer_console);
+        scroll_box.add_css_class (Granite.STYLE_CLASS_TERMINAL);
 
-        switch_reveal_console.bind_property ("active", revealer_console, "reveal-child", SYNC_CREATE);
+        var expander = new Gtk.Expander (_("Details")) {
+            child = scroll_box,
+            hexpand = true
+        };
+        
+        append (expander);
     }
 
     private void status_to_message (uint status) {
