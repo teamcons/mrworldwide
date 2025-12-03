@@ -92,8 +92,6 @@ public class MrWorldwide.MainWindow : Gtk.Window {
         headerbar.pack_start (switchlang_button);
 
 
-
-
         /* ---------------- PACK END ---------------- */
 
         popover_button = new Gtk.MenuButton () {
@@ -203,12 +201,13 @@ public class MrWorldwide.MainWindow : Gtk.Window {
             errorview = new MrWorldwide.ErrorView (status_code, answer);
             stack_window_view.add_child (errorview);
             stack_window_view.visible_child = errorview;
+            back_revealer.reveal_child = true;
             return;
         //}
 
         translation_view.target_pane.text = answer;
         translation_view.target_pane.spin (false);
-        stack_window_view.visible_child = translation_view;
+        //stack_window_view.visible_child = translation_view;
     }
 }
 

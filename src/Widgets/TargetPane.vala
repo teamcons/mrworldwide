@@ -17,10 +17,8 @@
 
     construct {
         stack.visible_child_name = "placeholder";
-        
         dropdown.tooltip_text = _("Set the language to translate to");
-
-        textview.editable = false;
+        //textview.editable = false;
 
         loading = new Gtk.Spinner ();
         loading_revealer = new Gtk.Revealer () {
@@ -117,7 +115,7 @@
             warning ("Failed to save file: %s", err.message);
         }
     });
-}
+    }
 
 
     private void on_buffer_changed () {
