@@ -152,8 +152,15 @@ public class MrWorldwide.DeepL : Object {
         answer_received (msg.status_code, unwrapped_text);
 
       } catch (Error e) {
-        stderr.printf ("Got: %s\n", e.message);
-        answer_received (0, e.message);
+        print (e.domain.to_string ());
+
+        if (e.domain.to_string () == "g-resolver-error-quark") {
+          answer_received (1, e.message);
+
+        } else {
+          stderr.printf ("Got: %s\n", e.message);
+          answer_received (2, e.message);
+        }
       }
   }
 

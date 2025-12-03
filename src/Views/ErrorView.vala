@@ -96,9 +96,16 @@
 
     private void status_to_message (uint status) {
         switch (status) {
+            //Custom codes feel super evil
+            case 1:
+                explanation_title = _("No Internet");
+                explanation_text = _("Please check you are connected to the internet, and that this app has permission to access it\nIf you changed any firewall settings, check there as well!");
+                icon_name = "network-offline-symbolic";
+                return;
+
             case 200:
                 explanation_title = _("Everything works great :)");
-                explanation_text = _("\nIf you see this and are not me, then it means i forgor to disable this error");
+                explanation_text = _("If you see this and are not me, then it means i forgor to disable this error");
                 icon_name = "process-completed";
                 return;
 
@@ -143,7 +150,7 @@
                 explanation_text = _("No answer has been received. Either DeepL or your connection are having issues");
                 icon_name = "network-error";
                 return;
-            
+
             case 504:
                 explanation_title = _("Gateway timeout");
                 explanation_text = _("No answer has been received. Either DeepL or your connection are having issues");
