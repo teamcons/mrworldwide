@@ -12,6 +12,8 @@ public class MrWorldwide.MainWindow : Gtk.Window {
 
     private Gtk.Stack stack_window_view;
     public MrWorldwide.TranslationView translation_view;
+    private MrWorldwide.ErrorView? errorview = null;
+
     public MrWorldwide.SettingsPopover menu_popover;
 
     public SimpleActionGroup actions { get; construct; }
@@ -125,9 +127,10 @@ public class MrWorldwide.MainWindow : Gtk.Window {
 
         /* ---------------- MAIN VIEW ---------------- */
         translation_view = new MrWorldwide.TranslationView ();
-        stack_window_view = new Gtk.Stack ();
-
-        stack_window_view.add_child (translation_view);
+        stack_window_view = new Gtk.Stack () {
+            transition_type = Gtk.RevealerTransitionType.SLIDE_LEFT
+        };
+        stack_window_view.add_child ();
         stack_window_view.visible_child = translation_view;
 
         child = stack_window_view;
@@ -187,7 +190,9 @@ public class MrWorldwide.MainWindow : Gtk.Window {
     }
 
     private void on_back_clicked () {
-        stack_window_view.visible_child = stack_window_view;
+        stack_window_view.visible_child = translation_view;
+        stack_window_view.remove (errorview);
+        errorview = null;
         back_revealer.reveal_child = false;
     }
 
@@ -195,7 +200,7 @@ public class MrWorldwide.MainWindow : Gtk.Window {
         print (status_code.to_string ());
 
         //if (status_code != Soup.Status.OK) {
-            var errorview = new MrWorldwide.ErrorView (status_code, answer);
+            errorview = new MrWorldwide.ErrorView (status_code, answer);
             stack_window_view.add_child (errorview);
             stack_window_view.visible_child = errorview;
             return;
