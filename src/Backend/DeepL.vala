@@ -46,6 +46,8 @@ public const SUPPORTED_TARGET
 // Translation service that use translate
 public class MrWorldwide.DeepL : Object {
 
+  private Soup.Session session;
+
   private string source_lang;
   private string target_lang;
   private string api_key;
@@ -68,6 +70,17 @@ public class MrWorldwide.DeepL : Object {
   public int max_usage = 0;
 
   construct {
+
+    session = new Soup.Session ();
+
+    var logger = new Soup.Logger (Soup.LoggerLogLevel.BODY);
+    session.add_feature (logger);
+    // optional, stderr (vice stdout)
+    logger.set_printer ((_1, _2, dir, text) => {
+      stderr.printf ("%c %s\n", dir, text);
+    });
+
+
     system_language = detect_system ();
 
     // Fallback
@@ -117,14 +130,7 @@ public class MrWorldwide.DeepL : Object {
     context = Application.settings.get_string ("context");
 
     var a = prep_json (text);
-    var session = new Soup.Session ();
 
-    var logger = new Soup.Logger (Soup.LoggerLogLevel.BODY);
-    session.add_feature (logger);
-    // optional, stderr (vice stdout)
-    logger.set_printer ((_1, _2, dir, text) => {
-      stderr.printf ("%c %s\n", dir, text);
-    });
 
     var msg = new Soup.Message ("POST", base_url + REST_OF_THE_URL);
     msg.request_headers.append ("Content-Type", "application/json");
@@ -136,8 +142,6 @@ public class MrWorldwide.DeepL : Object {
   }
 
   private void request_cb (Object? object, AsyncResult res) {
-    var session = object as Soup.Session;
-
     try {
         var bytes = session.send_and_read_async.end (res);
         var answer = (string)bytes.get_data ();
@@ -149,6 +153,7 @@ public class MrWorldwide.DeepL : Object {
 
       } catch (Error e) {
         stderr.printf ("Got: %s\n", e.message);
+        answer_received (0, e.message);
       }
   }
 
@@ -222,24 +227,11 @@ public class MrWorldwide.DeepL : Object {
     return translated_text;
   }
 
-
   public void check_usage () {
-
     var msg = new Soup.Message ("GET", base_url + URL_USAGE);
     msg.request_headers.append ("Authorization", "DeepL-Auth-Key %s".printf (api_key));
-
-    var session = new Soup.Session ();
-
-    var logger = new Soup.Logger (Soup.LoggerLogLevel.BODY);
-    session.add_feature (logger);
-    // optional, stderr (vice stdout)
-    logger.set_printer ((_1, _2, dir, text) => {
-      stderr.printf ("%c %s\n", dir, text);
-    });
-
     session.send_and_read_async.begin (msg, 0, null, usage_cb);
   }
-
 
   private void usage_cb (Object? object, AsyncResult res) {
     var session = object as Soup.Session;

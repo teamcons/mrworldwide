@@ -4,6 +4,8 @@
  */
 
 public class MrWorldwide.SettingsPopover : Gtk.Popover {
+  
+  const string DONATE_LINK = "https://ko-fi.com/teamcons";
 
   private MrWorldwide.ApiEntry api_entry;
   private Gtk.Revealer usage_revealer;
@@ -69,6 +71,16 @@ public class MrWorldwide.SettingsPopover : Gtk.Popover {
     };
 
     box.append (usage_revealer);
+
+    box.append (new Gtk.Separator (HORIZONTAL));
+
+    var support_button = new Gtk.LinkButton.with_label (DONATE_LINK, _("Support us!")) {
+      halign = Gtk.Align.START,
+      margin_bottom = 6,
+      margin_start = 12,
+    };
+    box.append (support_button);
+
 
     child = box;
 

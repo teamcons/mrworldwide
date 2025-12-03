@@ -44,7 +44,7 @@ public const SUPPORTED_TARGET
   */
 
 // Translation service that use translate
-public class MrWorldWide.DeepL : Object {
+public abstract class MrWorldWide.DeepL : Object {
 
   private string source_lang;
   private string target_lang;

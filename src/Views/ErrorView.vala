@@ -3,7 +3,9 @@
  * SPDX-FileCopyrightText:  2025 Stella & Charlie (teamcons.carrd.co)
  */
 
- public class MrWorldwide.ErrorView : Gtk.Box {
+ public class MrWorldwide.ErrorView : Granite.Bin {
+
+    private const string LINK = "https://www.deepl.com/your-account/keys";
 
     public uint status { get; construct; }
     public string message { get; construct; }
@@ -20,27 +22,47 @@
     }
 
     construct {
-        orientation = Gtk.Orientation.VERTICAL;
-        halign = Gtk.Align.FILL;
-        valign = Gtk.Align.CENTER;
-        hexpand = true;
-        vexpand = true;
+        var box = new Gtk.Box (VERTICAL, 12) {
+            valign = Gtk.Align.CENTER,
+            halign = Gtk.Align.CENTER,
+            margin_start = 24,
+            margin_end = 24,
+            margin_bottom = 24,
+        };
 
         status_to_message (status);
 
         var title = new Granite.Placeholder (explanation_title) {
             description = explanation_text,
-            icon = new ThemedIcon (icon_name)
+            icon = new ThemedIcon (icon_name),
+            valign = Gtk.Align.CENTER,
         };
-        append (title);
+        box.append (title);
 
         var button_retry = new Gtk.Button.with_label (_("Retry")) {
             halign = Gtk.Align.END,
             valign = Gtk.Align.CENTER
         };
-        append (button_retry);
-
+        //box.append (button_retry);
         button_retry.clicked.connect (Application.backend.check_usage);
+
+        // In the event the API is the issue, ask user
+        if (status == Soup.Status.FORBIDDEN) {
+            var apibox = new Gtk.Box (VERTICAL, 12) {
+                margin_top = 6,
+                margin_bottom = 6
+            };
+            var api_entry = new MrWorldwide.ApiEntry ();
+
+            var link = new Gtk.LinkButton.with_label (LINK, _("You can get an API key here")) {
+                halign = Gtk.Align.START
+            };
+
+            apibox.append (api_entry);
+            apibox.append (link);
+            
+            box.append (apibox);
+        };
 
         var details_view = new Gtk.Label (message) {
             selectable = true,
@@ -58,10 +80,18 @@
 
         var expander = new Gtk.Expander (_("Details")) {
             child = scroll_box,
-            hexpand = true
+            hexpand = true,
+            margin_top = 12
         };
 
-        append (expander);
+        box.append (expander);
+
+        var handle = new Gtk.WindowHandle () {
+            child = box
+        };
+
+        child = handle;
+
     }
 
     private void status_to_message (uint status) {
