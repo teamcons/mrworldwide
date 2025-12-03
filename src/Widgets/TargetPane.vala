@@ -60,9 +60,6 @@
         save_as_button.clicked.connect (on_save_as);
         language_changed.connect (on_language_changed);
         textview.buffer.changed.connect (on_buffer_changed);
-
-        // Connect to the backend and do stuff if answer
-        Application.backend.answer_received.connect (on_answer_received);
     }
 
   private void on_language_changed (string code) {
@@ -130,22 +127,5 @@
             stack.visible_child_name = "readybox";
         }
         textview.buffer.changed.disconnect (on_buffer_changed);
-    }
-    
-
-
-    public void on_answer_received (string answer, uint status_code) {
-        print (status_code.to_string ());
-        //if (status_code != Soup.Status.OK) {
-            var errorview = new MrWorldwide.ErrorView (status_code);
-            stack.add_child (errorview);
-            stack.visible_child = errorview;
-            return;
-        //}
-
-        text = answer;
-        spin (false);
-        stack.visible_child_name = "readybox";
-
     }
 }

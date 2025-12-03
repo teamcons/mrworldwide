@@ -5,8 +5,7 @@
 
 public class MrWorldwide.MainWindow : Gtk.Window {
 
-    public Gtk.Revealer back_revealer;
-    private Gtk.Button back_button;
+    private Gtk.Revealer back_revealer;
 
     private Gtk.Button switchlang_button;
     private Gtk.MenuButton popover_button;
@@ -75,7 +74,7 @@ public class MrWorldwide.MainWindow : Gtk.Window {
         var back_button = new Gtk.Button.with_label (_("Back"));
         back_button.add_css_class (Granite.STYLE_CLASS_BACK_BUTTON);
 
-        var back_revealer = new Gtk.Revealer () {
+        back_revealer = new Gtk.Revealer () {
             child = back_button,
             transition_type = Gtk.RevealerTransitionType.SWING_LEFT,
             reveal_child = false
@@ -144,6 +143,8 @@ public class MrWorldwide.MainWindow : Gtk.Window {
         });  */
 
         /***************** CONNECTS *****************/
+        Application.backend.answer_received.connect (on_answer_received);
+
         Application.settings.bind (
             "auto-translate", 
             translate_revealer, 
@@ -151,7 +152,7 @@ public class MrWorldwide.MainWindow : Gtk.Window {
             SettingsBindFlags.INVERT_BOOLEAN
         );
 
-        //back_button.clicked.connect (() => {stack_window_view.visible_child = stack_window_view;});
+        back_button.clicked.connect (on_back_clicked);
     }
 
     public void on_translate () {
@@ -183,6 +184,26 @@ public class MrWorldwide.MainWindow : Gtk.Window {
 
     private void action_save_file () {
         translation_view.target_pane.on_save_as ();
+    }
+
+    private void on_back_clicked () {
+        stack_window_view.visible_child = stack_window_view;
+        back_revealer.reveal_child = false;
+    }
+
+    public void on_answer_received (uint status_code, string answer) {
+        print (status_code.to_string ());
+
+        //if (status_code != Soup.Status.OK) {
+            var errorview = new MrWorldwide.ErrorView (status_code, answer);
+            stack_window_view.add_child (errorview);
+            stack_window_view.visible_child = errorview;
+            return;
+        //}
+
+        translation_view.target_pane.text = answer;
+        translation_view.target_pane.spin (false);
+        stack_window_view.visible_child = translation_view;
     }
 }
 

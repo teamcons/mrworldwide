@@ -53,7 +53,7 @@ public class MrWorldwide.DeepL : Object {
   public string system_language;
   private string context;
 
-  public signal void answer_received (string translated_text, uint status);
+  public signal void answer_received (uint status, string translated_text);
   public signal void language_detected (string? detected_language_code = null);
   public signal void usage_retrieved (uint status);
 
@@ -145,7 +145,7 @@ public class MrWorldwide.DeepL : Object {
 
         var msg = session.get_async_result_message (res);
 
-        answer_received (unwrapped_text, msg.status_code);
+        answer_received (msg.status_code, unwrapped_text);
 
       } catch (Error e) {
         stderr.printf ("Got: %s\n", e.message);
