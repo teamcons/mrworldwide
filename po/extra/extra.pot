@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-06 19:43+0200\n"
+"POT-Creation-Date: 2025-12-03 23:12+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -26,124 +26,106 @@ msgid "Translate text elegantly"
 msgstr ""
 
 #: data/mrworldwide.metainfo.xml.in:15
-msgid "The power of language in the palm of your hand"
+msgid "The power of language in the palm of your hand!"
 msgstr ""
 
 #: data/mrworldwide.metainfo.xml.in:16
 msgid ""
-"Yet another translation app. This one uses DeepL as backend, and goes for "
-"the no-nonsense, simple and clean route. But i mostly just wanted to try out "
-"the UI, and needed something elementary OS to integrate with our elementary "
-"OS"
+"No nonsense, simple, clean, efficient translation app using DeepL free and "
+"paid API"
 msgstr ""
 
-#: data/mrworldwide.metainfo.xml.in:20
-msgid "Features include:"
+#: data/mrworldwide.metainfo.xml.in:19
+msgid "Some points:"
+msgstr ""
+
+#: data/mrworldwide.metainfo.xml.in:21
+msgid "Nimble: Paste your api key, and here you go!"
 msgstr ""
 
 #: data/mrworldwide.metainfo.xml.in:22
-msgid ""
-"Nimble: Quick to setup: Paste your api key, whether DeepL Free or Pro, and "
-"here you go!"
+msgid "Out of your way: Remembers context, formality, languages"
 msgstr ""
 
 #: data/mrworldwide.metainfo.xml.in:23
-msgid "Toggle the view to be either horizontal or vertical"
+msgid "Convenient: lets you check how much you have left"
 msgstr ""
 
 #: data/mrworldwide.metainfo.xml.in:24
-msgid "You can add context to the text to translate!"
-msgstr ""
-
-#: data/mrworldwide.metainfo.xml.in:25
-msgid "You can choose level of formality for the supported languages!"
-msgstr ""
-
-#: data/mrworldwide.metainfo.xml.in:26
-msgid "You can see your current API usage!"
-msgstr ""
-
-#: data/mrworldwide.metainfo.xml.in:27
 msgid "Supported languages: All those available via DeepL API!"
 msgstr ""
 
-#: data/mrworldwide.metainfo.xml.in:28
-msgid "Detect language: As expected of a translator!"
-msgstr ""
-
-#: data/mrworldwide.metainfo.xml.in:29
-msgid "System language: No need to search for it in the list ;)"
+#: data/mrworldwide.metainfo.xml.in:26
+msgid ""
+"If you like this app please do not hesitate to donate to encourage its "
+"development!"
 msgstr ""
 
 #: data/mrworldwide.metainfo.xml.in:31
-msgid "This is still under big development"
-msgstr ""
-
-#: data/mrworldwide.metainfo.xml.in:36
 msgid "Main window"
 msgstr ""
 
-#: data/mrworldwide.metainfo.xml.in:42
+#: data/mrworldwide.metainfo.xml.in:37
 msgid "Main window with dark theme"
 msgstr ""
 
-#: data/mrworldwide.metainfo.xml.in:52
+#: data/mrworldwide.metainfo.xml.in:47
 msgid "Teamcons"
 msgstr ""
 
-#: data/mrworldwide.metainfo.xml.in:71
+#: data/mrworldwide.metainfo.xml.in:66
 msgid "Translation"
 msgstr ""
 
-#: data/mrworldwide.metainfo.xml.in:72
+#: data/mrworldwide.metainfo.xml.in:67
 msgid "Translate"
 msgstr ""
 
-#: data/mrworldwide.metainfo.xml.in:73
+#: data/mrworldwide.metainfo.xml.in:68
 msgid "NMT"
 msgstr ""
 
-#: data/mrworldwide.metainfo.xml.in:74
+#: data/mrworldwide.metainfo.xml.in:69
 msgid "DeepL"
 msgstr ""
 
-#: data/mrworldwide.metainfo.xml.in:75
+#: data/mrworldwide.metainfo.xml.in:70
 msgid "Localization"
 msgstr ""
 
-#: data/mrworldwide.metainfo.xml.in:76
+#: data/mrworldwide.metainfo.xml.in:71
 msgid "Internationalization"
 msgstr ""
 
-#: data/mrworldwide.metainfo.xml.in:77
+#: data/mrworldwide.metainfo.xml.in:72
 msgid "l10n"
 msgstr ""
 
-#: data/mrworldwide.metainfo.xml.in:78
+#: data/mrworldwide.metainfo.xml.in:73
 msgid "i18n"
 msgstr ""
 
-#: data/mrworldwide.metainfo.xml.in:79
+#: data/mrworldwide.metainfo.xml.in:74
 msgid "Localize"
 msgstr ""
 
-#: data/mrworldwide.metainfo.xml.in:80
+#: data/mrworldwide.metainfo.xml.in:75
 msgid "Languages"
 msgstr ""
 
-#: data/mrworldwide.metainfo.xml.in:81
+#: data/mrworldwide.metainfo.xml.in:76
 msgid "Pantheon"
 msgstr ""
 
-#: data/mrworldwide.metainfo.xml.in:82
+#: data/mrworldwide.metainfo.xml.in:77
 msgid "elementary OS"
 msgstr ""
 
-#: data/mrworldwide.metainfo.xml.in:98
+#: data/mrworldwide.metainfo.xml.in:93
 msgid "Initial Release"
 msgstr ""
 
-#: data/mrworldwide.metainfo.xml.in:100
+#: data/mrworldwide.metainfo.xml.in:95
 msgid "Updated translations"
 msgstr ""
 
@@ -157,6 +139,6 @@ msgstr ""
 
 #: data/mrworldwide.desktop.in:10
 msgid ""
-"text;translate;translation;deepl;NMT;lang;localize;l10n;i18n;localization;"
-"internationalization;"
+"text;translate;translation;translator;deepl;NMT;lang;localize;l10n;i18n;"
+"localization;internationalization;"
 msgstr ""

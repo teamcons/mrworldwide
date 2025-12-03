@@ -1,14 +1,14 @@
+#, fuzzy
 msgid ""
 msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Language: fr\n"
-"Language-Team: none\n"
-"Last-Translator: Automatically generated\n"
+"Language: \n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "MIME-Version: 1.0\n"
-"PO-Revision-Date: 2025-07-26 13:10+0200\n"
-"POT-Creation-Date: 2025-08-07 20:25+0200\n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"POT-Creation-Date: 2025-12-03 23:07+0100\n"
 "Project-Id-Version: io.github.teamcons.mrworldwide\n"
 "Report-Msgid-Bugs-To: \n"
 
@@ -24,48 +24,140 @@ msgstr "Pour commencer à traduire, entrez votre clé API DeepL ci-dessous"
 msgid "You can get an API Key here"
 msgstr "Vous pouvez obtenir une clé API ici"
 
-#: src/Views/NoInternetView.vala:19
-msgid "No Internet Connection"
-msgstr "Pas de connexion Internet"
+#: src/Views/ErrorView.vala:17
+msgid "No details available"
+msgstr "Pas de détails disponibles"
 
-#: src/Views/NoInternetView.vala:20
-msgid "Please check your internet connection and try again."
-msgstr "Veuillez vérifier votre connexion internet et réessayer."
-
-#: src/Views/NoInternetView.vala:24
+#: src/Views/ErrorView.vala:42
 msgid "Retry"
 msgstr "Réessayer"
 
-#: src/Views/NoInternetView.vala:32
-msgid "Check if Mr Worldwide is allowed to access the internet"
-msgstr "Vérifier si Mr Worldwide est autorisé à accéder à l'internet"
+#: src/Views/ErrorView.vala:57
+#: src/Widgets/SettingsPopover.vala:47
+msgid "You can get an API key here"
+msgstr "Vous pouvez obtenir une clé API ici"
+
+#: src/Views/ErrorView.vala:81
+msgid "Details"
+msgstr "Détails"
+
+#: src/Views/ErrorView.vala:100
+msgid "Everything works great :)"
+msgstr "Tout fonctionne très bien :)"
+
+#: src/Views/ErrorView.vala:101
+msgid ""
+"\n"
+"If you see this and are not me, then it means i forgor to disable this error"
+msgstr ""
+"\n"
+"Si vous voyez cela et que vous n'êtes pas moi, cela signifie que j'ai oublié de désactiver cette erreur."
+
+#: src/Views/ErrorView.vala:106
+msgid "Bad request"
+msgstr "Mauvaise demande"
+
+#: src/Views/ErrorView.vala:107
+msgid ""
+"The app sent a wrong translation request to DeepL...\n"
+"Please report this to the app's developer with as much details as you can"
+msgstr ""
+"L'application a envoyé une demande de traduction erronée à DeepL...\n"
+"Veuillez signaler ce problème au développeur de l'application en donnant le plus de détails possible."
+
+#: src/Views/ErrorView.vala:112
+msgid "Forbidden"
+msgstr "Interdit"
+
+#: src/Views/ErrorView.vala:113
+msgid "Your API key is invalid. Make sure it is the correct one!"
+msgstr "Votre clé API n'est pas valide. Assurez-vous qu'elle est correcte !"
+
+#: src/Views/ErrorView.vala:118
+msgid "Too many requests"
+msgstr "Trop de demandes"
+
+#: src/Views/ErrorView.vala:119
+msgid "Please wait before retrying. This error should not be possible to happen for this app..."
+msgstr "Veuillez patienter avant de réessayer. Cette erreur ne devrait pas pouvoir se produire pour cette application..."
+
+#: src/Views/ErrorView.vala:124
+msgid "Your monthly quota has been exceeded"
+msgstr "Votre quota mensuel a été dépassé"
+
+#: src/Views/ErrorView.vala:125
+msgid "If you are a Pro API user, this corresponds to your Cost Control limit"
+msgstr "Si vous êtes un utilisateur Pro API, cela correspond à votre limite de contrôle des coûts."
+
+#: src/Views/ErrorView.vala:130
+msgid "Internal server error"
+msgstr "Erreur de serveur interne"
+
+#: src/Views/ErrorView.vala:131
+msgid "Retry in a minute? If you see this several times, check online if there is a DeepL service interruption"
+msgstr "Réessayer dans une minute ? Si vous voyez ce message plusieurs fois, vérifiez en ligne s'il y a une interruption de service sur le site DeepL."
+
+#: src/Views/ErrorView.vala:136
+msgid "SSL Handshake error"
+msgstr "Erreur de prise de contact SSL"
+
+#: src/Views/ErrorView.vala:137
+msgid ""
+"This is an issue DeepL is aware of and this app can do nothing about...\n"
+"If you have the know-show, going through a simple authenticated proxy may work"
+msgstr ""
+"C'est un problème dont DeepL est conscient et pour lequel cette application ne peut rien faire...\n"
+"Si vous avez le savoir-faire, passer par un simple proxy authentifié peut fonctionner."
+
+#: src/Views/ErrorView.vala:142
+msgid "Request timeout"
+msgstr "Délai d'attente de la demande"
+
+#: src/Views/ErrorView.vala:143
+#: src/Views/ErrorView.vala:149
+msgid "No answer has been received. Either DeepL or your connection are having issues"
+msgstr "Aucune réponse n'a été reçue. Soit DeepL, soit votre connexion a des problèmes."
+
+#: src/Views/ErrorView.vala:148
+msgid "Gateway timeout"
+msgstr "Délai d'attente de la passerelle"
+
+#: src/Views/ErrorView.vala:154
+msgid "Unknown error"
+msgstr "Erreur inconnue"
+
+#: src/Views/ErrorView.vala:155
+#, c-format
+msgid "Status code %s, please report this to this app's developer"
+msgstr "Code d'état %s, veuillez le signaler au développeur de cette application"
 
 #. ---------------- HEADERBAR ----------------
-#: src/Windows/MainWindow.vala:43
+#: src/Windows/MainWindow.vala:46
 #: src/Windows/MainWindow.vala:63
 #: src/Windows/MainWindow.vala:64
 msgid "Mr Worldwide"
-msgstr "Mr Worldwide"
+msgstr "M. Worldwide"
 
-#: src/Windows/MainWindow.vala:79
-msgid "Change options for the translation"
-msgstr "Modifier les options de traduction"
+#. TRANSLATORS: Back button to go back to translating
+#: src/Windows/MainWindow.vala:76
+msgid "Back"
+msgstr "Retour"
 
 #. TRANSLATORS: This is for a button that switches source and target language
-#: src/Windows/MainWindow.vala:87
+#: src/Windows/MainWindow.vala:89
 msgid "Switch languages"
-msgstr "Intervertir languages"
+msgstr "Changer de langue"
 
-#: src/Windows/MainWindow.vala:101
+#: src/Windows/MainWindow.vala:99
 msgid "Settings"
 msgstr "Paramètres"
 
 #. TRANSLATORS: This appears on a button at the top of the window. User clicks it to start translating
-#: src/Windows/MainWindow.vala:114
+#: src/Windows/MainWindow.vala:112
 msgid "Translate"
 msgstr "Traduire"
 
-#: src/Windows/MainWindow.vala:115
+#: src/Windows/MainWindow.vala:113
 msgid "Start translating the entered text"
 msgstr "Lancer la traduction du texte saisi"
 
@@ -74,50 +166,70 @@ msgid "Enter API key here"
 msgstr "Saisir la clé API ici"
 
 #: src/Widgets/ApiEntry.vala:23
-#: src/Widgets/SourcePane.vala:26
+#: src/Widgets/SourcePane.vala:46
 msgid "Paste from clipboard"
 msgstr "Coller à partir du presse-papiers"
 
-#. TRANSLATORS: This refers to the view: Either the panels are stacked vertically, or lined horizontally
-#: src/Widgets/OrientationBox.vala:19
-msgid "Vertical"
-msgstr "Vertical"
-
-#: src/Widgets/OrientationBox.vala:26
-msgid "Switch orientation to vertical"
-msgstr "Passer à l'orientation verticale"
-
-#: src/Widgets/OrientationBox.vala:34
-msgid "Horizontal"
-msgstr "Horizontal"
-
-#: src/Widgets/OrientationBox.vala:40
-msgid "Switch orientation to horizontal"
-msgstr "Changement d'orientation à l'horizontale"
-
-#: src/Widgets/SettingsPopover.vala:33
-msgid "You can get an API key here"
-msgstr "Vous pouvez obtenir une clé API sur le site de DeepL."
-
-#: src/Widgets/SettingsPopover.vala:46
+#: src/Widgets/ApiLevel.vala:21
 msgid "API Usage"
 msgstr "Utilisation de l'API"
 
-#: src/Widgets/SettingsPopover.vala:87
-msgid "Translate automatically"
-msgstr "Traduire automatiquement"
+#: src/Widgets/ApiLevel.vala:33
+msgid "Update API usage"
+msgstr "Mise à jour de l'utilisation de l'API"
 
-#: src/Widgets/SettingsPopover.vala:89
-msgid "The translation will start 2 seconds after typing has stopped"
-msgstr "La traduction commencera 2 secondes après l'arrêt de la frappe."
-
-#: src/Widgets/SettingsPopover.vala:119
+#. // Depending on fill, usage
+#. if (api_usage.value > api_usage.max_value) {
+#. api_usage.remove_css_class (Granite.STYLE_CLASS_SUCCESS);
+#. api_usage.remove_css_class (Granite.STYLE_CLASS_WARNING);
+#. api_usage.add_css_class (Granite.STYLE_CLASS_ERROR);
+#. } else if (api_usage.value > (api_usage.max_value / 2)) {
+#. api_usage.add_css_class (Granite.STYLE_CLASS_WARNING);
+#. api_usage.remove_css_class (Granite.STYLE_CLASS_ERROR);
+#. } else {
+#. api_usage.add_css_class (Granite.STYLE_CLASS_SUCCESS);
+#. }
+#. Picking from settings as im not super sure what fires first between connect and binds
+#: src/Widgets/ApiLevel.vala:76
 #, c-format
 msgid "%s characters translated / %s maximum characters on your plan"
 msgstr "%s caractères traduits / %s caractères maximums sur votre plan"
 
+#: src/Widgets/OrientationBox.vala:20
+msgid "Horizontal"
+msgstr "Horizontal"
+
+#: src/Widgets/OrientationBox.vala:24
+msgid "Switch the view to horizontally aligned panes"
+msgstr "Passer à un affichage en volets alignés horizontalement"
+
+#. TRANSLATORS: This refers to the view: Either the panels are stacked vertically, or lined horizontally
+#: src/Widgets/OrientationBox.vala:34
+msgid "Vertical"
+msgstr "Vertical"
+
+#: src/Widgets/OrientationBox.vala:39
+msgid "Switch the view to vertically stacked panes"
+msgstr "Passer à une vue en volets empilés verticalement"
+
+#: src/Widgets/SettingsPopover.vala:25
+msgid "Translate automatically"
+msgstr "Traduire automatiquement"
+
+#: src/Widgets/SettingsPopover.vala:26
+msgid "The translation will start 1.5 seconds after typing has stopped"
+msgstr "La traduction commencera 1,5 seconde après l'arrêt de la frappe."
+
+#: src/Widgets/SettingsPopover.vala:39
+msgid "DeepL API Key"
+msgstr "DeepL Clé API"
+
+#: src/Widgets/SettingsPopover.vala:77
+msgid "Support us!"
+msgstr "Soutenez-nous !"
+
 #: src/Widgets/OptionsPopover.vala:27
-#: src/Widgets/OptionsPopover.vala:97
+#: src/Widgets/OptionsPopover.vala:101
 msgid "Set how formal the translation should be"
 msgstr "Définir le degré de formalisme de la traduction"
 
@@ -137,45 +249,81 @@ msgstr "Informel"
 msgid "Enter context here"
 msgstr "Saisir le contexte ici"
 
-#: src/Widgets/OptionsPopover.vala:101
-msgid "Formality control is not available for this target language"
-msgstr "Le contrôle de la formalité n'est pas disponible pour cette langue cible."
-
-#. /TRANSLATORS: %s is replaced by a number
-#: src/Widgets/Pane.vala:101
-#, c-format
-msgid "Counted %s characters"
-msgstr "%s caractères comptés"
-
-#: src/Widgets/SourcePane.vala:16
-#, fuzzy
-msgid "Set the language to translate from"
-msgstr "Ajouter un contexte au texte à traduire"
-
-#: src/Widgets/SourcePane.vala:21
+#: src/Widgets/OptionsPopover.vala:69
+#: src/Widgets/SourcePane.vala:41
 msgid "Clear text"
 msgstr "Texte en clair"
 
-#: src/Widgets/SourcePane.vala:33
+#: src/Widgets/OptionsPopover.vala:105
+msgid "Formality control is not available for this target language"
+msgstr "Le contrôle de la formalité n'est pas disponible pour cette langue cible."
+
+#: src/Widgets/Pane.vala:104
+msgid "Ready!"
+msgstr "Prêt !"
+
+#. placeholder.icon = new ThemedIcon ("insert-text-symbolic");
+#: src/Widgets/Pane.vala:106
+msgid "Add in some text to get a translation"
+msgstr "Ajoutez du texte pour obtenir une traduction"
+
+#: src/Widgets/SourcePane.vala:19
+msgid "Set the language to translate from"
+msgstr "Définir la langue à partir de laquelle la traduction doit être effectuée"
+
+#: src/Widgets/SourcePane.vala:21
+msgid "Options"
+msgstr "Options"
+
+#: src/Widgets/SourcePane.vala:28
+msgid "Change options for the translation"
+msgstr "Modifier les options de traduction"
+
+#: src/Widgets/SourcePane.vala:53
 msgid "Load text from a file"
 msgstr "Charger du texte à partir d'un fichier"
 
-#: src/Widgets/TargetPane.vala:15
-#, fuzzy
-msgid "Set the language to translate to"
-msgstr "Ajouter un contexte au texte à traduire"
+#: src/Widgets/SourcePane.vala:98
+#: src/Widgets/TargetPane.vala:85
+msgid "All files"
+msgstr "Tous les dossiers"
 
-#: src/Widgets/TargetPane.vala:21
+#: src/Widgets/SourcePane.vala:103
+#: src/Widgets/TargetPane.vala:90
+msgid "Text files"
+msgstr "Fichiers texte"
+
+#. TRANSLATORS: The following text is for the dialog to load a text file to translate
+#: src/Widgets/SourcePane.vala:113
+msgid "Open text file to translate"
+msgstr "Ouvrir un fichier texte à traduire"
+
+#: src/Widgets/SourcePane.vala:114
+msgid "Open"
+msgstr "Ouvrir"
+
+#: src/Widgets/TargetPane.vala:20
+msgid "Set the language to translate to"
+msgstr "Définir la langue de traduction"
+
+#: src/Widgets/TargetPane.vala:34
 msgid "Copy to clipboard"
 msgstr "Copier dans le presse-papiers"
 
-#: src/Widgets/TargetPane.vala:30
-#, fuzzy
+#: src/Widgets/TargetPane.vala:41
 msgid "Save the translation in a text file"
-msgstr "Lancer la traduction du texte saisi"
+msgstr "Enregistrer la traduction dans un fichier texte"
 
-#. TRANSLATORS: Default name for files containing a translation
-#: src/Widgets/TargetPane.vala:55
+#. TRANSLATORS: The following text is for the dialog to save the translation
+#: src/Widgets/TargetPane.vala:100
+msgid "Save translation to text file"
+msgstr "Enregistrer la traduction dans un fichier texte"
+
+#: src/Widgets/TargetPane.vala:101
+msgid "Save"
+msgstr "Économiser"
+
+#: src/Widgets/TargetPane.vala:102
 msgid "translation.txt"
 msgstr "translation.txt"
 
@@ -183,13 +331,13 @@ msgstr "translation.txt"
 msgid "Cannot detect!"
 msgstr "Impossible à détecter !"
 
-#: src/Backend/DeepL.vala:229
+#: src/Backend/DeepL.vala:226
 msgid "Cannot retrieve translated text!"
 msgstr "Impossible de récupérer le texte traduit !"
 
 #: src/Constants.vala:14
 msgid "Detect automatically"
-msgstr "Automatiquement détecter"
+msgstr "Détection automatique"
 
 #: src/Constants.vala:15
 #: src/Constants.vala:54
@@ -199,7 +347,7 @@ msgstr "Langue du système"
 #: src/Constants.vala:16
 #: src/Constants.vala:55
 msgid "Arabic"
-msgstr "Arabe"
+msgstr "L'arabe"
 
 #: src/Constants.vala:17
 #: src/Constants.vala:56
@@ -386,5 +534,6 @@ msgstr "Chinois (simplifié)"
 msgid "Chinese (Traditional)"
 msgstr "Chinois (traditionnel)"
 
-#~ msgid "DeepL API Keys"
-#~ msgstr "Clés API DeepL"
+#: src/Application.vala:136
+msgid "Couldn't open file"
+msgstr "Impossible d'ouvrir le fichier"
