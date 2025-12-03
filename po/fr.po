@@ -8,7 +8,7 @@ msgstr ""
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "MIME-Version: 1.0\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"POT-Creation-Date: 2025-12-03 23:07+0100\n"
+"POT-Creation-Date: 2025-12-03 23:34+0100\n"
 "Project-Id-Version: io.github.teamcons.mrworldwide\n"
 "Report-Msgid-Bugs-To: \n"
 
@@ -258,14 +258,15 @@ msgstr "Texte en clair"
 msgid "Formality control is not available for this target language"
 msgstr "Le contrôle de la formalité n'est pas disponible pour cette langue cible."
 
-#: src/Widgets/Pane.vala:104
+#: src/Widgets/Pane.vala:105
 msgid "Ready!"
 msgstr "Prêt !"
 
 #. placeholder.icon = new ThemedIcon ("insert-text-symbolic");
-#: src/Widgets/Pane.vala:106
-msgid "Add in some text to get a translation"
-msgstr "Ajoutez du texte pour obtenir une traduction"
+#: src/Widgets/Pane.vala:107
+#, fuzzy
+msgid "Enter text to translate"
+msgstr "Ouvrir un fichier texte à traduire"
 
 #: src/Widgets/SourcePane.vala:19
 msgid "Set the language to translate from"
@@ -537,3 +538,6 @@ msgstr "Chinois (traditionnel)"
 #: src/Application.vala:136
 msgid "Couldn't open file"
 msgstr "Impossible d'ouvrir le fichier"
+
+#~ msgid "Add in some text to get a translation"
+#~ msgstr "Ajoutez du texte pour obtenir une traduction"

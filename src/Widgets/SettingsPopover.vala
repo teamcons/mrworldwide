@@ -76,8 +76,9 @@ public class MrWorldwide.SettingsPopover : Gtk.Popover {
 
     var support_button = new Gtk.LinkButton.with_label (DONATE_LINK, _("Support us!")) {
       halign = Gtk.Align.START,
+      hexpand = true,
       margin_bottom = 6,
-      margin_start = 12,
+      margin_start = 12
     };
     box.append (support_button);
 

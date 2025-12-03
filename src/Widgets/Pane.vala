@@ -15,6 +15,7 @@
     private Gtk.Label count;
 
     public Gtk.Stack stack;
+    public Gtk.WindowHandle placeholder_handle;
     public Granite.Placeholder placeholder;
     public Gtk.Box ready_box;
 
@@ -103,9 +104,9 @@
 
         placeholder = new Granite.Placeholder (_("Ready!"));
         //placeholder.icon = new ThemedIcon ("insert-text-symbolic");
-        placeholder.description = _("Add in some text to get a translation");
+        placeholder.description = _("Enter text to translate");
 
-        var placeholder_handle = new Gtk.WindowHandle () {
+        placeholder_handle = new Gtk.WindowHandle () {
             child = placeholder
         };
 
@@ -113,8 +114,8 @@
             transition_type = Gtk.StackTransitionType.CROSSFADE
         };
         stack.height_request = 130;
-        stack.add_named (ready_box, "readybox");
-        stack.add_named (placeholder_handle, "placeholder");
+        stack.add_child (ready_box);
+        stack.add_child (placeholder_handle);
 
         overlay = new Gtk.Overlay ();
         toast = new Granite.Toast ("") {

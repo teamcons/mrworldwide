@@ -16,7 +16,7 @@
     }
 
     construct {
-        stack.visible_child_name = "placeholder";
+        stack.visible_child = placeholder_handle;
         dropdown.tooltip_text = _("Set the language to translate to");
         //textview.editable = false;
 
@@ -119,11 +119,11 @@
 
 
     private void on_buffer_changed () {
-        if (text == "") {
-            stack.visible_child_name = "placeholder";
-        } else {
-            stack.visible_child_name = "readybox";
+        if (text.chomp ().chug () == "") {
+            return;
         }
+
+        stack.visible_child = ready_box;
         textview.buffer.changed.disconnect (on_buffer_changed);
     }
 }

@@ -1,144 +1,134 @@
-# German translations for extra package.
-# Copyright (C) 2025 THE extra'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the extra package.
-# Automatically generated, 2025.
-#
 msgid ""
 msgstr ""
+"Content-Transfer-Encoding: 8bit\n"
+"Content-Type: text/plain; charset=ASCII\n"
+"Language: de\n"
+"Language-Team: none\n"
+"Last-Translator: Automatically generated\n"
+"MIME-Version: 1.0\n"
+"PO-Revision-Date: 2025-12-03 23:11+0100\n"
+"POT-Creation-Date: 2025-12-03 23:11+0100\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-12-03 23:11+0100\n"
-"PO-Revision-Date: 2025-12-03 23:11+0100\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
-"Language: de\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=ASCII\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: data/mrworldwide.metainfo.xml.in:12
 msgid "mrworldwide"
-msgstr ""
+msgstr "mrworldwide"
 
-#: data/mrworldwide.metainfo.xml.in:13 data/mrworldwide.desktop.in:8
+#: data/mrworldwide.metainfo.xml.in:13
+#: data/mrworldwide.desktop.in:8
 msgid "Translate text elegantly"
-msgstr ""
+msgstr "Elegantes Übersetzen von Text"
 
 #: data/mrworldwide.metainfo.xml.in:15
 msgid "The power of language in the palm of your hand!"
-msgstr ""
+msgstr "Die Macht der Sprache in Ihrer Handfläche!"
 
 #: data/mrworldwide.metainfo.xml.in:16
-msgid ""
-"No nonsense, simple, clean, efficient translation app using DeepL free and "
-"paid API"
-msgstr ""
+msgid "No nonsense, simple, clean, efficient translation app using DeepL free and paid API"
+msgstr "Eine einfache, saubere und effiziente Übersetzungs-App, die die kostenlose und kostenpflichtige API von DeepL nutzt."
 
 #: data/mrworldwide.metainfo.xml.in:19
 msgid "Some points:"
-msgstr ""
+msgstr "Einige Punkte:"
 
 #: data/mrworldwide.metainfo.xml.in:21
 msgid "Nimble: Paste your api key, and here you go!"
-msgstr ""
+msgstr "Flink: Fügen Sie Ihren Api-Schlüssel ein, und los geht's!"
 
 #: data/mrworldwide.metainfo.xml.in:22
 msgid "Out of your way: Remembers context, formality, languages"
-msgstr ""
+msgstr "Aus dem Weg gehen: Erinnert sich an Kontext, Formalitäten, Sprachen"
 
 #: data/mrworldwide.metainfo.xml.in:23
 msgid "Convenient: lets you check how much you have left"
-msgstr ""
+msgstr "Praktisch: Sie können überprüfen, wie viel Sie noch haben"
 
 #: data/mrworldwide.metainfo.xml.in:24
 msgid "Supported languages: All those available via DeepL API!"
-msgstr ""
+msgstr "Unterstützte Sprachen: Alle, die über DeepL API verfügbar sind!"
 
 #: data/mrworldwide.metainfo.xml.in:26
-msgid ""
-"If you like this app please do not hesitate to donate to encourage its "
-"development!"
-msgstr ""
+msgid "If you like this app please do not hesitate to donate to encourage its development!"
+msgstr "Wenn Ihnen diese Anwendung gefällt, zögern Sie bitte nicht, zu spenden, um ihre Entwicklung zu fördern!"
 
 #: data/mrworldwide.metainfo.xml.in:31
 msgid "Main window"
-msgstr ""
+msgstr "Hauptfenster"
 
 #: data/mrworldwide.metainfo.xml.in:37
 msgid "Main window with dark theme"
-msgstr ""
+msgstr "Hauptfenster mit dunklem Thema"
 
 #: data/mrworldwide.metainfo.xml.in:47
 msgid "Teamcons"
-msgstr ""
+msgstr "Teamcons"
 
 #: data/mrworldwide.metainfo.xml.in:66
 msgid "Translation"
-msgstr ""
+msgstr "Übersetzung"
 
 #: data/mrworldwide.metainfo.xml.in:67
 msgid "Translate"
-msgstr ""
+msgstr "Übersetzen Sie"
 
 #: data/mrworldwide.metainfo.xml.in:68
 msgid "NMT"
-msgstr ""
+msgstr "NMT"
 
 #: data/mrworldwide.metainfo.xml.in:69
 msgid "DeepL"
-msgstr ""
+msgstr "DeepL"
 
 #: data/mrworldwide.metainfo.xml.in:70
 msgid "Localization"
-msgstr ""
+msgstr "Lokalisierung"
 
 #: data/mrworldwide.metainfo.xml.in:71
 msgid "Internationalization"
-msgstr ""
+msgstr "Internationalisierung"
 
 #: data/mrworldwide.metainfo.xml.in:72
 msgid "l10n"
-msgstr ""
+msgstr "l10n"
 
 #: data/mrworldwide.metainfo.xml.in:73
 msgid "i18n"
-msgstr ""
+msgstr "i18n"
 
 #: data/mrworldwide.metainfo.xml.in:74
 msgid "Localize"
-msgstr ""
+msgstr "Lokalisieren Sie"
 
 #: data/mrworldwide.metainfo.xml.in:75
 msgid "Languages"
-msgstr ""
+msgstr "Sprachen"
 
 #: data/mrworldwide.metainfo.xml.in:76
 msgid "Pantheon"
-msgstr ""
+msgstr "Pantheon"
 
 #: data/mrworldwide.metainfo.xml.in:77
 msgid "elementary OS"
-msgstr ""
+msgstr "grundlegendes Betriebssystem"
 
 #: data/mrworldwide.metainfo.xml.in:93
 msgid "Initial Release"
-msgstr ""
+msgstr "Erste Veröffentlichung"
 
 #: data/mrworldwide.metainfo.xml.in:95
 msgid "Updated translations"
-msgstr ""
+msgstr "Aktualisierte Übersetzungen"
 
 #: data/mrworldwide.desktop.in:6
 msgid "Mr Worldwide"
-msgstr ""
+msgstr "Herr Weltweit"
 
 #: data/mrworldwide.desktop.in:7
 msgid "Text translator"
-msgstr ""
+msgstr "Text-Übersetzer"
 
 #: data/mrworldwide.desktop.in:10
-msgid ""
-"text;translate;translation;translator;deepl;NMT;lang;localize;l10n;i18n;"
-"localization;internationalization;"
-msgstr ""
+msgid "text;translate;translation;translator;deepl;NMT;lang;localize;l10n;i18n;localization;internationalization;"
+msgstr "text;übersetzen;Übersetzung;Übersetzer;deepl;NMT;lang;lokalisieren;l10n;i18n;Lokalisierung;Internationalisierung;"

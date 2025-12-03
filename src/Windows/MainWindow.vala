@@ -197,13 +197,13 @@ public class MrWorldwide.MainWindow : Gtk.Window {
     public void on_answer_received (uint status_code, string answer) {
         print (status_code.to_string ());
 
-        //if (status_code != Soup.Status.OK) {
+        if (status_code != Soup.Status.OK) {
             errorview = new MrWorldwide.ErrorView (status_code, answer);
             stack_window_view.add_child (errorview);
             stack_window_view.visible_child = errorview;
             back_revealer.reveal_child = true;
             return;
-        //}
+        }
 
         translation_view.target_pane.text = answer;
         translation_view.target_pane.spin (false);
