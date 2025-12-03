@@ -126,9 +126,9 @@ public class MrWorldwide.MainWindow : Gtk.Window {
         /* ---------------- MAIN VIEW ---------------- */
         translation_view = new MrWorldwide.TranslationView ();
         stack_window_view = new Gtk.Stack () {
-            transition_type = Gtk.RevealerTransitionType.SLIDE_LEFT
+            transition_type = Gtk.StackTransitionType.SLIDE_LEFT
         };
-        stack_window_view.add_child ();
+        stack_window_view.add_child (translation_view);
         stack_window_view.visible_child = translation_view;
 
         child = stack_window_view;

@@ -7,16 +7,15 @@
 
     public uint status { get; construct; }
     public string message { get; construct; }
-    public string icon_name { get; construct; }
+    private string icon_name = "dialog-error";
 
     private string explanation_title;
     private string explanation_text;
 
-    public ErrorView (uint status, string? message = _("No details available"), string? icon_name = "dialog-error") {
+    public ErrorView (uint status, string? message = _("No details available")) {
         Object (
             status: status,
-            message: message,
-            icon_name: icon_name
+            message: message
         );
     }
 
@@ -36,7 +35,7 @@
         append (title);
 
         var button_retry = new Gtk.Button.with_label (_("Retry")) {
-            halign = Gtk.Align.RIGHT,
+            halign = Gtk.Align.END,
             valign = Gtk.Align.CENTER
         };
         append (button_retry);
@@ -61,7 +60,7 @@
             child = scroll_box,
             hexpand = true
         };
-        
+
         append (expander);
     }
 

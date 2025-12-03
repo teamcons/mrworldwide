@@ -68,7 +68,6 @@ executable(
 
     'src' / 'Views' / 'WelcomeView.vala',
     'src' / 'Views' / 'TranslationView.vala',
-    'src' / 'Views' / 'NoInternetView.vala',
     'src' / 'Views' / 'ErrorView.vala',
     'src' / 'Windows' / 'MainWindow.vala',
     'src' / 'Application.vala',
