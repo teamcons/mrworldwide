@@ -53,6 +53,7 @@ executable(
     gresource,
     'src' / 'Constants.vala',
    'src' / 'Enums' / 'Formality.vala',
+   'src' / 'Enums' / 'StatusCode.vala',
     'src' / 'Objects' / 'Lang.vala',
     'src' / 'Objects' / 'DDModel.vala',
     'src' / 'Backend' / 'DeepL.vala',

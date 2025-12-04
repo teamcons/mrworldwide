@@ -47,7 +47,7 @@
         button_retry.clicked.connect (Application.backend.check_usage);
 
         // In the event the API is the issue, ask user
-        if (status == Soup.Status.FORBIDDEN) {
+        if (status == Soup.Status.FORBIDDEN || status == 0) {
             var apibox = new Gtk.Box (VERTICAL, 12) {
                 margin_top = 6,
                 margin_bottom = 6
@@ -97,6 +97,12 @@
     private void status_to_message (uint status) {
         switch (status) {
             //Custom codes feel super evil
+            case 0:
+                explanation_title = _("No API Key");
+                explanation_text = _("You need a DeepL API key to translate text\nAn API Key is like a password given by DeepL in account settings, to allow you to use it from apps\nIt can be either DeepL Free or Pro");
+                icon_name = "network-offline-symbolic";
+                return;
+
             case 1:
                 explanation_title = _("No Internet");
                 explanation_text = _("Please check you are connected to the internet, and that this app has permission to access it\nIf you changed any firewall settings, check there as well!");

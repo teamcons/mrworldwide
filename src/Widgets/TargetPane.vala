@@ -119,7 +119,7 @@
 
 
     private void on_buffer_changed () {
-        if (text.chomp ().chug () == "") {
+        if (text.chomp () == "") {
             return;
         }
 

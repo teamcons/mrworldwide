@@ -129,11 +129,20 @@ public class MrWorldwide.MainWindow : Gtk.Window {
             transition_type = Gtk.StackTransitionType.SLIDE_LEFT
         };
         stack_window_view.add_child (translation_view);
-        stack_window_view.visible_child = translation_view;
+
 
         child = stack_window_view;
 
-        set_focus (translation_view.source_pane.textview);
+        if (Application.settings.get_string ("key") == "") {
+            errorview = new MrWorldwide.ErrorView (0, _("No API Key"));
+            stack_window_view.add_child (errorview);
+            stack_window_view.visible_child = errorview;
+            back_revealer.reveal_child = true;
+
+        } else {
+            stack_window_view.visible_child = translation_view;
+            set_focus (translation_view.source_pane.textview);
+        }
 
         // Listen if the backend recognize a language to switch to it
         // debatable whether to keep this idk
