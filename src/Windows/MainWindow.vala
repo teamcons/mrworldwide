@@ -162,7 +162,7 @@ public class MrWorldwide.MainWindow : Gtk.Window {
             SettingsBindFlags.INVERT_BOOLEAN
         );
 
-        back_button.clicked.connect (on_back_clicked);
+        back_button.clicked.connect (() => {on_back_clicked ();});
     }
 
     public void on_translate () {
@@ -196,21 +196,33 @@ public class MrWorldwide.MainWindow : Gtk.Window {
         translation_view.target_pane.on_save_as ();
     }
 
-    private void on_back_clicked () {
+    private void on_back_clicked (bool? retry = false) {
         stack_window_view.visible_child = translation_view;
         stack_window_view.remove (errorview);
         errorview = null;
         back_revealer.reveal_child = false;
+
+        Application.backend.answer_received.connect (on_answer_received);
+
+        if (retry) {
+            on_translate ();
+        }
     }
 
     public void on_answer_received (uint status_code, string answer) {
         print (status_code.to_string ());
 
         if (status_code != Soup.Status.OK) {
+
+            // ErrorView may need to do some fiddling. We reconnect when going back to main view
+            Application.backend.answer_received.disconnect (on_answer_received);
+            
             errorview = new MrWorldwide.ErrorView (status_code, answer);
             stack_window_view.add_child (errorview);
             stack_window_view.visible_child = errorview;
             back_revealer.reveal_child = true;
+            errorview.return_to_main.connect (on_back_clicked);
+        
             return;
         }
 

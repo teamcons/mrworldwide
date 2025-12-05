@@ -66,6 +66,7 @@ executable(
     'src' / 'Widgets' / 'Pane.vala',
     'src' / 'Widgets' / 'SourcePane.vala',
     'src' / 'Widgets' / 'TargetPane.vala',
+    'src' / 'Widgets' / 'RetryButton.vala',
 
     'src' / 'Views' / 'WelcomeView.vala',
     'src' / 'Views' / 'TranslationView.vala',

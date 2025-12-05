@@ -6,6 +6,7 @@
  public class MrWorldwide.ErrorView : Granite.Bin {
 
     private const string LINK = "https://www.deepl.com/your-account/keys";
+    private const uint WAIT_BEFORE_MAIN = 1500; //In milliseconds
 
     public uint status { get; construct; }
     public string message { get; construct; }
@@ -13,6 +14,8 @@
 
     private string explanation_title;
     private string explanation_text;
+
+    public signal void return_to_main (bool? retry = true);
 
     public ErrorView (uint status, string? message = _("No details available")) {
         Object (
@@ -60,23 +63,31 @@
 
             apibox.append (api_entry);
             apibox.append (link);
-            
             box.append (apibox);
+
+            var retry_button = new MrWorldwide.RetryButton () {
+                halign = Gtk.Align.END
+            };
+            retry_button.validated.connect (on_validated);
+
+            box.append (retry_button);
+
         };
 
-        var details_view = new Gtk.Label (message) {
+        var details_text = message + "\n\n";
+        var details_view = new Gtk.Label (details_text) {
             selectable = true,
             wrap = true,
             xalign = 0,
             yalign = 0
         };
+        details_view.add_css_class (Granite.STYLE_CLASS_TERMINAL);
 
         var scroll_box = new Gtk.ScrolledWindow () {
             child = details_view,
             margin_top = 12,
-            min_content_height = 70
+            min_content_height = 90
         };
-        scroll_box.add_css_class (Granite.STYLE_CLASS_TERMINAL);
 
         var expander = new Gtk.Expander (_("Details")) {
             child = scroll_box,
@@ -109,19 +120,19 @@
                 icon_name = "network-offline-symbolic";
                 return;
 
-            case 200:
+            case Soup.Status.OK:
                 explanation_title = _("Everything works great :)");
                 explanation_text = _("If you see this and are not me, then it means i forgor to disable this error");
                 icon_name = "process-completed";
                 return;
 
-            case 400:
+            case Soup.Status.BAD_REQUEST:
                 explanation_title = _("Bad request");
                 explanation_text = _("The app sent a wrong translation request to DeepL...\nPlease report this to the app's developer with as much details as you can");
                 icon_name = "dialog-warning";
                 return;
 
-            case 403:
+            case Soup.Status.FORBIDDEN:
                 explanation_title = _("Forbidden");
                 explanation_text = _("Your API key is invalid. Make sure it is the correct one!");
                 icon_name = "dialog-password";
@@ -139,7 +150,7 @@
                 icon_name = "dialog-warning";
                 return;
 
-            case 500:
+            case Soup.Status.INTERNAL_SERVER_ERROR:
                 explanation_title = _("Internal server error");
                 explanation_text = _("Retry in a minute? If you see this several times, check online if there is a DeepL service interruption");
                 icon_name = "dialog-information";
@@ -151,13 +162,13 @@
                 icon_name = "network-error";
                 return;
 
-            case 408:
+            case Soup.Status.REQUEST_TIMEOUT:
                 explanation_title = _("Request timeout");
                 explanation_text = _("No answer has been received. Either DeepL or your connection are having issues");
                 icon_name = "network-error";
                 return;
 
-            case 504:
+            case Soup.Status.GATEWAY_TIMEOUT:
                 explanation_title = _("Gateway timeout");
                 explanation_text = _("No answer has been received. Either DeepL or your connection are having issues");
                 icon_name = "network-error";
@@ -169,5 +180,11 @@
                 icon_name = "dialog-question";
                 return;
         }
+    }
+
+    private void on_validated () {
+        Timeout.add_once (WAIT_BEFORE_MAIN, () => {
+            return_to_main ();
+        });
     }
 }

@@ -145,16 +145,24 @@ public class MrWorldwide.DeepL : Object {
     try {
         var bytes = session.send_and_read_async.end (res);
         var answer = (string)bytes.get_data ();
-        var unwrapped_text = unwrap_json (answer);
-
         var msg = session.get_async_result_message (res);
+
+        string unwrapped_text;
+        if (msg.status_code == Soup.Status.OK) {
+          unwrapped_text = unwrap_json (answer);
+
+        } else {
+          unwrapped_text = unwrap_error_message (answer);
+        }
 
         answer_received (msg.status_code, unwrapped_text);
 
       } catch (Error e) {
         print (e.domain.to_string ());
+        var err_domain = e.domain.to_string ();
 
-        if (e.domain.to_string () == "g-resolver-error-quark") {
+        // g-io and g-resolver
+        if (err_domain.has_prefix ("g-")) {
           answer_received (1, e.message);
 
         } else {
@@ -219,7 +227,6 @@ public class MrWorldwide.DeepL : Object {
     var objects = root.get_object ();
     var array = objects.get_array_member ("translations");
     var translation = array.get_object_element (0);
-
     var billed_characters = (int)translation.get_int_member_with_default ("billed_characters", 0);
     current_usage = current_usage + billed_characters;
     Application.settings.set_int ("current-usage", current_usage);
@@ -233,6 +240,25 @@ public class MrWorldwide.DeepL : Object {
     string translated_text = translation.get_string_member_with_default ("text", _("Cannot retrieve translated text!"));
     return translated_text;
   }
+
+
+
+  public string unwrap_error_message (string text_json) {
+
+    var parser = new Json.Parser ();
+    try {
+          parser.load_from_data (text_json);
+    } catch (Error e) {
+        print ("\nCannot: " + e.message);
+        return text_json;
+    }
+
+    var root = parser.get_root ();
+    var objects = root.get_object ();
+    return objects.get_string_member_with_default ("message", _("Cannot retrieve error message text!"));
+  }
+
+
 
   public void check_usage () {
     var msg = new Soup.Message ("GET", base_url + URL_USAGE);
