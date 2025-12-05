@@ -10,6 +10,7 @@ src/Widgets/OptionsPopover.vala
 src/Widgets/Pane.vala
 src/Widgets/SourcePane.vala
 src/Widgets/TargetPane.vala
+src/Widgets/RetryButton.vala
 src/Backend/DeepL.vala
 src/Constants.vala
 src/Application.vala
