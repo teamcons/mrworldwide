@@ -22,6 +22,8 @@ public class MrWorldwide.SettingsPopover : Gtk.Popover {
 
     box.append (new OrientationBox ());
 
+    //TRANSLATORS: The two following texts are for a switch button that does not show up in the UI
+    //The functionality is disabled. You can safely ignore this for the time being
     var auto_switch = new Granite.SwitchModelButton (_("Translate automatically")) {
       description = _("The translation will start 1.5 seconds after typing has stopped"),
       hexpand = true,

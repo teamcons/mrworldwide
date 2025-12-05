@@ -42,8 +42,7 @@ public class MrWorldwide.MainWindow : Gtk.Window {
             application: application,
             default_height: 300,
             default_width: 300,
-            icon_name: "io.github.teamcons.mrworldwide",
-            title: _("Mr Worldwide")
+            icon_name: "io.github.teamcons.mrworldwide"
         );
     }
 
@@ -60,6 +59,7 @@ public class MrWorldwide.MainWindow : Gtk.Window {
         insert_action_group ("app", actions);
 
         /* ---------------- HEADERBAR ---------------- */
+        //TRANSLATORS: Do not translate the name itself. You can write it in your writing system if that is usually done for your language
         title = _("Mr Worldwide");
         Gtk.Label title_widget = new Gtk.Label (_("Mr Worldwide"));
         title_widget.add_css_class (Granite.STYLE_CLASS_TITLE_LABEL);
@@ -107,7 +107,7 @@ public class MrWorldwide.MainWindow : Gtk.Window {
 
         headerbar.pack_end (popover_button);
 
-        //TRANSLATORS: This appears on a button at the top of the window. User clicks it to start translating
+        //TRANSLATORS: The two following texts are for a button. The functionality is diabled. You can safely ignore these.
         var translate_button = new Gtk.Button () {
             label = _("Translate"),
             tooltip_markup = Granite.markup_accel_tooltip ({"<Ctrl>T"}, _("Start translating the entered text"))
@@ -138,6 +138,7 @@ public class MrWorldwide.MainWindow : Gtk.Window {
             stack_window_view.add_child (errorview);
             stack_window_view.visible_child = errorview;
             back_revealer.reveal_child = true;
+            errorview.return_to_main.connect (on_back_clicked);
 
         } else {
             stack_window_view.visible_child = translation_view;
@@ -197,6 +198,7 @@ public class MrWorldwide.MainWindow : Gtk.Window {
     }
 
     private void on_back_clicked (bool? retry = false) {
+        print ("\nBack to main view");
         stack_window_view.visible_child = translation_view;
         stack_window_view.remove (errorview);
         errorview = null;
@@ -213,6 +215,7 @@ public class MrWorldwide.MainWindow : Gtk.Window {
         print (status_code.to_string ());
 
         if (status_code != Soup.Status.OK) {
+            print ("Switching to error view, with status " + status_code.to_string () + "\nMessage: " + answer);
 
             // ErrorView may need to do some fiddling. We reconnect when going back to main view
             Application.backend.answer_received.disconnect (on_answer_received);

@@ -17,6 +17,7 @@
 
     public signal void return_to_main (bool? retry = true);
 
+    //TRANSLATORS: This text shows up when the app fails to show technical details on an error
     public ErrorView (uint status, string? message = _("No details available")) {
         Object (
             status: status,
@@ -57,6 +58,7 @@
             };
             var api_entry = new MrWorldwide.ApiEntry ();
 
+            //TRANSLATORS: This is the text of a link to DeepL website, specifically account settings
             var link = new Gtk.LinkButton.with_label (LINK, _("You can get an API key here")) {
                 halign = Gtk.Align.START
             };
@@ -107,7 +109,8 @@
 
     private void status_to_message (uint status) {
         switch (status) {
-            //Custom codes feel super evil
+            //Custom status codes feel super evil
+            //TRANSLATORS: The following texts show up respectively, as a title, and error message, when translating has gone wrong. This needs to be as little technical as possible
             case 0:
                 explanation_title = _("No API Key");
                 explanation_text = _("You need a DeepL API key to translate text\nAn API Key is like a password given by DeepL in account settings, to allow you to use it from apps\nIt can be either DeepL Free or Pro");
