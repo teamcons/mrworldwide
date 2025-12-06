@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: io.github.teamcons.mrworldwide\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-12-06 12:22+0100\n"
+"POT-Creation-Date: 2025-12-06 19:12+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -146,55 +146,63 @@ msgstr ""
 msgid "Status code %s, please report this to this app's developer"
 msgstr ""
 
-#: src/Views/LogView.vala:22
+#: src/Views/LogView.vala:8
 msgid ""
 "Requests and server responses will show up here\n"
 "\n"
 msgstr ""
 
+#: src/Views/LogView.vala:40
+msgid "Clear"
+msgstr ""
+
+#: src/Views/LogView.vala:47
+msgid "Clear all messages"
+msgstr ""
+
 #. ---------------- HEADERBAR ----------------
 #. TRANSLATORS: Do not translate the name itself. You can write it in your writing system if that is usually done for your language
-#: src/Windows/MainWindow.vala:63 src/Windows/MainWindow.vala:64
+#: src/Windows/MainWindow.vala:74 src/Windows/MainWindow.vala:75
 msgid "Mr Worldwide"
 msgstr ""
 
 #. TRANSLATORS: Back button to go back to translating
-#: src/Windows/MainWindow.vala:90
+#: src/Windows/MainWindow.vala:95
 msgid "Back"
 msgstr ""
 
 #. TRANSLATORS: This is for a button that switches source and target language
-#: src/Windows/MainWindow.vala:103
+#: src/Windows/MainWindow.vala:108
 msgid "Switch languages"
 msgstr ""
 
-#: src/Windows/MainWindow.vala:113
+#: src/Windows/MainWindow.vala:118
 msgid "Settings"
 msgstr ""
 
 #. TRANSLATORS: The two following texts are for a button. The functionality is diabled. You can safely ignore these.
-#: src/Windows/MainWindow.vala:126
+#: src/Windows/MainWindow.vala:131
 msgid "Translate"
 msgstr ""
 
-#: src/Windows/MainWindow.vala:127
+#: src/Windows/MainWindow.vala:132
 msgid "Start translating the entered text"
 msgstr ""
 
-#: src/Windows/MainWindow.vala:143
+#: src/Windows/MainWindow.vala:148
 msgid "Translations"
 msgstr ""
 
-#: src/Windows/MainWindow.vala:149
-msgid "No API Key"
+#: src/Windows/MainWindow.vala:154
+msgid "No saved API Key"
 msgstr ""
 
-#: src/Windows/MainWindow.vala:150 src/Windows/MainWindow.vala:242
-msgid "Error"
-msgstr ""
-
-#: src/Windows/MainWindow.vala:169
+#: src/Windows/MainWindow.vala:170
 msgid "Messages"
+msgstr ""
+
+#: src/Windows/MainWindow.vala:258
+msgid "Error"
 msgstr ""
 
 #: src/Widgets/ApiEntry.vala:16
@@ -564,6 +572,6 @@ msgstr ""
 msgid "Chinese (Traditional)"
 msgstr ""
 
-#: src/Application.vala:136
+#: src/Application.vala:140
 msgid "Couldn't open file"
 msgstr ""
