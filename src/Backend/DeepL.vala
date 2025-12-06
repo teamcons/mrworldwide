@@ -47,7 +47,7 @@ public const SUPPORTED_TARGET
 public class MrWorldwide.DeepL : Object {
 
   private Soup.Session session;
-  public Soup.Logger logger;
+  internal Soup.Logger logger;
 
   private string source_lang;
   private string target_lang;

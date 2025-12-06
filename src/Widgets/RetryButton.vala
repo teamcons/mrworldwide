@@ -22,8 +22,16 @@ public RetryButton () {
 
 construct {
     spin_retry = new Gtk.Spinner ();
-    spin_revealer = new Gtk.Revealer () {child = spin_retry, reveal_child = false};
-    result_revealer = new Gtk.Revealer () {reveal_child = false};
+    spin_revealer = new Gtk.Revealer () {
+      child = spin_retry,
+      reveal_child = false,
+      transition_type = Gtk.RevealerTransitionType.SLIDE_LEFT
+    };
+
+    result_revealer = new Gtk.Revealer () {
+      reveal_child = false,
+      transition_type = Gtk.RevealerTransitionType.SLIDE_LEFT
+    };
 
     append (spin_revealer);
     append (result_revealer);
@@ -52,12 +60,14 @@ construct {
             spin_retry.spinning = false;
             spin_revealer.reveal_child = false;
 
-            result_icon = new Gtk.Image.from_icon_name ("process-completed-symbolic") {
-              tooltip_text = _("Success connecting to DeepL")
+            var result_box = new Gtk.Box (HORIZONTAL, 3) {
+              tooltip_text = _("200 OK: Success connecting to server")
             };
-            result_icon.add_css_class (Granite.STYLE_CLASS_SUCCESS);
+            result_box.add_css_class (Granite.STYLE_CLASS_SUCCESS);
+            result_box.append (new Gtk.Image.from_icon_name ("process-completed-symbolic"));
+            result_box.append (new Gtk.Label (_("Success!")));
 
-            result_revealer.child = result_icon;
+            result_revealer.child = result_box;
             result_revealer.reveal_child = true;
 
             Application.backend.usage_retrieved.disconnect (retry_answer);
@@ -69,24 +79,32 @@ construct {
             spin_retry.spinning = false;
             spin_revealer.reveal_child = false;
 
-            result_icon = new Gtk.Image.from_icon_name ("dialog-error-symbolic") {
-              tooltip_text = _("API key not valid!")
+            var result_box = new Gtk.Box (HORIZONTAL, 3) {
+              tooltip_text = _("403 Forbidden: Invalid API Key")
             };
-            result_icon.add_css_class (Granite.STYLE_CLASS_ERROR);
-            result_revealer.child = result_icon;
+            result_box.add_css_class (Granite.STYLE_CLASS_ERROR);
+            result_box.append (new Gtk.Image.from_icon_name ("dialog-error-symbolic"));
+            result_box.append (new Gtk.Label (_("Invalid")));
+
+            result_revealer.child = result_box;
             result_revealer.reveal_child = true;
+            retry_button.sensitive = true;
             break;
 
         default:
             spin_retry.spinning = false;
             spin_revealer.reveal_child = false;
 
-            result_icon = new Gtk.Image.from_icon_name ("dialog-warning-symbolic") {
-              tooltip_text = _("Status code %s").printf (status_code.to_string ())
+            var result_box = new Gtk.Box (HORIZONTAL, 3) {
+              tooltip_text = _("Status code %s: Unrelated to authentication").printf (status_code.to_string ())
             };
-            result_icon.add_css_class (Granite.STYLE_CLASS_WARNING);
-            result_revealer.child = result_icon;
+            result_box.add_css_class (Granite.STYLE_CLASS_WARNING);
+            result_box.append (new Gtk.Image.from_icon_name ("dialog-warning-symbolic"));
+            result_box.append (new Gtk.Label (_("Error")));
+
+            result_revealer.child = result_box;
             result_revealer.reveal_child = true;
+            retry_button.sensitive = true;
             break;
     }
   }

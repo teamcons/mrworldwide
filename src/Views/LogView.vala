@@ -51,14 +51,27 @@
         clear_button_label.mnemonic_widget = clear_button;
 
 
-        box.pack_start (clear_button);
-        var handle = new Gtk.WindowHandle () {
-            child = box
-        };
+        var request_button_label = new Gtk.Label (_("Check Usage"));
+        var request_button_box = new Gtk.Box (HORIZONTAL, 0);
+        request_button_box.append (new Gtk.Image.from_icon_name ("mail-send-symbolic"));
+        request_button_box.append (request_button_label);
 
+        var request_button = new Gtk.Button () {
+            child = request_button_box,
+            tooltip_text = _("Send a request"),
+        };
+        request_button.add_css_class (Granite.STYLE_CLASS_FLAT);
+        request_button_label.mnemonic_widget = request_button;
+
+
+        box.pack_start (clear_button);
+        box.pack_start (request_button);
+        
+        var handle = new Gtk.WindowHandle () {child = box};
         append (handle);
 
         clear_button.clicked.connect (on_clear);
+        request_button.clicked.connect(Application.backend.check_usage );
         Application.backend.logger.set_printer (display_routine);
     }
 
