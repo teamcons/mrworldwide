@@ -15,6 +15,7 @@
 
         textview = new Gtk.TextView () {
             editable = false,
+            cursor_visible = false,
             wrap_mode = Gtk.WrapMode.WORD_CHAR,
             vexpand = true,
             hexpand = true,
@@ -61,7 +62,6 @@
         Application.backend.logger.set_printer (display_routine);
     }
 
-    //TODO: [REDACTED] for apikey
     private void display_routine (Soup.Logger _1, Soup.LoggerLogLevel _2, char dir, string text) {
         clear_button.sensitive = true;
 
