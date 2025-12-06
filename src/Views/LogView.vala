@@ -15,7 +15,7 @@
 
         textview = new Gtk.TextView () {
             editable = false,
-            wrap_mode = Gtk.WrapMode.WORD,
+            wrap_mode = Gtk.WrapMode.WORD_CHAR,
             vexpand = true,
             hexpand = true,
             top_margin = 12,
@@ -43,7 +43,7 @@
 
         clear_button = new Gtk.Button () {
             child = clear_button_box,
-            tooltip_text = _("Clear"),
+            tooltip_text = _("Clear all messages"),
             sensitive = false
         };
         clear_button.add_css_class (Granite.STYLE_CLASS_FLAT);
