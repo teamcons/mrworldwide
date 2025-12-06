@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: io.github.teamcons.mrworldwide\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-12-05 22:07+0100\n"
+"POT-Creation-Date: 2025-12-06 12:22+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,148 +17,139 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: src/Views/WelcomeView.vala:20
-msgid "Hello World!"
-msgstr ""
-
-#: src/Views/WelcomeView.vala:21
-msgid "To start translating, enter your DeepL API Key below"
-msgstr ""
-
-#: src/Views/WelcomeView.vala:29
-msgid "You can get an API Key here"
-msgstr ""
-
 #. TRANSLATORS: This text shows up when the app fails to show technical details on an error
 #: src/Views/ErrorView.vala:21
 msgid "No details available"
 msgstr ""
 
-#: src/Views/ErrorView.vala:46 src/Widgets/RetryButton.vala:31
-msgid "Retry"
-msgstr ""
-
 #. TRANSLATORS: This is the text of a link to DeepL website, specifically account settings
-#: src/Views/ErrorView.vala:62 src/Widgets/SettingsPopover.vala:49
+#: src/Views/ErrorView.vala:55 src/Widgets/SettingsPopover.vala:49
 msgid "You can get an API key here"
 msgstr ""
 
-#: src/Views/ErrorView.vala:94
+#: src/Views/ErrorView.vala:87
 msgid "Details"
 msgstr ""
 
 #. Custom status codes feel super evil
 #. TRANSLATORS: The following texts show up respectively, as a title, and error message, when translating has gone wrong. This needs to be as little technical as possible
-#: src/Views/ErrorView.vala:115 src/Windows/MainWindow.vala:137
-msgid "No API Key"
+#: src/Views/ErrorView.vala:111
+msgid "Hello, World!"
 msgstr ""
 
-#: src/Views/ErrorView.vala:116
+#: src/Views/ErrorView.vala:112
 msgid ""
 "You need a DeepL API key to translate text\n"
+"\n"
 "An API Key is like a password given by DeepL in account settings, to allow "
 "you to use it from apps\n"
 "It can be either DeepL Free or Pro"
 msgstr ""
 
-#: src/Views/ErrorView.vala:121
+#: src/Views/ErrorView.vala:117
 msgid "No Internet"
 msgstr ""
 
-#: src/Views/ErrorView.vala:122
+#: src/Views/ErrorView.vala:118
 msgid ""
 "Please check you are connected to the internet, and that this app has "
 "permission to access it\n"
 "If you changed any firewall settings, check there as well!"
 msgstr ""
 
-#: src/Views/ErrorView.vala:127
+#: src/Views/ErrorView.vala:123
 msgid "Everything works great :)"
 msgstr ""
 
-#: src/Views/ErrorView.vala:128
+#: src/Views/ErrorView.vala:124
 msgid ""
 "If you see this and are not me, then it means i forgor to disable this error"
 msgstr ""
 
-#: src/Views/ErrorView.vala:133
+#: src/Views/ErrorView.vala:129
 msgid "Bad request"
 msgstr ""
 
-#: src/Views/ErrorView.vala:134
+#: src/Views/ErrorView.vala:130
 msgid ""
 "The app sent a wrong translation request to DeepL...\n"
 "Please report this to the app's developer with as much details as you can"
 msgstr ""
 
-#: src/Views/ErrorView.vala:139
+#: src/Views/ErrorView.vala:135
 msgid "Forbidden"
 msgstr ""
 
-#: src/Views/ErrorView.vala:140
+#: src/Views/ErrorView.vala:136
 msgid "Your API key is invalid. Make sure it is the correct one!"
 msgstr ""
 
-#: src/Views/ErrorView.vala:145
+#: src/Views/ErrorView.vala:141
 msgid "Too many requests"
 msgstr ""
 
-#: src/Views/ErrorView.vala:146
+#: src/Views/ErrorView.vala:142
 msgid ""
 "Please wait before retrying. This error should not be possible to happen for "
 "this app..."
 msgstr ""
 
-#: src/Views/ErrorView.vala:151
+#: src/Views/ErrorView.vala:147
 msgid "Your monthly quota has been exceeded"
 msgstr ""
 
-#: src/Views/ErrorView.vala:152
+#: src/Views/ErrorView.vala:148
 msgid "If you are a Pro API user, this corresponds to your Cost Control limit"
 msgstr ""
 
-#: src/Views/ErrorView.vala:157
+#: src/Views/ErrorView.vala:153
 msgid "Internal server error"
 msgstr ""
 
-#: src/Views/ErrorView.vala:158
+#: src/Views/ErrorView.vala:154
 msgid ""
 "Retry in a minute? If you see this several times, check online if there is a "
 "DeepL service interruption"
 msgstr ""
 
-#: src/Views/ErrorView.vala:163
+#: src/Views/ErrorView.vala:159
 msgid "SSL Handshake error"
 msgstr ""
 
-#: src/Views/ErrorView.vala:164
+#: src/Views/ErrorView.vala:160
 msgid ""
 "This is an issue DeepL is aware of and this app can do nothing about...\n"
 "If you have the know-show, going through a simple authenticated proxy may "
 "work"
 msgstr ""
 
-#: src/Views/ErrorView.vala:169
+#: src/Views/ErrorView.vala:165
 msgid "Request timeout"
 msgstr ""
 
-#: src/Views/ErrorView.vala:170 src/Views/ErrorView.vala:176
+#: src/Views/ErrorView.vala:166 src/Views/ErrorView.vala:172
 msgid ""
 "No answer has been received. Either DeepL or your connection are having "
 "issues"
 msgstr ""
 
-#: src/Views/ErrorView.vala:175
+#: src/Views/ErrorView.vala:171
 msgid "Gateway timeout"
 msgstr ""
 
-#: src/Views/ErrorView.vala:181
+#: src/Views/ErrorView.vala:177
 msgid "Unknown error"
 msgstr ""
 
-#: src/Views/ErrorView.vala:182
+#: src/Views/ErrorView.vala:178
 #, c-format
 msgid "Status code %s, please report this to this app's developer"
+msgstr ""
+
+#: src/Views/LogView.vala:22
+msgid ""
+"Requests and server responses will show up here\n"
+"\n"
 msgstr ""
 
 #. ---------------- HEADERBAR ----------------
@@ -168,26 +159,42 @@ msgid "Mr Worldwide"
 msgstr ""
 
 #. TRANSLATORS: Back button to go back to translating
-#: src/Windows/MainWindow.vala:76
+#: src/Windows/MainWindow.vala:90
 msgid "Back"
 msgstr ""
 
 #. TRANSLATORS: This is for a button that switches source and target language
-#: src/Windows/MainWindow.vala:89
+#: src/Windows/MainWindow.vala:103
 msgid "Switch languages"
 msgstr ""
 
-#: src/Windows/MainWindow.vala:99
+#: src/Windows/MainWindow.vala:113
 msgid "Settings"
 msgstr ""
 
 #. TRANSLATORS: The two following texts are for a button. The functionality is diabled. You can safely ignore these.
-#: src/Windows/MainWindow.vala:112
+#: src/Windows/MainWindow.vala:126
 msgid "Translate"
 msgstr ""
 
-#: src/Windows/MainWindow.vala:113
+#: src/Windows/MainWindow.vala:127
 msgid "Start translating the entered text"
+msgstr ""
+
+#: src/Windows/MainWindow.vala:143
+msgid "Translations"
+msgstr ""
+
+#: src/Windows/MainWindow.vala:149
+msgid "No API Key"
+msgstr ""
+
+#: src/Windows/MainWindow.vala:150 src/Windows/MainWindow.vala:242
+msgid "Error"
+msgstr ""
+
+#: src/Windows/MainWindow.vala:169
+msgid "Messages"
 msgstr ""
 
 #: src/Widgets/ApiEntry.vala:16
@@ -359,6 +366,10 @@ msgstr ""
 msgid "translation.txt"
 msgstr ""
 
+#: src/Widgets/RetryButton.vala:31
+msgid "Verify"
+msgstr ""
+
 #: src/Widgets/RetryButton.vala:56
 msgid "Success connecting to DeepL"
 msgstr ""
@@ -372,185 +383,184 @@ msgstr ""
 msgid "Status code %s"
 msgstr ""
 
-#: src/Backend/DeepL.vala:235
+#: src/Backend/DeepL.vala:236
 msgid "Cannot detect!"
 msgstr ""
 
-#: src/Backend/DeepL.vala:240
+#: src/Backend/DeepL.vala:241
 msgid "Cannot retrieve translated text!"
 msgstr ""
 
-#: src/Backend/DeepL.vala:258
+#: src/Backend/DeepL.vala:259
 msgid "Cannot retrieve error message text!"
 msgstr ""
 
 #. TRANSLATORS: The following are all languages user can select as source or target for translation
-#: src/Constants.vala:18
+#: src/Constants.vala:14
 msgid "Detect automatically"
 msgstr ""
 
-#: src/Constants.vala:19 src/Constants.vala:58
-#, c-format
-msgid "System language (%s)"
+#: src/Constants.vala:15 src/Constants.vala:54
+msgid "System language"
 msgstr ""
 
-#: src/Constants.vala:20 src/Constants.vala:59
+#: src/Constants.vala:16 src/Constants.vala:56
 msgid "Arabic"
 msgstr ""
 
-#: src/Constants.vala:21 src/Constants.vala:60
+#: src/Constants.vala:17 src/Constants.vala:57
 msgid "Bulgarian"
 msgstr ""
 
-#: src/Constants.vala:22 src/Constants.vala:61
+#: src/Constants.vala:18 src/Constants.vala:58
 msgid "Czech"
 msgstr ""
 
-#: src/Constants.vala:23 src/Constants.vala:62
+#: src/Constants.vala:19 src/Constants.vala:59
 msgid "Danish"
 msgstr ""
 
-#: src/Constants.vala:24 src/Constants.vala:63
+#: src/Constants.vala:20 src/Constants.vala:60
 msgid "German"
 msgstr ""
 
-#: src/Constants.vala:25 src/Constants.vala:64
+#: src/Constants.vala:21 src/Constants.vala:61
 msgid "Greek"
 msgstr ""
 
-#: src/Constants.vala:26
+#: src/Constants.vala:22
 msgid "English (All)"
 msgstr ""
 
-#: src/Constants.vala:27 src/Constants.vala:67
+#: src/Constants.vala:23 src/Constants.vala:64
 msgid "Spanish (All)"
 msgstr ""
 
-#: src/Constants.vala:28 src/Constants.vala:69
+#: src/Constants.vala:24 src/Constants.vala:66
 msgid "Estonian"
 msgstr ""
 
-#: src/Constants.vala:29 src/Constants.vala:70
+#: src/Constants.vala:25 src/Constants.vala:67
 msgid "Finnish"
 msgstr ""
 
-#: src/Constants.vala:30 src/Constants.vala:71
+#: src/Constants.vala:26 src/Constants.vala:68
 msgid "French"
 msgstr ""
 
-#: src/Constants.vala:31 src/Constants.vala:72
+#: src/Constants.vala:27 src/Constants.vala:69
 msgid "Hebrew"
 msgstr ""
 
-#: src/Constants.vala:32 src/Constants.vala:73
+#: src/Constants.vala:28 src/Constants.vala:70
 msgid "Hungarian"
 msgstr ""
 
-#: src/Constants.vala:33 src/Constants.vala:74
+#: src/Constants.vala:29 src/Constants.vala:71
 msgid "Indonesian"
 msgstr ""
 
-#: src/Constants.vala:34 src/Constants.vala:75
+#: src/Constants.vala:30 src/Constants.vala:72
 msgid "Italian"
 msgstr ""
 
-#: src/Constants.vala:35 src/Constants.vala:76
+#: src/Constants.vala:31 src/Constants.vala:73
 msgid "Japanese"
 msgstr ""
 
-#: src/Constants.vala:36 src/Constants.vala:77
+#: src/Constants.vala:32 src/Constants.vala:74
 msgid "Korean"
 msgstr ""
 
-#: src/Constants.vala:37 src/Constants.vala:78
+#: src/Constants.vala:33 src/Constants.vala:75
 msgid "Lithuanian"
 msgstr ""
 
-#: src/Constants.vala:38 src/Constants.vala:79
+#: src/Constants.vala:34 src/Constants.vala:76
 msgid "Latvian"
 msgstr ""
 
-#: src/Constants.vala:39 src/Constants.vala:80
+#: src/Constants.vala:35 src/Constants.vala:77
 msgid "Norwegian Bokmål"
 msgstr ""
 
-#: src/Constants.vala:40 src/Constants.vala:81
+#: src/Constants.vala:36 src/Constants.vala:78
 msgid "Dutch"
 msgstr ""
 
-#: src/Constants.vala:41 src/Constants.vala:82
+#: src/Constants.vala:37 src/Constants.vala:79
 msgid "Polish"
 msgstr ""
 
-#: src/Constants.vala:42
+#: src/Constants.vala:38
 msgid "Portuguese (All)"
 msgstr ""
 
-#: src/Constants.vala:43 src/Constants.vala:85
+#: src/Constants.vala:39 src/Constants.vala:82
 msgid "Romanian"
 msgstr ""
 
-#: src/Constants.vala:44 src/Constants.vala:86
+#: src/Constants.vala:40 src/Constants.vala:83
 msgid "Russian"
 msgstr ""
 
-#: src/Constants.vala:45 src/Constants.vala:87
+#: src/Constants.vala:41 src/Constants.vala:84
 msgid "Slovak"
 msgstr ""
 
-#: src/Constants.vala:46 src/Constants.vala:88
+#: src/Constants.vala:42 src/Constants.vala:85
 msgid "Slovenian"
 msgstr ""
 
-#: src/Constants.vala:47 src/Constants.vala:89
+#: src/Constants.vala:43 src/Constants.vala:86
 msgid "Swedish"
 msgstr ""
 
-#: src/Constants.vala:48 src/Constants.vala:90
+#: src/Constants.vala:44 src/Constants.vala:87
 msgid "Thai"
 msgstr ""
 
-#: src/Constants.vala:49 src/Constants.vala:91
+#: src/Constants.vala:45 src/Constants.vala:88
 msgid "Turkish"
 msgstr ""
 
-#: src/Constants.vala:50 src/Constants.vala:92
+#: src/Constants.vala:46 src/Constants.vala:89
 msgid "Ukrainian"
 msgstr ""
 
-#: src/Constants.vala:51 src/Constants.vala:93
+#: src/Constants.vala:47 src/Constants.vala:90
 msgid "Vietnamese"
 msgstr ""
 
-#: src/Constants.vala:52
+#: src/Constants.vala:48
 msgid "Chinese (All)"
 msgstr ""
 
-#: src/Constants.vala:65
+#: src/Constants.vala:62
 msgid "English (GB)"
 msgstr ""
 
-#: src/Constants.vala:66
+#: src/Constants.vala:63
 msgid "English (US)"
 msgstr ""
 
-#: src/Constants.vala:68
+#: src/Constants.vala:65
 msgid "Spanish (Latin American)"
 msgstr ""
 
-#: src/Constants.vala:83
-msgid "Portuguese (Portugual)"
+#: src/Constants.vala:80
+msgid "Portuguese (Portugal)"
 msgstr ""
 
-#: src/Constants.vala:84
+#: src/Constants.vala:81
 msgid "Portuguese (Brazilian)"
 msgstr ""
 
-#: src/Constants.vala:94
+#: src/Constants.vala:91
 msgid "Chinese (Simplified)"
 msgstr ""
 
-#: src/Constants.vala:95
+#: src/Constants.vala:92
 msgid "Chinese (Traditional)"
 msgstr ""
 
