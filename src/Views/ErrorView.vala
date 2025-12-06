@@ -110,7 +110,7 @@
             case 0:
                 explanation_title = _("Hello, World!");
                 explanation_text = _("You need a DeepL API key to translate text\n\nAn API Key is like a password given by DeepL in account settings, to allow you to use it from apps\nIt can be either DeepL Free or Pro");
-                icon_name = "dialog-error";
+                icon_name = "dialog-password";
                 return;
 
             case 1:

@@ -69,5 +69,10 @@
       <summary>Max API usage</summary>
       <description>How many characters can be translated</description>
     </key>
+    <key name="show-messages" type="b">
+      <default>false</default>
+      <summary>Whether to show the messages tab</summary>
+      <description>Whether to show the messages tab</description>
+    </key>
   </schema>
 </schemalist>

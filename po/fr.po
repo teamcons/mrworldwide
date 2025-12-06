@@ -268,7 +268,7 @@ msgstr "DeepL Clé API"
 
 #: src/Widgets/SettingsPopover.vala:79
 msgid "Support us!"
-msgstr "Soutenez-nous !"
+msgstr "Nous soutenir !"
 
 #: src/Widgets/OptionsPopover.vala:27
 #: src/Widgets/OptionsPopover.vala:101
@@ -405,9 +405,8 @@ msgstr "Détection automatique"
 
 #: src/Constants.vala:15
 #: src/Constants.vala:54
-#, fuzzy
 msgid "System language"
-msgstr "Langue du système (%s)"
+msgstr "Langue du système"
 
 #: src/Constants.vala:16
 #: src/Constants.vala:56
@@ -584,7 +583,6 @@ msgid "Spanish (Latin American)"
 msgstr "Espagnol (Amérique latine)"
 
 #: src/Constants.vala:80
-#, fuzzy
 msgid "Portuguese (Portugal)"
 msgstr "Portugais (Portugual)"
 

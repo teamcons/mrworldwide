@@ -80,6 +80,10 @@ public class MrWorldwide.Application : Gtk.Application {
         add_action (save_file);
         set_accels_for_action ("app.save_file", {"<Control><Shift>s"});
 
+        var toggle_messages = new SimpleAction ("toggle_messages", null);
+        add_action (toggle_messages);
+        set_accels_for_action ("app.toggle_messages", {"<Control><Shift>m"});
+
         var provider = new Gtk.CssProvider ();
         provider.load_from_resource ("/io/github/teamcons/mrworldwide/Application.css");
 

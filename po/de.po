@@ -79,7 +79,7 @@ msgstr ""
 
 #: src/Views/ErrorView.vala:135
 msgid "Forbidden"
-msgstr "Verbotene"
+msgstr "Nicht Erlaubt"
 
 #: src/Views/ErrorView.vala:136
 msgid "Your API key is invalid. Make sure it is the correct one!"
@@ -268,7 +268,7 @@ msgstr "DeepL API-Schlüssel"
 
 #: src/Widgets/SettingsPopover.vala:79
 msgid "Support us!"
-msgstr "Unterstützen Sie uns!"
+msgstr "Uns unterstützen!"
 
 #: src/Widgets/OptionsPopover.vala:27
 #: src/Widgets/OptionsPopover.vala:101
@@ -302,7 +302,7 @@ msgstr "Die Formalitätskontrolle ist für diese Zielsprache nicht verfügbar."
 
 #: src/Widgets/Pane.vala:105
 msgid "Ready!"
-msgstr "Fertig!"
+msgstr "Bereit!"
 
 #. placeholder.icon = new ThemedIcon ("insert-text-symbolic");
 #: src/Widgets/Pane.vala:107
@@ -371,7 +371,7 @@ msgstr "übersetzung.txt"
 
 #: src/Widgets/RetryButton.vala:31
 msgid "Verify"
-msgstr "Überprüfen Sie"
+msgstr "Überprüfen"
 
 #: src/Widgets/RetryButton.vala:56
 msgid "Success connecting to DeepL"
@@ -405,9 +405,8 @@ msgstr "Automatisch erkennen"
 
 #: src/Constants.vala:15
 #: src/Constants.vala:54
-#, fuzzy
 msgid "System language"
-msgstr "Systemsprache (%s)"
+msgstr "Systemsprache"
 
 #: src/Constants.vala:16
 #: src/Constants.vala:56
@@ -584,9 +583,8 @@ msgid "Spanish (Latin American)"
 msgstr "Spanisch (Lateinamerika)"
 
 #: src/Constants.vala:80
-#, fuzzy
 msgid "Portuguese (Portugal)"
-msgstr "Portugiesisch (Portugual)"
+msgstr "Portugiesisch (Portugal)"
 
 #: src/Constants.vala:81
 msgid "Portuguese (Brazilian)"

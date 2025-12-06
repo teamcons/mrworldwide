@@ -5,14 +5,23 @@
 
 public class MrWorldwide.MainWindow : Gtk.Window {
 
-    private Gtk.Revealer back_revealer;
+    private bool _show_switcher;
+    public bool show_switcher {
+        get {return _show_switcher;}
+        set {switcher_state (value);}
+    }
 
+    private Gtk.Revealer back_revealer;
     private Gtk.Button switchlang_button;
     private Gtk.MenuButton popover_button;
 
     private Gtk.Stack stack_window_view;
     public MrWorldwide.TranslationView translation_view;
     private MrWorldwide.ErrorView? errorview = null;
+
+    private Gtk.HeaderBar headerbar;
+    private Gtk.StackSwitcher switcher;
+    private Gtk.Label title_widget;
 
     public MrWorldwide.SettingsPopover menu_popover;
 
@@ -25,6 +34,7 @@ public class MrWorldwide.MainWindow : Gtk.Window {
     public const string ACTION_CLEAR = "clear_source";
     public const string ACTION_OPEN_FILE = "open_file";
     public const string ACTION_SAVE_FILE = "save_file";
+    public const string ACTION_TOGGLE_MESSAGES = "toggle_messages";
     public static Gee.MultiMap<string, string> action_accelerators = new Gee.HashMultiMap<string, string> ();
 
     private const GLib.ActionEntry[] ACTION_ENTRIES = {
@@ -34,7 +44,8 @@ public class MrWorldwide.MainWindow : Gtk.Window {
         { ACTION_TRANSLATE, on_translate},
         { ACTION_CLEAR, clear_source},
         { ACTION_OPEN_FILE, action_open_file},
-        { ACTION_SAVE_FILE, action_save_file}
+        { ACTION_SAVE_FILE, action_save_file},
+        { ACTION_TOGGLE_MESSAGES, action_toggle_messages}
     };
 
     public MainWindow (Gtk.Application application) {
@@ -61,25 +72,19 @@ public class MrWorldwide.MainWindow : Gtk.Window {
         /* ---------------- HEADERBAR ---------------- */
         //TRANSLATORS: Do not translate the name itself. You can write it in your writing system if that is usually done for your language
         title = _("Mr Worldwide");
-        Gtk.Label title_widget = new Gtk.Label (_("Mr Worldwide"));
+        title_widget = new Gtk.Label (_("Mr Worldwide"));
         title_widget.add_css_class (Granite.STYLE_CLASS_TITLE_LABEL);
 
-        var headerbar = new Gtk.HeaderBar ();
+        headerbar = new Gtk.HeaderBar ();
         
         stack_window_view = new Gtk.Stack () {
-            transition_type = Gtk.StackTransitionType.SLIDE_LEFT
+            transition_type = Gtk.StackTransitionType.SLIDE_LEFT_RIGHT
         };
 
-#if DEBUG_FEATURES
-        var switcher = new Gtk.StackSwitcher () {
+        switcher = new Gtk.StackSwitcher () {
             stack = stack_window_view
         };
-        headerbar.title_widget = switcher;
-
-#else
-        headerbar.title_widget = title_widget;
-#endif
-
+        
         headerbar.add_css_class (Granite.STYLE_CLASS_FLAT);
         set_titlebar (headerbar);
 
@@ -146,11 +151,7 @@ public class MrWorldwide.MainWindow : Gtk.Window {
         child = stack_window_view;
 
         if (Application.settings.get_string ("key") == "") {
-            errorview = new MrWorldwide.ErrorView (0, _("No API Key"));
-            stack_window_view.add_titled (errorview, "error", _("Error"));
-            stack_window_view.visible_child = errorview;
-            back_revealer.reveal_child = true;
-            errorview.return_to_main.connect (on_back_clicked);
+            on_error (MrWorldwide.StatusCode.NO_KEY, _("No saved API Key"));
 
         } else {
             stack_window_view.visible_child = translation_view;
@@ -165,10 +166,8 @@ public class MrWorldwide.MainWindow : Gtk.Window {
             }
         });  */
 
-#if DEBUG_FEATURES
+
         stack_window_view.add_titled (new LogView (), "messages", _("Messages"));
-        stack_window_view.transition_type = Gtk.StackTransitionType.NONE;
-#endif
 
 
         /***************** CONNECTS *****************/
@@ -179,6 +178,13 @@ public class MrWorldwide.MainWindow : Gtk.Window {
             translate_revealer, 
             "reveal_child", 
             SettingsBindFlags.INVERT_BOOLEAN
+        );
+
+        Application.settings.bind (
+            "show-messages", 
+            this, 
+            "show_switcher", 
+            SettingsBindFlags.DEFAULT
         );
 
         back_button.clicked.connect (() => {on_back_clicked ();});
@@ -214,6 +220,20 @@ public class MrWorldwide.MainWindow : Gtk.Window {
     private void action_save_file () {
         translation_view.target_pane.on_save_as ();
     }
+    
+    public void on_answer_received (uint status_code, string answer) {
+        print (status_code.to_string ());
+
+        if (status_code != Soup.Status.OK) {
+            print ("Switching to error view, with status " + status_code.to_string () + "\nMessage: " + answer);
+            on_error (status_code, answer);
+            return;
+        }
+
+        translation_view.target_pane.text = answer;
+        translation_view.target_pane.spin (false);
+        //stack_window_view.visible_child = translation_view;
+    }
 
     private void on_back_clicked (bool? retry = false) {
         print ("\nBack to main view");
@@ -229,12 +249,8 @@ public class MrWorldwide.MainWindow : Gtk.Window {
         }
     }
 
-    public void on_answer_received (uint status_code, string answer) {
-        print (status_code.to_string ());
-
-        if (status_code != Soup.Status.OK) {
-            print ("Switching to error view, with status " + status_code.to_string () + "\nMessage: " + answer);
-
+    private void on_error (uint status_code, string answer) {
+        
             // ErrorView may need to do some fiddling. We reconnect when going back to main view
             Application.backend.answer_received.disconnect (on_answer_received);
             
@@ -243,13 +259,21 @@ public class MrWorldwide.MainWindow : Gtk.Window {
             stack_window_view.visible_child = errorview;
             back_revealer.reveal_child = true;
             errorview.return_to_main.connect (on_back_clicked);
-        
-            return;
-        }
-
-        translation_view.target_pane.text = answer;
-        translation_view.target_pane.spin (false);
-        //stack_window_view.visible_child = translation_view;
     }
+
+    private void action_toggle_messages () {
+        var current = Application.settings.get_boolean ("show-messages");
+        Application.settings.set_boolean ("show-messages", !current);
+    }
+
+    private void switcher_state (bool if_show_switcher) {
+        if (if_show_switcher) {
+            headerbar.title_widget = switcher;
+
+        } else {
+            headerbar.title_widget = title_widget;
+        }
+        _show_switcher = if_show_switcher;
+    } 
 }
 
