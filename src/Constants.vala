@@ -6,17 +6,13 @@
 
 namespace MrWorldwide {
 
-	public string system_language () {
-		return Environment.get_variable ("LANG").split (".")[0];
-	}
-
 	// https://developers.deepl.com/docs/getting-started/supported-languages
 	// TODO: In the far future people might declare their own in a backend file
 	public Lang[] SourceLang () {
 		return {
 			//TRANSLATORS: The following are all languages user can select as source or target for translation
 			new Lang ("idk",_("Detect automatically")),
-			new Lang ("system",_("System language (%s)").printf (system_language ())),
+			new Lang ("system",_("System language")),
 			new Lang ("AR",_("Arabic")),
 			new Lang ("BG",_("Bulgarian")),
 			new Lang ("CS",_("Czech")),
@@ -55,7 +51,8 @@ namespace MrWorldwide {
 
 	public Lang[] TargetLang () {
 		return {
-			new Lang ("system",_("System language (%s)").printf (system_language ())),
+			new Lang ("system",_("System language")),
+
 			new Lang ("AR",_("Arabic")),
 			new Lang ("BG",_("Bulgarian")),
 			new Lang ("CS",_("Czech")),
@@ -80,7 +77,7 @@ namespace MrWorldwide {
 			new Lang ("NB",_("Norwegian Bokmål")),
 			new Lang ("NL",_("Dutch")),
 			new Lang ("PL",_("Polish")),
-			new Lang ("PT-PT",_("Portuguese (Portugual)")),
+			new Lang ("PT-PT",_("Portuguese (Portugal)")),
 			new Lang ("PT-BR",_("Portuguese (Brazilian)")),
 			new Lang ("RO",_("Romanian")),
 			new Lang ("RU",_("Russian")),
