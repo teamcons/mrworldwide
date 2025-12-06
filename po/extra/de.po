@@ -14,7 +14,7 @@ msgstr ""
 
 #: data/mrworldwide.metainfo.xml.in:12
 msgid "mrworldwide"
-msgstr "mrworldwide"
+msgstr ""
 
 #: data/mrworldwide.metainfo.xml.in:13
 #: data/mrworldwide.desktop.in:8
@@ -123,7 +123,7 @@ msgstr "Aktualisierte Übersetzungen"
 
 #: data/mrworldwide.desktop.in:6
 msgid "Mr Worldwide"
-msgstr "Herr Weltweit"
+msgstr ""
 
 #: data/mrworldwide.desktop.in:7
 msgid "Text translator"

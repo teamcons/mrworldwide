@@ -68,9 +68,9 @@ executable(
     'src' / 'Widgets' / 'TargetPane.vala',
     'src' / 'Widgets' / 'RetryButton.vala',
 
-    'src' / 'Views' / 'WelcomeView.vala',
     'src' / 'Views' / 'TranslationView.vala',
     'src' / 'Views' / 'ErrorView.vala',
+    'src' / 'Views' / 'LogView.vala',
     'src' / 'Windows' / 'MainWindow.vala',
     'src' / 'Application.vala',
     dependencies: deps,

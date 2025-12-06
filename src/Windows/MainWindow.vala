@@ -65,10 +65,24 @@ public class MrWorldwide.MainWindow : Gtk.Window {
         title_widget.add_css_class (Granite.STYLE_CLASS_TITLE_LABEL);
 
         var headerbar = new Gtk.HeaderBar ();
-        headerbar.title_widget = title_widget;
-        headerbar.add_css_class (Granite.STYLE_CLASS_FLAT);
+        
+        stack_window_view = new Gtk.Stack () {
+            transition_type = Gtk.StackTransitionType.SLIDE_LEFT
+        };
 
+#if DEBUG_FEATURES
+        var switcher = new Gtk.StackSwitcher () {
+            stack = stack_window_view
+        };
+        headerbar.title_widget = switcher;
+
+#else
+        headerbar.title_widget = title_widget;
+#endif
+
+        headerbar.add_css_class (Granite.STYLE_CLASS_FLAT);
         set_titlebar (headerbar);
+
 
         /* ---------------- PACK START ---------------- */
 
@@ -125,17 +139,15 @@ public class MrWorldwide.MainWindow : Gtk.Window {
 
         /* ---------------- MAIN VIEW ---------------- */
         translation_view = new MrWorldwide.TranslationView ();
-        stack_window_view = new Gtk.Stack () {
-            transition_type = Gtk.StackTransitionType.SLIDE_LEFT
-        };
-        stack_window_view.add_child (translation_view);
+
+        stack_window_view.add_titled (translation_view, "translation", _("Translations"));
 
 
         child = stack_window_view;
 
         if (Application.settings.get_string ("key") == "") {
             errorview = new MrWorldwide.ErrorView (0, _("No API Key"));
-            stack_window_view.add_child (errorview);
+            stack_window_view.add_titled (errorview, "error", _("Error"));
             stack_window_view.visible_child = errorview;
             back_revealer.reveal_child = true;
             errorview.return_to_main.connect (on_back_clicked);
@@ -152,6 +164,12 @@ public class MrWorldwide.MainWindow : Gtk.Window {
                 source_pane.pane.set_selected_language (detected_language_code);
             }
         });  */
+
+#if DEBUG_FEATURES
+        stack_window_view.add_titled (new LogView (), "messages", _("Messages"));
+        stack_window_view.transition_type = Gtk.StackTransitionType.NONE;
+#endif
+
 
         /***************** CONNECTS *****************/
         Application.backend.answer_received.connect (on_answer_received);
@@ -221,7 +239,7 @@ public class MrWorldwide.MainWindow : Gtk.Window {
             Application.backend.answer_received.disconnect (on_answer_received);
             
             errorview = new MrWorldwide.ErrorView (status_code, answer);
-            stack_window_view.add_child (errorview);
+            stack_window_view.add_titled (errorview, "error", _("Error"));
             stack_window_view.visible_child = errorview;
             back_revealer.reveal_child = true;
             errorview.return_to_main.connect (on_back_clicked);

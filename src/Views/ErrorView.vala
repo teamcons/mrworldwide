@@ -43,15 +43,8 @@
         };
         box.append (title);
 
-        var button_retry = new Gtk.Button.with_label (_("Retry")) {
-            halign = Gtk.Align.END,
-            valign = Gtk.Align.CENTER
-        };
-        //box.append (button_retry);
-        button_retry.clicked.connect (Application.backend.check_usage);
-
         // In the event the API is the issue, ask user
-        if (status == Soup.Status.FORBIDDEN || status == 0) {
+        if (status == Soup.Status.FORBIDDEN || status == StatusCode.NO_KEY) {
             var apibox = new Gtk.Box (VERTICAL, 12) {
                 margin_top = 6,
                 margin_bottom = 6
@@ -97,7 +90,10 @@
             margin_top = 12
         };
 
-        box.append (expander);
+        if (status != StatusCode.NO_KEY) {
+            box.append (expander);
+        }
+
 
         var handle = new Gtk.WindowHandle () {
             child = box
@@ -112,9 +108,9 @@
             //Custom status codes feel super evil
             //TRANSLATORS: The following texts show up respectively, as a title, and error message, when translating has gone wrong. This needs to be as little technical as possible
             case 0:
-                explanation_title = _("No API Key");
-                explanation_text = _("You need a DeepL API key to translate text\nAn API Key is like a password given by DeepL in account settings, to allow you to use it from apps\nIt can be either DeepL Free or Pro");
-                icon_name = "network-offline-symbolic";
+                explanation_title = _("Hello, World!");
+                explanation_text = _("You need a DeepL API key to translate text\n\nAn API Key is like a password given by DeepL in account settings, to allow you to use it from apps\nIt can be either DeepL Free or Pro");
+                icon_name = "dialog-error";
                 return;
 
             case 1:
@@ -138,7 +134,7 @@
             case Soup.Status.FORBIDDEN:
                 explanation_title = _("Forbidden");
                 explanation_text = _("Your API key is invalid. Make sure it is the correct one!");
-                icon_name = "dialog-password";
+                icon_name = "dialog-error";
                 return;
 
             case 429:

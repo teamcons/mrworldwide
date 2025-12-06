@@ -47,6 +47,7 @@ public const SUPPORTED_TARGET
 public class MrWorldwide.DeepL : Object {
 
   private Soup.Session session;
+  public Soup.Logger logger;
 
   private string source_lang;
   private string target_lang;
@@ -73,7 +74,7 @@ public class MrWorldwide.DeepL : Object {
 
     session = new Soup.Session ();
 
-    var logger = new Soup.Logger (Soup.LoggerLogLevel.BODY);
+    logger = new Soup.Logger (Soup.LoggerLogLevel.BODY);
     session.add_feature (logger);
     // optional, stderr (vice stdout)
     logger.set_printer ((_1, _2, dir, text) => {
@@ -163,7 +164,7 @@ public class MrWorldwide.DeepL : Object {
 
         // g-io and g-resolver
         if (err_domain.has_prefix ("g-")) {
-          answer_received (1, e.message);
+          answer_received (MrWorldwide.StatusCode.NO_INTERNET, e.message);
 
         } else {
           stderr.printf ("Got: %s\n", e.message);

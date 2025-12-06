@@ -3,7 +3,7 @@
  * SPDX-FileCopyrightText:  2025 Stella & Charlie (teamcons.carrd.co)
  */
 
-public enum MrWorldwide.CustomStatusCode {
+public enum MrWorldwide.StatusCode {
     NO_KEY = 0,
     NO_INTERNET = 1,
     QUOTA = 456;
