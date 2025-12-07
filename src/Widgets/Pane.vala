@@ -16,7 +16,7 @@
 
     public Gtk.Stack stack;
     public Gtk.WindowHandle placeholder_handle;
-    public Granite.Placeholder placeholder;
+    public Gtk.Label placeholder;
     public Gtk.Box ready_box;
 
     private Gtk.Overlay overlay;
@@ -102,9 +102,9 @@
         ready_box.append (scrolled);
         ready_box.append (handle);
 
-        placeholder = new Granite.Placeholder (_("Ready!"));
+        placeholder = new Gtk.Label (_("Ready to translate"));
         //placeholder.icon = new ThemedIcon ("insert-text-symbolic");
-        placeholder.description = _("Enter text to translate");
+        placeholder.add_css_class (Granite.STYLE_CLASS_H2_LABEL);
 
         placeholder_handle = new Gtk.WindowHandle () {
             child = placeholder
