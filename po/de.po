@@ -154,7 +154,6 @@ msgstr ""
 ""
 
 #: src/Views/LogView.vala:40
-#, fuzzy
 msgid "Clear"
 msgstr "Leeren"
 
@@ -163,21 +162,19 @@ msgid "Clear all messages"
 msgstr "Alle Meldungen löschen"
 
 #: src/Views/LogView.vala:55
-#, fuzzy
 msgid "Check Usage"
-msgstr "API-Verwendung"
+msgstr "Verwendung prüfen"
 
 #: src/Views/LogView.vala:62
-#, fuzzy
 msgid "Send a request"
-msgstr "Schlechte Anfrage"
+msgstr "Anfrage senden"
 
 #. ---------------- HEADERBAR ----------------
 #. TRANSLATORS: Do not translate the name itself. You can write it in your writing system if that is usually done for your language
 #: src/Windows/MainWindow.vala:73
 #: src/Windows/MainWindow.vala:74
 msgid "Mr Worldwide"
-msgstr "Herr Weltweit"
+msgstr "Mr Worldwide"
 
 #. TRANSLATORS: Back button to go back to translating
 #: src/Windows/MainWindow.vala:94
@@ -321,9 +318,8 @@ msgid "Formality control is not available for this target language"
 msgstr "Die Formalitätskontrolle ist für diese Zielsprache nicht verfügbar."
 
 #: src/Widgets/Pane.vala:105
-#, fuzzy
 msgid "Ready to translate"
-msgstr "Textdatei zum Übersetzen öffnen"
+msgstr "Bereit zum Übersetzen"
 
 #: src/Widgets/SourcePane.vala:19
 msgid "Set the language to translate from"
