@@ -6,6 +6,7 @@
 public class MrWorldwide.OptionsPopover : Gtk.Popover {
 
   private Gtk.Box formalbox;
+  private Gtk.Entry context_entry;
 
   construct {
     width_request = 260;
@@ -63,7 +64,7 @@ public class MrWorldwide.OptionsPopover : Gtk.Popover {
     box.append (formalbox);
 
     /***************** CONTEXT *****************/
-    var context_entry = new Gtk.Entry ();
+    context_entry = new Gtk.Entry ();
     context_entry.placeholder_text = _("Enter context here");
     context_entry.secondary_icon_name = "edit-clear";
     context_entry.secondary_icon_tooltip_text = _("Clear text");
@@ -105,5 +106,6 @@ public class MrWorldwide.OptionsPopover : Gtk.Popover {
         formalbox.tooltip_text = _("Formality control is not available for this target language");
       }
 
+      context_entry.grab_focus ();
   }
 }

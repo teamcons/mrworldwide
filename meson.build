@@ -2,7 +2,7 @@
 project(
   'io.github.teamcons.mrworldwide',
   'vala', 'c',
-  version: '0.1'
+  version: '1.0.0'
 )
 
 # Include Gnome and the translations module

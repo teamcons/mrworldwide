@@ -45,7 +45,8 @@
         clear_button = new Gtk.Button () {
             child = clear_button_box,
             tooltip_text = _("Clear all messages"),
-            sensitive = false
+            sensitive = false,
+            margin_end = 6
         };
         clear_button.add_css_class (Granite.STYLE_CLASS_FLAT);
         clear_button_label.mnemonic_widget = clear_button;
@@ -62,7 +63,6 @@
         };
         request_button.add_css_class (Granite.STYLE_CLASS_FLAT);
         request_button_label.mnemonic_widget = request_button;
-
 
         box.pack_start (clear_button);
         box.pack_start (request_button);
