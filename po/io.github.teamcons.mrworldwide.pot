@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: io.github.teamcons.mrworldwide\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-12-06 19:12+0100\n"
+"POT-Creation-Date: 2025-12-07 22:56+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -160,48 +160,56 @@ msgstr ""
 msgid "Clear all messages"
 msgstr ""
 
+#: src/Views/LogView.vala:55
+msgid "Check Usage"
+msgstr ""
+
+#: src/Views/LogView.vala:62
+msgid "Send a request"
+msgstr ""
+
 #. ---------------- HEADERBAR ----------------
 #. TRANSLATORS: Do not translate the name itself. You can write it in your writing system if that is usually done for your language
-#: src/Windows/MainWindow.vala:74 src/Windows/MainWindow.vala:75
+#: src/Windows/MainWindow.vala:73 src/Windows/MainWindow.vala:74
 msgid "Mr Worldwide"
 msgstr ""
 
 #. TRANSLATORS: Back button to go back to translating
-#: src/Windows/MainWindow.vala:95
+#: src/Windows/MainWindow.vala:94
 msgid "Back"
 msgstr ""
 
 #. TRANSLATORS: This is for a button that switches source and target language
-#: src/Windows/MainWindow.vala:108
+#: src/Windows/MainWindow.vala:107
 msgid "Switch languages"
 msgstr ""
 
-#: src/Windows/MainWindow.vala:118
+#: src/Windows/MainWindow.vala:117
 msgid "Settings"
 msgstr ""
 
 #. TRANSLATORS: The two following texts are for a button. The functionality is diabled. You can safely ignore these.
-#: src/Windows/MainWindow.vala:131
+#: src/Windows/MainWindow.vala:130
 msgid "Translate"
 msgstr ""
 
-#: src/Windows/MainWindow.vala:132
+#: src/Windows/MainWindow.vala:131
 msgid "Start translating the entered text"
 msgstr ""
 
-#: src/Windows/MainWindow.vala:148
+#: src/Windows/MainWindow.vala:147
 msgid "Translations"
 msgstr ""
 
-#: src/Windows/MainWindow.vala:154
+#: src/Windows/MainWindow.vala:153
 msgid "No saved API Key"
 msgstr ""
 
-#: src/Windows/MainWindow.vala:170
+#: src/Windows/MainWindow.vala:169
 msgid "Messages"
 msgstr ""
 
-#: src/Windows/MainWindow.vala:258
+#: src/Windows/MainWindow.vala:250 src/Widgets/RetryButton.vala:103
 msgid "Error"
 msgstr ""
 
@@ -279,41 +287,36 @@ msgstr ""
 msgid "Support us!"
 msgstr ""
 
-#: src/Widgets/OptionsPopover.vala:27 src/Widgets/OptionsPopover.vala:101
+#: src/Widgets/OptionsPopover.vala:28 src/Widgets/OptionsPopover.vala:102
 msgid "Set how formal the translation should be"
 msgstr ""
 
-#: src/Widgets/OptionsPopover.vala:36
+#: src/Widgets/OptionsPopover.vala:37
 msgid "Formal"
 msgstr ""
 
-#: src/Widgets/OptionsPopover.vala:37
+#: src/Widgets/OptionsPopover.vala:38
 msgid "Default"
 msgstr ""
 
-#: src/Widgets/OptionsPopover.vala:38
+#: src/Widgets/OptionsPopover.vala:39
 msgid "Informal"
 msgstr ""
 
-#: src/Widgets/OptionsPopover.vala:67
+#: src/Widgets/OptionsPopover.vala:68
 msgid "Enter context here"
 msgstr ""
 
-#: src/Widgets/OptionsPopover.vala:69 src/Widgets/SourcePane.vala:41
+#: src/Widgets/OptionsPopover.vala:70 src/Widgets/SourcePane.vala:41
 msgid "Clear text"
 msgstr ""
 
-#: src/Widgets/OptionsPopover.vala:105
+#: src/Widgets/OptionsPopover.vala:106
 msgid "Formality control is not available for this target language"
 msgstr ""
 
 #: src/Widgets/Pane.vala:105
-msgid "Ready!"
-msgstr ""
-
-#. placeholder.icon = new ThemedIcon ("insert-text-symbolic");
-#: src/Widgets/Pane.vala:107
-msgid "Enter text to translate"
+msgid "Ready to translate"
 msgstr ""
 
 #: src/Widgets/SourcePane.vala:19
@@ -374,21 +377,29 @@ msgstr ""
 msgid "translation.txt"
 msgstr ""
 
-#: src/Widgets/RetryButton.vala:31
+#: src/Widgets/RetryButton.vala:39
 msgid "Verify"
 msgstr ""
 
-#: src/Widgets/RetryButton.vala:56
-msgid "Success connecting to DeepL"
+#: src/Widgets/RetryButton.vala:64
+msgid "200 OK: Success connecting to server"
 msgstr ""
 
-#: src/Widgets/RetryButton.vala:73
-msgid "API key not valid!"
+#: src/Widgets/RetryButton.vala:68
+msgid "Success!"
 msgstr ""
 
-#: src/Widgets/RetryButton.vala:85
+#: src/Widgets/RetryButton.vala:83
+msgid "403 Forbidden: Invalid API Key"
+msgstr ""
+
+#: src/Widgets/RetryButton.vala:87
+msgid "Invalid"
+msgstr ""
+
+#: src/Widgets/RetryButton.vala:99
 #, c-format
-msgid "Status code %s"
+msgid "Status code %s: Unrelated to authentication"
 msgstr ""
 
 #: src/Backend/DeepL.vala:236

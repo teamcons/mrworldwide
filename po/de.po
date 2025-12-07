@@ -1,15 +1,15 @@
 msgid ""
 msgstr ""
+"Content-Transfer-Encoding: 8bit\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language: \n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"POT-Creation-Date: 2025-12-07 22:56+0100\n"
 "Project-Id-Version: io.github.teamcons.mrworldwide\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-12-06 19:12+0100\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
 
 #. TRANSLATORS: This text shows up when the app fails to show technical details on an error
 #: src/Views/ErrorView.vala:21
@@ -17,7 +17,8 @@ msgid "No details available"
 msgstr "Keine Details verfügbar"
 
 #. TRANSLATORS: This is the text of a link to DeepL website, specifically account settings
-#: src/Views/ErrorView.vala:55 src/Widgets/SettingsPopover.vala:49
+#: src/Views/ErrorView.vala:55
+#: src/Widgets/SettingsPopover.vala:49
 msgid "You can get an API key here"
 msgstr "Sie können einen API-Schlüssel hier erhalten"
 
@@ -37,14 +38,11 @@ msgstr "Hallo Welt!"
 msgid ""
 "You need a DeepL API key to translate text\n"
 "\n"
-"An API Key is like a password given by DeepL in account settings, to allow "
-"you to use it from apps\n"
+"An API Key is like a password given by DeepL in account settings, to allow you to use it from apps\n"
 "It can be either DeepL Free or Pro"
 msgstr ""
 "Sie benötigen einen DeepL API-Schlüssel, um Text zu übersetzen\n"
-"Ein API-Schlüssel ist wie ein Passwort, das von DeepL in den "
-"Kontoeinstellungen vergeben wird, damit Sie es von Anwendungen aus nutzen "
-"können.\n"
+"Ein API-Schlüssel ist wie ein Passwort, das von DeepL in den Kontoeinstellungen vergeben wird, damit Sie es von Anwendungen aus nutzen können.\n"
 "Er kann entweder DeepL Free oder Pro sein."
 
 #: src/Views/ErrorView.vala:117
@@ -53,25 +51,19 @@ msgstr "Kein Internet"
 
 #: src/Views/ErrorView.vala:118
 msgid ""
-"Please check you are connected to the internet, and that this app has "
-"permission to access it\n"
+"Please check you are connected to the internet, and that this app has permission to access it\n"
 "If you changed any firewall settings, check there as well!"
 msgstr ""
-"Überprüfen Sie bitte, ob Sie mit dem Internet verbunden sind und ob diese "
-"Anwendung die Erlaubnis hat, darauf zuzugreifen\n"
-"Wenn Sie die Firewall-Einstellungen geändert haben, überprüfen Sie auch "
-"diese!"
+"Überprüfen Sie bitte, ob Sie mit dem Internet verbunden sind und ob diese Anwendung die Erlaubnis hat, darauf zuzugreifen\n"
+"Wenn Sie die Firewall-Einstellungen geändert haben, überprüfen Sie auch diese!"
 
 #: src/Views/ErrorView.vala:123
 msgid "Everything works great :)"
 msgstr "Alles funktioniert prima :)"
 
 #: src/Views/ErrorView.vala:124
-msgid ""
-"If you see this and are not me, then it means i forgor to disable this error"
-msgstr ""
-"Wenn Sie dies sehen und nicht ich sind, dann bedeutet das, dass ich "
-"vergessen habe, diesen Fehler zu deaktivieren"
+msgid "If you see this and are not me, then it means i forgor to disable this error"
+msgstr "Wenn Sie dies sehen und nicht ich sind, dann bedeutet das, dass ich vergessen habe, diesen Fehler zu deaktivieren"
 
 #: src/Views/ErrorView.vala:129
 msgid "Bad request"
@@ -83,8 +75,7 @@ msgid ""
 "Please report this to the app's developer with as much details as you can"
 msgstr ""
 "Die App hat eine falsche Übersetzungsanfrage an DeepL... gesendet.\n"
-"Bitte melden Sie dies dem Entwickler der App mit so vielen Details wie "
-"möglich"
+"Bitte melden Sie dies dem Entwickler der App mit so vielen Details wie möglich"
 
 #: src/Views/ErrorView.vala:135
 msgid "Forbidden"
@@ -92,20 +83,15 @@ msgstr "Nicht Erlaubt"
 
 #: src/Views/ErrorView.vala:136
 msgid "Your API key is invalid. Make sure it is the correct one!"
-msgstr ""
-"Ihr API-Schlüssel ist ungültig. Stellen Sie sicher, dass es der richtige ist!"
+msgstr "Ihr API-Schlüssel ist ungültig. Stellen Sie sicher, dass es der richtige ist!"
 
 #: src/Views/ErrorView.vala:141
 msgid "Too many requests"
 msgstr "Zu viele Anfragen"
 
 #: src/Views/ErrorView.vala:142
-msgid ""
-"Please wait before retrying. This error should not be possible to happen for "
-"this app..."
-msgstr ""
-"Bitte warten Sie, bevor Sie es erneut versuchen. Dieser Fehler sollte bei "
-"dieser App nicht auftreten können..."
+msgid "Please wait before retrying. This error should not be possible to happen for this app..."
+msgstr "Bitte warten Sie, bevor Sie es erneut versuchen. Dieser Fehler sollte bei dieser App nicht auftreten können..."
 
 #: src/Views/ErrorView.vala:147
 msgid "Your monthly quota has been exceeded"
@@ -113,20 +99,15 @@ msgstr "Ihre monatliche Quote wurde überschritten"
 
 #: src/Views/ErrorView.vala:148
 msgid "If you are a Pro API user, this corresponds to your Cost Control limit"
-msgstr ""
-"Wenn Sie ein Pro-API-Nutzer sind, entspricht dies Ihrem Kostenkontrolllimit"
+msgstr "Wenn Sie ein Pro-API-Nutzer sind, entspricht dies Ihrem Kostenkontrolllimit"
 
 #: src/Views/ErrorView.vala:153
 msgid "Internal server error"
 msgstr "Interner Serverfehler"
 
 #: src/Views/ErrorView.vala:154
-msgid ""
-"Retry in a minute? If you see this several times, check online if there is a "
-"DeepL service interruption"
-msgstr ""
-"In einer Minute erneut versuchen? Wenn Sie diese Meldung mehrmals sehen, "
-"prüfen Sie online, ob es eine Unterbrechung des Dienstes DeepL gibt."
+msgid "Retry in a minute? If you see this several times, check online if there is a DeepL service interruption"
+msgstr "In einer Minute erneut versuchen? Wenn Sie diese Meldung mehrmals sehen, prüfen Sie online, ob es eine Unterbrechung des Dienstes DeepL gibt."
 
 #: src/Views/ErrorView.vala:159
 msgid "SSL Handshake error"
@@ -135,25 +116,19 @@ msgstr "SSL-Handshake-Fehler"
 #: src/Views/ErrorView.vala:160
 msgid ""
 "This is an issue DeepL is aware of and this app can do nothing about...\n"
-"If you have the know-show, going through a simple authenticated proxy may "
-"work"
+"If you have the know-show, going through a simple authenticated proxy may work"
 msgstr ""
-"Dies ist ein Problem, das DeepL kennt und gegen das diese App nichts "
-"ausrichten kann...\n"
-"Wenn Sie über das nötige Wissen verfügen, kann der Zugriff über einen "
-"einfachen authentifizierten Proxy funktionieren"
+"Dies ist ein Problem, das DeepL kennt und gegen das diese App nichts ausrichten kann...\n"
+"Wenn Sie über das nötige Wissen verfügen, kann der Zugriff über einen einfachen authentifizierten Proxy funktionieren"
 
 #: src/Views/ErrorView.vala:165
 msgid "Request timeout"
 msgstr "Zeitüberschreitung anfordern"
 
-#: src/Views/ErrorView.vala:166 src/Views/ErrorView.vala:172
-msgid ""
-"No answer has been received. Either DeepL or your connection are having "
-"issues"
-msgstr ""
-"Sie haben keine Antwort erhalten. Entweder DeepL oder Ihre Verbindung hat "
-"Probleme"
+#: src/Views/ErrorView.vala:166
+#: src/Views/ErrorView.vala:172
+msgid "No answer has been received. Either DeepL or your connection are having issues"
+msgstr "Sie haben keine Antwort erhalten. Entweder DeepL oder Ihre Verbindung hat Probleme"
 
 #: src/Views/ErrorView.vala:171
 msgid "Gateway timeout"
@@ -172,9 +147,11 @@ msgstr "Statuscode %s, bitte melden Sie dies dem Entwickler dieser Anwendung"
 msgid ""
 "Requests and server responses will show up here\n"
 "\n"
+""
 msgstr ""
 "Anfragen und Serverantworten werden hier angezeigt\n"
 "\n"
+""
 
 #: src/Views/LogView.vala:40
 #, fuzzy
@@ -183,52 +160,64 @@ msgstr "Leeren"
 
 #: src/Views/LogView.vala:47
 msgid "Clear all messages"
-msgstr ""
+msgstr "Alle Meldungen löschen"
+
+#: src/Views/LogView.vala:55
+#, fuzzy
+msgid "Check Usage"
+msgstr "API-Verwendung"
+
+#: src/Views/LogView.vala:62
+#, fuzzy
+msgid "Send a request"
+msgstr "Schlechte Anfrage"
 
 #. ---------------- HEADERBAR ----------------
 #. TRANSLATORS: Do not translate the name itself. You can write it in your writing system if that is usually done for your language
-#: src/Windows/MainWindow.vala:74 src/Windows/MainWindow.vala:75
+#: src/Windows/MainWindow.vala:73
+#: src/Windows/MainWindow.vala:74
 msgid "Mr Worldwide"
 msgstr "Herr Weltweit"
 
 #. TRANSLATORS: Back button to go back to translating
-#: src/Windows/MainWindow.vala:95
+#: src/Windows/MainWindow.vala:94
 msgid "Back"
 msgstr "Zurück"
 
 #. TRANSLATORS: This is for a button that switches source and target language
-#: src/Windows/MainWindow.vala:108
+#: src/Windows/MainWindow.vala:107
 msgid "Switch languages"
 msgstr "Sprachen wechseln"
 
-#: src/Windows/MainWindow.vala:118
+#: src/Windows/MainWindow.vala:117
 msgid "Settings"
 msgstr "Einstellungen"
 
 #. TRANSLATORS: The two following texts are for a button. The functionality is diabled. You can safely ignore these.
-#: src/Windows/MainWindow.vala:131
+#: src/Windows/MainWindow.vala:130
 msgid "Translate"
 msgstr "Übersetzen"
 
-#: src/Windows/MainWindow.vala:132
+#: src/Windows/MainWindow.vala:131
 msgid "Start translating the entered text"
 msgstr "Start der Übersetzung des eingegebenen Textes"
 
-#: src/Windows/MainWindow.vala:148
+#: src/Windows/MainWindow.vala:147
 #, fuzzy
 msgid "Translations"
 msgstr "Übersetzen"
 
-#: src/Windows/MainWindow.vala:154
+#: src/Windows/MainWindow.vala:153
 #, fuzzy
 msgid "No saved API Key"
 msgstr "Kein DeepL API-Schlüssel"
 
-#: src/Windows/MainWindow.vala:170
+#: src/Windows/MainWindow.vala:169
 msgid "Messages"
 msgstr "Nachrichten"
 
-#: src/Windows/MainWindow.vala:258
+#: src/Windows/MainWindow.vala:250
+#: src/Widgets/RetryButton.vala:103
 msgid "Error"
 msgstr "Fehler"
 
@@ -236,7 +225,8 @@ msgstr "Fehler"
 msgid "Enter API key here"
 msgstr "API-Schlüssel hier eingeben"
 
-#: src/Widgets/ApiEntry.vala:23 src/Widgets/SourcePane.vala:46
+#: src/Widgets/ApiEntry.vala:23
+#: src/Widgets/SourcePane.vala:46
 msgid "Paste from clipboard"
 msgstr "Einfügen aus der Zwischenablage"
 
@@ -248,22 +238,16 @@ msgstr "API-Verwendung"
 msgid "Update API usage"
 msgstr "API-Nutzung aktualisieren"
 
-#.
 #. // Depending on fill, usage
 #. if (api_usage.value > api_usage.max_value) {
 #. api_usage.remove_css_class (Granite.STYLE_CLASS_SUCCESS);
 #. api_usage.remove_css_class (Granite.STYLE_CLASS_WARNING);
 #. api_usage.add_css_class (Granite.STYLE_CLASS_ERROR);
-#.
 #. } else if (api_usage.value > (api_usage.max_value / 2)) {
-#. api_usage.remove_css_class (Granite.STYLE_CLASS_SUCCESS);
 #. api_usage.add_css_class (Granite.STYLE_CLASS_WARNING);
 #. api_usage.remove_css_class (Granite.STYLE_CLASS_ERROR);
-#.
 #. } else {
 #. api_usage.add_css_class (Granite.STYLE_CLASS_SUCCESS);
-#. api_usage.remove_css_class (Granite.STYLE_CLASS_WARNING);
-#. api_usage.remove_css_class (Granite.STYLE_CLASS_ERROR);
 #. }
 #. Picking from settings as im not super sure what fires first between connect and binds
 #: src/Widgets/ApiLevel.vala:76
@@ -306,41 +290,39 @@ msgstr "DeepL API-Schlüssel"
 msgid "Support us!"
 msgstr "Uns unterstützen!"
 
-#: src/Widgets/OptionsPopover.vala:27 src/Widgets/OptionsPopover.vala:101
+#: src/Widgets/OptionsPopover.vala:28
+#: src/Widgets/OptionsPopover.vala:102
 msgid "Set how formal the translation should be"
 msgstr "Festlegen, wie formal die Übersetzung sein soll"
 
-#: src/Widgets/OptionsPopover.vala:36
+#: src/Widgets/OptionsPopover.vala:37
 msgid "Formal"
 msgstr "Formal"
 
-#: src/Widgets/OptionsPopover.vala:37
+#: src/Widgets/OptionsPopover.vala:38
 msgid "Default"
 msgstr "Standard"
 
-#: src/Widgets/OptionsPopover.vala:38
+#: src/Widgets/OptionsPopover.vala:39
 msgid "Informal"
 msgstr "Informell"
 
-#: src/Widgets/OptionsPopover.vala:67
+#: src/Widgets/OptionsPopover.vala:68
 msgid "Enter context here"
 msgstr "Kontext hier eingeben"
 
-#: src/Widgets/OptionsPopover.vala:69 src/Widgets/SourcePane.vala:41
+#: src/Widgets/OptionsPopover.vala:70
+#: src/Widgets/SourcePane.vala:41
 msgid "Clear text"
 msgstr "Leeren"
 
-#: src/Widgets/OptionsPopover.vala:105
+#: src/Widgets/OptionsPopover.vala:106
 msgid "Formality control is not available for this target language"
 msgstr "Die Formalitätskontrolle ist für diese Zielsprache nicht verfügbar."
 
 #: src/Widgets/Pane.vala:105
-msgid "Ready!"
-msgstr "Bereit!"
-
-#. placeholder.icon = new ThemedIcon ("insert-text-symbolic");
-#: src/Widgets/Pane.vala:107
-msgid "Enter text to translate"
+#, fuzzy
+msgid "Ready to translate"
 msgstr "Textdatei zum Übersetzen öffnen"
 
 #: src/Widgets/SourcePane.vala:19
@@ -359,11 +341,13 @@ msgstr "Optionen für die Übersetzung ändern"
 msgid "Load text from a file"
 msgstr "Text aus einer Datei laden"
 
-#: src/Widgets/SourcePane.vala:98 src/Widgets/TargetPane.vala:85
+#: src/Widgets/SourcePane.vala:98
+#: src/Widgets/TargetPane.vala:85
 msgid "All files"
 msgstr "Alle Dateien"
 
-#: src/Widgets/SourcePane.vala:103 src/Widgets/TargetPane.vala:90
+#: src/Widgets/SourcePane.vala:103
+#: src/Widgets/TargetPane.vala:90
 msgid "Text files"
 msgstr "Textdateien"
 
@@ -401,22 +385,31 @@ msgstr "Speichern"
 msgid "translation.txt"
 msgstr "übersetzung.txt"
 
-#: src/Widgets/RetryButton.vala:31
+#: src/Widgets/RetryButton.vala:39
 msgid "Verify"
 msgstr "Überprüfen"
 
-#: src/Widgets/RetryButton.vala:56
-msgid "Success connecting to DeepL"
+#: src/Widgets/RetryButton.vala:64
+#, fuzzy
+msgid "200 OK: Success connecting to server"
 msgstr "Erfolgreiche Verbindung mit DeepL"
 
-#: src/Widgets/RetryButton.vala:73
-msgid "API key not valid!"
-msgstr "API-Schlüssel nicht gültig!"
+#: src/Widgets/RetryButton.vala:68
+msgid "Success!"
+msgstr "Erfolgreich!"
 
-#: src/Widgets/RetryButton.vala:85
+#: src/Widgets/RetryButton.vala:83
+msgid "403 Forbidden: Invalid API Key"
+msgstr "403 Verboten: Ungültiger API-Schlüssel"
+
+#: src/Widgets/RetryButton.vala:87
+msgid "Invalid"
+msgstr "Ungültig"
+
+#: src/Widgets/RetryButton.vala:99
 #, c-format
-msgid "Status code %s"
-msgstr "Statuscode %s"
+msgid "Status code %s: Unrelated to authentication"
+msgstr "Statuscode %s: Kein Bezug zur Authentifizierung"
 
 #: src/Backend/DeepL.vala:236
 msgid "Cannot detect!"
@@ -435,31 +428,38 @@ msgstr "Error-nachricht kann nicht abgerufen werden!"
 msgid "Detect automatically"
 msgstr "Automatisch erkennen"
 
-#: src/Constants.vala:15 src/Constants.vala:54
+#: src/Constants.vala:15
+#: src/Constants.vala:54
 msgid "System language"
 msgstr "Systemsprache"
 
-#: src/Constants.vala:16 src/Constants.vala:56
+#: src/Constants.vala:16
+#: src/Constants.vala:56
 msgid "Arabic"
 msgstr "Arabisch"
 
-#: src/Constants.vala:17 src/Constants.vala:57
+#: src/Constants.vala:17
+#: src/Constants.vala:57
 msgid "Bulgarian"
 msgstr "Bulgarisch"
 
-#: src/Constants.vala:18 src/Constants.vala:58
+#: src/Constants.vala:18
+#: src/Constants.vala:58
 msgid "Czech"
 msgstr "Tschechisch"
 
-#: src/Constants.vala:19 src/Constants.vala:59
+#: src/Constants.vala:19
+#: src/Constants.vala:59
 msgid "Danish"
 msgstr "Dänisch"
 
-#: src/Constants.vala:20 src/Constants.vala:60
+#: src/Constants.vala:20
+#: src/Constants.vala:60
 msgid "German"
 msgstr "Deutsch"
 
-#: src/Constants.vala:21 src/Constants.vala:61
+#: src/Constants.vala:21
+#: src/Constants.vala:61
 msgid "Greek"
 msgstr "Griechisch"
 
@@ -467,63 +467,78 @@ msgstr "Griechisch"
 msgid "English (All)"
 msgstr "Englisch (alle)"
 
-#: src/Constants.vala:23 src/Constants.vala:64
+#: src/Constants.vala:23
+#: src/Constants.vala:64
 msgid "Spanish (All)"
 msgstr "Spanisch (alle)"
 
-#: src/Constants.vala:24 src/Constants.vala:66
+#: src/Constants.vala:24
+#: src/Constants.vala:66
 msgid "Estonian"
 msgstr "Estnisch"
 
-#: src/Constants.vala:25 src/Constants.vala:67
+#: src/Constants.vala:25
+#: src/Constants.vala:67
 msgid "Finnish"
 msgstr "Finnisch"
 
-#: src/Constants.vala:26 src/Constants.vala:68
+#: src/Constants.vala:26
+#: src/Constants.vala:68
 msgid "French"
 msgstr "Französisch"
 
-#: src/Constants.vala:27 src/Constants.vala:69
+#: src/Constants.vala:27
+#: src/Constants.vala:69
 msgid "Hebrew"
 msgstr "Hebräisch"
 
-#: src/Constants.vala:28 src/Constants.vala:70
+#: src/Constants.vala:28
+#: src/Constants.vala:70
 msgid "Hungarian"
 msgstr "Ungarisch"
 
-#: src/Constants.vala:29 src/Constants.vala:71
+#: src/Constants.vala:29
+#: src/Constants.vala:71
 msgid "Indonesian"
 msgstr "Indonesisch"
 
-#: src/Constants.vala:30 src/Constants.vala:72
+#: src/Constants.vala:30
+#: src/Constants.vala:72
 msgid "Italian"
 msgstr "Italienisch"
 
-#: src/Constants.vala:31 src/Constants.vala:73
+#: src/Constants.vala:31
+#: src/Constants.vala:73
 msgid "Japanese"
 msgstr "Japanisch"
 
-#: src/Constants.vala:32 src/Constants.vala:74
+#: src/Constants.vala:32
+#: src/Constants.vala:74
 msgid "Korean"
 msgstr "Koreanisch"
 
-#: src/Constants.vala:33 src/Constants.vala:75
+#: src/Constants.vala:33
+#: src/Constants.vala:75
 msgid "Lithuanian"
 msgstr "Litauisch"
 
-#: src/Constants.vala:34 src/Constants.vala:76
+#: src/Constants.vala:34
+#: src/Constants.vala:76
 msgid "Latvian"
 msgstr "Lettisch"
 
-#: src/Constants.vala:35 src/Constants.vala:77
+#: src/Constants.vala:35
+#: src/Constants.vala:77
 msgid "Norwegian Bokmål"
 msgstr "Norwegisch Bokmål"
 
-#: src/Constants.vala:36 src/Constants.vala:78
+#: src/Constants.vala:36
+#: src/Constants.vala:78
 msgid "Dutch"
 msgstr "Niederländisch"
 
-#: src/Constants.vala:37 src/Constants.vala:79
+#: src/Constants.vala:37
+#: src/Constants.vala:79
 msgid "Polish"
 msgstr "Polnisch"
 
@@ -531,39 +546,48 @@ msgstr "Polnisch"
 msgid "Portuguese (All)"
 msgstr "Portugiesisch (alle)"
 
-#: src/Constants.vala:39 src/Constants.vala:82
+#: src/Constants.vala:39
+#: src/Constants.vala:82
 msgid "Romanian"
 msgstr "Rumänisch"
 
-#: src/Constants.vala:40 src/Constants.vala:83
+#: src/Constants.vala:40
+#: src/Constants.vala:83
 msgid "Russian"
 msgstr "Russisch"
 
-#: src/Constants.vala:41 src/Constants.vala:84
+#: src/Constants.vala:41
+#: src/Constants.vala:84
 msgid "Slovak"
 msgstr "Slowakisch"
 
-#: src/Constants.vala:42 src/Constants.vala:85
+#: src/Constants.vala:42
+#: src/Constants.vala:85
 msgid "Slovenian"
 msgstr "Slowenisch"
 
-#: src/Constants.vala:43 src/Constants.vala:86
+#: src/Constants.vala:43
+#: src/Constants.vala:86
 msgid "Swedish"
 msgstr "Schwedisch"
 
-#: src/Constants.vala:44 src/Constants.vala:87
+#: src/Constants.vala:44
+#: src/Constants.vala:87
 msgid "Thai"
 msgstr "Thailändisch"
 
-#: src/Constants.vala:45 src/Constants.vala:88
+#: src/Constants.vala:45
+#: src/Constants.vala:88
 msgid "Turkish"
 msgstr "Türkisch"
 
-#: src/Constants.vala:46 src/Constants.vala:89
+#: src/Constants.vala:46
+#: src/Constants.vala:89
 msgid "Ukrainian"
 msgstr "Ukrainisch"
 
-#: src/Constants.vala:47 src/Constants.vala:90
+#: src/Constants.vala:47
+#: src/Constants.vala:90
 msgid "Vietnamese"
 msgstr "Vietnamesisch"
 
@@ -603,10 +627,18 @@ msgstr "Chinesisch (traditionell)"
 msgid "Couldn't open file"
 msgstr "Datei konnte nicht geöffnet werden"
 
+#~ msgid "Ready!"
+#~ msgstr "Bereit!"
+
+#~ msgid "API key not valid!"
+#~ msgstr "API-Schlüssel nicht gültig!"
+
+#, c-format
+#~ msgid "Status code %s"
+#~ msgstr "Statuscode %s"
+
 #~ msgid "To start translating, enter your DeepL API Key below"
-#~ msgstr ""
-#~ "Um mit der Übersetzung zu beginnen, geben Sie unten Ihren DeepL API-"
-#~ "Schlüssel ein."
+#~ msgstr "Um mit der Übersetzung zu beginnen, geben Sie unten Ihren DeepL API-Schlüssel ein."
 
 #~ msgid "You can get an API Key here"
 #~ msgstr "Sie können einen API-Schlüssel hier erhalten"
