@@ -5,9 +5,9 @@
 
 public class MrWorldwide.Application : Gtk.Application {
 
-    public static Settings settings;
-    public static DeepL backend;
-    public static MainWindow main_window;
+    internal static Settings settings;
+    internal static DeepL backend;
+    internal static MainWindow main_window;
 
     public Application () {
         Object (
