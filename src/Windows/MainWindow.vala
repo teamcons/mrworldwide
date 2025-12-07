@@ -5,9 +5,8 @@
 
 public class MrWorldwide.MainWindow : Gtk.Window {
 
-    private bool _show_switcher;
-    public bool show_switcher {
-        get {return _show_switcher;}
+    private bool show_switcher {
+        get {return headerbar.title_widget == switcher;}
         set {switcher_state (value);}
     }
 
@@ -180,13 +179,6 @@ public class MrWorldwide.MainWindow : Gtk.Window {
             SettingsBindFlags.INVERT_BOOLEAN
         );
 
-        Application.settings.bind (
-            "show-messages", 
-            this, 
-            "show_switcher", 
-            SettingsBindFlags.DEFAULT
-        );
-
         back_button.clicked.connect (() => {on_back_clicked ();});
     }
 
@@ -262,8 +254,7 @@ public class MrWorldwide.MainWindow : Gtk.Window {
     }
 
     private void action_toggle_messages () {
-        var current = Application.settings.get_boolean ("show-messages");
-        Application.settings.set_boolean ("show-messages", !current);
+        switcher_state (!show_switcher);
     }
 
     private void switcher_state (bool if_show_switcher) {
@@ -273,7 +264,6 @@ public class MrWorldwide.MainWindow : Gtk.Window {
         } else {
             headerbar.title_widget = title_widget;
         }
-        _show_switcher = if_show_switcher;
     } 
 }
 

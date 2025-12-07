@@ -13,13 +13,6 @@ i18n = import('i18n')
 add_global_arguments('-DGETTEXT_PACKAGE="@0@"'.format (meson.project_name()), language:'c')
 
 
-if get_option('debug_features')
-  vala_flags = ['--define', 'DEBUG_FEATURES']
-  add_project_arguments(vala_flags, language: 'vala')
-endif
-
-
-
 ## Set de config data
 config_data = configuration_data()
 config_data.set_quoted('LOCALEDIR', get_option('prefix') / get_option('localedir'))
