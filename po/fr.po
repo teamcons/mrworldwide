@@ -7,7 +7,7 @@ msgstr ""
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "MIME-Version: 1.0\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"POT-Creation-Date: 2025-12-07 22:56+0100\n"
+"POT-Creation-Date: 2025-12-08 20:39+0100\n"
 "Project-Id-Version: io.github.teamcons.mrworldwide\n"
 "Report-Msgid-Bugs-To: \n"
 
@@ -22,18 +22,26 @@ msgstr "Pas de détails disponibles"
 msgid "You can get an API key here"
 msgstr "Vous pouvez obtenir une clé API ici"
 
-#: src/Views/ErrorView.vala:87
+#: src/Views/ErrorView.vala:65
+msgid "Network settings"
+msgstr "Paramètres du réseau"
+
+#: src/Views/ErrorView.vala:70
+msgid "Applications → Permissions"
+msgstr "Applications → Permissions"
+
+#: src/Views/ErrorView.vala:99
 msgid "Details"
 msgstr "Détails"
 
 #. Custom status codes feel super evil
 #. TRANSLATORS: The following texts show up respectively, as a title, and error message, when translating has gone wrong. This needs to be as little technical as possible
-#: src/Views/ErrorView.vala:111
+#: src/Views/ErrorView.vala:123
 #, fuzzy
 msgid "Hello, World!"
 msgstr "Bonjour le monde !"
 
-#: src/Views/ErrorView.vala:112
+#: src/Views/ErrorView.vala:124
 #, fuzzy
 msgid ""
 "You need a DeepL API key to translate text\n"
@@ -45,31 +53,30 @@ msgstr ""
 "Une clé API est comme un mot de passe donné par DeepL dans les paramètres du compte, pour vous permettre de l'utiliser à partir d'applications.\n"
 "Il peut s'agir de DeepL Free ou Pro"
 
-#: src/Views/ErrorView.vala:117
+#: src/Views/ErrorView.vala:129
 msgid "No Internet"
 msgstr "Non connecté à Internet"
 
-#: src/Views/ErrorView.vala:118
-msgid ""
-"Please check you are connected to the internet, and that this app has permission to access it\n"
-"If you changed any firewall settings, check there as well!"
+#: src/Views/ErrorView.vala:130
+#, fuzzy
+msgid "Please check you are connected to the internet, and that this app has permission to access it"
 msgstr ""
 "Vérifiez que vous êtes bien connecté à Internet et que cette application a la permission d'y accéder.\n"
 "Si vous avez modifié les paramètres du pare-feu, vérifiez-les également !"
 
-#: src/Views/ErrorView.vala:123
+#: src/Views/ErrorView.vala:135
 msgid "Everything works great :)"
 msgstr "Tout fonctionne très bien :)"
 
-#: src/Views/ErrorView.vala:124
+#: src/Views/ErrorView.vala:136
 msgid "If you see this and are not me, then it means i forgor to disable this error"
 msgstr "Si vous voyez cela et que vous n'êtes pas moi, cela signifie que j'ai oublié de désactiver cette erreur."
 
-#: src/Views/ErrorView.vala:129
+#: src/Views/ErrorView.vala:141
 msgid "Bad request"
 msgstr "Mauvaise requête"
 
-#: src/Views/ErrorView.vala:130
+#: src/Views/ErrorView.vala:142
 msgid ""
 "The app sent a wrong translation request to DeepL...\n"
 "Please report this to the app's developer with as much details as you can"
@@ -77,43 +84,43 @@ msgstr ""
 "L'application a envoyé une demande de traduction erronée à DeepL...\n"
 "Veuillez signaler ce problème au développeur de l'application en donnant le plus de détails possible."
 
-#: src/Views/ErrorView.vala:135
+#: src/Views/ErrorView.vala:147
 msgid "Forbidden"
 msgstr "Interdit"
 
-#: src/Views/ErrorView.vala:136
+#: src/Views/ErrorView.vala:148
 msgid "Your API key is invalid. Make sure it is the correct one!"
 msgstr "Votre clé API n'est pas valide. Assurez-vous qu'elle est correcte !"
 
-#: src/Views/ErrorView.vala:141
+#: src/Views/ErrorView.vala:153
 msgid "Too many requests"
 msgstr "Trop de demandes"
 
-#: src/Views/ErrorView.vala:142
+#: src/Views/ErrorView.vala:154
 msgid "Please wait before retrying. This error should not be possible to happen for this app..."
 msgstr "Veuillez patienter avant de réessayer. Cette erreur ne devrait pas pouvoir se produire pour cette application..."
 
-#: src/Views/ErrorView.vala:147
+#: src/Views/ErrorView.vala:159
 msgid "Your monthly quota has been exceeded"
 msgstr "Votre quota mensuel a été dépassé"
 
-#: src/Views/ErrorView.vala:148
+#: src/Views/ErrorView.vala:160
 msgid "If you are a Pro API user, this corresponds to your Cost Control limit"
 msgstr "Si vous êtes un utilisateur Pro API, cela correspond à votre limite de contrôle des coûts."
 
-#: src/Views/ErrorView.vala:153
+#: src/Views/ErrorView.vala:165
 msgid "Internal server error"
 msgstr "Erreur de serveur interne"
 
-#: src/Views/ErrorView.vala:154
+#: src/Views/ErrorView.vala:166
 msgid "Retry in a minute? If you see this several times, check online if there is a DeepL service interruption"
 msgstr "Réessayer dans une minute ? Si vous voyez ce message plusieurs fois, vérifiez en ligne s'il y a une interruption de service sur le site DeepL."
 
-#: src/Views/ErrorView.vala:159
+#: src/Views/ErrorView.vala:171
 msgid "SSL Handshake error"
 msgstr "Erreur de prise de contact SSL"
 
-#: src/Views/ErrorView.vala:160
+#: src/Views/ErrorView.vala:172
 msgid ""
 "This is an issue DeepL is aware of and this app can do nothing about...\n"
 "If you have the know-show, going through a simple authenticated proxy may work"
@@ -121,24 +128,24 @@ msgstr ""
 "C'est un problème dont DeepL est conscient et pour lequel cette application ne peut rien faire...\n"
 "Si vous avez le savoir-faire, passer par un simple proxy authentifié peut fonctionner."
 
-#: src/Views/ErrorView.vala:165
+#: src/Views/ErrorView.vala:177
 msgid "Request timeout"
 msgstr "Délai d'attente de la demande"
 
-#: src/Views/ErrorView.vala:166
-#: src/Views/ErrorView.vala:172
+#: src/Views/ErrorView.vala:178
+#: src/Views/ErrorView.vala:184
 msgid "No answer has been received. Either DeepL or your connection are having issues"
 msgstr "Aucune réponse n'a été reçue. Soit DeepL, soit votre connexion a des problèmes."
 
-#: src/Views/ErrorView.vala:171
+#: src/Views/ErrorView.vala:183
 msgid "Gateway timeout"
 msgstr "Délai d'attente de la passerelle"
 
-#: src/Views/ErrorView.vala:177
+#: src/Views/ErrorView.vala:189
 msgid "Unknown error"
 msgstr "Erreur inconnue"
 
-#: src/Views/ErrorView.vala:178
+#: src/Views/ErrorView.vala:190
 #, c-format
 msgid "Status code %s, please report this to this app's developer"
 msgstr "Code d'état %s, veuillez le signaler au développeur de cette application"
@@ -320,11 +327,6 @@ msgstr "Texte en clair"
 msgid "Formality control is not available for this target language"
 msgstr "Le contrôle de la formalité n'est pas disponible pour cette langue cible."
 
-#: src/Widgets/Pane.vala:105
-#, fuzzy
-msgid "Ready to translate"
-msgstr "Entrer du texte à traduire"
-
 #: src/Widgets/SourcePane.vala:19
 msgid "Set the language to translate from"
 msgstr "Définir la langue à partir de laquelle la traduction doit être effectuée"
@@ -342,12 +344,12 @@ msgid "Load text from a file"
 msgstr "Charger du texte à partir d'un fichier"
 
 #: src/Widgets/SourcePane.vala:98
-#: src/Widgets/TargetPane.vala:85
+#: src/Widgets/TargetPane.vala:105
 msgid "All files"
 msgstr "Tous les dossiers"
 
 #: src/Widgets/SourcePane.vala:103
-#: src/Widgets/TargetPane.vala:90
+#: src/Widgets/TargetPane.vala:110
 msgid "Text files"
 msgstr "Fichiers texte"
 
@@ -360,28 +362,35 @@ msgstr "Ouvrir un fichier texte à traduire"
 msgid "Open"
 msgstr "Ouvrir"
 
-#: src/Widgets/TargetPane.vala:20
+#: src/Widgets/TargetPane.vala:22
 msgid "Set the language to translate to"
 msgstr "Définir la langue de traduction"
 
-#: src/Widgets/TargetPane.vala:34
+#. textview.editable = false;
+#. -------- PLACEHOLDER --------
+#: src/Widgets/TargetPane.vala:26
+#, fuzzy
+msgid "Ready to translate"
+msgstr "Entrer du texte à traduire"
+
+#: src/Widgets/TargetPane.vala:52
 msgid "Copy to clipboard"
 msgstr "Copier dans le presse-papiers"
 
-#: src/Widgets/TargetPane.vala:41
+#: src/Widgets/TargetPane.vala:59
 msgid "Save the translation in a text file"
 msgstr "Enregistrer la traduction dans un fichier texte"
 
 #. TRANSLATORS: The following text is for the dialog to save the translation
-#: src/Widgets/TargetPane.vala:100
+#: src/Widgets/TargetPane.vala:120
 msgid "Save translation to text file"
 msgstr "Enregistrer la traduction dans un fichier texte"
 
-#: src/Widgets/TargetPane.vala:101
+#: src/Widgets/TargetPane.vala:121
 msgid "Save"
 msgstr "Économiser"
 
-#: src/Widgets/TargetPane.vala:102
+#: src/Widgets/TargetPane.vala:122
 msgid "translation.txt"
 msgstr "translation.txt"
 
