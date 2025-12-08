@@ -62,7 +62,7 @@
         };
 
         if ((status == StatusCode.NO_INTERNET) && (Environment.get_variable ("XDG_CURRENT_DESKTOP") == "Pantheon")) {
-            var network_link = new Gtk.LinkButton.with_label (Granite.SettingsUri.NETWORK, _("Network")) {
+            var network_link = new Gtk.LinkButton.with_label (Granite.SettingsUri.NETWORK, _("Network settings")) {
                 halign = Gtk.Align.START
             };
             box.append (network_link);
