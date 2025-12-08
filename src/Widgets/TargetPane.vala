@@ -4,8 +4,11 @@
  */
  public class MrWorldwide.TargetPane : MrWorldwide.Pane {
 
+
+    private Gtk.WindowHandle placeholder_view;
+
     private Gtk.Spinner loading;
-    private Gtk.Revealer loading_revealer;
+    private Gtk.WindowHandle spin_view;
 
     public TargetPane () {
         var model = new MrWorldwide.DDModel ();
@@ -16,20 +19,35 @@
     }
 
     construct {
-        stack.visible_child = placeholder_handle;
         dropdown.tooltip_text = _("Set the language to translate to");
         //textview.editable = false;
 
-        loading = new Gtk.Spinner ();
-        loading_revealer = new Gtk.Revealer () {
-            child = loading,
-            reveal_child = false,
-            transition_type = Gtk.RevealerTransitionType.CROSSFADE,
-            transition_duration = 250
+        /* -------- PLACEHOLDER -------- */
+        var placeholder = new Gtk.Label (_("Ready to translate"));
+        //placeholder.icon = new ThemedIcon ("insert-text-symbolic");
+        placeholder.add_css_class (Granite.STYLE_CLASS_H2_LABEL);
+
+        placeholder_view = new Gtk.WindowHandle () {
+            child = placeholder
+        };
+        stack.add_child (placeholder_view);
+        stack.visible_child = placeholder_view;
+
+        /* -------- SPINNER -------- */
+        loading = new Gtk.Spinner () {
+            valign = Gtk.Align.CENTER,
+            width_request = 64,
+            height_request = 64
         };
 
-        actionbar.pack_start (loading_revealer);
+        spin_view = new Gtk.WindowHandle () {
+            child = loading
+        };
 
+        stack.add_child (spin_view);
+
+
+        /* -------- TOOLBAR -------- */
         var copy = new Gtk.Button.from_icon_name ("edit-copy") {
             tooltip_text = _("Copy to clipboard")
         };
@@ -73,10 +91,12 @@
   public void spin (bool if_spin) {
     if (if_spin) {
         loading.start ();
+        stack.visible_child = spin_view;
     } else {
         loading.stop ();
+        stack.visible_child = main_view;
     }
-    loading_revealer.reveal_child = if_spin;
+    //loading_revealer.reveal_child = if_spin;
   }
 
   public void on_save_as () {
@@ -123,7 +143,7 @@
             return;
         }
 
-        stack.visible_child = ready_box;
+        stack.visible_child = main_view;
         textview.buffer.changed.disconnect (on_buffer_changed);
     }
 }

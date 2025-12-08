@@ -15,7 +15,7 @@
     }
 
     construct {
-        stack.visible_child = ready_box;
+        stack.visible_child = main_view;
         dropdown.tooltip_text = _("Set the language to translate from");
 
         var options_button_label = new Gtk.Label (_("Options"));

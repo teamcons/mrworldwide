@@ -15,9 +15,7 @@
     private Gtk.Label count;
 
     public Gtk.Stack stack;
-    public Gtk.WindowHandle placeholder_handle;
-    public Gtk.Label placeholder;
-    public Gtk.Box ready_box;
+    public Gtk.Box main_view;
 
     private Gtk.Overlay overlay;
     private Granite.Toast toast;
@@ -78,7 +76,6 @@
             child = textview
         };
 
-
         actionbar = new Gtk.ActionBar () {
             hexpand = true,
             vexpand = false,
@@ -97,25 +94,19 @@
             child = actionbar
         };
 
-        ready_box = new Gtk.Box (VERTICAL, 0);
+        main_view = new Gtk.Box (VERTICAL, 0);
         
-        ready_box.append (scrolled);
-        ready_box.append (handle);
+        main_view.append (scrolled);
+        main_view.append (handle);
 
-        placeholder = new Gtk.Label (_("Ready to translate"));
-        //placeholder.icon = new ThemedIcon ("insert-text-symbolic");
-        placeholder.add_css_class (Granite.STYLE_CLASS_H2_LABEL);
 
-        placeholder_handle = new Gtk.WindowHandle () {
-            child = placeholder
-        };
 
         stack = new Gtk.Stack () {
             transition_type = Gtk.StackTransitionType.CROSSFADE
         };
         stack.height_request = 130;
-        stack.add_child (ready_box);
-        stack.add_child (placeholder_handle);
+        stack.add_child (main_view);
+
 
         overlay = new Gtk.Overlay ();
         toast = new Granite.Toast ("") {
