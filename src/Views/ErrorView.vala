@@ -59,15 +59,27 @@
             apibox.append (api_entry);
             apibox.append (link);
             box.append (apibox);
-
-            var retry_button = new MrWorldwide.RetryButton () {
-                halign = Gtk.Align.END
-            };
-            retry_button.validated.connect (on_validated);
-
-            box.append (retry_button);
-
         };
+
+        if ((status == StatusCode.NO_INTERNET) && (Environment.get_variable ("XDG_CURRENT_DESKTOP") == "Pantheon")) {
+            var network_link = new Gtk.LinkButton.with_label (Granite.SettingsUri.NETWORK, _("Network")) {
+                halign = Gtk.Align.START
+            };
+            box.append (network_link);
+
+            var permissions_link = new Gtk.LinkButton.with_label (Granite.SettingsUri.PERMISSIONS, _("Applications → Permissions")) {
+                halign = Gtk.Align.START
+            };
+            box.append (permissions_link);
+        }
+
+        var retry_button = new MrWorldwide.RetryButton () {
+            halign = Gtk.Align.END
+        };
+        retry_button.validated.connect (on_validated);
+
+        box.append (retry_button);
+
 
         var details_text = message + "\n\n";
         var details_view = new Gtk.Label (details_text) {
@@ -115,7 +127,7 @@
 
             case 1:
                 explanation_title = _("No Internet");
-                explanation_text = _("Please check you are connected to the internet, and that this app has permission to access it\nIf you changed any firewall settings, check there as well!");
+                explanation_text = _("Please check you are connected to the internet, and that this app has permission to access it\n\nIf you changed any firewall settings, check there as well!");
                 icon_name = "network-offline-symbolic";
                 return;
 
