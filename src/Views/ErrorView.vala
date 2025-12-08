@@ -127,7 +127,7 @@
 
             case 1:
                 explanation_title = _("No Internet");
-                explanation_text = _("Please check you are connected to the internet, and that this app has permission to access it\n\nIf you changed any firewall settings, check there as well!");
+                explanation_text = _("Please check you are connected to the internet, and that this app has permission to access it");
                 icon_name = "network-offline-symbolic";
                 return;
 
