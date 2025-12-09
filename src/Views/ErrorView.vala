@@ -61,18 +61,6 @@
             box.append (apibox);
         };
 
-        if ((status == StatusCode.NO_INTERNET) && (Environment.get_variable ("XDG_CURRENT_DESKTOP") == "Pantheon")) {
-            var network_link = new Gtk.LinkButton.with_label (Granite.SettingsUri.NETWORK, _("Network settings")) {
-                halign = Gtk.Align.START
-            };
-            box.append (network_link);
-
-            var permissions_link = new Gtk.LinkButton.with_label (Granite.SettingsUri.PERMISSIONS, _("Applications → Permissions")) {
-                halign = Gtk.Align.START
-            };
-            box.append (permissions_link);
-        }
-
         var retry_button = new MrWorldwide.RetryButton () {
             halign = Gtk.Align.END
         };
@@ -119,16 +107,23 @@
         switch (status) {
             //Custom status codes feel super evil
             //TRANSLATORS: The following texts show up respectively, as a title, and error message, when translating has gone wrong. This needs to be as little technical as possible
-            case 0:
+            case StatusCode.NO_KEY:
                 explanation_title = _("Hello, World!");
                 explanation_text = _("You need a DeepL API key to translate text\n\nAn API Key is like a password given by DeepL in account settings, to allow you to use it from apps\nIt can be either DeepL Free or Pro");
                 icon_name = "dialog-password";
                 return;
 
-            case 1:
+            case StatusCode.NO_INTERNET:
                 explanation_title = _("No Internet");
-                explanation_text = _("Please check you are connected to the internet, and that this app has permission to access it");
                 icon_name = "network-offline-symbolic";
+
+                if (Environment.get_variable ("XDG_CURRENT_DESKTOP") == "Pantheon") {
+                    ///TRANSLATORS: This is twice the same text, but the first one has links for elementary OS
+                    explanation_text = _("Please verify you are <a href='%s'>connected to the internet</a>, and that this app has <a href='%s'>permission to access it</a>").printf (Granite.SettingsUri.NETWORK, Granite.SettingsUri.PERMISSIONS);
+                } else {
+                    explanation_text = _("Please verify you are connected to the internet, and that this app has permission to access it");
+                }
+
                 return;
 
             case Soup.Status.OK:
@@ -155,7 +150,7 @@
                 icon_name = "dialog-warning";
                 return;
 
-            case 456:
+            case StatusCode.QUOTA:
                 explanation_title = _("Your monthly quota has been exceeded");
                 explanation_text = _("If you are a Pro API user, this corresponds to your Cost Control limit");
                 icon_name = "dialog-warning";

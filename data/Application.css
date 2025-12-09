@@ -30,7 +30,3 @@
     -gtk-icon-transform: rotate(90deg);
 }
 
-/* Ensure the Options button is flat */
-.flat > .toggle {
-	border: none;
-}
