@@ -213,12 +213,16 @@ public class MrWorldwide.MainWindow : Gtk.Window {
         translation_view.target_pane.on_save_as ();
     }
     
-    public void on_answer_received (uint status_code, string answer) {
+    public void on_answer_received (uint status_code, string? answer = null) {
         print (status_code.to_string ());
 
         if (status_code != Soup.Status.OK) {
             print ("Switching to error view, with status " + status_code.to_string () + "\nMessage: " + answer);
             on_error (status_code, answer);
+            return;
+        }
+
+        if (answer == null) {
             return;
         }
 
@@ -241,7 +245,7 @@ public class MrWorldwide.MainWindow : Gtk.Window {
         }
     }
 
-    private void on_error (uint status_code, string answer) {
+    private void on_error (uint status_code, string? answer = null) {
         
             // ErrorView may need to do some fiddling. We reconnect when going back to main view
             Application.backend.answer_received.disconnect (on_answer_received);

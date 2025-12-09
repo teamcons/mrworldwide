@@ -46,6 +46,8 @@ public const SUPPORTED_TARGET
 // Translation service that use translate
 public class MrWorldwide.DeepL : Object {
 
+  private const uint TIMEOUT = 3000;
+
   private Soup.Session session;
   internal Soup.Logger logger;
 
@@ -56,7 +58,7 @@ public class MrWorldwide.DeepL : Object {
   public string system_language;
   private string context;
 
-  public signal void answer_received (uint status, string translated_text);
+  public signal void answer_received (uint status, string? translated_text = null);
   public signal void language_detected (string? detected_language_code = null);
   public signal void usage_retrieved (uint status);
 
@@ -72,7 +74,9 @@ public class MrWorldwide.DeepL : Object {
 
   construct {
 
-    session = new Soup.Session ();
+    session = new Soup.Session () {
+      timeout = TIMEOUT
+    };
 
     logger = new Soup.Logger (Soup.LoggerLogLevel.BODY);
     session.add_feature (logger);
@@ -285,8 +289,16 @@ public class MrWorldwide.DeepL : Object {
         Application.settings.set_int ("current-usage", current_usage);
         Application.settings.set_int ("max-usage", max_usage);
 
-        var _msg = session.get_async_result_message (res);
-        usage_retrieved (_msg.status_code);
+        var msg = session.get_async_result_message (res);
+        usage_retrieved (msg.status_code);
+
+        string? error_message = null;
+        
+        if (msg.status_code != Soup.Status.OK) {
+          error_message = unwrap_error_message (answer);
+        }
+
+        answer_received (msg.status_code, error_message);
 
       } catch (Error e) {
         stderr.printf ("Got: %s\n", e.message);
