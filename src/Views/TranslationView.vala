@@ -45,6 +45,11 @@
         Application.settings.changed["context"].connect (on_text_to_translate);
         Application.settings.changed["formality"].connect (on_text_to_translate);
 
+        source_pane.scrolledwindow.vadjustment.bind_property (
+            "value",
+            target_pane.scrolledwindow.vadjustment, "value",
+            GLib.BindingFlags.BIDIRECTIONAL
+        );
     }
 
     public void switch_languages () {

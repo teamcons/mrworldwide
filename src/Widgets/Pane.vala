@@ -11,6 +11,7 @@
     public Gtk.DropDown dropdown;
     public MrWorldwide.Lang selected;
     public Gtk.TextView textview;
+    public Gtk.ScrolledWindow scrolledwindow;
     public Gtk.ActionBar actionbar;
     private Gtk.Label count;
 
@@ -72,7 +73,7 @@
         };
         textview.set_wrap_mode (Gtk.WrapMode.WORD_CHAR);
 
-        var scrolled = new Gtk.ScrolledWindow () {
+        scrolledwindow = new Gtk.ScrolledWindow () {
             child = textview
         };
 
@@ -96,7 +97,7 @@
 
         main_view = new Gtk.Box (VERTICAL, 0);
         
-        main_view.append (scrolled);
+        main_view.append (scrolledwindow);
         main_view.append (handle);
 
 
