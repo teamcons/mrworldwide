@@ -39,8 +39,8 @@
 
         // translate when text is entered or user changes any language
         source_pane.textview.buffer.changed.connect (on_text_to_translate);
-        source_pane.language_changed.connect (on_text_to_translate);
-        target_pane.language_changed.connect (on_text_to_translate);
+        source_pane.language_changed.connect (translate_now);
+        target_pane.language_changed.connect (translate_now);
 
         Application.settings.changed["context"].connect (on_text_to_translate);
         Application.settings.changed["formality"].connect (on_text_to_translate);
@@ -70,31 +70,31 @@
     }
 
     public void on_text_to_translate () {
-        // Avoid translating empty text (useless request)
         // If auto translate is off, forget it
-        if (Application.settings.get_boolean ("auto-translate") && (source_pane.text != "" )) {
+        //Application.settings.get_boolean ("auto-translate") 
 
-            debug ("The buffer has been modified, starting the debounce timer");
-            if (debounce_timer_id != 0) {
-                GLib.Source.remove (debounce_timer_id);
-            }
-
-            debounce_timer_id = Timeout.add (interval, () => {
-                debounce_timer_id = 0;
-
-                    // Start translating!
-                    target_pane.spin (true);
-                    Application.backend.send_request (source_pane.text);
-
-                return GLib.Source.REMOVE;
-            });
-        } else {
-
-            // Only in the case the source text is empty, do a cleanup
-            if (source_pane.text == "" ) {
-                target_pane.clear ();
-            }
+        debug ("The buffer has been modified, starting the debounce timer");
+        if (debounce_timer_id != 0) {
+            GLib.Source.remove (debounce_timer_id);
         }
+
+        debounce_timer_id = Timeout.add (interval, () => {
+            debounce_timer_id = 0;
+            translate_now ();
+            return GLib.Source.REMOVE;
+        });
+
+    }
+
+    public void translate_now () {
+        if (source_pane.text.chomp () == "" ) {
+            target_pane.clear ();
+            return;
+        }
+
+        target_pane.spin (true);
+        Application.backend.send_request (source_pane.text.chomp ().chug ());
+        // Chomp and Chug to save some billed characters on useless space
     }
 
     public void clear_source () {

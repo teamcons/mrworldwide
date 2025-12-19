@@ -18,9 +18,10 @@
     </p>
     <p>Some points:</p>
       <ul>
-            <li>Nimble: Paste your api key, and here you go!</li>
+            <li>Nimble: Paste your DeepL api key (Whichever the plan), and here you go!</li>
             <li>Out of your way: Remembers context, formality, languages</li>
-            <li>Convenient: lets you check how much you have left</li>
+            <li>Convenient: Lets you check how much you have left</li>
+            <li>Comprehensive: If something goes wrong, explain nicely, no scary angry dialogs</li>
             <li>Supported languages: All those available via DeepL API!</li>
       </ul>
     <p>If you like this app please do not hesitate to donate to encourage its development!</p>

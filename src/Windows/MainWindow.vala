@@ -183,7 +183,13 @@ public class MrWorldwide.MainWindow : Gtk.Window {
     }
 
     public void on_translate () {
-        Application.backend.send_request (translation_view.source_pane.text);
+        var to_translate = translation_view.source_pane.text.chomp ().chug ();
+        // Chomp and Chug to save some billed characters on useless space
+        if (to_translate == "") {
+            return;
+        }
+
+        Application.backend.send_request (to_translate);
     }
 
     private void on_menu () {
