@@ -72,8 +72,11 @@ public class MrWorldwide.DeepL : Object {
   public int current_usage = 0;
   public int max_usage = 0;
 
-  construct {
+  // Private debounce to not constantly check usage on key change
+  private int interval = 1000; // ms
+  private uint debounce_timer_id = 0;
 
+  construct {
     session = new Soup.Session () {
       timeout = TIMEOUT
     };
@@ -99,9 +102,24 @@ public class MrWorldwide.DeepL : Object {
     on_source_lang_changed ();
     on_target_lang_changed ();
 
-    Application.settings.changed["key"].connect (() => {on_key_changed (); check_usage ();});
+    Application.settings.changed["key"].connect (debounce_check);
     Application.settings.changed["source-language"].connect (on_source_lang_changed);
     Application.settings.changed["target-language"].connect (on_target_lang_changed);
+  }
+
+  private void debounce_check () {
+    debug ("Key changed, starting debounce");
+    if (debounce_timer_id != 0) {
+        GLib.Source.remove (debounce_timer_id);
+    }
+
+    debounce_timer_id = Timeout.add (interval, () => {
+        debug ("debounce timer off, reacting to key change");
+        debounce_timer_id = 0;
+        on_key_changed ();
+        check_usage ();
+        return GLib.Source.REMOVE;
+    });
   }
 
   public void on_source_lang_changed () {
