@@ -39,8 +39,8 @@
 
         // translate when text is entered or user changes any language
         source_pane.textview.buffer.changed.connect (on_text_to_translate);
-        source_pane.language_changed.connect (translate_now);
-        target_pane.language_changed.connect (translate_now);
+        source_pane.language_changed.connect (on_text_to_translate);
+        target_pane.language_changed.connect (on_text_to_translate);
 
         Application.settings.changed["context"].connect (on_text_to_translate);
         Application.settings.changed["formality"].connect (on_text_to_translate);
