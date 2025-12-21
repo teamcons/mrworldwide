@@ -19,56 +19,59 @@ config_data.set('version', meson.project_version())
 config_data.set_quoted('LOCALEDIR', get_option('prefix') / get_option('localedir'))
 config_data.set_quoted('GETTEXT_PACKAGE', meson.project_name())
 config_file = configure_file(
-    input: 'src/Config.vala.in',
-    output: '@BASENAME@',
-    configuration: config_data
+  input: 'src/Config.vala.in',
+  output: '@BASENAME@',
+  configuration: config_data
 )
 
 gresource = gnome.compile_resources(
-    'as-resources',
-    'data' / 'mrworldwide.gresource.xml',
-    source_dir: 'data',
-    c_name: 'as'
+  'as-resources',
+  'data' / 'mrworldwide.gresource.xml',
+  source_dir: 'data',
+  c_name: 'as'
 )
 
 # List the dependencies we need
 # need for libcurl
 deps = [
-    dependency('granite-7'),
-    dependency('gtk4'),
-    dependency ('libsoup-3.0'),
-    dependency ('json-glib-1.0')
+  dependency ('granite-7'),
+  dependency ('gtk4'),
+  dependency ('libsoup-3.0'),
+  dependency ('json-glib-1.0'),
+  dependency ('libsecret-1')
 ]
 
 # Create a new executable, list the files we want to compile, and install
 executable(
-    meson.project_name(),
-    config_file,
-    gresource,
-    'src' / 'Constants.vala',
-   'src' / 'Enums' / 'Formality.vala',
-   'src' / 'Enums' / 'StatusCode.vala',
-    'src' / 'Objects' / 'Lang.vala',
-    'src' / 'Objects' / 'DDModel.vala',
-    'src' / 'Backend' / 'DeepL.vala',
+  meson.project_name (),
+  config_file,
+  gresource,
+  'src' / 'Constants.vala',
+  'src' / 'Enums' / 'Formality.vala',
+  'src' / 'Enums' / 'StatusCode.vala',
+  'src' / 'Objects' / 'Lang.vala',
+  'src' / 'Objects' / 'DDModel.vala',
 
-    'src' / 'Widgets' / 'OrientationBox.vala',
-    'src' / 'Widgets' / 'ApiEntry.vala',
-    'src' / 'Widgets' / 'ApiLevel.vala',
-    'src' / 'Widgets' / 'SettingsPopover.vala',
-    'src' / 'Widgets' / 'OptionsPopover.vala',
-    'src' / 'Widgets' / 'Pane.vala',
-    'src' / 'Widgets' / 'SourcePane.vala',
-    'src' / 'Widgets' / 'TargetPane.vala',
-    'src' / 'Widgets' / 'RetryButton.vala',
+  'src' / 'Services' / 'Secrets.vala',
+  'src' / 'Backend' / 'DeepL.vala',
 
-    'src' / 'Views' / 'TranslationView.vala',
-    'src' / 'Views' / 'ErrorView.vala',
-    'src' / 'Views' / 'LogView.vala',
-    'src' / 'Windows' / 'MainWindow.vala',
-    'src' / 'Application.vala',
-    dependencies: deps,
-    install: true
+  'src' / 'Widgets' / 'OrientationBox.vala',
+  'src' / 'Widgets' / 'ApiEntry.vala',
+  'src' / 'Widgets' / 'ApiLevel.vala',
+  'src' / 'Widgets' / 'SettingsPopover.vala',
+  'src' / 'Widgets' / 'OptionsPopover.vala',
+  'src' / 'Widgets' / 'Pane.vala',
+  'src' / 'Widgets' / 'SourcePane.vala',
+  'src' / 'Widgets' / 'TargetPane.vala',
+  'src' / 'Widgets' / 'RetryButton.vala',
+
+  'src' / 'Views' / 'TranslationView.vala',
+  'src' / 'Views' / 'ErrorView.vala',
+  'src' / 'Views' / 'LogView.vala',
+  'src' / 'Windows' / 'MainWindow.vala',
+  'src' / 'Application.vala',
+  dependencies: deps,
+  install: true
 )
 
 subdir('data')
