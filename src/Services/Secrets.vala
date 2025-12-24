@@ -18,63 +18,68 @@ Let the backend access it in a cache so there is no async BS.
 
 public class MrWorldwide.Secrets : Object {
 
-    public signal void retrieved (string result);
+    public signal void changed ();
 
-    private Secret.Schema secret;
-    private GLib.HashTable<string,string> attributes;
-
-    private string cached_password;
-
-
-    public Secrets () {
-        secret = new Secret.Schema ("io.github.teamcons.mrworldwide",
-                                        Secret.SchemaFlags.NONE,
-                                        "backend",
-                                        Secret.SchemaAttributeType.STRING);
-
-
-        attributes = new GLib.HashTable<string,string> (null, null);
+    private static Secrets? instance;
+    public static Secrets get_default () {
+        if (instance == null) {
+            instance = new Secrets ();
+        }
+        return instance;
     }
 
-    public void set_api_key (string backend, string api_key) {
-        attributes["backend"] = backend;
-        Secret.password_storev.begin (secret,
-                                    attributes,
-                                    Secret.COLLECTION_DEFAULT,
-                                    backend, api_key, null, (obj, async_res) => {
-
-                                    try {
-                                        bool res = Secret.password_store.end (async_res);
-                                        print ("\n Finished saving %s:%s".printf (api_key,res.to_string ()));
-
-                                    } catch (Error e) {
-                                        print ("S Secrets: %s".printf (e.message));
-                                    }
-        });
+    private string _cached;
+    public string cached_key {
+        get { return _cached;}
+        set { on_key_changed (value);}
     }
 
-    public void retrieve_api_key (string backend) {
-        attributes["backend"] = backend;
-        Secret.password_lookupv.begin (
-            secret,
-            attributes,
-            null, (obj, async_res) => {
+    Secret.Schema schema;
+    GLib.HashTable<string,string> attributes;
 
-            try {
-                string password = Secret.password_lookup.end (async_res);
-                cached_password = password;
-                retrieved (password);
-                print ("\nRETRIEVED: %s".printf (password));
+    construct {
 
-            } catch (Error e) {
-                print ("S Secrets: %s".printf (e.message));
-            }
+        schema = new Secret.Schema ("io.github.teamcons.mrworldwide", Secret.SchemaFlags.NONE,
+                                        "label", Secret.SchemaAttributeType.STRING);
 
-        });
+        attributes = new GLib.HashTable<string,string> (str_hash, str_equal);
+        attributes["label"] = "DeepL";
+
+        try {
+            _cached = Secret.password_lookupv_sync (schema, attributes, null);
+            print ("retrieved password!");
+        } catch (Error e) {
+            warning (e.message);
+        }
+
     }
 
-    public string whats_key (string backend) {
-        return cached_password;
+    private void on_key_changed (string new_key) {
+            _cached = new_key;
+            changed ();
+
+            Secret.password_storev.begin (schema, attributes, Secret.COLLECTION_DEFAULT,
+                                            "DeepL", new_key, null, (obj, async_res) => {
+
+                                            try {
+                                                bool res = Secret.password_store.end (async_res);
+                                                print ("saved");
+
+                                            } catch (Error e) {
+                                                print (e.message);
+                                            }
+            });
     }
+
+    private async void load_secret () {
+        try {
+            _cached = yield Secret.password_lookupv (schema, attributes, null);
+
+        } catch (Error e) {
+            print (e.message);
+
+        }
+    }
+
 
 }
