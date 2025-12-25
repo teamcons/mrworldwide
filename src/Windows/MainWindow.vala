@@ -12,6 +12,7 @@ public class MrWorldwide.MainWindow : Gtk.Window {
 
     private Gtk.Revealer back_revealer;
     private Gtk.Button switchlang_button;
+    private Gtk.Revealer switchlang_revealer;
     private Gtk.MenuButton popover_button;
 
     private Gtk.Stack stack_window_view;
@@ -106,8 +107,16 @@ public class MrWorldwide.MainWindow : Gtk.Window {
         switchlang_button = new Gtk.Button.from_icon_name ("media-playlist-repeat") {
             tooltip_markup = Granite.markup_accel_tooltip ({"<Ctrl>I"}, _("Switch languages"))
         };
+        switchlang_button.add_css_class ("rotato");
         switchlang_button.action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_SWITCH_LANG;
-        headerbar.pack_start (switchlang_button);
+
+        switchlang_revealer = new Gtk.Revealer () {
+            child = switchlang_button,
+            transition_type = Gtk.RevealerTransitionType.SWING_LEFT,
+            reveal_child = true
+        };
+
+        headerbar.pack_start (switchlang_revealer);
 
 
         /* ---------------- PACK END ---------------- */
@@ -247,7 +256,7 @@ public class MrWorldwide.MainWindow : Gtk.Window {
         stack_window_view.remove (errorview);
         errorview = null;
         back_revealer.reveal_child = false;
-
+        switchlang_revealer.reveal_child = true;
         Application.backend.answer_received.connect (on_answer_received);
 
         if (retry) {
@@ -257,13 +266,19 @@ public class MrWorldwide.MainWindow : Gtk.Window {
 
     private void on_error (uint status_code, string? answer = null) {
         
-            // ErrorView may need to do some fiddling. We reconnect when going back to main view
+            // ErrorView may need to do some fiddling. We reconnect when going back to main view via on_back_clicked
             Application.backend.answer_received.disconnect (on_answer_received);
             
             errorview = new MrWorldwide.ErrorView (status_code, answer);
             stack_window_view.add_titled (errorview, "error", _("Error"));
             stack_window_view.visible_child = errorview;
-            back_revealer.reveal_child = true;
+
+            switchlang_revealer.reveal_child = false;
+            
+            if ((status_code != Soup.Status.FORBIDDEN) && (status_code != MrWorldwide.StatusCode.NO_KEY)) {
+                back_revealer.reveal_child = true;
+            }
+        
             errorview.return_to_main.connect (on_back_clicked);
     }
 

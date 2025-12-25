@@ -5,7 +5,6 @@
 
  public class MrWorldwide.RetryButton : Gtk.Box {
 
-  private Gtk.Image result_icon;
   private Gtk.Revealer result_revealer;
   private Gtk.Spinner spin_retry;
   private Gtk.Revealer spin_revealer;

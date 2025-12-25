@@ -13,7 +13,6 @@
     public Gtk.TextView textview;
     public Gtk.ScrolledWindow scrolledwindow;
     public Gtk.ActionBar actionbar;
-    private Gtk.Label count;
 
     public Gtk.Stack stack;
     public Gtk.Box main_view;

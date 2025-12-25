@@ -62,7 +62,7 @@ public class MrWorldwide.Secrets : Object {
 
                                             try {
                                                 bool res = Secret.password_store.end (async_res);
-                                                print ("saved");
+                                                print ("saved? %b".printf (res));
 
                                             } catch (Error e) {
                                                 print (e.message);

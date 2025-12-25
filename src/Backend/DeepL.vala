@@ -134,7 +134,7 @@ public class MrWorldwide.DeepL : Object {
     }
   }
 
-  public void on_key_changed (bool? do_check = true) {
+  public void on_key_changed () {
     api_key = secrets.cached_key;
 
     if (api_key != "") {
@@ -152,7 +152,7 @@ public class MrWorldwide.DeepL : Object {
 
     var a = prep_json (text);
 
-
+    on_key_changed ();
     var msg = new Soup.Message ("POST", base_url + REST_OF_THE_URL);
     msg.request_headers.append ("Content-Type", "application/json");
     msg.request_headers.append ("User-Agent", "Mr Worldwide");
