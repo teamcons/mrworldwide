@@ -39,6 +39,7 @@
         var title = new Granite.Placeholder (explanation_title) {
             description = explanation_text,
             icon = new ThemedIcon (icon_name),
+            halign = Gtk.Align.START,
             valign = Gtk.Align.CENTER,
         };
         box.append (title);
@@ -55,6 +56,15 @@
             var link = new Gtk.LinkButton.with_label (LINK, _("You can get an API key here")) {
                 halign = Gtk.Align.START
             };
+
+            if (status == StatusCode.NO_KEY) {
+                var explanation = new Gtk.Label (_("An API Key is like a password given by DeepL in your account settings.\nIt allows you to access and use services from applications")) {
+                    wrap_mode = Pango.WrapMode.WORD_CHAR,
+                    halign = Gtk.Align.START
+                };
+                explanation.add_css_class (Granite.STYLE_CLASS_H4_LABEL);
+                apibox.append (explanation);
+            }
 
             apibox.append (api_entry);
             apibox.append (link);
@@ -109,7 +119,7 @@
             //TRANSLATORS: The following texts show up respectively, as a title, and error message, when translating has gone wrong. This needs to be as little technical as possible
             case StatusCode.NO_KEY:
                 explanation_title = _("Hello, World!");
-                explanation_text = _("You need a DeepL API key to translate text\n\nAn API Key is like a password given by DeepL in account settings, to allow you to use it from apps\nIt can be either DeepL Free or Pro");
+                explanation_text = _("You need a DeepL API key to translate text\nIt can be either DeepL Free or Pro");
                 icon_name = "dialog-password";
                 return;
 

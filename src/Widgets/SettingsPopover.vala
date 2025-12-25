@@ -43,6 +43,7 @@ public class MrWorldwide.SettingsPopover : Gtk.Popover {
       margin_start = 12,
       margin_top = 3
     };
+    api_label.add_css_class (Granite.STYLE_CLASS_H4_LABEL);
     cb.start_widget = api_label;
 
     var hint = new Gtk.Button.from_icon_name ("help-contents") {
