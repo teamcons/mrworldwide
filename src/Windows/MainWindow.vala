@@ -190,7 +190,7 @@ public class MrWorldwide.MainWindow : Gtk.Window {
     private async void check_up_key () {
         string key = yield Secrets.get_default ().load_secret ();
 
-        if (key == "") {
+        if (key.chomp () == "") {
             on_error (MrWorldwide.StatusCode.NO_KEY, _("No saved API Key"));
         }
     }
