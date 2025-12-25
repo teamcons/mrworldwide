@@ -1,5 +1,6 @@
 src/Views/TranslationView.vala
 src/Views/ErrorView.vala
+src/Widgets/ErrorBonusBox.vala
 src/Views/LogView.vala
 src/Windows/MainWindow.vala
 src/Widgets/ApiEntry.vala
@@ -11,6 +12,7 @@ src/Widgets/Pane.vala
 src/Widgets/SourcePane.vala
 src/Widgets/TargetPane.vala
 src/Widgets/RetryButton.vala
+src/Widgets/SendCodeButton.vala
 src/Backend/DeepL.vala
 src/Constants.vala
 src/Application.vala

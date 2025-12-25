@@ -36,7 +36,6 @@
         actionbar.pack_start (options_button);
 
 
-
         var clear = new Gtk.Button.from_icon_name ("edit-clear") {
             tooltip_markup = Granite.markup_accel_tooltip ({"<Ctrl>L"}, _("Clear text"))
         };

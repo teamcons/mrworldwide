@@ -44,32 +44,7 @@
         };
         box.append (title);
 
-        // In the event the API is the issue, ask user
-        if (status == Soup.Status.FORBIDDEN || status == StatusCode.NO_KEY) {
-            var apibox = new Gtk.Box (VERTICAL, 12) {
-                margin_top = 6,
-                margin_bottom = 6
-            };
-            var api_entry = new MrWorldwide.ApiEntry ();
-
-            //TRANSLATORS: This is the text of a link to DeepL website, specifically account settings
-            var link = new Gtk.LinkButton.with_label (LINK, _("You can get an API key here")) {
-                halign = Gtk.Align.START
-            };
-
-            if (status == StatusCode.NO_KEY) {
-                var explanation = new Gtk.Label (_("An API Key is like a password given by DeepL in your account settings.\nIt allows you to access and use services from applications")) {
-                    wrap_mode = Pango.WrapMode.WORD_CHAR,
-                    halign = Gtk.Align.START
-                };
-                explanation.add_css_class (Granite.STYLE_CLASS_H4_LABEL);
-                apibox.append (explanation);
-            }
-
-            apibox.append (api_entry);
-            apibox.append (link);
-            box.append (apibox);
-        };
+        box.append (new ErrorBonusBox (status));
 
         var retry_button = new MrWorldwide.RetryButton () {
             halign = Gtk.Align.END
@@ -154,7 +129,7 @@
                 icon_name = "dialog-error";
                 return;
 
-            case 429:
+            case StatusCode.TOO_MANY_REQUESTS:
                 explanation_title = _("Too many requests");
                 explanation_text = _("Please wait before retrying. This error should not be possible to happen for this app...");
                 icon_name = "dialog-warning";
@@ -172,7 +147,7 @@
                 icon_name = "dialog-information";
                 return;
 
-            case 525:
+            case StatusCode.SSL_HANDSHAKE_ERROR:
                 explanation_title = _("SSL Handshake error");
                 explanation_text = _("This is an issue DeepL is aware of and this app can do nothing about...\nIf you have the know-show, going through a simple authenticated proxy may work");
                 icon_name = "network-error";

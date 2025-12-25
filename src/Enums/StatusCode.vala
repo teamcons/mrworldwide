@@ -6,5 +6,7 @@
 public enum MrWorldwide.StatusCode {
     NO_KEY = 0,
     NO_INTERNET = 1,
-    QUOTA = 456;
+    QUOTA = 456,
+    TOO_MANY_REQUESTS = 429,
+    SSL_HANDSHAKE_ERROR = 525;
 }

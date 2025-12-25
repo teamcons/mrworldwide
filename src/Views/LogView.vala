@@ -45,8 +45,7 @@
         clear_button = new Gtk.Button () {
             child = clear_button_box,
             tooltip_text = _("Clear all messages"),
-            sensitive = false,
-            margin_end = 6
+            sensitive = false
         };
         clear_button.add_css_class (Granite.STYLE_CLASS_FLAT);
         clear_button_label.mnemonic_widget = clear_button;
@@ -60,16 +59,20 @@
         var request_button = new Gtk.Button () {
             child = request_button_box,
             tooltip_text = _("Send a request"),
+            margin_end = 12
         };
         request_button.add_css_class (Granite.STYLE_CLASS_FLAT);
         request_button_label.mnemonic_widget = request_button;
 
-        box.pack_start (clear_button);
         box.pack_start (request_button);
+        box.pack_start (new SendCodeButton ());
+
+        box.pack_end (clear_button);
         
         var handle = new Gtk.WindowHandle () {child = box};
         append (handle);
 
+        /***************** CONNECTS AND BINDS *****************/
         clear_button.clicked.connect (on_clear);
         request_button.clicked.connect(Application.backend.check_usage );
         Application.backend.logger.set_printer (display_routine);

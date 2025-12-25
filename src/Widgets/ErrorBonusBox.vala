@@ -5,19 +5,11 @@
 
  public class MrWorldwide.ErrorBonusBox : Gtk.Box {
 
+    private const string LINK = "https://www.deepl.com/your-account/keys";
     public uint status { get; construct; }
-    private string icon_name = "dialog-error";
 
-    private string explanation_title;
-    private string explanation_text;
-
-    public signal void return_to_main (bool? retry = true);
-
-    //TRANSLATORS: This text shows up when the app fails to show technical details on an error
     public ErrorBonusBox (uint status) {
-        Object (
-            status: status
-        );
+        Object (status: status);
     }
 
     construct {
