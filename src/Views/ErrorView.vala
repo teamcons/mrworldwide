@@ -14,6 +14,7 @@
 
     private string explanation_title;
     private string explanation_text;
+    private bool report_link;
 
     public signal void return_to_main (bool? retry = true);
 
@@ -44,7 +45,8 @@
         };
         box.append (title);
 
-        box.append (new ErrorBonusBox (status));
+        // WEIRD: We get errors about TRUE being out of range for a gboolean and the value defaulting if we leave a default 
+        box.append (new ErrorBonusBox (status, report_link));
 
         var retry_button = new MrWorldwide.RetryButton () {
             halign = Gtk.Align.END
@@ -78,7 +80,6 @@
         if (status != StatusCode.NO_KEY) {
             box.append (expander);
         }
-
 
         var handle = new Gtk.WindowHandle () {
             child = box
@@ -119,7 +120,7 @@
 
             case Soup.Status.BAD_REQUEST:
                 explanation_title = _("Bad request");
-                explanation_text = _("The app sent a wrong translation request to DeepL...\nPlease report this to the app's developer with as much details as you can");
+                explanation_text = _("The app sent a wrong translation request to DeepL\nPlease report this to the app's developer with as much details as you can");
                 icon_name = "dialog-warning";
                 return;
 
@@ -169,6 +170,7 @@
                 explanation_title = _("Unknown error");
                 explanation_text = _("Status code %s, please report this to this app's developer").printf(status.to_string ());
                 icon_name = "dialog-question";
+                report_link = true;
                 return;
         }
     }
