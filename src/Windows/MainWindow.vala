@@ -167,24 +167,12 @@ public class MrWorldwide.MainWindow : Gtk.Window {
         stack_window_view.add_titled (new LogView (), "messages", _("Messages"));
 
 
+        // I know you can do this with binds, but it adds unnecessary read/writes everytime you do shit
+        default_height = Application.settings.get_int ("window-height");
+        default_width = Application.settings.get_int ("window-width");
+        maximized = Application.settings.get_boolean ("window-maximized");
 
-
-
-        /*
-        * This is very finicky. Bind size after present else set_titlebar gives us bad sizes
-        * Set maximize after height/width else window is min size on unmaximize
-        * Bind maximize as SET else get get bad sizes
-        */
-        Application.settings.bind ("window-height", this, "default-height", SettingsBindFlags.DEFAULT);
-        Application.settings.bind ("window-width", this, "default-width", SettingsBindFlags.DEFAULT);
-
-        if (Application.settings.get_boolean ("window-maximized")) {
-            maximize ();
-        }
-
-        Application.settings.bind ("window-maximized", this, "maximized", SettingsBindFlags.SET);
-
-        /***************** CONNECTS *****************/
+        /***************** CONNECTS AND BINDS *****************/
         check_up_key.begin (null);
 
         Application.backend.answer_received.connect (on_answer_received);
@@ -197,6 +185,8 @@ public class MrWorldwide.MainWindow : Gtk.Window {
         );
 
         back_button.clicked.connect (() => {on_back_clicked ();});
+
+        close_request.connect (on_close);
     }
 
     private async bool check_up_key () {
@@ -307,6 +297,15 @@ public class MrWorldwide.MainWindow : Gtk.Window {
         } else {
             headerbar.title_widget = title_widget;
         }
-    } 
+    }
+
+    private bool on_close () {
+        int height, width;
+        get_default_size (out width, out height);
+        Application.settings.set_int ("window-height", height);
+        Application.settings.set_int ("window-width", width);
+        Application.settings.set_boolean ("window-maximized", maximized);
+        return false;
+    }
 }
 
