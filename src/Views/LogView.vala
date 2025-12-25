@@ -79,9 +79,7 @@
         clear_button.sensitive = true;
 
         // Lets avoid people posting their API key with their logs when reporting issues
-        if ("Authorization:" in text) {
-            text = "Authorization: DeepL-Auth-Key [REDACTED]";
-        }
+        if ("Authorization:" in text) {text = "Authorization: DeepL-Auth-Key [REDACTED]";}
 
         var newline = ("%c %s\n").printf (dir, text);
         stdout.printf (newline);

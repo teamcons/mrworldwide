@@ -32,12 +32,14 @@
         secrets = Secrets.get_default ();
         fill_key.begin (null);
 
-        secrets.changed.connect (on_key_changed);
-        api_entry.changed.connect (on_entry_changed);
   }
 
   private async void fill_key () {
       api_entry.text = yield secrets.load_secret ();
+
+      // Connects only once we set up, to avoid the app doing a request on start up
+      secrets.changed.connect (on_key_changed);
+      api_entry.changed.connect (on_entry_changed);
   }
 
   private void on_key_changed () {

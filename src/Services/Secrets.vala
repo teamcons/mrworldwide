@@ -55,6 +55,7 @@ public class MrWorldwide.Secrets : Object {
 
     public void store_key (string new_key) {
             _cached = new_key;
+            changed ();
 
             Secret.password_storev.begin (schema, attributes, Secret.COLLECTION_DEFAULT,
                                             "DeepL", new_key, null, (obj, async_res) => {
@@ -62,7 +63,6 @@ public class MrWorldwide.Secrets : Object {
                                             try {
                                                 bool res = Secret.password_store.end (async_res);
                                                 print ("saved");
-                                                changed ();
 
                                             } catch (Error e) {
                                                 print (e.message);

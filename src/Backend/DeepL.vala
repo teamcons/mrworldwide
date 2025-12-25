@@ -97,10 +97,6 @@ public class MrWorldwide.DeepL : Object {
     this.current_usage = Application.settings.get_int ("current-usage");
     this.max_usage = Application.settings.get_int ("max-usage");
 
-    // on_key_changed does a request to check usage
-    // I dont want that at each app start
-    on_key_changed ();
-
     on_source_lang_changed ();
     on_target_lang_changed ();
 
