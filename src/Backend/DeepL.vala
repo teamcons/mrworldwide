@@ -137,12 +137,15 @@ public class MrWorldwide.DeepL : Object {
   public void on_key_changed () {
     api_key = secrets.cached_key;
 
-    if (api_key != "") {
-        if (api_key.has_suffix (":fx")) {
+    if (api_key == null || api_key.chomp () == "") {
+      answer_received (StatusCode.NO_KEY, _("Missing API Key"));
+      return;
+    }
+
+    if (api_key.has_suffix (":fx")) {
           base_url = URL_DEEPL_FREE;
-        } else {
+    } else {
           base_url = URL_DEEPL_PRO;
-        }
     }
   }
 
@@ -282,6 +285,7 @@ public class MrWorldwide.DeepL : Object {
 
 
   public void check_usage () {
+    on_key_changed ();
     var msg = new Soup.Message ("GET", base_url + URL_USAGE);
     msg.request_headers.append ("Authorization", "DeepL-Auth-Key %s".printf (api_key));
     session.send_and_read_async.begin (msg, 0, null, usage_cb);

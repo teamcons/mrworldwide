@@ -187,12 +187,14 @@ public class MrWorldwide.MainWindow : Gtk.Window {
         back_button.clicked.connect (() => {on_back_clicked ();});
     }
 
-    private async void check_up_key () {
+    private async bool check_up_key () {
         string key = yield Secrets.get_default ().load_secret ();
 
         if (key.chomp () == "") {
             on_error (MrWorldwide.StatusCode.NO_KEY, _("No saved API Key"));
+            return false;
         }
+        return true;
     }
 
     public void on_translate () {
@@ -252,12 +254,12 @@ public class MrWorldwide.MainWindow : Gtk.Window {
 
     private void on_back_clicked (bool? retry = false) {
         print ("\nBack to main view");
+        Application.backend.answer_received.connect (on_answer_received);
         stack_window_view.visible_child = translation_view;
         stack_window_view.remove (errorview);
         errorview = null;
         back_revealer.reveal_child = false;
         switchlang_revealer.reveal_child = true;
-        Application.backend.answer_received.connect (on_answer_received);
 
         if (retry) {
             on_translate ();
@@ -275,9 +277,9 @@ public class MrWorldwide.MainWindow : Gtk.Window {
 
             switchlang_revealer.reveal_child = false;
             
-            if ((status_code != Soup.Status.FORBIDDEN) && (status_code != MrWorldwide.StatusCode.NO_KEY)) {
+            //if ((status_code != Soup.Status.FORBIDDEN) && (status_code != MrWorldwide.StatusCode.NO_KEY)) {
                 back_revealer.reveal_child = true;
-            }
+            //}
         
             errorview.return_to_main.connect (on_back_clicked);
     }
