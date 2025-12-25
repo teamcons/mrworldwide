@@ -50,6 +50,7 @@ public class MrWorldwide.DeepL : Object {
 
   private Soup.Session session;
   internal Soup.Logger logger;
+  private Secrets secrets;
 
   private string source_lang;
   private string target_lang;
@@ -88,6 +89,7 @@ public class MrWorldwide.DeepL : Object {
       stderr.printf ("%c %s\n", dir, text);
     });
 
+    secrets = Secrets.get_default ();
 
     system_language = detect_system ();
 
@@ -102,7 +104,7 @@ public class MrWorldwide.DeepL : Object {
     on_source_lang_changed ();
     on_target_lang_changed ();
 
-    Application.settings.changed["key"].connect (debounce_check);
+    secrets.changed.connect (debounce_check);
     Application.settings.changed["source-language"].connect (on_source_lang_changed);
     Application.settings.changed["target-language"].connect (on_target_lang_changed);
   }
@@ -137,7 +139,7 @@ public class MrWorldwide.DeepL : Object {
   }
 
   public void on_key_changed (bool? do_check = true) {
-    api_key = Application.settings.get_string ("key");
+    api_key = secrets.cached_key;
 
     if (api_key != "") {
         if (api_key.has_suffix (":fx")) {

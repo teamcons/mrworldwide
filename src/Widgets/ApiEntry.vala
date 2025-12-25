@@ -7,6 +7,7 @@
 
     public Gtk.PasswordEntry api_entry;
     private Gtk.Button api_paste;
+    private Secrets secrets;
 
     construct {
         orientation = Gtk.Orientation.HORIZONTAL;
@@ -27,9 +28,27 @@
         append (api_paste);
 
         api_paste.clicked.connect (paste_from_clipboard);
-        Application.settings.bind ("key", api_entry, "text", SettingsBindFlags.DEFAULT);
-    }
 
+        secrets = Secrets.get_default ();
+        fill_key.begin (null);
+
+        secrets.changed.connect (on_key_changed);
+        api_entry.changed.connect (on_entry_changed);
+  }
+
+  private async void fill_key () {
+      api_entry.text = yield secrets.load_secret ();
+  }
+
+  private void on_key_changed () {
+    api_entry.changed.disconnect (on_entry_changed);
+    api_entry.text = secrets.cached_key;
+    api_entry.changed.connect (on_entry_changed);
+  }
+
+  private void on_entry_changed () {
+    secrets.store_key (api_entry.text);
+  }
 
   private void paste_from_clipboard () {
     var clipboard = Gdk.Display.get_default ().get_clipboard ();

@@ -149,13 +149,8 @@ public class MrWorldwide.MainWindow : Gtk.Window {
 
         child = stack_window_view;
 
-        if (Application.settings.get_string ("key") == "") {
-            on_error (MrWorldwide.StatusCode.NO_KEY, _("No saved API Key"));
-
-        } else {
-            stack_window_view.visible_child = translation_view;
-            set_focus (translation_view.source_pane.textview);
-        }
+        stack_window_view.visible_child = translation_view;
+        set_focus (translation_view.source_pane.textview);
 
         // Listen if the backend recognize a language to switch to it
         // debatable whether to keep this idk
@@ -165,11 +160,12 @@ public class MrWorldwide.MainWindow : Gtk.Window {
             }
         });  */
 
-
         stack_window_view.add_titled (new LogView (), "messages", _("Messages"));
 
 
         /***************** CONNECTS *****************/
+        check_up_key.begin (null);
+
         Application.backend.answer_received.connect (on_answer_received);
 
         Application.settings.bind (
@@ -180,6 +176,14 @@ public class MrWorldwide.MainWindow : Gtk.Window {
         );
 
         back_button.clicked.connect (() => {on_back_clicked ();});
+    }
+
+    private async void check_up_key () {
+        string key = yield Secrets.get_default ().load_secret ();
+
+        if (key == "") {
+            on_error (MrWorldwide.StatusCode.NO_KEY, _("No saved API Key"));
+        }
     }
 
     public void on_translate () {
