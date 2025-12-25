@@ -102,20 +102,6 @@ public class MrWorldwide.Application : Gtk.Application {
 
         var main_window = new MainWindow (this);
 
-        /*
-        * This is very finicky. Bind size after present else set_titlebar gives us bad sizes
-        * Set maximize after height/width else window is min size on unmaximize
-        * Bind maximize as SET else get get bad sizes
-        */
-        settings = new Settings ("io.github.teamcons.mrworldwide");
-        settings.bind ("window-height", main_window, "default-height", SettingsBindFlags.DEFAULT);
-        settings.bind ("window-width", main_window, "default-width", SettingsBindFlags.DEFAULT);
-
-        if (settings.get_boolean ("window-maximized")) {
-            main_window.maximize ();
-        }
-
-        settings.bind ("window-maximized", main_window, "maximized", SettingsBindFlags.SET);
 
         main_window.show ();
         main_window.present ();

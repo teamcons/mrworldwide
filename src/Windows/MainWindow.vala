@@ -57,11 +57,6 @@ public class MrWorldwide.MainWindow : Gtk.Window {
         );
     }
 
-    static construct {
-		weak Gtk.IconTheme default_theme = Gtk.IconTheme.get_for_display (Gdk.Display.get_default ());
-		default_theme.add_resource_path ("io/github/teamcons/mrworldwide/");
-	}
-
     construct {
         Intl.setlocale ();
 
@@ -171,6 +166,23 @@ public class MrWorldwide.MainWindow : Gtk.Window {
 
         stack_window_view.add_titled (new LogView (), "messages", _("Messages"));
 
+
+
+
+
+        /*
+        * This is very finicky. Bind size after present else set_titlebar gives us bad sizes
+        * Set maximize after height/width else window is min size on unmaximize
+        * Bind maximize as SET else get get bad sizes
+        */
+        Application.settings.bind ("window-height", this, "default-height", SettingsBindFlags.DEFAULT);
+        Application.settings.bind ("window-width", this, "default-width", SettingsBindFlags.DEFAULT);
+
+        if (Application.settings.get_boolean ("window-maximized")) {
+            maximize ();
+        }
+
+        Application.settings.bind ("window-maximized", this, "maximized", SettingsBindFlags.SET);
 
         /***************** CONNECTS *****************/
         check_up_key.begin (null);
