@@ -200,8 +200,8 @@ public class MrWorldwide.MainWindow : Gtk.Window {
     }
 
     public void on_translate () {
-        var to_translate = translation_view.source_pane.text.chomp ().chug ();
-        // Chomp and Chug to save some billed characters on useless space
+        var to_translate = translation_view.source_pane.text.chug ();
+        // Chug to save some billed characters on useless space
         if (to_translate == "") {
             return;
         }
