@@ -307,5 +307,9 @@ public class MrWorldwide.MainWindow : Gtk.Window {
         Application.settings.set_boolean ("window-maximized", maximized);
         return false;
     }
+
+    public void open (string content) {
+        translation_view.source_pane.text = content;
+    }
 }
 

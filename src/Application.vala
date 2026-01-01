@@ -100,24 +100,20 @@ public class MrWorldwide.Application : Gtk.Application {
             return;
         }
 
-        var main_window = new MainWindow (this);
-
-
+        main_window = new MainWindow (this);
         main_window.show ();
         main_window.present ();
-
     }
 
     protected override void open (File[] files, string hint) {
-        if (active_window == null) {
+        if (main_window == null) {
             activate ();
         }
         var file = files [0];
+        string content = "";
 
         try {
-            var content = "";
             FileUtils.get_contents (file.get_path (), out content);
-            main_window.translation_view.source_pane.text = content;
 
         } catch (Error e) {
             warning ("Failed to open file: %s", e.message);
@@ -134,6 +130,9 @@ public class MrWorldwide.Application : Gtk.Application {
             dialog.present ();
             dialog.response.connect (dialog.destroy);
         }
+
+        main_window.open (content);
+
     }
 
     public static int main (string[] args) {
