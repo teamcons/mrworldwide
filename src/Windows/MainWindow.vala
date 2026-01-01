@@ -38,21 +38,21 @@ public class MrWorldwide.MainWindow : Gtk.Window {
     public static Gee.MultiMap<string, string> action_accelerators = new Gee.HashMultiMap<string, string> ();
 
     private const GLib.ActionEntry[] ACTION_ENTRIES = {
-        { ACTION_MENU, on_menu},
-        { ACTION_TOGGLE_ORIENTATION, toggle_orientation},
-        { ACTION_SWITCH_LANG, switch_languages},
-        { ACTION_TRANSLATE, on_translate},
-        { ACTION_CLEAR, clear_source},
-        { ACTION_OPEN_FILE, action_open_file},
-        { ACTION_SAVE_FILE, action_save_file},
+        { ACTION_MENU, on_menu}, 
+        { ACTION_TOGGLE_ORIENTATION, toggle_orientation}, 
+        { ACTION_SWITCH_LANG, switch_languages}, 
+        { ACTION_TRANSLATE, on_translate}, 
+        { ACTION_CLEAR, clear_source}, 
+        { ACTION_OPEN_FILE, action_open_file}, 
+        { ACTION_SAVE_FILE, action_save_file}, 
         { ACTION_TOGGLE_MESSAGES, action_toggle_messages}
     };
 
     public MainWindow (Gtk.Application application) {
         Object (
-            application: application,
-            default_height: 300,
-            default_width: 300,
+            application: application, 
+            default_height: 300, 
+            default_width: 300, 
             icon_name: "io.github.teamcons.mrworldwide"
         );
     }

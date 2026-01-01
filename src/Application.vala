@@ -132,7 +132,6 @@ public class MrWorldwide.Application : Gtk.Application {
         }
 
         main_window.open (content);
-
     }
 
     public static int main (string[] args) {
