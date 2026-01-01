@@ -3,6 +3,9 @@
  * SPDX-FileCopyrightText:  2025 Stella & Charlie (teamcons.carrd.co)
  */
 
+ /**
+ * Popover for the rightmost button. Kept to a minimum, and allows quick access to the user
+ */
 public class MrWorldwide.SettingsPopover : Gtk.Popover {
   
   const string DONATE_LINK = "https://ko-fi.com/teamcons";

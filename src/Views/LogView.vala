@@ -3,7 +3,11 @@
  * SPDX-FileCopyrightText:  2025 Stella & Charlie (teamcons.carrd.co)
  */
 
- public class MrWorldwide.LogView : Gtk.Box {
+/**
+ * Secret view for debbuging purposes, accessible via the switcher visible with Ctrl+Shift+M.
+ * Both for developer convenience, and for cooperative users to access more informations on their issue.
+ */
+public class MrWorldwide.LogView : Gtk.Box {
 
     private string placeholder = _("Requests and server responses will show up here\n\n");
     private Gtk.TextView textview;

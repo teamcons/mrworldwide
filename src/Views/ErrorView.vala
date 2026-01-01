@@ -3,7 +3,11 @@
  * SPDX-FileCopyrightText:  2025 Stella & Charlie (teamcons.carrd.co)
  */
 
- public class MrWorldwide.ErrorView : Granite.Bin {
+/**
+ * Flexible view created then shown when backend communicates an error code.
+ * Depending on the code it receives, explanations, options, and details are shown
+ */
+public class MrWorldwide.ErrorView : Granite.Bin {
 
     private const string LINK = "https://www.deepl.com/your-account/keys";
     private const uint WAIT_BEFORE_MAIN = 1500; //In milliseconds

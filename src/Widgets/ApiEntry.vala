@@ -3,7 +3,11 @@
  * SPDX-FileCopyrightText:  2025 Stella & Charlie (teamcons.carrd.co)
  */
 
- public class MrWorldwide.ApiEntry : Gtk.Box {
+/**
+ * Convenience Entry box that synchronizes with Secrets, to save/retrieve API
+ * Used in the ErrorView when API Key is missing or returns errors, and in SettingsPopover for user to swap keys.
+ */
+public class MrWorldwide.ApiEntry : Gtk.Box {
 
     public Gtk.PasswordEntry api_entry;
     private Gtk.Button api_paste;

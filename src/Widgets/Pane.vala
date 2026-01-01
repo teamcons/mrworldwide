@@ -3,7 +3,11 @@
  * SPDX-FileCopyrightText:  2025 Stella & Charlie (teamcons.carrd.co)
  */
 
- public class MrWorldwide.Pane : Gtk.Box {
+/**
+ * A base object that is then subclassed into a SourcePane and a TargetPane.
+ * It takes a DDModel to fill the dropdown with languages
+ */
+public class MrWorldwide.Pane : Gtk.Box {
 
     public MrWorldwide.DDModel model {get; construct;}
 

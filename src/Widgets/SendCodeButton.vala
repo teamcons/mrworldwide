@@ -3,6 +3,10 @@
  * SPDX-FileCopyrightText:  2025 Stella & Charlie (teamcons.carrd.co)
  */
 
+/**
+ * Small horizontal box to simulate return codes in the LogView.
+ * It mostly just sends signals on the backend behalf for valid codes.
+ */
 public class MrWorldwide.SendCodeButton : Gtk.Box {
 
   private int status_code = 200;

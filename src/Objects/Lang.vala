@@ -4,6 +4,9 @@
  * SPDX-FileCopyrightText:  2025 Stella & Charlie (teamcons.carrd.co)
  */
 
+/**
+ * Convenience object to shift between several forms of the same language
+ */
 public class MrWorldwide.Lang : Object {
 
     public string code {get; construct;}

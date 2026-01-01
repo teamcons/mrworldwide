@@ -3,6 +3,10 @@
  * SPDX-FileCopyrightText:  2025 Stella & Charlie (teamcons.carrd.co)
  */
 
+/**
+ * Aside from bonus actions, the Window is centered around a Gtk.Stack to switch views.
+ * Usually when switching to an ErrorView, status code handling is disabled to let it managed, and a "Back" button is added to set it back.
+ */
 public class MrWorldwide.MainWindow : Gtk.Window {
 
     private bool show_switcher {

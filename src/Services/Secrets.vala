@@ -3,23 +3,15 @@
  * SPDX-FileCopyrightText:  2025 Stella & Charlie (teamcons.carrd.co)
  */
 
-/*
-The plan: Something that replaces pretty much in-place gsettings
-You call the object from anywhere and it manages the rest
-
-a function to set and forget
-a function to trigger retrieval. The relevant part of the API will be connected to the signal spitting the key out.
-
-Retrieve key upon Menu creation.
-Store the key when the PassWordEntry in Menu is changed
-Let the backend access it in a cache so there is no async BS.
-
-*/
-
+/**
+ * Wrapper to handle loading/Saving the DeepL API Key safely.
+ * It is done asynchronously to not have the UI hang and freeze.
+ */
 public class MrWorldwide.Secrets : Object {
 
     public signal void changed ();
 
+    // Ensure only once instance, accessible whenever needed.
     private static Secrets? instance;
     public static Secrets get_default () {
         if (instance == null) {

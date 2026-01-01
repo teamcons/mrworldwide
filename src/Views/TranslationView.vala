@@ -3,7 +3,10 @@
  * SPDX-FileCopyrightText:  2025 Stella & Charlie (teamcons.carrd.co)
  */
 
- public class MrWorldwide.TranslationView : Gtk.Box {
+/**
+ * Main view for translations. Mostly a Gtk.Paned with SourcePane and TargetPane with a couple binds for ease of control.
+ */
+public class MrWorldwide.TranslationView : Gtk.Box {
 
     private Gtk.Paned paned {get; set;}
     public MrWorldwide.SourcePane source_pane;

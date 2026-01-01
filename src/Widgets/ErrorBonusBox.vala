@@ -3,7 +3,11 @@
  * SPDX-FileCopyrightText:  2025 Stella & Charlie (teamcons.carrd.co)
  */
 
- public class MrWorldwide.ErrorBonusBox : Gtk.Box {
+/**
+ * Used to display more information or options in an ErrorView, may however show nothing.
+ * Mostly developer convenience, to not overload ErrorView, and do smarter error handlings.
+ */
+public class MrWorldwide.ErrorBonusBox : Gtk.Box {
 
     private const string ISSUES = "https://github.com/teamcons/mrworldwide/issues/";
     private const string LINK = "https://www.deepl.com/your-account/keys";

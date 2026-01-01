@@ -3,6 +3,11 @@
  * SPDX-FileCopyrightText:  2025 Stella & Charlie (teamcons.carrd.co)
  */
 
+/**
+ * For the formality options as in OptionsPopover.
+ * We use its Int aspect for saving/restoring in gsettings.
+ * We convert it to string for the DeepL API request.
+ */
 public enum MrWorldwide.Formality {
     MORE,
     PREFER_MORE,

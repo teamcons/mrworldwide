@@ -3,7 +3,11 @@
  * SPDX-FileCopyrightText:  2025 Stella & Charlie (teamcons.carrd.co)
  */
 
- public class MrWorldwide.ApiLevel : Gtk.Box {
+/**
+ * Displays a nice gauge with API Usage. Said gauge is tied to settings keys, and updated on every request.
+ * Includes a convenience button to refresh manually if needed.
+ */
+public class MrWorldwide.ApiLevel : Gtk.Box {
 
     private Gtk.LevelBar api_usage;
 

@@ -3,7 +3,10 @@
  * SPDX-FileCopyrightText:  2025 Stella & Charlie (teamcons.carrd.co)
  */
 
- public class MrWorldwide.SourcePane : MrWorldwide.Pane {
+/**
+ * Specialized subclass of Pane for source text. The stack is not used, but an Options button is added.
+ */
+public class MrWorldwide.SourcePane : MrWorldwide.Pane {
 
 
     public SourcePane () {

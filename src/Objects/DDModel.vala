@@ -4,7 +4,10 @@
  * SPDX-FileCopyrightText:  2025 Stella & Charlie (teamcons.carrd.co)
  */
 
- // Thank you stronnag!
+/**
+ * DDModel, to manage lists of Lang objects (Languages), notably for the dropdown of Pane
+ * Thank you stronnag!
+ */
 public class MrWorldwide.DDModel : Object {
 	public GLib.ListStore model {get; set;}
 	public Gtk.SignalListItemFactory factory {get; set;}

@@ -2,7 +2,11 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
  * SPDX-FileCopyrightText:  2025 Stella & Charlie (teamcons.carrd.co)
  */
- public class MrWorldwide.TargetPane : MrWorldwide.Pane {
+
+/**
+ * Specialized subclass of Pane. The Stack is used to display waiting
+ */
+public class MrWorldwide.TargetPane : MrWorldwide.Pane {
 
 
     private Gtk.WindowHandle placeholder_view;

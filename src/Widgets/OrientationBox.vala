@@ -3,6 +3,9 @@
  * SPDX-FileCopyrightText:  2025 Stella & Charlie (teamcons.carrd.co)
  */
 
+/**
+ * Simple two-buttons horizontal box using in SettingsPopover to toggle view
+ */
 public class MrWorldwide.OrientationBox : Gtk.Box {
 
     construct {
