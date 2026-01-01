@@ -5,11 +5,11 @@ Type=Application
 Name=Mr Worldwide
 GenericName=Text translator
 Comment=Translate text elegantly
+Icon=io.github.teamcons.mrworldwide
+Exec=io.github.teamcons.mrworldwide %U
+
 Categories=Office;Education;GTK;
 Keywords=text;translate;translation;translator;deepl;NMT;lang;localize;l10n;i18n;localization;internationalization;
-
-Icon=io.github.teamcons.mrworldwide
-Exec=io.github.teamcons.mrworldwide
 Terminal=false
 StartupNotify=true
 SingleMainWindow=true
