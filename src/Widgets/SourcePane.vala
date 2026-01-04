@@ -32,6 +32,7 @@ public class MrWorldwide.SourcePane : MrWorldwide.Pane {
             margin_end = 6
         };
         options_button.add_css_class (Granite.STYLE_CLASS_FLAT);
+        options_button.add_css_class ("flat_menu_button");
         options_button_label.mnemonic_widget = options_button;
         options_button.popover = new MrWorldwide.OptionsPopover () {halign = Gtk.Align.START};
         options_button.direction = Gtk.ArrowType.UP;

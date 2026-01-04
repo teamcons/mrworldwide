@@ -23,7 +23,7 @@
 }
 
 /* Ruthless way to make the options button flat */
-menubutton .toggle {
+.flat_menu_button .toggle {
     outline: none;
 	border: none;
     box-shadow: none;
