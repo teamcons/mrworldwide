@@ -52,8 +52,12 @@ public class MrWorldwide.TargetPane : MrWorldwide.Pane {
 
 
         /* -------- TOOLBAR -------- */
-        var play = new Gtk.Button.from_icon_name ("media-playback-start");
-        var pause = new Gtk.Button.from_icon_name ("media-playback-pause");
+        var play = new Gtk.Button.from_icon_name ("media-playback-start") {
+            tooltip_text = _("Unpause automatic translation")
+        };
+        var pause = new Gtk.Button.from_icon_name ("media-playback-pause") {
+            tooltip_text = _("Pause automatic translation")
+        };
 
         actionbar.pack_start (play);
         actionbar.pack_start (pause);
