@@ -52,6 +52,13 @@ public class MrWorldwide.TargetPane : MrWorldwide.Pane {
 
 
         /* -------- TOOLBAR -------- */
+        var play = new Gtk.Button.from_icon_name ("media-playback-start");
+        var pause = new Gtk.Button.from_icon_name ("media-playback-pause");
+
+        actionbar.pack_start (play);
+        actionbar.pack_start (pause);
+
+        /* -------- TOOLBAR -------- */
         var copy = new Gtk.Button.from_icon_name ("edit-copy") {
             tooltip_text = _("Copy to clipboard")
         };
@@ -68,6 +75,14 @@ public class MrWorldwide.TargetPane : MrWorldwide.Pane {
 
         /***************** CONNECTS *****************/
 
+        Application.settings.bind ("auto-translate",
+            pause, "visible",
+            GLib.SettingsBindFlags.DEFAULT);
+
+        pause.bind_property ("visible", 
+            play, "visible",
+            GLib.BindingFlags.SYNC_CREATE | GLib.BindingFlags.INVERT_BOOLEAN);
+
         language = Application.settings.get_string ("target-language");
         Application.settings.bind (
           "target-language", 
@@ -75,6 +90,9 @@ public class MrWorldwide.TargetPane : MrWorldwide.Pane {
           "language", 
           GLib.SettingsBindFlags.DEFAULT
         );
+
+        play.clicked.connect (() => {Application.settings.set_boolean ("auto-translate", true);});
+        pause.clicked.connect (() => {Application.settings.set_boolean ("auto-translate", false);});
 
         copy.clicked.connect (copy_to_clipboard);
         save_as_button.clicked.connect (on_save_as);

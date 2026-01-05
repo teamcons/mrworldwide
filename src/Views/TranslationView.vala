@@ -79,7 +79,9 @@ public class MrWorldwide.TranslationView : Gtk.Box {
 
     public void on_text_to_translate () {
         // If auto translate is off, forget it
-        //Application.settings.get_boolean ("auto-translate") 
+        if (! Application.settings.get_boolean ("auto-translate")) {
+            return;
+        }
 
         debug ("The buffer has been modified, starting the debounce timer");
         if (debounce_timer_id != 0) {
