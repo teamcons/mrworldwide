@@ -95,8 +95,18 @@ public class MrWorldwide.TargetPane : MrWorldwide.Pane {
           GLib.SettingsBindFlags.DEFAULT
         );
 
-        play.clicked.connect (() => {Application.settings.set_boolean ("auto-translate", true);});
-        pause.clicked.connect (() => {Application.settings.set_boolean ("auto-translate", false);});
+        play.clicked.connect (() => {
+            Application.settings.set_boolean ("auto-translate", true);   
+            var interval_in_s = ((float)TranslationView.DEBOUNCE_INTERVAL) / 1000;
+            // TRANSLATORS: This is for a small notification toast. Very little space is available
+            message (_("Translation %.2fs after typing").printf (interval_in_s));
+        });
+
+        pause.clicked.connect (() => {
+            Application.settings.set_boolean ("auto-translate", false);
+            // TRANSLATORS: This is for a small notification toast. Very little space is available
+            message (_("Automatic translation paused"));
+        });
 
         copy.clicked.connect (copy_to_clipboard);
         language_changed.connect (on_language_changed);
@@ -109,8 +119,9 @@ public class MrWorldwide.TargetPane : MrWorldwide.Pane {
     }
 
     private void copy_to_clipboard () {
-            var clipboard = Gdk.Display.get_default ().get_clipboard ();
-            clipboard.set_text (textview.buffer.text);
+        var clipboard = Gdk.Display.get_default ().get_clipboard ();
+        clipboard.set_text (textview.buffer.text);
+        message (_("Copied!"));
     }
 
     public void spin (bool if_spin) {
@@ -123,7 +134,6 @@ public class MrWorldwide.TargetPane : MrWorldwide.Pane {
         }
         //loading_revealer.reveal_child = if_spin;
     }
-
 
     private void on_buffer_changed () {
         if (text.chomp () == "") {

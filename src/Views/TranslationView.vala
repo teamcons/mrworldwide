@@ -13,7 +13,7 @@ public class MrWorldwide.TranslationView : Gtk.Box {
     public MrWorldwide.TargetPane target_pane;
 
     // Add a debounce so we aren't requesting the API constantly
-    public int interval = 1250; // ms
+    public const int DEBOUNCE_INTERVAL = 1250; // ms
     public uint debounce_timer_id = 0;
 
     public SimpleActionGroup actions { get; construct; }
@@ -57,19 +57,20 @@ public class MrWorldwide.TranslationView : Gtk.Box {
         on_orientation_toggled ();
         Application.settings.changed["vertical-layout"].connect (on_orientation_toggled);
 
-        // translate when text is entered or user changes any language
+        // translate when text is entered or user changes any language or option
         source_pane.textview.buffer.changed.connect (on_text_to_translate);
         source_pane.language_changed.connect (on_text_to_translate);
         target_pane.language_changed.connect (on_text_to_translate);
-
         Application.settings.changed["context"].connect (on_text_to_translate);
         Application.settings.changed["formality"].connect (on_text_to_translate);
 
-        Application.settings.changed["auto-translate"].connect (() => {
+        // Immediately translate when auto-translate is turned on
+        /*
+            Application.settings.changed["auto-translate"].connect (() => {
             if (Application.settings.get_boolean ("auto-translate")) {
                 translate_now ();
             }
-        });
+        });  */
 
         source_pane.scrolledwindow.vadjustment.bind_property (
             "value",
@@ -111,7 +112,7 @@ public class MrWorldwide.TranslationView : Gtk.Box {
             GLib.Source.remove (debounce_timer_id);
         }
 
-        debounce_timer_id = Timeout.add (interval, () => {
+        debounce_timer_id = Timeout.add (DEBOUNCE_INTERVAL, () => {
             debounce_timer_id = 0;
             translate_now ();
             return GLib.Source.REMOVE;
@@ -141,12 +142,12 @@ public class MrWorldwide.TranslationView : Gtk.Box {
     public void action_clear_text () {
         source_pane.clear ();
         target_pane.clear ();
+        source_pane.message (_("Cleared!"));
     }
 
     public void action_load_text () {
         source_pane.action_load_text ();
     }
-
 
     public void action_save_text () {
         target_pane.action_save_text ();

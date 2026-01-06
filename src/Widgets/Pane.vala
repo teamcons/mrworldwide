@@ -21,7 +21,6 @@ public class MrWorldwide.Pane : Gtk.Box {
     public Gtk.Stack stack;
     public Gtk.Box main_view;
 
-    private Gtk.Overlay overlay;
     private Granite.Toast toast;
 
     public string text {
@@ -80,6 +79,19 @@ public class MrWorldwide.Pane : Gtk.Box {
             child = textview
         };
 
+        toast = new Granite.Toast (_("Button was pressed!")) {
+            halign = Gtk.Align.CENTER,
+            valign = Gtk.Align.END
+        };
+
+        var overlay = new Gtk.Overlay () {
+            child = scrolledwindow
+        };
+        overlay.add_overlay (toast);
+        //overlay.set_measure_overlay (toast, true);
+
+
+
         actionbar = new Gtk.ActionBar () {
             hexpand = true,
             vexpand = false,
@@ -99,23 +111,15 @@ public class MrWorldwide.Pane : Gtk.Box {
         };
 
         main_view = new Gtk.Box (VERTICAL, 0);
-        
-        main_view.append (scrolledwindow);
+        //main_view.append (scrolledwindow);
+        main_view.append (overlay);
         main_view.append (handle);
-
-
 
         stack = new Gtk.Stack () {
             transition_type = Gtk.StackTransitionType.CROSSFADE
         };
         stack.height_request = 130;
         stack.add_child (main_view);
-
-
-        overlay = new Gtk.Overlay ();
-        toast = new Granite.Toast ("") {
-            valign = Gtk.Align.START
-        };
 
         append (dropdown_revealer);
         append (stack);
@@ -155,5 +159,10 @@ public class MrWorldwide.Pane : Gtk.Box {
 
     public void clear () {
         this.textview.buffer.text = "";
+    }
+
+    public void message (string text, bool? undo = false) {
+        toast.title = text;
+        toast.send_notification ();
     }
 }
