@@ -64,13 +64,11 @@ public class MrWorldwide.TranslationView : Gtk.Box {
         Application.settings.changed["context"].connect (on_text_to_translate);
         Application.settings.changed["formality"].connect (on_text_to_translate);
 
-        // Immediately translate when auto-translate is turned on
-        /*
-            Application.settings.changed["auto-translate"].connect (() => {
+        Application.settings.changed["auto-translate"].connect (() => {
             if (Application.settings.get_boolean ("auto-translate")) {
-                translate_now ();
+                on_text_to_translate ();
             }
-        });  */
+        });
 
         source_pane.scrolledwindow.vadjustment.bind_property (
             "value",
