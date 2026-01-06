@@ -38,7 +38,6 @@ public class MrWorldwide.OptionsPopover : Gtk.Popover {
     var center = new Gtk.CenterBox () {
       valign = Gtk.Align.END
     };
-    center.add_css_class (Granite.STYLE_CLASS_H4_LABEL);
     center.start_widget = new Gtk.Label (_("Formal"));
     center.center_widget = new Gtk.Label (_("Default"));
     center.end_widget = new Gtk.Label (_("Informal"));
