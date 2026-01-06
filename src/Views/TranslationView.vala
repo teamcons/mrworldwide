@@ -101,7 +101,7 @@ public class MrWorldwide.TranslationView : Gtk.Box {
 
     public void on_text_to_translate () {
         // If auto translate is off, forget it
-        if (! Application.settings.get_boolean ("auto-translate")) {
+        if (!Application.settings.get_boolean ("auto-translate")) {
             return;
         }
 
@@ -130,6 +130,11 @@ public class MrWorldwide.TranslationView : Gtk.Box {
         var to_translate = source_pane.text;
         if (to_translate.chomp () == "" ) {
             target_pane.clear ();
+            return;
+        }
+
+        if (source_pane.language == target_pane.language) {
+            source_pane.message (_("Target language is the same as source"));
             return;
         }
 
