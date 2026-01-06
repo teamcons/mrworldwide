@@ -30,26 +30,26 @@ public class MrWorldwide.MainWindow : Gtk.Window {
     public MrWorldwide.SettingsPopover menu_popover;
 
     public SimpleActionGroup actions { get; construct; }
-    public const string ACTION_PREFIX = "app.";
+    public const string ACTION_PREFIX = "window.";
     public const string ACTION_MENU = "menu";
-    public const string ACTION_TOGGLE_ORIENTATION = "toggle_orientation";
     public const string ACTION_SWITCH_LANG = "switch_languages";
-    public const string ACTION_TRANSLATE = "translate";
-    public const string ACTION_CLEAR = "clear_source";
-    public const string ACTION_OPEN_FILE = "open_file";
-    public const string ACTION_SAVE_FILE = "save_file";
     public const string ACTION_TOGGLE_MESSAGES = "toggle_messages";
-    public static Gee.MultiMap<string, string> action_accelerators = new Gee.HashMultiMap<string, string> ();
+    public const string ACTION_TOGGLE_ORIENTATION = "toggle_orientation";
+    public const string ACTION_TRANSLATE = "translate";
+    public const string ACTION_CLEAR_TEXT = "clear_text";
+    public const string ACTION_LOAD_TEXT = "load_text";
+    public const string ACTION_SAVE_TEXT = "save_text";
 
+    public static Gee.MultiMap<string, string> action_accelerators = new Gee.HashMultiMap<string, string> ();
     private const GLib.ActionEntry[] ACTION_ENTRIES = {
-        { ACTION_MENU, on_menu}, 
-        { ACTION_TOGGLE_ORIENTATION, toggle_orientation}, 
+        { ACTION_MENU, on_menu},  
         { ACTION_SWITCH_LANG, switch_languages}, 
-        { ACTION_TRANSLATE, on_translate}, 
-        { ACTION_CLEAR, clear_source}, 
-        { ACTION_OPEN_FILE, action_open_file}, 
-        { ACTION_SAVE_FILE, action_save_file}, 
-        { ACTION_TOGGLE_MESSAGES, action_toggle_messages}
+        { ACTION_TOGGLE_MESSAGES, action_toggle_messages}, 
+        { ACTION_TOGGLE_ORIENTATION, action_toggle_orientation}, 
+        { ACTION_TRANSLATE, action_translate}, 
+        { ACTION_CLEAR_TEXT, action_clear_text}, 
+        { ACTION_LOAD_TEXT, action_load_text}, 
+        { ACTION_SAVE_TEXT, action_save_text}
     };
 
     public MainWindow (Gtk.Application application) {
@@ -66,8 +66,8 @@ public class MrWorldwide.MainWindow : Gtk.Window {
 
         var actions = new SimpleActionGroup ();
         actions.add_action_entries (ACTION_ENTRIES, this);
-        insert_action_group ("app", actions);
-
+        insert_action_group ("window", actions);
+        
         /* ---------------- HEADERBAR ---------------- */
         //TRANSLATORS: Do not translate the name itself. You can write it in your writing system if that is usually done for your language
         title = _("Mr Worldwide");
@@ -203,43 +203,15 @@ public class MrWorldwide.MainWindow : Gtk.Window {
         return true;
     }
 
-    public void on_translate () {
-        var to_translate = translation_view.source_pane.text.chug ();
-        // Chug to save some billed characters on useless space
-        if (to_translate == "") {
-            return;
-        }
-
-        Application.backend.send_request (to_translate);
-    }
-
     private void on_menu () {
         popover_button.activate ();
     }
 
-    private void toggle_orientation () {
-        Application.settings.set_boolean (
-            "vertical-layout",
-            ! Application.settings.get_boolean ("vertical-layout")
-        );
-    }
 
     private void switch_languages () {
         translation_view.switch_languages ();
     }
 
-    private void clear_source () {
-        translation_view.clear_source ();
-    }
-
-    private void action_open_file () {
-        translation_view.source_pane.on_open_file ();
-    }
-
-    private void action_save_file () {
-        translation_view.target_pane.on_save_as ();
-    }
-    
     public void on_answer_received (uint status_code, string? answer = null) {
         print (status_code.to_string ());
 
@@ -268,7 +240,7 @@ public class MrWorldwide.MainWindow : Gtk.Window {
         switchlang_revealer.reveal_child = true;
 
         if (retry) {
-            on_translate ();
+            translation_view.on_text_to_translate ();
         }
     }
 
@@ -314,6 +286,27 @@ public class MrWorldwide.MainWindow : Gtk.Window {
 
     public void open (string content) {
         translation_view.source_pane.text = content;
+    }
+
+    public void action_toggle_orientation () {
+        translation_view.toggle_orientation ();
+    }
+
+    public void action_translate () {
+        translation_view.translate_now ();
+    }
+
+    public void action_clear_text () {
+        translation_view.action_clear_text ();
+    }
+
+    public void action_load_text () {
+        translation_view.action_load_text ();
+    }
+
+
+    public void action_save_text () {
+        translation_view.action_save_text ();
     }
 }
 

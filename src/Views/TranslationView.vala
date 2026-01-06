@@ -16,9 +16,26 @@ public class MrWorldwide.TranslationView : Gtk.Box {
     public int interval = 1250; // ms
     public uint debounce_timer_id = 0;
 
+    public SimpleActionGroup actions { get; construct; }
+    public const string ACTION_PREFIX = "translation-view.";
+    public const string ACTION_TOGGLE_ORIENTATION = "toggle_orientation";
+    public const string ACTION_TRANSLATE = "translate";
+    public const string ACTION_CLEAR_TEXT = "clear_text";
+
+    public static Gee.MultiMap<string, string> action_accelerators = new Gee.HashMultiMap<string, string> ();
+    private const GLib.ActionEntry[] ACTION_ENTRIES = {
+        { ACTION_TOGGLE_ORIENTATION, toggle_orientation},
+        { ACTION_TRANSLATE, translate_now},
+        { ACTION_CLEAR_TEXT, action_clear_text}
+    };
+
     construct {
         orientation = HORIZONTAL;
         spacing = 0;
+
+        var actions = new SimpleActionGroup ();
+        actions.add_action_entries (ACTION_ENTRIES, this);
+        insert_action_group ("translation-view", actions);
 
         source_pane = new MrWorldwide.SourcePane ();
         var selected_source_language = Application.settings.get_string ("source-language");
@@ -48,10 +65,16 @@ public class MrWorldwide.TranslationView : Gtk.Box {
         Application.settings.changed["context"].connect (on_text_to_translate);
         Application.settings.changed["formality"].connect (on_text_to_translate);
 
+        Application.settings.changed["auto-translate"].connect (() => {
+            if (Application.settings.get_boolean ("auto-translate")) {
+                translate_now ();
+            }
+        });
+
         source_pane.scrolledwindow.vadjustment.bind_property (
             "value",
             target_pane.scrolledwindow.vadjustment, "value",
-            GLib.BindingFlags.BIDIRECTIONAL
+            GLib.BindingFlags.SYNC_CREATE | GLib.BindingFlags.BIDIRECTIONAL
         );
     }
 
@@ -96,19 +119,36 @@ public class MrWorldwide.TranslationView : Gtk.Box {
 
     }
 
+
+    public void toggle_orientation () {
+        Application.settings.set_boolean (
+            "vertical-layout",
+            ! Application.settings.get_boolean ("vertical-layout")
+        );
+    }
+
     public void translate_now () {
-        if (source_pane.text.chomp () == "" ) {
+        var to_translate = source_pane.text;
+        if (to_translate.chomp () == "" ) {
             target_pane.clear ();
             return;
         }
 
         target_pane.spin (true);
-        Application.backend.send_request (source_pane.text.chomp ().chug ());
-        // Chomp and Chug to save some billed characters on useless space
+        Application.backend.send_request (to_translate);
     }
 
-    public void clear_source () {
+    public void action_clear_text () {
         source_pane.clear ();
         target_pane.clear ();
+    }
+
+    public void action_load_text () {
+        source_pane.action_load_text ();
+    }
+
+
+    public void action_save_text () {
+        target_pane.action_save_text ();
     }
 }

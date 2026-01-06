@@ -9,11 +9,28 @@ public class MrWorldwide.Application : Gtk.Application {
     internal static DeepL backend;
     internal static MainWindow main_window;
 
+
+    public const string ACTION_PREFIX = "app.";
+    public const string ACTION_QUIT = "action_quit";
+
+    public static Gee.MultiMap<string, string> action_accelerators = new Gee.HashMultiMap<string, string> ();
+
+    private const GLib.ActionEntry[] ACTION_ENTRIES = {
+        { ACTION_QUIT, quit}
+    };
+
     public Application () {
         Object (
             application_id: "io.github.teamcons.mrworldwide",
             flags: ApplicationFlags.HANDLES_OPEN
         );
+    }
+
+    construct {
+        Intl.setlocale (LocaleCategory.ALL, "");
+        Intl.bindtextdomain (GETTEXT_PACKAGE, LOCALEDIR);
+        Intl.bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
+        Intl.textdomain (GETTEXT_PACKAGE);
     }
 
     static construct {
@@ -29,10 +46,23 @@ public class MrWorldwide.Application : Gtk.Application {
         Gtk.init ();
         Granite.init ();
 
-        Intl.setlocale (LocaleCategory.ALL, "");
-        Intl.bindtextdomain (GETTEXT_PACKAGE, LOCALEDIR);
-        Intl.bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
-        Intl.textdomain (GETTEXT_PACKAGE);
+        // App
+        add_action_entries (ACTION_ENTRIES, this);
+        set_accels_for_action ("app.action_quit", {"<Control>q"});
+
+        // Window
+        set_accels_for_action ("window.menu", {"<Control>m"});
+        set_accels_for_action ("window.switch_languages", {"<Control>i"});
+        set_accels_for_action ("window.toggle_messages", {"<Control><Shift>m"});
+
+        // Translation view
+        set_accels_for_action ("window.toggle_orientation", {"<Control><Shift>o"});
+        set_accels_for_action ("window.translate", {"<Control>t"});
+        set_accels_for_action ("window.clear_text", {"<Control>l"});
+
+        // Source & target
+        set_accels_for_action ("window.load_text", {"<Control>o"});
+        set_accels_for_action ("window.save_text", {"<Control>s", "<Control><Shift>s"});
 
         var granite_settings = Granite.Settings.get_default ();
         var gtk_settings = Gtk.Settings.get_default ();
@@ -47,43 +77,6 @@ public class MrWorldwide.Application : Gtk.Application {
                     granite_settings.prefers_color_scheme == DARK
                 );
         });
-
-        var quit_action = new SimpleAction ("quit", null);
-        add_action (quit_action);
-        set_accels_for_action ("app.quit", {"<Control>q"});
-        quit_action.activate.connect (quit);
-
-        var menu_action = new SimpleAction ("menu", null);
-        add_action (menu_action);
-        set_accels_for_action ("app.menu", {"<Control>m"});
-
-        var toggle_orientation_action = new SimpleAction ("toggle_orientation", null);
-        add_action (toggle_orientation_action);
-        //set_accels_for_action ("app.toggle_orientation", {"<Control>o"});
-
-        var switch_languages = new SimpleAction ("switch_languages", null);
-        add_action (switch_languages);
-        set_accels_for_action ("app.switch_languages", {"<Control>i"});
-
-        var translate = new SimpleAction ("translate", null);
-        add_action (translate);
-        set_accels_for_action ("app.translate", {"<Control>t"});
-
-        var clear_source = new SimpleAction ("clear_source", null);
-        add_action (clear_source);
-        set_accels_for_action ("app.clear_source", {"<Control>l"});
-
-        var open_file = new SimpleAction ("open_file", null);
-        add_action (open_file);
-        set_accels_for_action ("app.open_file", {"<Control>o"});
-
-        var save_file = new SimpleAction ("save_file", null);
-        add_action (save_file);
-        set_accels_for_action ("app.save_file", {"<Control><Shift>s"});
-
-        var toggle_messages = new SimpleAction ("toggle_messages", null);
-        add_action (toggle_messages);
-        set_accels_for_action ("app.toggle_messages", {"<Control><Shift>m"});
 
         var provider = new Gtk.CssProvider ();
         provider.load_from_resource ("/io/github/teamcons/mrworldwide/Application.css");
