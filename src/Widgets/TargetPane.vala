@@ -6,7 +6,7 @@
 /**
  * Specialized subclass of Pane. The Stack is used to display waiting
  */
-public class MrWorldwide.TargetPane : MrWorldwide.Pane {
+public class Inscriptions.TargetPane : Inscriptions.Pane {
 
     private Gtk.WindowHandle placeholder_view;
 
@@ -14,8 +14,8 @@ public class MrWorldwide.TargetPane : MrWorldwide.Pane {
     private Gtk.WindowHandle spin_view;
 
     public TargetPane () {
-        var model = new MrWorldwide.DDModel ();
-        foreach (var language in MrWorldwide.TargetLang ()) {
+        var model = new Inscriptions.DDModel ();
+        foreach (var language in Inscriptions.TargetLang ()) {
             model.model_append (language);
         }
         base (model);

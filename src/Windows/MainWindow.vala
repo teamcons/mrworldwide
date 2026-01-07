@@ -7,7 +7,7 @@
  * Aside from bonus actions, the Window is centered around a Gtk.Stack to switch views.
  * Usually when switching to an ErrorView, status code handling is disabled to let it managed, and a "Back" button is added to set it back.
  */
-public class MrWorldwide.MainWindow : Gtk.Window {
+public class Inscriptions.MainWindow : Gtk.Window {
 
     private bool show_switcher {
         get {return headerbar.title_widget == switcher;}
@@ -20,14 +20,14 @@ public class MrWorldwide.MainWindow : Gtk.Window {
     private Gtk.MenuButton popover_button;
 
     private Gtk.Stack stack_window_view;
-    public MrWorldwide.TranslationView translation_view;
-    private MrWorldwide.ErrorView? errorview = null;
+    public Inscriptions.TranslationView translation_view;
+    private Inscriptions.ErrorView? errorview = null;
 
     private Gtk.HeaderBar headerbar;
     private Gtk.StackSwitcher switcher;
     private Gtk.Label title_widget;
 
-    public MrWorldwide.SettingsPopover menu_popover;
+    public Inscriptions.SettingsPopover menu_popover;
 
     public SimpleActionGroup actions { get; construct; }
     public const string ACTION_PREFIX = "window.";
@@ -70,8 +70,8 @@ public class MrWorldwide.MainWindow : Gtk.Window {
         
         /* ---------------- HEADERBAR ---------------- */
         //TRANSLATORS: Do not translate the name itself. You can write it in your writing system if that is usually done for your language
-        title = _("Mr Worldwide");
-        title_widget = new Gtk.Label (_("Mr Worldwide"));
+        title = _("Inscriptions");
+        title_widget = new Gtk.Label (_("Inscriptions"));
         title_widget.add_css_class (Granite.STYLE_CLASS_TITLE_LABEL);
 
         headerbar = new Gtk.HeaderBar ();
@@ -128,7 +128,7 @@ public class MrWorldwide.MainWindow : Gtk.Window {
         popover_button.set_primary (true);
         popover_button.set_direction (Gtk.ArrowType.NONE);
 
-        var menu_popover = new MrWorldwide.SettingsPopover ();
+        var menu_popover = new Inscriptions.SettingsPopover ();
         popover_button.popover = menu_popover;
 
         headerbar.pack_end (popover_button);
@@ -150,7 +150,7 @@ public class MrWorldwide.MainWindow : Gtk.Window {
 
 
         /* ---------------- MAIN VIEW ---------------- */
-        translation_view = new MrWorldwide.TranslationView ();
+        translation_view = new Inscriptions.TranslationView ();
 
         stack_window_view.add_titled (translation_view, "translation", _("Translations"));
 
@@ -197,7 +197,7 @@ public class MrWorldwide.MainWindow : Gtk.Window {
         string key = yield Secrets.get_default ().load_secret ();
 
         if (key.chomp () == "") {
-            on_error (MrWorldwide.StatusCode.NO_KEY, _("No saved API Key"));
+            on_error (Inscriptions.StatusCode.NO_KEY, _("No saved API Key"));
             return false;
         }
         return true;
@@ -249,13 +249,13 @@ public class MrWorldwide.MainWindow : Gtk.Window {
             // ErrorView may need to do some fiddling. We reconnect when going back to main view via on_back_clicked
             Application.backend.answer_received.disconnect (on_answer_received);
             
-            errorview = new MrWorldwide.ErrorView (status_code, answer);
+            errorview = new Inscriptions.ErrorView (status_code, answer);
             stack_window_view.add_titled (errorview, "error", _("Error"));
             stack_window_view.visible_child = errorview;
 
             switchlang_revealer.reveal_child = false;
             
-            //if ((status_code != Soup.Status.FORBIDDEN) && (status_code != MrWorldwide.StatusCode.NO_KEY)) {
+            //if ((status_code != Soup.Status.FORBIDDEN) && (status_code != Inscriptions.StatusCode.NO_KEY)) {
                 back_revealer.reveal_child = true;
             //}
         

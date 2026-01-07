@@ -7,7 +7,7 @@
  * Popover for the Options button, in the SourcePane. Displays advanced options for translation
  * Formality and Context are connected to settings, Formality depends on target language.
  */
-public class MrWorldwide.OptionsPopover : Gtk.Popover {
+public class Inscriptions.OptionsPopover : Gtk.Popover {
 
   private Gtk.Box formalbox;
   private Gtk.Entry context_entry;

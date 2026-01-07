@@ -9,7 +9,7 @@
     <binary>io.github.teamcons.inscriptions</binary>
   </provides>
 
-  <name>mrworldwide</name>
+  <name>inscriptions</name>
   <summary>Translate text elegantly</summary>
   <description>
     <p>The power of language in the palm of your hand!</p>
@@ -30,11 +30,11 @@
   <screenshots>
     <screenshot type="default" environment="pantheon">
       <caption>Main window</caption>
-      <image>https://raw.githubusercontent.com/teamcons/mrworldwide/@version@/data/screenshots/window-light.png</image>
+      <image>https://raw.githubusercontent.com/teamcons/inscriptions/@version@/data/screenshots/window-light.png</image>
     </screenshot>
     <screenshot environment="pantheon:dark">
       <caption>Main window with dark theme</caption>
-      <image>https://raw.githubusercontent.com/teamcons/mrworldwide/@version@/data/screenshots/window-dark.png</image>
+      <image>https://raw.githubusercontent.com/teamcons/inscriptions/@version@/data/screenshots/window-dark.png</image>
     </screenshot>
   </screenshots>
 
@@ -43,10 +43,10 @@
   <developer id="io.github.teamcons">
     <name>Teamcons</name>
   </developer>
-    <url type="homepage">https://github.com/teamcons/mrworldwide</url>
-    <url type="bugtracker">https://github.com/teamcons/mrworldwide/issues</url>
-    <url type="help">https://github.com/teamcons/mrworldwide/issues</url>
-    <url type="translate">https://github.com/teamcons/mrworldwide/blob/main/po/README.md</url>
+    <url type="homepage">https://github.com/teamcons/inscriptions</url>
+    <url type="bugtracker">https://github.com/teamcons/inscriptions/issues</url>
+    <url type="help">https://github.com/teamcons/inscriptions/issues</url>
+    <url type="translate">https://github.com/teamcons/inscriptions/blob/main/po/README.md</url>
     <url type="donation">https://ko-fi.com/teamcons</url>
 
   <branding>

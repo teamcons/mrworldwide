@@ -7,7 +7,7 @@
  * The backend, responsible for requests and answers.
  * This needs to be standardized into a template, and broken up in several files.
  */
-public class MrWorldwide.DeepL : Object {
+public class Inscriptions.DeepL : Object {
 
   private const uint TIMEOUT = 3000;
 
@@ -100,7 +100,7 @@ public class MrWorldwide.DeepL : Object {
   public void on_key_changed () {
     api_key = secrets.cached_key;
 
-    if (api_key == null || api_key.chomp () == "") {
+    if (api_key.chomp () == "") {
       answer_received (StatusCode.NO_KEY, _("Missing API Key"));
       return;
     }
@@ -121,7 +121,7 @@ public class MrWorldwide.DeepL : Object {
     on_key_changed ();
     var msg = new Soup.Message ("POST", base_url + REST_OF_THE_URL);
     msg.request_headers.append ("Content-Type", "application/json");
-    msg.request_headers.append ("User-Agent", "Mr Worldwide");
+    msg.request_headers.append ("User-Agent", "Inscriptions");
     msg.request_headers.append ("Authorization", "DeepL-Auth-Key %s".printf (api_key));
     msg.set_request_body_from_bytes ("application/json", new Bytes (a.data));
 
@@ -150,7 +150,7 @@ public class MrWorldwide.DeepL : Object {
 
         // g-io and g-resolver
         if (err_domain.has_prefix ("g-")) {
-          answer_received (MrWorldwide.StatusCode.NO_INTERNET, e.message);
+          answer_received (Inscriptions.StatusCode.NO_INTERNET, e.message);
 
         } else {
           stderr.printf ("Got: %s\n", e.message);

@@ -25,7 +25,7 @@ cleanup:
   -  '*.a'
 
 modules:
-  - name: mrworldwide
+  - name: inscriptions
     buildsystem: meson
     sources:
       - type: dir

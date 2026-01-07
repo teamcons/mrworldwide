@@ -6,11 +6,11 @@
 /**
  * Main view for translations. Mostly a Gtk.Paned with SourcePane and TargetPane with a couple binds for ease of control.
  */
-public class MrWorldwide.TranslationView : Gtk.Box {
+public class Inscriptions.TranslationView : Gtk.Box {
 
     private Gtk.Paned paned {get; set;}
-    public MrWorldwide.SourcePane source_pane;
-    public MrWorldwide.TargetPane target_pane;
+    public Inscriptions.SourcePane source_pane;
+    public Inscriptions.TargetPane target_pane;
 
     // Add a debounce so we aren't requesting the API constantly
     public const int DEBOUNCE_INTERVAL = 1250; // ms
@@ -37,12 +37,12 @@ public class MrWorldwide.TranslationView : Gtk.Box {
         actions.add_action_entries (ACTION_ENTRIES, this);
         insert_action_group ("translation-view", actions);
 
-        source_pane = new MrWorldwide.SourcePane ();
+        source_pane = new Inscriptions.SourcePane ();
         var selected_source_language = Application.settings.get_string ("source-language");
 
         source_pane.language = selected_source_language;
 
-        target_pane = new MrWorldwide.TargetPane ();
+        target_pane = new Inscriptions.TargetPane ();
         var selected_target_language = Application.settings.get_string ("target-language");
         target_pane.language = selected_target_language;
 

@@ -6,7 +6,7 @@
 /**
  * Simple two-buttons horizontal box using in SettingsPopover to toggle view
  */
-public class MrWorldwide.OrientationBox : Gtk.Box {
+public class Inscriptions.OrientationBox : Gtk.Box {
 
     construct {
         homogeneous = true;

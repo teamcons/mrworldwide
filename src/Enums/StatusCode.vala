@@ -8,7 +8,7 @@
  * Custom codes we can use safely for at least 0 to 10.
  * Specific return codes to DeepL, we use their Int representation.
  */
-public enum MrWorldwide.StatusCode {
+public enum Inscriptions.StatusCode {
     NO_KEY = 0,
     NO_INTERNET = 1,
     QUOTA = 456,

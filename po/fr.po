@@ -183,7 +183,7 @@ msgstr "Mauvaise requête"
 #. TRANSLATORS: Do not translate the name itself. You can write it in your writing system if that is usually done for your language
 #: src/Windows/MainWindow.vala:73
 #: src/Windows/MainWindow.vala:74
-msgid "Mr Worldwide"
+msgid "Inscriptions"
 msgstr "M. Worldwide"
 
 #. TRANSLATORS: Back button to go back to translating

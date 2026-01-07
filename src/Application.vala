@@ -3,7 +3,7 @@
 * SPDX-FileCopyrightText: {{YEAR}} {{DEVELOPER_NAME}} <{{DEVELOPER_EMAIL}}>
 */
 
-public class MrWorldwide.Application : Gtk.Application {
+public class Inscriptions.Application : Gtk.Application {
 
     internal static Settings settings;
     internal static DeepL backend;

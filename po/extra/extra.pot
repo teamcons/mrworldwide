@@ -17,127 +17,127 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: data/mrworldwide.metainfo.xml.in:12
-msgid "mrworldwide"
+#: data/inscriptions.metainfo.xml.in:12
+msgid "inscriptions"
 msgstr ""
 
-#: data/mrworldwide.metainfo.xml.in:13 data/mrworldwide.desktop.in:8
+#: data/inscriptions.metainfo.xml.in:13 data/inscriptions.desktop.in:8
 msgid "Translate text elegantly"
 msgstr ""
 
-#: data/mrworldwide.metainfo.xml.in:15
+#: data/inscriptions.metainfo.xml.in:15
 msgid "The power of language in the palm of your hand!"
 msgstr ""
 
-#: data/mrworldwide.metainfo.xml.in:16
+#: data/inscriptions.metainfo.xml.in:16
 msgid ""
 "No nonsense, simple, clean, efficient translation app using DeepL free and "
 "paid API"
 msgstr ""
 
-#: data/mrworldwide.metainfo.xml.in:19
+#: data/inscriptions.metainfo.xml.in:19
 msgid "Some points:"
 msgstr ""
 
-#: data/mrworldwide.metainfo.xml.in:21
+#: data/inscriptions.metainfo.xml.in:21
 msgid "Nimble: Paste your api key, and here you go!"
 msgstr ""
 
-#: data/mrworldwide.metainfo.xml.in:22
+#: data/inscriptions.metainfo.xml.in:22
 msgid "Out of your way: Remembers context, formality, languages"
 msgstr ""
 
-#: data/mrworldwide.metainfo.xml.in:23
+#: data/inscriptions.metainfo.xml.in:23
 msgid "Convenient: lets you check how much you have left"
 msgstr ""
 
-#: data/mrworldwide.metainfo.xml.in:24
+#: data/inscriptions.metainfo.xml.in:24
 msgid "Supported languages: All those available via DeepL API!"
 msgstr ""
 
-#: data/mrworldwide.metainfo.xml.in:26
+#: data/inscriptions.metainfo.xml.in:26
 msgid ""
 "If you like this app please do not hesitate to donate to encourage its "
 "development!"
 msgstr ""
 
-#: data/mrworldwide.metainfo.xml.in:31
+#: data/inscriptions.metainfo.xml.in:31
 msgid "Main window"
 msgstr ""
 
-#: data/mrworldwide.metainfo.xml.in:37
+#: data/inscriptions.metainfo.xml.in:37
 msgid "Main window with dark theme"
 msgstr ""
 
-#: data/mrworldwide.metainfo.xml.in:47
+#: data/inscriptions.metainfo.xml.in:47
 msgid "Teamcons"
 msgstr ""
 
-#: data/mrworldwide.metainfo.xml.in:66
+#: data/inscriptions.metainfo.xml.in:66
 msgid "Translation"
 msgstr ""
 
-#: data/mrworldwide.metainfo.xml.in:67
+#: data/inscriptions.metainfo.xml.in:67
 msgid "Translate"
 msgstr ""
 
-#: data/mrworldwide.metainfo.xml.in:68
+#: data/inscriptions.metainfo.xml.in:68
 msgid "NMT"
 msgstr ""
 
-#: data/mrworldwide.metainfo.xml.in:69
+#: data/inscriptions.metainfo.xml.in:69
 msgid "DeepL"
 msgstr ""
 
-#: data/mrworldwide.metainfo.xml.in:70
+#: data/inscriptions.metainfo.xml.in:70
 msgid "Localization"
 msgstr ""
 
-#: data/mrworldwide.metainfo.xml.in:71
+#: data/inscriptions.metainfo.xml.in:71
 msgid "Internationalization"
 msgstr ""
 
-#: data/mrworldwide.metainfo.xml.in:72
+#: data/inscriptions.metainfo.xml.in:72
 msgid "l10n"
 msgstr ""
 
-#: data/mrworldwide.metainfo.xml.in:73
+#: data/inscriptions.metainfo.xml.in:73
 msgid "i18n"
 msgstr ""
 
-#: data/mrworldwide.metainfo.xml.in:74
+#: data/inscriptions.metainfo.xml.in:74
 msgid "Localize"
 msgstr ""
 
-#: data/mrworldwide.metainfo.xml.in:75
+#: data/inscriptions.metainfo.xml.in:75
 msgid "Languages"
 msgstr ""
 
-#: data/mrworldwide.metainfo.xml.in:76
+#: data/inscriptions.metainfo.xml.in:76
 msgid "Pantheon"
 msgstr ""
 
-#: data/mrworldwide.metainfo.xml.in:77
+#: data/inscriptions.metainfo.xml.in:77
 msgid "elementary OS"
 msgstr ""
 
-#: data/mrworldwide.metainfo.xml.in:93
+#: data/inscriptions.metainfo.xml.in:93
 msgid "Initial Release"
 msgstr ""
 
-#: data/mrworldwide.metainfo.xml.in:95
+#: data/inscriptions.metainfo.xml.in:95
 msgid "Updated translations"
 msgstr ""
 
-#: data/mrworldwide.desktop.in:6
-msgid "Mr Worldwide"
+#: data/inscriptions.desktop.in:6
+msgid "Inscriptions"
 msgstr ""
 
-#: data/mrworldwide.desktop.in:7
+#: data/inscriptions.desktop.in:7
 msgid "Text translator"
 msgstr ""
 
-#: data/mrworldwide.desktop.in:10
+#: data/inscriptions.desktop.in:10
 msgid ""
 "text;translate;translation;translator;deepl;NMT;lang;localize;l10n;i18n;"
 "localization;internationalization;"

@@ -7,7 +7,7 @@
  * Flexible view created then shown when backend communicates an error code.
  * Depending on the code it receives, explanations, options, and details are shown
  */
-public class MrWorldwide.ErrorView : Granite.Bin {
+public class Inscriptions.ErrorView : Granite.Bin {
 
     private const string LINK = "https://www.deepl.com/your-account/keys";
     private const uint WAIT_BEFORE_MAIN = 1500; //In milliseconds
@@ -52,7 +52,7 @@ public class MrWorldwide.ErrorView : Granite.Bin {
         // WEIRD: We get errors about TRUE being out of range for a gboolean and the value defaulting if we leave a default 
         box.append (new ErrorBonusBox (status, report_link));
 
-        var retry_button = new MrWorldwide.RetryButton () {
+        var retry_button = new Inscriptions.RetryButton () {
             halign = Gtk.Align.END
         };
         retry_button.validated.connect (on_validated);

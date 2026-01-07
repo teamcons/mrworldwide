@@ -6,11 +6,11 @@
 /**
  * Specialized subclass of Pane for source text. The stack is not used, but an Options button is added.
  */
-public class MrWorldwide.SourcePane : MrWorldwide.Pane {
+public class Inscriptions.SourcePane : Inscriptions.Pane {
 
     public SourcePane () {
-        var model = new MrWorldwide.DDModel ();
-        foreach (var language in MrWorldwide.SourceLang ()) {
+        var model = new Inscriptions.DDModel ();
+        foreach (var language in Inscriptions.SourceLang ()) {
             model.model_append (language);
         }
         base (model);
@@ -33,7 +33,7 @@ public class MrWorldwide.SourcePane : MrWorldwide.Pane {
       options_button.add_css_class (Granite.STYLE_CLASS_FLAT);
       options_button.add_css_class ("flat_menu_button");
       options_button_label.mnemonic_widget = options_button;
-      options_button.popover = new MrWorldwide.OptionsPopover () {halign = Gtk.Align.START};
+      options_button.popover = new Inscriptions.OptionsPopover () {halign = Gtk.Align.START};
       options_button.direction = Gtk.ArrowType.UP;
 
       actionbar.pack_start (options_button);

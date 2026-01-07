@@ -6,11 +6,11 @@
  /**
  * Popover for the rightmost button. Kept to a minimum, and allows quick access to the user
  */
-public class MrWorldwide.SettingsPopover : Gtk.Popover {
+public class Inscriptions.SettingsPopover : Gtk.Popover {
   
   const string DONATE_LINK = "https://ko-fi.com/teamcons";
 
-  private MrWorldwide.ApiEntry api_entry;
+  private Inscriptions.ApiEntry api_entry;
   private Gtk.Revealer usage_revealer;
   private const string LINK = "https://www.deepl.com/your-account/keys";
 
@@ -57,14 +57,14 @@ public class MrWorldwide.SettingsPopover : Gtk.Popover {
   
     box.append (cb);
 
-    api_entry = new MrWorldwide.ApiEntry () {
+    api_entry = new Inscriptions.ApiEntry () {
       margin_start = 12,
       margin_end = 12
     };
 
     box.append (api_entry);
 
-    var api_level = new MrWorldwide.ApiLevel () {
+    var api_level = new Inscriptions.ApiLevel () {
       margin_start = 15,
       margin_end = 15,
       margin_top = 3

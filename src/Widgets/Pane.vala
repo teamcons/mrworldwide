@@ -7,13 +7,13 @@
  * A base object that is then subclassed into a SourcePane and a TargetPane.
  * It takes a DDModel to fill the dropdown with languages
  */
-public class MrWorldwide.Pane : Gtk.Box {
+public class Inscriptions.Pane : Gtk.Box {
 
-    public MrWorldwide.DDModel model {get; construct;}
+    public Inscriptions.DDModel model {get; construct;}
 
     public Gtk.Revealer dropdown_revealer;
     public Gtk.DropDown dropdown;
-    public MrWorldwide.Lang selected;
+    public Inscriptions.Lang selected;
     public Gtk.TextView textview;
     public Gtk.ScrolledWindow scrolledwindow;
     public Gtk.ActionBar actionbar;
@@ -48,7 +48,7 @@ public class MrWorldwide.Pane : Gtk.Box {
         orientation = Gtk.Orientation.VERTICAL;
         spacing = 0;
 
-        var expression = new Gtk.PropertyExpression (typeof(MrWorldwide.Lang), null, "both");
+        var expression = new Gtk.PropertyExpression (typeof(Inscriptions.Lang), null, "both");
 
 		dropdown = new Gtk.DropDown (model.model, expression) {
             factory = model.factory,

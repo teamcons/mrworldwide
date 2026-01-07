@@ -7,9 +7,9 @@
  * Used to display more information or options in an ErrorView, may however show nothing.
  * Mostly developer convenience, to not overload ErrorView, and do smarter error handlings.
  */
-public class MrWorldwide.ErrorBonusBox : Gtk.Box {
+public class Inscriptions.ErrorBonusBox : Gtk.Box {
 
-    private const string ISSUES = "https://github.com/teamcons/mrworldwide/issues/";
+    private const string ISSUES = "https://github.com/teamcons/inscriptions/issues/";
     private const string LINK = "https://www.deepl.com/your-account/keys";
     public uint status { get; construct; }
     public bool if_report { get; construct; }
@@ -28,7 +28,7 @@ public class MrWorldwide.ErrorBonusBox : Gtk.Box {
         // In the event the API is the issue, ask user
         if (status == Soup.Status.FORBIDDEN || status == StatusCode.NO_KEY) {
             
-            var api_entry = new MrWorldwide.ApiEntry ();
+            var api_entry = new Inscriptions.ApiEntry ();
 
             //TRANSLATORS: This is the text of a link to DeepL website, specifically account settings
             var link = new Gtk.LinkButton.with_label (LINK, _("You can get an API key here")) {

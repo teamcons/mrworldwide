@@ -8,7 +8,7 @@
  * We use its Int aspect for saving/restoring in gsettings.
  * We convert it to string for the DeepL API request.
  */
-public enum MrWorldwide.Formality {
+public enum Inscriptions.Formality {
     MORE,
     PREFER_MORE,
     DEFAULT,

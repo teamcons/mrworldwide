@@ -4,7 +4,7 @@
  */
 
 
-namespace MrWorldwide {
+namespace Inscriptions {
 
 	// https://developers.deepl.com/docs/getting-started/supported-languages
 	// TODO: In the far future people might declare their own in a backend file

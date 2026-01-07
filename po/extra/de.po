@@ -12,123 +12,123 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 
-#: data/mrworldwide.metainfo.xml.in:12
-msgid "mrworldwide"
-msgstr "mrworldwide"
+#: data/inscriptions.metainfo.xml.in:12
+msgid "inscriptions"
+msgstr "inscriptions"
 
-#: data/mrworldwide.metainfo.xml.in:13
-#: data/mrworldwide.desktop.in:8
+#: data/inscriptions.metainfo.xml.in:13
+#: data/inscriptions.desktop.in:8
 msgid "Translate text elegantly"
 msgstr "Elegantes Übersetzen von Text"
 
-#: data/mrworldwide.metainfo.xml.in:15
+#: data/inscriptions.metainfo.xml.in:15
 msgid "The power of language in the palm of your hand!"
 msgstr "Die Macht der Sprache in Ihrer Handfläche!"
 
-#: data/mrworldwide.metainfo.xml.in:16
+#: data/inscriptions.metainfo.xml.in:16
 msgid "No nonsense, simple, clean, efficient translation app using DeepL free and paid API"
 msgstr "Eine einfache, saubere und effiziente Übersetzungs-App, die die kostenlose und kostenpflichtige API von DeepL nutzt."
 
-#: data/mrworldwide.metainfo.xml.in:19
+#: data/inscriptions.metainfo.xml.in:19
 msgid "Some points:"
 msgstr "Einige Punkte:"
 
-#: data/mrworldwide.metainfo.xml.in:21
+#: data/inscriptions.metainfo.xml.in:21
 msgid "Nimble: Paste your api key, and here you go!"
 msgstr "Flink: Fügen Sie Ihren Api-Schlüssel ein, und los geht's!"
 
-#: data/mrworldwide.metainfo.xml.in:22
+#: data/inscriptions.metainfo.xml.in:22
 msgid "Out of your way: Remembers context, formality, languages"
 msgstr "Aus dem Weg gehen: Erinnert sich an Kontext, Formalitäten, Sprachen"
 
-#: data/mrworldwide.metainfo.xml.in:23
+#: data/inscriptions.metainfo.xml.in:23
 msgid "Convenient: lets you check how much you have left"
 msgstr "Praktisch: Sie können überprüfen, wie viel Sie noch haben"
 
-#: data/mrworldwide.metainfo.xml.in:24
+#: data/inscriptions.metainfo.xml.in:24
 msgid "Supported languages: All those available via DeepL API!"
 msgstr "Unterstützte Sprachen: Alle, die über DeepL API verfügbar sind!"
 
-#: data/mrworldwide.metainfo.xml.in:26
+#: data/inscriptions.metainfo.xml.in:26
 msgid "If you like this app please do not hesitate to donate to encourage its development!"
 msgstr "Wenn Ihnen diese Anwendung gefällt, zögern Sie bitte nicht, zu spenden, um ihre Entwicklung zu fördern!"
 
-#: data/mrworldwide.metainfo.xml.in:31
+#: data/inscriptions.metainfo.xml.in:31
 msgid "Main window"
 msgstr "Hauptfenster"
 
-#: data/mrworldwide.metainfo.xml.in:37
+#: data/inscriptions.metainfo.xml.in:37
 msgid "Main window with dark theme"
 msgstr "Hauptfenster mit dunklem Thema"
 
-#: data/mrworldwide.metainfo.xml.in:47
+#: data/inscriptions.metainfo.xml.in:47
 msgid "Teamcons"
 msgstr "Teamcons"
 
-#: data/mrworldwide.metainfo.xml.in:66
+#: data/inscriptions.metainfo.xml.in:66
 msgid "Translation"
 msgstr "Übersetzung"
 
-#: data/mrworldwide.metainfo.xml.in:67
+#: data/inscriptions.metainfo.xml.in:67
 msgid "Translate"
 msgstr "Übersetzen Sie"
 
-#: data/mrworldwide.metainfo.xml.in:68
+#: data/inscriptions.metainfo.xml.in:68
 msgid "NMT"
 msgstr "NMT"
 
-#: data/mrworldwide.metainfo.xml.in:69
+#: data/inscriptions.metainfo.xml.in:69
 msgid "DeepL"
 msgstr "DeepL"
 
-#: data/mrworldwide.metainfo.xml.in:70
+#: data/inscriptions.metainfo.xml.in:70
 msgid "Localization"
 msgstr "Lokalisierung"
 
-#: data/mrworldwide.metainfo.xml.in:71
+#: data/inscriptions.metainfo.xml.in:71
 msgid "Internationalization"
 msgstr "Internationalisierung"
 
-#: data/mrworldwide.metainfo.xml.in:72
+#: data/inscriptions.metainfo.xml.in:72
 msgid "l10n"
 msgstr "l10n"
 
-#: data/mrworldwide.metainfo.xml.in:73
+#: data/inscriptions.metainfo.xml.in:73
 msgid "i18n"
 msgstr "i18n"
 
-#: data/mrworldwide.metainfo.xml.in:74
+#: data/inscriptions.metainfo.xml.in:74
 msgid "Localize"
 msgstr "Lokalisieren Sie"
 
-#: data/mrworldwide.metainfo.xml.in:75
+#: data/inscriptions.metainfo.xml.in:75
 msgid "Languages"
 msgstr "Sprachen"
 
-#: data/mrworldwide.metainfo.xml.in:76
+#: data/inscriptions.metainfo.xml.in:76
 msgid "Pantheon"
 msgstr "Pantheon"
 
-#: data/mrworldwide.metainfo.xml.in:77
+#: data/inscriptions.metainfo.xml.in:77
 msgid "elementary OS"
 msgstr "grundlegendes Betriebssystem"
 
-#: data/mrworldwide.metainfo.xml.in:93
+#: data/inscriptions.metainfo.xml.in:93
 msgid "Initial Release"
 msgstr "Erste Veröffentlichung"
 
-#: data/mrworldwide.metainfo.xml.in:95
+#: data/inscriptions.metainfo.xml.in:95
 msgid "Updated translations"
 msgstr "Aktualisierte Übersetzungen"
 
-#: data/mrworldwide.desktop.in:6
-msgid "Mr Worldwide"
+#: data/inscriptions.desktop.in:6
+msgid "Inscriptions"
 msgstr "Herr Weltweit"
 
-#: data/mrworldwide.desktop.in:7
+#: data/inscriptions.desktop.in:7
 msgid "Text translator"
 msgstr "Text-Übersetzer"
 
-#: data/mrworldwide.desktop.in:10
+#: data/inscriptions.desktop.in:10
 msgid "text;translate;translation;translator;deepl;NMT;lang;localize;l10n;i18n;localization;internationalization;"
 msgstr "text;übersetzen;Übersetzung;Übersetzer;deepl;NMT;lang;lokalisieren;l10n;i18n;Lokalisierung;Internationalisierung;"

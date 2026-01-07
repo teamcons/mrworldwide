@@ -7,7 +7,7 @@
  * A button which on clicked () sends requests to the backend, and displays its return code.
  * Used in the ErrorView, along with explanations and possibly options to solve the error.
  */
-public class MrWorldwide.RetryButton : Gtk.Box {
+public class Inscriptions.RetryButton : Gtk.Box {
 
   private Gtk.Revealer result_revealer;
   private Gtk.Spinner spin_retry;

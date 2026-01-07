@@ -26,7 +26,7 @@ config_file = configure_file(
 
 gresource = gnome.compile_resources(
   'as-resources',
-  'data' / 'mrworldwide.gresource.xml',
+  'data' / 'inscriptions.gresource.xml',
   source_dir: 'data',
   c_name: 'as'
 )

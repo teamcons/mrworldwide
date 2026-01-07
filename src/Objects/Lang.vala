@@ -7,7 +7,7 @@
 /**
  * Convenience object to shift between several forms of the same language
  */
-public class MrWorldwide.Lang : Object {
+public class Inscriptions.Lang : Object {
 
     public string code {get; construct;}
     public string name {get; construct;}
