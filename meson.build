@@ -1,6 +1,6 @@
 # project name and programming language
 project(
-  'io.github.teamcons.mrworldwide',
+  'io.github.teamcons.inscriptions',
   'vala', 'c',
   version: '1.0.0'
 )

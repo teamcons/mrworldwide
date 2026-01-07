@@ -30,7 +30,7 @@ public class MrWorldwide.Secrets : Object {
     GLib.HashTable<string,string> attributes;
 
     construct {
-        schema = new Secret.Schema ("io.github.teamcons.mrworldwide", Secret.SchemaFlags.NONE,
+        schema = new Secret.Schema ("io.github.teamcons.inscriptions", Secret.SchemaFlags.NONE,
                                         "label", Secret.SchemaAttributeType.STRING);
 
         attributes = new GLib.HashTable<string,string> (str_hash, str_equal);

@@ -1,8 +1,11 @@
-id: io.github.teamcons.mrworldwide
-runtime: io.elementary.Platform
-runtime-version: '8.2'
-sdk: io.elementary.Sdk
-command: io.github.teamcons.mrworldwide
+id: io.github.teamcons.inscriptions
+# elementary SDK is not available on Flathub, so use the elementary BaseApp instead
+base: io.elementary.BaseApp
+base-version: 'circe-24.08'
+runtime: org.gnome.Platform
+runtime-version: '49'
+sdk: org.gnome.Sdk
+command: io.github.teamcons.inscriptions
 
 finish-args:
   - '--share=ipc'

@@ -57,7 +57,7 @@ public class MrWorldwide.MainWindow : Gtk.Window {
             application: application, 
             default_height: 300, 
             default_width: 300, 
-            icon_name: "io.github.teamcons.mrworldwide"
+            icon_name: "io.github.teamcons.inscriptions"
         );
     }
 

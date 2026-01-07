@@ -13,8 +13,8 @@
 NOT YET
 You can download and install Mr Worldwide from various sources:
 
-[![Get it on AppCenter](https://appcenter.elementary.io/badge.svg?new)](https://appcenter.elementary.io/io.github.teamcons/mrworldwide) 
-[<img src="https://flathub.org/assets/badges/flathub-badge-en.svg" width="160" alt="Download on Flathub">](https://flathub.org/apps/io.github.teamcons/mrworldwide)
+[![Get it on AppCenter](https://appcenter.elementary.io/badge.svg?new)](https://appcenter.elementary.io/io.github.teamcons.inscriptions) 
+[<img src="https://flathub.org/assets/badges/flathub-badge-en.svg" width="160" alt="Download on Flathub">](https://flathub.org/apps/io.github.teamcons.inscriptions)
 
 ## 🛣️ Roadmap
 
@@ -34,11 +34,11 @@ and run the following command:
 On elementary OS or with its appcenter remote installed
 
 ```bash
-flatpak-builder --force-clean --user --install-deps-from=appcenter --install builddir ./io.github.teamcons.mrworldwide.yml
+flatpak-builder --force-clean --user --install-deps-from=appcenter --install builddir ./io.github.teamcons.inscriptions.yml
 ```
 
 On other systems:
 
 ```bash
-flatpak run org.flatpak.Builder --force-clean --sandbox --user --install --install-deps-from=flathub --ccache --mirror-screenshots-url=https://dl.flathub.org/media/ --repo=repo builddir io.github.teamcons.mrworldwide.flathub.yml
+flatpak run org.flatpak.Builder --force-clean --sandbox --user --install --install-deps-from=flathub --ccache --mirror-screenshots-url=https://dl.flathub.org/media/ --repo=repo builddir io.github.teamcons.inscriptions.flathub.yml
 ```

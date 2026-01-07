@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component type="desktop-application">
-  <id>io.github.teamcons.mrworldwide</id>
-  <launchable type="desktop-id">io.github.teamcons.mrworldwide.desktop</launchable>
-  <translation type="gettext">io.github.teamcons.mrworldwide</translation>
+  <id>io.github.teamcons.inscriptions</id>
+  <launchable type="desktop-id">io.github.teamcons.inscriptions.desktop</launchable>
+  <translation type="gettext">io.github.teamcons.inscriptions</translation>
   <metadata_license>CC-BY-4.0</metadata_license>
   <project_license>GPL-3.0-or-later</project_license>
    <provides>
-    <binary>io.github.teamcons.mrworldwide</binary>
+    <binary>io.github.teamcons.inscriptions</binary>
   </provides>
 
   <name>mrworldwide</name>
