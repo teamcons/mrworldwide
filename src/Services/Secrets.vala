@@ -34,7 +34,7 @@ public class Inscriptions.Secrets : Object {
                                         "label", Secret.SchemaAttributeType.STRING);
 
         attributes = new GLib.HashTable<string,string> (str_hash, str_equal);
-        attributes["label"] = "DeepL";
+        attributes["label"] = "DeepL-Auth-Key";
 
         //  try {
         //      _cached = Secret.password_lookupv_sync (schema, attributes, null);
