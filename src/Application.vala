@@ -21,7 +21,7 @@ public class Inscriptions.Application : Gtk.Application {
 
     public Application () {
         Object (
-            application_id: "io.github.teamcons.inscriptions",
+            application_id: "io.github.elly_codes.inscriptions",
             flags: ApplicationFlags.HANDLES_OPEN
         );
     }
@@ -34,7 +34,7 @@ public class Inscriptions.Application : Gtk.Application {
     }
 
     static construct {
-        settings = new GLib.Settings ("io.github.teamcons.inscriptions");
+        settings = new GLib.Settings ("io.github.elly_codes.inscriptions");
 
         // Backend takes care of the async for us. We give it the text
         // And it will emit a signal whenever finished, which we can connect to
@@ -79,7 +79,7 @@ public class Inscriptions.Application : Gtk.Application {
         });
 
         var provider = new Gtk.CssProvider ();
-        provider.load_from_resource ("/io.github.teamcons.inscriptions/Application.css");
+        provider.load_from_resource ("/io.github.elly_codes.inscriptions/Application.css");
 
         Gtk.StyleContext.add_provider_for_display (
             Gdk.Display.get_default (),

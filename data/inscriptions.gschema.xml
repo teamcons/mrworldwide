@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <schemalist>
-  <enum id="io.github.teamcons.inscriptions.formality">
+  <enum id="io.github.elly_codes.inscriptions.formality">
     <value value='0' nick="more"/>
     <value value='1' nick="prefer-more"/>
     <value value='2' nick="default"/>
@@ -8,7 +8,7 @@
     <value value='4' nick="less"/>
   </enum>
 
-  <schema path="/io.github.teamcons.inscriptions/" id="io.github.teamcons.inscriptions">
+  <schema path="/io.github.elly_codes.inscriptions/" id="io.github.elly_codes.inscriptions">
     <key name="window-height" type="i">
       <default>700</default>
       <summary>Most recent window height</summary>
@@ -49,7 +49,7 @@
       <summary>context for translations</summary>
       <description>Passed as context parameter to the DeepL API</description>
     </key>
-    <key enum="io.github.teamcons.inscriptions.formality" name="formality">
+    <key enum="io.github.elly_codes.inscriptions.formality" name="formality">
       <default>'default'</default>
       <summary>Level of formality</summary>
       <description>For supported languages, how format the output should be</description>

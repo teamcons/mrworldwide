@@ -8,7 +8,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "POT-Creation-Date: 2025-12-08 20:39+0100\n"
-"Project-Id-Version: io.github.teamcons.inscriptions\n"
+"Project-Id-Version: io.github.elly_codes.inscriptions\n"
 "Report-Msgid-Bugs-To: \n"
 
 #. TRANSLATORS: This text shows up when the app fails to show technical details on an error

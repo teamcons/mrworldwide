@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component type="desktop-application">
-  <id>io.github.teamcons.inscriptions</id>
-  <launchable type="desktop-id">io.github.teamcons.inscriptions.desktop</launchable>
-  <translation type="gettext">io.github.teamcons.inscriptions</translation>
+  <id>io.github.elly_codes.inscriptions</id>
+  <launchable type="desktop-id">io.github.elly_codes.inscriptions.desktop</launchable>
+  <translation type="gettext">io.github.elly_codes.inscriptions</translation>
   <metadata_license>CC-BY-4.0</metadata_license>
   <project_license>GPL-3.0-or-later</project_license>
    <provides>
-    <binary>io.github.teamcons.inscriptions</binary>
+    <binary>io.github.elly_codes.inscriptions</binary>
   </provides>
 
   <name>inscriptions</name>

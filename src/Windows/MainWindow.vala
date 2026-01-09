@@ -57,7 +57,7 @@ public class Inscriptions.MainWindow : Gtk.Window {
             application: application, 
             default_height: 300, 
             default_width: 300, 
-            icon_name: "io.github.teamcons.inscriptions"
+            icon_name: "io.github.elly_codes.inscriptions"
         );
     }
 
