@@ -30,24 +30,24 @@
   <screenshots>
     <screenshot type="default" environment="pantheon">
       <caption>Main window</caption>
-      <image>https://raw.githubusercontent.com/teamcons/inscriptions/@version@/data/screenshots/window-light.png</image>
+      <image>https://raw.githubusercontent.com/elly_code/inscriptions/@version@/data/screenshots/window-light.png</image>
     </screenshot>
     <screenshot environment="pantheon:dark">
       <caption>Main window with dark theme</caption>
-      <image>https://raw.githubusercontent.com/teamcons/inscriptions/@version@/data/screenshots/window-dark.png</image>
+      <image>https://raw.githubusercontent.com/elly_code/inscriptions/@version@/data/screenshots/window-dark.png</image>
     </screenshot>
   </screenshots>
 
   <content_rating type="oars-1.1" />
 
-  <developer id="io.github.teamcons">
+  <developer id="io.github.elly_code">
     <name>Teamcons</name>
   </developer>
-    <url type="homepage">https://github.com/teamcons/inscriptions</url>
-    <url type="bugtracker">https://github.com/teamcons/inscriptions/issues</url>
-    <url type="help">https://github.com/teamcons/inscriptions/issues</url>
-    <url type="translate">https://github.com/teamcons/inscriptions/blob/main/po/README.md</url>
-    <url type="donation">https://ko-fi.com/teamcons</url>
+    <url type="homepage">https://github.com/elly_code/inscriptions</url>
+    <url type="bugtracker">https://github.com/elly_code/inscriptions/issues</url>
+    <url type="help">https://github.com/elly_code/inscriptions/issues</url>
+    <url type="translate">https://github.com/elly_code/inscriptions/blob/main/po/README.md</url>
+    <url type="donation">https://ko-fi.com/elly_code</url>
 
   <branding>
     <color type="primary" scheme_preference="light">#ff8c82</color>
