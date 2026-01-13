@@ -10,12 +10,12 @@
 
   <schema path="/io.github.elly_code.inscriptions/" id="io.github.elly_code.inscriptions">
     <key name="window-height" type="i">
-      <default>700</default>
+      <default>320</default>
       <summary>Most recent window height</summary>
       <description>Most recent window height</description>
     </key>
     <key name="window-width" type="i">
-      <default>1024</default>
+      <default>620</default>
       <summary>Most recent window width</summary>
       <description>Most recent window width</description>
     </key>
