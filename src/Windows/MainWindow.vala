@@ -55,8 +55,6 @@ public class Inscriptions.MainWindow : Gtk.Window {
     public MainWindow (Gtk.Application application) {
         Object (
             application: application, 
-            default_height: 300, 
-            default_width: 300, 
             icon_name: "io.github.elly_code.inscriptions"
         );
     }
@@ -67,7 +65,11 @@ public class Inscriptions.MainWindow : Gtk.Window {
         var actions = new SimpleActionGroup ();
         actions.add_action_entries (ACTION_ENTRIES, this);
         insert_action_group ("window", actions);
-        
+
+        default_height = Application.settings.get_int ("window-height");
+        default_width = Application.settings.get_int ("window-width");
+        maximized = Application.settings.get_boolean ("window-maximized");
+
         /* ---------------- HEADERBAR ---------------- */
         //TRANSLATORS: Do not translate the name itself. You can write it in your writing system if that is usually done for your language
         title = _("Inscriptions");
