@@ -1,8 +1,8 @@
-id: io.github.elly_codes.inscriptions
+id: io.github.elly_code.inscriptions
 runtime: io.elementary.Platform
 runtime-version: '8.2'
 sdk: io.elementary.Sdk
-command: io.github.elly_codes.inscriptions
+command: io.github.elly_code.inscriptions
 
 finish-args:
   - '--share=ipc'

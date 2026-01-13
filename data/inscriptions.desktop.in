@@ -5,8 +5,8 @@ Type=Application
 Name=Inscriptions
 GenericName=Text translator
 Comment=Translate text elegantly
-Icon=io.github.elly_codes.inscriptions
-Exec=io.github.elly_codes.inscriptions %U
+Icon=io.github.elly_code.inscriptions
+Exec=io.github.elly_code.inscriptions %U
 
 Categories=Office;Education;GTK;
 Keywords=text;translate;translation;translator;deepl;NMT;lang;localize;l10n;i18n;localization;internationalization;

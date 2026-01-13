@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component type="desktop-application">
-  <id>io.github.elly_codes.inscriptions</id>
-  <launchable type="desktop-id">io.github.elly_codes.inscriptions.desktop</launchable>
-  <translation type="gettext">io.github.elly_codes.inscriptions</translation>
+  <id>io.github.elly_code.inscriptions</id>
+  <launchable type="desktop-id">io.github.elly_code.inscriptions.desktop</launchable>
+  <translation type="gettext">io.github.elly_code.inscriptions</translation>
   <metadata_license>CC-BY-4.0</metadata_license>
   <project_license>GPL-3.0-or-later</project_license>
    <provides>
-    <binary>io.github.elly_codes.inscriptions</binary>
+    <binary>io.github.elly_code.inscriptions</binary>
   </provides>
 
   <name>inscriptions</name>
