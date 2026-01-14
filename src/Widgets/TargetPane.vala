@@ -8,10 +8,9 @@
  */
 public class Inscriptions.TargetPane : Inscriptions.Pane {
 
-    private Gtk.WindowHandle placeholder_view;
-
-    private Gtk.Spinner loading;
-    private Gtk.WindowHandle spin_view;
+    Gtk.WindowHandle placeholder_view;
+    Gtk.Spinner loading;
+    Gtk.WindowHandle spin_view;
 
     public TargetPane () {
         var model = new Inscriptions.DDModel ();
@@ -26,7 +25,9 @@ public class Inscriptions.TargetPane : Inscriptions.Pane {
         //textview.editable = false;
 
         /* -------- PLACEHOLDER -------- */
-        var placeholder = new Gtk.Label (_("Ready to translate"));
+        var placeholder = new Gtk.Label (_("Ready to translate")) {
+            yalign = 0.45f
+        };
         //placeholder.icon = new ThemedIcon ("insert-text-symbolic");
         placeholder.add_css_class (Granite.STYLE_CLASS_H2_LABEL);
 
