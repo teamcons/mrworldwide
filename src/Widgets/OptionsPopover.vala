@@ -9,8 +9,9 @@
  */
 public class Inscriptions.OptionsPopover : Gtk.Popover {
 
-  private Gtk.Box formalbox;
-  private Gtk.Entry context_entry;
+  Gtk.Box formalbox;
+  Gtk.Scale formal_level;
+  Gtk.Entry context_entry;
 
   construct {
     width_request = 260;
@@ -45,7 +46,7 @@ public class Inscriptions.OptionsPopover : Gtk.Popover {
     formalbox.append (center);
 
 
-    var formal_level = new Gtk.Scale.with_range (HORIZONTAL, 0, 4, 1) {
+    formal_level = new Gtk.Scale.with_range (HORIZONTAL, 0, 4, 1) {
       hexpand = true,
       halign = Gtk.Align.FILL,
       has_origin = false
@@ -70,29 +71,55 @@ public class Inscriptions.OptionsPopover : Gtk.Popover {
     /***************** CONTEXT *****************/
     context_entry = new Gtk.Entry ();
     context_entry.placeholder_text = _("Enter context here");
-    context_entry.secondary_icon_name = "edit-clear-symbolic";
     context_entry.secondary_icon_tooltip_text = _("Clear text");
     box.append (context_entry);
 
     child = box;
 
-    context_entry.icon_release.connect (() => {context_entry.text = "";});
+
+    /***************** CONNECTS AND BINDS *****************/
+    context_entry.changed.connect (on_entry_changed);
 
     Application.settings.bind (
       "context", 
-      context_entry, 
-      "text", 
+      context_entry, "text", 
       SettingsBindFlags.DEFAULT
     );
 
-    formal_level.change_value.connect (() => {
-      var value_as_int = (int)formal_level.get_value ();
-      Application.settings.set_enum ("formality", value_as_int);
-    });
-
+    context_entry.icon_release.connect (on_clear_clicked);
+    formal_level.value_changed.connect (on_formality_changed);
     this.show.connect (formalities_supported);
   }
 
+  /**
+   * Handler for context entry - Show or hide clear button
+   */
+  private void on_entry_changed () {
+    if (context_entry.text_length > 0) {
+      context_entry.secondary_icon_name = "edit-clear-symbolic";
+
+    } else {
+      context_entry.secondary_icon_name = "";
+    }
+  }
+
+  /**
+   * Handler for context entry clear button
+   */
+  private void on_clear_clicked () {
+    context_entry.text = "";
+  }
+
+  /**
+   * Handler for formality change
+   */
+  private void on_formality_changed () {
+    Application.settings.set_enum ("formality", (int)formal_level.get_value ());
+  }
+
+  /**
+   * Handler called on popover show, to adjust whether formality is supported
+   */
   private void formalities_supported () {
       var target = Application.settings.get_string ("target-language");
 
