@@ -37,6 +37,7 @@ public class Inscriptions.TranslationView : Gtk.Box {
         actions.add_action_entries (ACTION_ENTRIES, this);
         insert_action_group ("translation-view", actions);
 
+        /* ---------------- UI ---------------- */
         source_pane = new Inscriptions.SourcePane ();
         var selected_source_language = Application.settings.get_string ("source-language");
 
@@ -77,6 +78,9 @@ public class Inscriptions.TranslationView : Gtk.Box {
         );
     }
 
+    /**
+     * Target is source, source is target.
+     */
     public void switch_languages () {
         var newtarget = source_pane.language;
         var newtarget_text = source_pane.text;
@@ -91,14 +95,24 @@ public class Inscriptions.TranslationView : Gtk.Box {
         target_pane.text = newtarget_text;
     }
 
-    public void on_orientation_toggled () {
-        if (Application.settings.get_boolean ("vertical-layout")) {            
-            paned.orientation = Gtk.Orientation.VERTICAL;
-        } else {
-            paned.orientation = Gtk.Orientation.HORIZONTAL;
+    /**
+     * Skip debounce timer, send from source text now!
+     */
+    public void translate_now () {
+        var to_translate = source_pane.text;
+        if (to_translate.chomp () == "" ) {
+            target_pane.clear ();
+            return;
         }
+
+        target_pane.spin (true);
+        Application.backend.send_request (to_translate);
     }
 
+    /**
+     * Handler for backend requests. This is what true warriors strive for.
+     * Filter not-requests, set or reset debounce_timer
+     */
     public void on_text_to_translate () {
         if (source_pane.language == target_pane.language) {
             source_pane.message (_("Target language is the same as source"));
@@ -123,7 +137,6 @@ public class Inscriptions.TranslationView : Gtk.Box {
 
     }
 
-
     public void toggle_orientation () {
         Application.settings.set_boolean (
             "vertical-layout",
@@ -131,15 +144,12 @@ public class Inscriptions.TranslationView : Gtk.Box {
         );
     }
 
-    public void translate_now () {
-        var to_translate = source_pane.text;
-        if (to_translate.chomp () == "" ) {
-            target_pane.clear ();
-            return;
+    public void on_orientation_toggled () {
+        if (Application.settings.get_boolean ("vertical-layout")) {            
+            paned.orientation = Gtk.Orientation.VERTICAL;
+        } else {
+            paned.orientation = Gtk.Orientation.HORIZONTAL;
         }
-
-        target_pane.spin (true);
-        Application.backend.send_request (to_translate);
     }
 
     public void action_clear_text () {

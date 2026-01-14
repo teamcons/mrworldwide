@@ -9,6 +9,7 @@
  */
 public class Inscriptions.MainWindow : Gtk.Window {
 
+    // Secret switch showing with ctrl+shift+M
     private bool show_switcher {
         get {return headerbar.title_widget == switcher;}
         set {switcher_state (value);}
@@ -195,6 +196,9 @@ public class Inscriptions.MainWindow : Gtk.Window {
         close_request.connect (on_close);
     }
 
+    /**
+     * Load the API key asyncally, and complain if there is none
+     */
     private async bool check_up_key () {
         string key = yield Secrets.get_default ().load_secret ();
 
@@ -205,26 +209,22 @@ public class Inscriptions.MainWindow : Gtk.Window {
         return true;
     }
 
-    private void on_menu () {
-        popover_button.activate ();
-    }
-
-
-    private void switch_languages () {
-        translation_view.switch_languages ();
-    }
-
+    /**
+     * Handler listening to backend. Intercept bad status codes or empty answers
+     */
     public void on_answer_received (uint status_code, string? answer = null) {
         print (status_code.to_string ());
-        
+
         if (status_code != Soup.Status.OK) {
             print ("Switching to error view, with status " + status_code.to_string () + "\nMessage: " + answer);
             on_error (status_code, answer);
             return;
         }
 
+        // We get GTK Critical error messages when it is null
+        // We also do not want to react to "Empty" answers. They are usually from checking usage
         if (answer == null) {
-              return;
+            return;
         }
 
         translation_view.target_pane.text = answer;
@@ -242,6 +242,9 @@ public class Inscriptions.MainWindow : Gtk.Window {
         }
     }
 
+    /**
+     * Handler for the back button. Re-set everything we need, and we may want to translate
+     */
     private void on_back_clicked (bool? retry = false) {
         print ("\nBack to main view");
         Application.backend.answer_received.connect (on_answer_received);
@@ -256,15 +259,20 @@ public class Inscriptions.MainWindow : Gtk.Window {
         }
     }
 
+    /**
+     * Convenience function to move to dedicated error view, disable and enable whatever is needed
+     */
     private void on_error (uint status_code, string? answer = _("No details available")) {
 
+        // The user may be doing something else. If the window is unfocused we tell them by notification
         if (!this.is_active) {
             var title = _("Error %u").printf (status_code);
             var notification = new GLib.Notification (title);
             notification.set_body (answer);
             application.send_notification (application.application_id, notification);
         }
-            // ErrorView may need to do some fiddling. We reconnect when going back to main view via on_back_clicked
+        
+        // ErrorView may need to do some fiddling. We reconnect when going back to main view via on_back_clicked
         Application.backend.answer_received.disconnect (on_answer_received);
         
         errorview = new Inscriptions.ErrorView (status_code, answer);
@@ -280,19 +288,9 @@ public class Inscriptions.MainWindow : Gtk.Window {
         errorview.return_to_main.connect (on_back_clicked);
     }
 
-    private void action_toggle_messages () {
-        switcher_state (!show_switcher);
-    }
-
-    private void switcher_state (bool if_show_switcher) {
-        if (if_show_switcher) {
-            headerbar.title_widget = switcher;
-
-        } else {
-            headerbar.title_widget = title_widget;
-        }
-    }
-
+    /**
+     * Handler for window closing. We do not use binds because i dont like the idea of writing to disk whenever user does anything
+     */
     private bool on_close () {
         int height, width;
         get_default_size (out width, out height);
@@ -326,5 +324,30 @@ public class Inscriptions.MainWindow : Gtk.Window {
     public void action_save_text () {
         translation_view.action_save_text ();
     }
+
+    private void on_menu () {
+        popover_button.activate ();
+    }
+
+    private void switch_languages () {
+        translation_view.switch_languages ();
+    }
+
+    /**
+     * The two below manage the super secret debug mode enabled/disabled with Ctrl+shift+M
+     */
+    private void action_toggle_messages () {
+        switcher_state (!show_switcher);
+    }
+
+    private void switcher_state (bool if_show_switcher) {
+        if (if_show_switcher) {
+            headerbar.title_widget = switcher;
+
+        } else {
+            headerbar.title_widget = title_widget;
+        }
+    }
+
 }
 
