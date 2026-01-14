@@ -9,9 +9,14 @@
  */
 public class Inscriptions.MainWindow : Gtk.Window {
 
+    Gtk.HeaderBar headerbar;
+    Gtk.Stack title_stack;
+    Gtk.Label title_label;
+    Gtk.StackSwitcher title_switcher;
+
     // Secret switch showing with ctrl+shift+M
     private bool show_switcher {
-        get {return headerbar.title_widget == switcher;}
+        get {return title_stack.visible_child == title_switcher;}
         set {switcher_state (value);}
     }
 
@@ -24,9 +29,7 @@ public class Inscriptions.MainWindow : Gtk.Window {
     public Inscriptions.TranslationView translation_view;
     Inscriptions.ErrorView? errorview = null;
 
-    Gtk.HeaderBar headerbar;
-    Gtk.StackSwitcher switcher;
-    Gtk.Label title_widget;
+
 
     public Inscriptions.SettingsPopover menu_popover;
 
@@ -72,21 +75,31 @@ public class Inscriptions.MainWindow : Gtk.Window {
         maximized = Application.settings.get_boolean ("window-maximized");
 
         /* ---------------- HEADERBAR ---------------- */
-        //TRANSLATORS: Do not translate the name itself. You can write it in your writing system if that is usually done for your language
-        title = _("Inscriptions");
-        title_widget = new Gtk.Label (_("Inscriptions"));
-        title_widget.add_css_class (Granite.STYLE_CLASS_TITLE_LABEL);
 
-        headerbar = new Gtk.HeaderBar ();
-        
         stack_window_view = new Gtk.Stack () {
             transition_type = Gtk.StackTransitionType.SLIDE_LEFT_RIGHT
         };
 
-        switcher = new Gtk.StackSwitcher () {
+        title_stack = new Gtk.Stack () {
+            transition_type = Gtk.StackTransitionType.SLIDE_UP_DOWN
+        };
+
+        title_label = new Gtk.Label (_("Inscriptions"));
+        title_label.add_css_class (Granite.STYLE_CLASS_TITLE_LABEL);
+
+        title_switcher = new Gtk.StackSwitcher () {
             stack = stack_window_view
         };
         
+        title_stack.add_child (title_label);
+        title_stack.add_child (title_switcher);
+        title_stack.visible_child = title_label;
+
+        //TRANSLATORS: Do not translate the name itself. You can write it in your writing system if that is usually done for your language
+        title = _("Inscriptions");
+        headerbar = new Gtk.HeaderBar () {
+            title_widget = title_stack
+        };
         headerbar.add_css_class (Granite.STYLE_CLASS_FLAT);
         set_titlebar (headerbar);
 
@@ -342,10 +355,10 @@ public class Inscriptions.MainWindow : Gtk.Window {
 
     private void switcher_state (bool if_show_switcher) {
         if (if_show_switcher) {
-            headerbar.title_widget = switcher;
+            title_stack.visible_child = title_switcher;
 
         } else {
-            headerbar.title_widget = title_widget;
+            title_stack.visible_child = title_label;
         }
     }
 
