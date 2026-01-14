@@ -70,7 +70,7 @@ public class Inscriptions.OptionsPopover : Gtk.Popover {
     /***************** CONTEXT *****************/
     context_entry = new Gtk.Entry ();
     context_entry.placeholder_text = _("Enter context here");
-    context_entry.secondary_icon_name = "edit-clear";
+    context_entry.secondary_icon_name = "edit-clear-symbolic";
     context_entry.secondary_icon_tooltip_text = _("Clear text");
     box.append (context_entry);
 
