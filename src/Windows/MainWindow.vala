@@ -223,13 +223,12 @@ public class Inscriptions.MainWindow : Gtk.Window {
             return;
         }
 
-        //  if (answer == null) {
-        //      return;
-        //  }
+        if (answer == null) {
+              return;
+        }
 
         translation_view.target_pane.text = answer;
         translation_view.target_pane.spin (false);
-        //stack_window_view.visible_child = translation_view;
 
         // The user may be doing something else. So notify them.
         if (!this.is_active) {
