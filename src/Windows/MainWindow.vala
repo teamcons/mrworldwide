@@ -231,8 +231,12 @@ public class Inscriptions.MainWindow : Gtk.Window {
         translation_view.target_pane.spin (false);
         //stack_window_view.visible_child = translation_view;
 
+        // The user may be doing something else. So notify them.
         if (!this.is_active) {
-            var title = _("%s to %s").printf (translation_view.source_pane.language, translation_view.target_pane.language);
+            var title = _("%s to %s").printf (
+                translation_view.source_pane.language_localized_name (), 
+                translation_view.target_pane.language_localized_name ());
+            
             var notification = new GLib.Notification (title);
             notification.set_body (answer);
             application.send_notification (application.application_id, notification);

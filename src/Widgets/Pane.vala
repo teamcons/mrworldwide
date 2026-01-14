@@ -156,6 +156,11 @@ public class Inscriptions.Pane : Gtk.Box {
         return selected.code;
     }
 
+    public string language_localized_name () {
+        selected = dropdown.get_selected_item () as Lang;
+        return selected.name;
+    }
+
 /*      private void on_buffer_changed () {
         var len = textview.buffer.text.length.to_string ();
         count.label = len;
