@@ -34,7 +34,7 @@ public class Inscriptions.TargetPane : Inscriptions.Pane {
             child = placeholder
         };
         stack.add_child (placeholder_view);
-        stack.visible_child = placeholder_view;
+        show_placeholder ();
 
         /* -------- SPINNER -------- */
         loading = new Gtk.Spinner () {
@@ -122,6 +122,10 @@ public class Inscriptions.TargetPane : Inscriptions.Pane {
         var clipboard = Gdk.Display.get_default ().get_clipboard ();
         clipboard.set_text (textview.buffer.text);
         message (_("Copied!"));
+    }
+
+    public void show_placeholder () {
+        stack.visible_child = placeholder_view;
     }
 
     public void spin (bool if_spin) {

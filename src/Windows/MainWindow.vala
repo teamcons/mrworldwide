@@ -14,18 +14,18 @@ public class Inscriptions.MainWindow : Gtk.Window {
         set {switcher_state (value);}
     }
 
-    private Gtk.Revealer back_revealer;
-    private Gtk.Button switchlang_button;
-    private Gtk.Revealer switchlang_revealer;
-    private Gtk.MenuButton popover_button;
+    Gtk.Revealer back_revealer;
+    Gtk.Button switchlang_button;
+    Gtk.Revealer switchlang_revealer;
+    Gtk.MenuButton popover_button;
 
-    private Gtk.Stack stack_window_view;
+    Gtk.Stack stack_window_view;
     public Inscriptions.TranslationView translation_view;
-    private Inscriptions.ErrorView? errorview = null;
+    Inscriptions.ErrorView? errorview = null;
 
-    private Gtk.HeaderBar headerbar;
-    private Gtk.StackSwitcher switcher;
-    private Gtk.Label title_widget;
+    Gtk.HeaderBar headerbar;
+    Gtk.StackSwitcher switcher;
+    Gtk.Label title_widget;
 
     public Inscriptions.SettingsPopover menu_popover;
 
@@ -216,20 +216,27 @@ public class Inscriptions.MainWindow : Gtk.Window {
 
     public void on_answer_received (uint status_code, string? answer = null) {
         print (status_code.to_string ());
-
+        
         if (status_code != Soup.Status.OK) {
             print ("Switching to error view, with status " + status_code.to_string () + "\nMessage: " + answer);
             on_error (status_code, answer);
             return;
         }
 
-        if (answer == null) {
-            return;
-        }
+        //  if (answer == null) {
+        //      return;
+        //  }
 
         translation_view.target_pane.text = answer;
         translation_view.target_pane.spin (false);
         //stack_window_view.visible_child = translation_view;
+
+        if (!this.is_active) {
+            var title = _("%s to %s").printf (translation_view.source_pane.language, translation_view.target_pane.language);
+            var notification = new GLib.Notification (title);
+            notification.set_body (answer);
+            application.send_notification (application.application_id, notification);
+        }
     }
 
     private void on_back_clicked (bool? retry = false) {
@@ -246,22 +253,28 @@ public class Inscriptions.MainWindow : Gtk.Window {
         }
     }
 
-    private void on_error (uint status_code, string? answer = null) {
-        
-            // ErrorView may need to do some fiddling. We reconnect when going back to main view via on_back_clicked
-            Application.backend.answer_received.disconnect (on_answer_received);
-            
-            errorview = new Inscriptions.ErrorView (status_code, answer);
-            stack_window_view.add_titled (errorview, "error", _("Error"));
-            stack_window_view.visible_child = errorview;
+    private void on_error (uint status_code, string? answer = _("No details available")) {
 
-            switchlang_revealer.reveal_child = false;
-            
-            //if ((status_code != Soup.Status.FORBIDDEN) && (status_code != Inscriptions.StatusCode.NO_KEY)) {
-                back_revealer.reveal_child = true;
-            //}
+        if (!this.is_active) {
+            var title = _("Error %u").printf (status_code);
+            var notification = new GLib.Notification (title);
+            notification.set_body (answer);
+            application.send_notification (application.application_id, notification);
+        }
+            // ErrorView may need to do some fiddling. We reconnect when going back to main view via on_back_clicked
+        Application.backend.answer_received.disconnect (on_answer_received);
         
-            errorview.return_to_main.connect (on_back_clicked);
+        errorview = new Inscriptions.ErrorView (status_code, answer);
+        stack_window_view.add_titled (errorview, "error", _("Error"));
+        stack_window_view.visible_child = errorview;
+
+        switchlang_revealer.reveal_child = false;
+        
+        //if ((status_code != Soup.Status.FORBIDDEN) && (status_code != Inscriptions.StatusCode.NO_KEY)) {
+            back_revealer.reveal_child = true;
+        //}
+    
+        errorview.return_to_main.connect (on_back_clicked);
     }
 
     private void action_toggle_messages () {

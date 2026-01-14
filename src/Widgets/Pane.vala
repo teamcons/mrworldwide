@@ -50,6 +50,7 @@ public class Inscriptions.Pane : Gtk.Box {
 
         var expression = new Gtk.PropertyExpression (typeof(Inscriptions.Lang), null, "both");
 
+        /* ---------------- DROPDOWN ---------------- */
 		dropdown = new Gtk.DropDown (model.model, expression) {
             factory = model.factory,
             enable_search = true,
@@ -63,6 +64,7 @@ public class Inscriptions.Pane : Gtk.Box {
             transition_type = Gtk.RevealerTransitionType.SLIDE_DOWN
         };
 
+        /* ---------------- VIEW ---------------- */
         textview = new Gtk.TextView () {
             hexpand = true,
             vexpand = true,
@@ -79,19 +81,8 @@ public class Inscriptions.Pane : Gtk.Box {
             child = textview
         };
 
-        toast = new Granite.Toast (_("Button was pressed!")) {
-            halign = Gtk.Align.CENTER,
-            valign = Gtk.Align.END
-        };
 
-        var overlay = new Gtk.Overlay () {
-            child = scrolledwindow
-        };
-        overlay.add_overlay (toast);
-        //overlay.set_measure_overlay (toast, true);
-
-
-
+        /* ---------------- TOOLBAR ---------------- */
         actionbar = new Gtk.ActionBar () {
             hexpand = true,
             vexpand = false,
@@ -110,10 +101,13 @@ public class Inscriptions.Pane : Gtk.Box {
             child = actionbar
         };
 
+
+
+        /* ---------------- STACK ---------------- */
         main_view = new Gtk.Box (VERTICAL, 0);
         //main_view.append (scrolledwindow);
-        main_view.append (overlay);
-        main_view.append (handle);
+        main_view.append (scrolledwindow);
+
 
         stack = new Gtk.Stack () {
             transition_type = Gtk.StackTransitionType.CROSSFADE
@@ -121,8 +115,20 @@ public class Inscriptions.Pane : Gtk.Box {
         stack.height_request = 130;
         stack.add_child (main_view);
 
+        toast = new Granite.Toast (_("Button was pressed!")) {
+            halign = Gtk.Align.CENTER,
+            valign = Gtk.Align.END
+        };
+
+        var overlay = new Gtk.Overlay () {
+            child = stack
+        };
+        overlay.add_overlay (toast);
+        //overlay.set_measure_overlay (toast, true);
+
         append (dropdown_revealer);
-        append (stack);
+        append (overlay);
+        append (handle);
 
         //append (scrolled);
         //append (handle);
