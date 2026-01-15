@@ -9,19 +9,16 @@
     <binary>io.github.elly_code.inscriptions</binary>
   </provides>
 
-  <name>inscriptions</name>
+  <name>Inscriptions</name>
   <summary>Translate text elegantly</summary>
   <description>
-    <p>The power of language in the palm of your hand!</p>
-    <p>
-      No nonsense, simple, clean, efficient translation app using DeepL free and paid API
-    </p>
-    <p>Some points:</p>
+    <p>A fast, pretty, and ready translation app using DeepL free and paid API</p>
+    <p>Some points of note:</p>
       <ul>
             <li>Nimble: Paste your DeepL api key (Whichever the plan), and here you go!</li>
-            <li>Out of your way: Remembers context, formality, languages</li>
-            <li>Convenient: Lets you check how much you have left</li>
-            <li>Comprehensive: If something goes wrong, explain nicely, no scary angry dialogs</li>
+            <li>Out of your way: Remembers context, formality, languages, auto or manual, ...</li>
+            <li>Handy: No ten thousands menus or awkward dialogs. Everything is a click away</li>
+            <li>Comprehensive: No scary angry dialogs - If something goes wrong, explain nicely, </li>
             <li>Supported languages: All those available via DeepL API!</li>
       </ul>
     <p>If you like this app please do not hesitate to donate to encourage its development!</p>
@@ -41,13 +38,14 @@
   <content_rating type="oars-1.1" />
 
   <developer id="io.github.elly_code">
-    <name>Teamcons</name>
+    <name>Stella and Charlie!</name>
   </developer>
     <url type="homepage">https://github.com/elly_code/inscriptions</url>
     <url type="bugtracker">https://github.com/elly_code/inscriptions/issues</url>
     <url type="help">https://github.com/elly_code/inscriptions/issues</url>
     <url type="translate">https://github.com/elly_code/inscriptions/blob/main/po/README.md</url>
-    <url type="donation">https://ko-fi.com/elly_code</url>
+    <url type="donation">https://ko-fi.com/teamcons</url>
+    <url type="vcs-browser">https://github.com/elly_code/inscriptions</url>
 
   <branding>
     <color type="primary" scheme_preference="light">#ff8c82</color>
@@ -74,9 +72,9 @@
         <keyword>elementary OS</keyword>
   </keywords>
   <suggests>
-        <id>io.github.ellie_commons.jorts</id>
+        <id>io.github.elly_code.jorts</id>
         <id>com.github.elfenware.badger</id>
-        <id>io.github.ellie_commons.reminduck</id>
+        <id>io.github.elly_code.reminduck</id>
   </suggests>
   <recommends>
     <control>keyboard</control>
@@ -85,16 +83,21 @@
   </recommends>
 
   <releases>
-    <release version="1.0.0" date="2024-11-20" urgency="medium">
+    <release version="1.0.0" date="2026-01-20" urgency="medium">
       <description>
-        <p>Initial Release</p>
+        <p>🚀 1.0.0 Initial release!</p>
         <ul>
-          <li>Updated translations</li>
+            <li>It came to me in a dream</li>
+        </ul>
+        <p>😎 Guests stars:</p>
+        <ul>
+            <li>Amazing supercool icon designed by @wpkelso!</li>
+            <li>Amazing supercool icon funded by @t3rminus!</li>
+            <li>Initial Italian translation thanks to @albanobattistella!</li>
+            <li>Initial Swedish translation thanks to @yeager!</li>
+            <li>You, the user, for trying this supercool app!</li>
         </ul>
       </description>
-      <issues>
-        <issue url="URL">ISSUE NAME</issue>
-      </issues>
     </release>
   </releases>
 
