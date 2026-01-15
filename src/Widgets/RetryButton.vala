@@ -39,7 +39,9 @@ construct {
     append (spin_revealer);
     append (result_revealer);
 
-    retry_button = new Gtk.Button.with_label (_("Verify"));
+    retry_button = new Gtk.Button.with_label (_("Verify")) {
+      width_request = 128
+    };
     retry_button.add_css_class (Granite.STYLE_CLASS_SUGGESTED_ACTION);
     append (retry_button);
 
