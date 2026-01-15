@@ -8,7 +8,7 @@
  */
 public class Inscriptions.TargetPane : Inscriptions.Pane {
 
-    Gtk.WindowHandle placeholder_view;
+    Gtk.WindowHandle placeholder_handle;
     Gtk.Spinner loading;
     Gtk.WindowHandle spin_view;
 
@@ -27,15 +27,29 @@ public class Inscriptions.TargetPane : Inscriptions.Pane {
         //textview.editable = false;
 
         /* -------- PLACEHOLDER -------- */
+        var placeholder_box = new Gtk.Box (VERTICAL, 12) {
+            hexpand = vexpand = true,
+            halign = Gtk.Align.CENTER,
+            valign = Gtk.Align.CENTER,
+        };
+        
         var placeholder = new Gtk.Label (_("Ready to translate")) {
-            yalign = 0.45f
+            wrap = true
         };
         placeholder.add_css_class (Granite.STYLE_CLASS_H2_LABEL);
 
-        placeholder_view = new Gtk.WindowHandle () {
-            child = placeholder
+        var placeholder_switcher = new Granite.ModeSwitch.from_icon_name ("input-mouse-symbolic", "tools-timer-symbolic") {
+            tooltip_text = _("Switch between click to translate // translate %.2fs after typing has stopped").printf (DEBOUNCE_IN_S),
+            halign = Gtk.Align.CENTER,
         };
-        stack.add_child (placeholder_view);
+
+        placeholder_box.append (placeholder);
+        placeholder_box.append (placeholder_switcher);
+
+        placeholder_handle = new Gtk.WindowHandle () {
+            child = placeholder_box
+        };
+        stack.add_child (placeholder_handle);
         show_placeholder ();
 
         /* -------- SPINNER -------- */
@@ -81,6 +95,10 @@ public class Inscriptions.TargetPane : Inscriptions.Pane {
             auto_switcher, "active", 
             GLib.SettingsBindFlags.DEFAULT);
 
+        Application.settings.bind ("auto-translate", 
+            placeholder_switcher, "active", 
+            GLib.SettingsBindFlags.DEFAULT);
+
         language = Application.settings.get_string ("target-language");
         Application.settings.bind (
           "target-language", 
@@ -118,7 +136,7 @@ public class Inscriptions.TargetPane : Inscriptions.Pane {
     }
 
     public void show_placeholder () {
-        stack.visible_child = placeholder_view;
+        stack.visible_child = placeholder_handle;
     }
 
     public void spin (bool if_spin) {
