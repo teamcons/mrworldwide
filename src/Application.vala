@@ -9,7 +9,6 @@ public class Inscriptions.Application : Gtk.Application {
     internal static DeepL backend;
     internal static MainWindow main_window;
 
-
     public const string ACTION_PREFIX = "app.";
     public const string ACTION_QUIT = "action_quit";
 

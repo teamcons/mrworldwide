@@ -8,13 +8,14 @@
  */
 public class Inscriptions.OrientationBox : Gtk.Box {
 
+    public const string STYLE_CLASS_ROTATED = "rotated";
+
     construct {
         homogeneous = true;
         hexpand = true;
         margin_start = 12;
         margin_end = 12;
         margin_bottom = 3;
-
 
         var box_horiz = new Gtk.Box (HORIZONTAL, 3) {
             halign = Gtk.Align.CENTER
@@ -35,7 +36,7 @@ public class Inscriptions.OrientationBox : Gtk.Box {
         //TRANSLATORS: This refers to the view: Either the panels are stacked vertically, or lined horizontally
         box_vert.append (new Gtk.Image.from_icon_name ("view-dual"));
         box_vert.append (new Gtk.Label (_("Vertical")));
-        box_vert.add_css_class ("rotated");
+        box_vert.add_css_class (STYLE_CLASS_ROTATED);
 
         var toggle_vertical = new Gtk.ToggleButton () {
             child = box_vert,
