@@ -120,8 +120,12 @@ public class Inscriptions.TranslationView : Gtk.Box {
      */
     public void translate_now () {
         var to_translate = source_pane.text;
+
         if (to_translate.chomp () == "" ) {
             target_pane.clear ();
+            if (!Application.settings.get_boolean ("auto-translate")) {
+                source_pane.message (_("Nothing to translate"));
+            }
             return;
         }
 
