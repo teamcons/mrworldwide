@@ -58,13 +58,7 @@ public class Inscriptions.TranslationView : Gtk.Box {
         on_orientation_toggled ();
         Application.settings.changed["vertical-layout"].connect (on_orientation_toggled);
 
-        // translate when text is entered or user changes any language or option
-        source_pane.textview.buffer.changed.connect (on_text_to_translate);
-        source_pane.language_changed.connect (on_text_to_translate);
-        target_pane.language_changed.connect (on_text_to_translate);
-        Application.settings.changed["context"].connect (on_text_to_translate);
-        Application.settings.changed["formality"].connect (on_text_to_translate);
-
+        connect_all (true);
         Application.settings.changed["auto-translate"].connect (() => {
             if (Application.settings.get_boolean ("auto-translate")) {
                 on_text_to_translate ();
@@ -78,10 +72,30 @@ public class Inscriptions.TranslationView : Gtk.Box {
         );
     }
 
+    private void connect_all (bool if_connect) {
+        if (if_connect) {
+            // translate when text is entered or user changes any language or option
+            source_pane.textview.buffer.changed.connect (on_text_to_translate);
+            source_pane.language_changed.connect (on_text_to_translate);
+            target_pane.language_changed.connect (on_text_to_translate);
+            Application.settings.changed["context"].connect (on_text_to_translate);
+            Application.settings.changed["formality"].connect (on_text_to_translate);
+
+        } else {
+            // no
+            source_pane.textview.buffer.changed.disconnect (on_text_to_translate);
+            source_pane.language_changed.disconnect (on_text_to_translate);
+            target_pane.language_changed.disconnect (on_text_to_translate);
+            Application.settings.changed["context"].disconnect (on_text_to_translate);
+            Application.settings.changed["formality"].disconnect (on_text_to_translate);
+        }
+    }
+
     /**
      * Target is source, source is target.
      */
     public void switch_languages () {
+        connect_all (false);
 
         // Temp variables
         var newtarget = source_pane.language;
@@ -96,6 +110,9 @@ public class Inscriptions.TranslationView : Gtk.Box {
 
         target_pane.language = newtarget;
         target_pane.text = newtarget_text;
+
+        connect_all (true);
+        source_pane.textview.buffer.changed ();
     }
 
     /**
