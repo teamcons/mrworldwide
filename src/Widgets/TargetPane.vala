@@ -12,6 +12,8 @@ public class Inscriptions.TargetPane : Inscriptions.Pane {
     Gtk.Spinner loading;
     Gtk.WindowHandle spin_view;
 
+    private const float DEBOUNCE_IN_S = ((float)TranslationView.DEBOUNCE_INTERVAL) / 1000;
+
     public TargetPane () {
         var model = new Inscriptions.DDModel ();
         foreach (var language in Inscriptions.TargetLang ()) {
@@ -28,7 +30,6 @@ public class Inscriptions.TargetPane : Inscriptions.Pane {
         var placeholder = new Gtk.Label (_("Ready to translate")) {
             yalign = 0.45f
         };
-        //placeholder.icon = new ThemedIcon ("insert-text-symbolic");
         placeholder.add_css_class (Granite.STYLE_CLASS_H2_LABEL);
 
         placeholder_view = new Gtk.WindowHandle () {
@@ -52,15 +53,11 @@ public class Inscriptions.TargetPane : Inscriptions.Pane {
 
 
         /* -------- TOOLBAR -------- */
-        var play = new Gtk.Button.from_icon_name ("media-playback-start-symbolic") {
-            tooltip_text = _("Unpause automatic translation")
-        };
-        var pause = new Gtk.Button.from_icon_name ("media-playback-pause-symbolic") {
-            tooltip_text = _("Pause automatic translation")
+        var auto_switcher = new Granite.ModeSwitch.from_icon_name ("input-mouse-symbolic", "tools-timer-symbolic") {
+            tooltip_text = _("Switch between click to translate // translate %.2fs after typing has stopped").printf (DEBOUNCE_IN_S)
         };
 
-        actionbar.pack_start (play);
-        actionbar.pack_start (pause);
+        actionbar.pack_start (auto_switcher);
 
         /* -------- TOOLBAR -------- */
         var copy = new Gtk.Button.from_icon_name ("edit-copy-symbolic") {
@@ -81,12 +78,8 @@ public class Inscriptions.TargetPane : Inscriptions.Pane {
         /***************** CONNECTS *****************/
 
         Application.settings.bind ("auto-translate", 
-            pause, "visible", 
+            auto_switcher, "active", 
             GLib.SettingsBindFlags.DEFAULT);
-
-        pause.bind_property ("visible", 
-            play, "visible", 
-            GLib.BindingFlags.SYNC_CREATE | GLib.BindingFlags.INVERT_BOOLEAN);
 
         language = Application.settings.get_string ("target-language");
         Application.settings.bind (
@@ -96,22 +89,21 @@ public class Inscriptions.TargetPane : Inscriptions.Pane {
           GLib.SettingsBindFlags.DEFAULT
         );
 
-        play.clicked.connect (() => {
-            Application.settings.set_boolean ("auto-translate", true);   
-            var interval_in_s = ((float)TranslationView.DEBOUNCE_INTERVAL) / 1000;
-            // TRANSLATORS: This is for a small notification toast. Very little space is available
-            message (_("Translation %.2fs after typing").printf (interval_in_s));
-        });
-
-        pause.clicked.connect (() => {
-            Application.settings.set_boolean ("auto-translate", false);
-            // TRANSLATORS: This is for a small notification toast. Very little space is available
-            message (_("Automatic translation paused"));
-        });
-
+        Application.settings.changed["auto-translate"].connect (on_auto_translate_changed);
         copy.clicked.connect (copy_to_clipboard);
         language_changed.connect (on_language_changed);
         textview.buffer.changed.connect (on_buffer_changed);
+    }
+
+    private void on_auto_translate_changed () {        
+        if (Application.settings.get_boolean ("auto-translate")) {
+            // TRANSLATORS: This is for a small notification toast. Very little space is available
+            message (_("Translation %.2fs after typing").printf (DEBOUNCE_IN_S));
+
+        } else {
+            // TRANSLATORS: This is for a small notification toast. Very little space is available
+            message (_("Automatic translation paused"));
+        }
     }
 
     private void on_language_changed (string code) {
