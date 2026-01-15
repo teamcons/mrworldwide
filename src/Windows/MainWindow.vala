@@ -119,7 +119,7 @@ public class Inscriptions.MainWindow : Gtk.Window {
         
 
         //TRANSLATORS: This is for a button that switches source and target language
-        switchlang_button = new Gtk.Button.from_icon_name ("mail-send-receive") {
+        switchlang_button = new Gtk.Button.from_icon_name ("media-playlist-repeat") {
             tooltip_markup = Granite.markup_accel_tooltip ({"<Ctrl>I"}, _("Switch languages"))
         };
         switchlang_button.action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_SWITCH_LANG;
