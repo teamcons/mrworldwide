@@ -184,7 +184,7 @@ public class Inscriptions.TranslationView : Gtk.Box {
         source_pane.clear ();
         target_pane.clear ();
         target_pane.show_placeholder ();
-        source_pane.message (_("Cleared!"));
+        source_pane.message (_("Cleared"));
     }
 
     public void action_load_text () {
