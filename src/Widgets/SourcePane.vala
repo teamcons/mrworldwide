@@ -89,6 +89,7 @@ public class Inscriptions.SourcePane : Inscriptions.Pane {
 
         var pasted_text = clipboard.read_text_async.end (res);
         textview.buffer.text = pasted_text;
+        message (_("Pasted"));
 
       } catch (Error e) {
         print ("Cannot access clipboard: " + e.message);
