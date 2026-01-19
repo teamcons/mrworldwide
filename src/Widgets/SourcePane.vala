@@ -41,12 +41,14 @@ public class Inscriptions.SourcePane : Inscriptions.Pane {
 
       var clear = new Gtk.Button.from_icon_name ("edit-clear-all-symbolic") {
           action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_CLEAR_TEXT,
-          tooltip_markup = Granite.markup_accel_tooltip ({"<Ctrl>L"}, _("Clear text"))
+          tooltip_markup = Granite.markup_accel_tooltip ({"<Ctrl>L"}, _("Clear text")),
+            margin_start = 3
       };
       actionbar.pack_end (clear);
 
       var paste = new Gtk.Button.from_icon_name ("edit-paste-symbolic") {
-          tooltip_text = _("Paste from clipboard")
+          tooltip_text = _("Paste from clipboard"),
+            margin_start = 3
       };
       actionbar.pack_end (paste);
 

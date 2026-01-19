@@ -75,7 +75,8 @@ public class Inscriptions.TargetPane : Inscriptions.Pane {
 
         /* -------- TOOLBAR -------- */
         var copy = new Gtk.Button.from_icon_name ("edit-copy-symbolic") {
-            tooltip_text = _("Copy to clipboard")
+            tooltip_text = _("Copy to clipboard"),
+            margin_start = 3
         };
         actionbar.pack_end (copy);
 
