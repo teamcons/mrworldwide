@@ -133,7 +133,7 @@ public class Inscriptions.TargetPane : Inscriptions.Pane {
     private void copy_to_clipboard () {
         var clipboard = Gdk.Display.get_default ().get_clipboard ();
         clipboard.set_text (textview.buffer.text);
-        message (_("Copied!"));
+        message (_("Copied"));
     }
 
     public void show_placeholder () {
