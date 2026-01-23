@@ -14,3 +14,4 @@ Terminal=false
 StartupNotify=true
 SingleMainWindow=true
 MimeType=text/plain;
+X-GNOME-UsesNotifications=true
